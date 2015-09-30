@@ -70,6 +70,10 @@ namespace DXTicketBase {
         MyTicket _selectedItem;
 
         private void SaveAllTicketsButton_Click_2(object sender, RoutedEventArgs e) {
+            var unsavedtickets = ListTickets.Where(x => x.BChange == false).ToList();
+            foreach (var ticket in unsavedtickets) {
+                ticket.BChange = true;
+            }
             generalEntity.SaveChanges();
         }
         private void GoToWebButton_Click_1(object sender, RoutedEventArgs e) {
@@ -180,36 +184,13 @@ namespace DXTicketBase {
         }
         void CreateTicketList() {
             ListTickets = new ObservableCollection<MyTicket>();
-            //}
             foreach (var v in generalEntity.Tickets) {
                 ListTickets.Add(new MyTicket(v));
             }
         }
     }
 
-    public class IsSavedToColorConverter : MarkupExtension, IMultiValueConverter {
-        public IsSavedToColorConverter() { }
-        public object Convert(object[] values, Type targetType, object parameter, System.Globalization.CultureInfo culture) {
-            MyTicket tick = values[0] as MyTicket;
-            if (tick == null)
-                return null;
-            if (tick.IsSaved == false)
-                return new SolidColorBrush(Colors.PaleTurquoise);
-            //if (tick.IsConsider)
-            //    return new SolidColorBrush(Colors.PaleGreen);
-            if (tick.IsToDelete)
-                return new SolidColorBrush(Colors.PaleVioletRed);
-            return null;
-        }
-
-        public object[] ConvertBack(object value, Type[] targetTypes, object parameter, System.Globalization.CultureInfo culture) {
-            throw new NotImplementedException();
-        }
-
-        public override object ProvideValue(IServiceProvider serviceProvider) {
-            return this;
-        }
-    }
+ 
 
 
     public partial class DXTicketsBaseEntities {

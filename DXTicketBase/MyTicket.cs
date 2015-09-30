@@ -17,6 +17,7 @@ namespace DXTicketBase {
         Ticket parentTicketEntity;
         public MyTicket(Ticket tck) {
             parentTicketEntity = tck;
+            IsSaved = true;
         }
 
         public int Id {

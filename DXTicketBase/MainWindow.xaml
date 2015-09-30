@@ -11,15 +11,12 @@
     x:Name="ico" Icon="0196.ico" Loaded="ico_Loaded"
     >
     <Window.Resources>
-        <Style x:Key="TicketStyle" BasedOn="{StaticResource {dxgt:GridRowThemeKey ResourceKey=RowStyle}}" TargetType="{x:Type dxg:GridRowContent}">
-            <Setter Property="Background" >
-                <Setter.Value>
-                    <MultiBinding Converter="{local:IsSavedToColorConverter}">
-                        <Binding Path="Row"/>
-                        <Binding Path="Row.BChange"/>
-                    </MultiBinding>
-                </Setter.Value>
-            </Setter>
+        <Style x:Key="TicketStyle" TargetType="{x:Type dxg:RowControl}">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Row.BChange}" Value="False">
+                    <Setter Property="Background" Value="Pink"/>
+                </DataTrigger>
+            </Style.Triggers>
         </Style>
     </Window.Resources>
     <Grid>
@@ -40,7 +37,9 @@
                         </dxg:GridControl.Columns>
                         <dxg:GridControl.View>
                             <dxg:TableView ShowTotalSummary="True" FocusedRow="{Binding SelectedTicket, Mode=TwoWay}"  
-                                           AutoWidth="True" AllowEditing="False" CopyingToClipboard="TableView_CopyingToClipboard_1" />
+                                           AutoWidth="True" AllowEditing="False" CopyingToClipboard="TableView_CopyingToClipboard_1" 
+                                           RowStyle="{StaticResource TicketStyle}"
+                                           />
 
                         </dxg:GridControl.View>
 
