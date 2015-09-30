@@ -84,7 +84,7 @@ namespace DXTicketBase {
         }
 
         bool CheckIftheTicketExist(string number) {
-            var listNum = generalEntity.Tickets.Select(x => x.TicketNo).ToList();
+            var listNum = generalEntity.Tickets.Select(x =>x.TicketNo.TrimEnd()).ToList();
             if (listNum.Contains(number)) {
                 string solvedPath = @"d:\!Tickets\!Solved";
                 string solvedPathOld = @"d:\!Tickets\!Solved\!Old";
