@@ -1,0 +1,87 @@
+﻿<Window
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:DXTicketBase"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+    xmlns:dxgt="http://schemas.devexpress.com/winfx/2008/xaml/grid/themekeys"
+    x:Class="DXTicketBase.MainWindow"
+    Title="TICKETS BASE" Height="700" Width="1100"
+    SnapsToDevicePixels="True" UseLayoutRounding="True"
+    x:Name="ico" Icon="0196.ico" Loaded="ico_Loaded"
+    >
+    <Window.Resources>
+        <Style x:Key="TicketStyle" BasedOn="{StaticResource {dxgt:GridRowThemeKey ResourceKey=RowStyle}}" TargetType="{x:Type dxg:GridRowContent}">
+            <Setter Property="Background" >
+                <Setter.Value>
+                    <MultiBinding Converter="{local:IsSavedToColorConverter}">
+                        <Binding Path="Row"/>
+                        <Binding Path="Row.BChange"/>
+                    </MultiBinding>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <dx:DXTabControl>
+            <dx:DXTabItem Header="dxTabItem">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                   
+                    </Grid.RowDefinitions>
+                    <dxg:GridControl  ItemsSource="{Binding ListTickets}" Name="gridControlTickets" Grid.Row="0" >
+                        <dxg:GridControl.Columns>
+                            <dxg:GridColumn FieldName="Number" Width="30"/>
+                            <dxg:GridColumn FieldName="Subject"/>
+                            <dxg:GridColumn FieldName="Comment"/>
+                            <dxg:GridColumn FieldName="AddDate"/>
+                        </dxg:GridControl.Columns>
+                        <dxg:GridControl.View>
+                            <dxg:TableView ShowTotalSummary="True" FocusedRow="{Binding SelectedTicket, Mode=TwoWay}"  
+                                           AutoWidth="True" AllowEditing="False" CopyingToClipboard="TableView_CopyingToClipboard_1" />
+
+                        </dxg:GridControl.View>
+
+                    </dxg:GridControl>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <!--<dxe:ListBoxEdit HorizontalAlignment="Left" Height="150"  VerticalAlignment="Top" Width="150" ItemsSource="{Binding SelectedTicket.ListTags.ListTags}" DisplayMember="Name" Margin="0,10,0,0" Visibility="Hidden"/>-->
+
+
+                        <Button Content="saveall" HorizontalAlignment="Left" Height="113" VerticalAlignment="Top" Width="61" Click="SaveAllTicketsButton_Click_2" Margin="375,142,0,0" Grid.Column="1"/>
+                        <!--<dxe:CheckEdit Grid.Row="1" HorizontalAlignment="Left" Height="49" Margin="294,10,0,0" VerticalAlignment="Top" Width="150" Content="IsMyTicket" IsChecked="{Binding SelectedTicket.IsMy}" Visibility="Hidden"/>-->
+                         <!--<dxe:CheckEdit Grid.Row="1" HorizontalAlignment="Left" Height="41" Margin="294,46,0,0"  VerticalAlignment="Top" Width="150" Content="IsConsider" IsChecked="{Binding SelectedTicket.IsConsider}" Visibility="Hidden"/>
+                        <dxe:CheckEdit Grid.Row="1" HorizontalAlignment="Left" Height="41" Margin="294,87,0,0"  VerticalAlignment="Top" Width="150" Content="IsToDelete" IsChecked="{Binding SelectedTicket.IsToDelete}" Visibility="Hidden"/>-->
+                        <dxe:TextEdit HorizontalAlignment="Left" Height="127"  VerticalAlignment="Top" Width="246" Margin="242,10,0,0" Text="{Binding SelectedTicket.Comment}"  TextWrapping="Wrap" Grid.Column="1"/>
+                        <Button Content="GoToWeb" HorizontalAlignment="Left" Height="32" Margin="239,0,0,125" VerticalAlignment="Bottom" Width="131" Click="GoToWebButton_Click_1" Grid.Column="1"/>
+                        <Button Content="AddNewTicket" HorizontalAlignment="Left" Height="33" Margin="10,0,0,174" VerticalAlignment="Bottom" Width="254" Click="Button_Click_1"/>
+
+                        <Grid Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <!--<dxe:ListBoxEdit  ItemsSource="{Binding ListAllTags}" DisplayMember="Name" MouseDoubleClick="AllTagsListBoxEdit_MouseDoubleClick_1" Margin="33,-10,-33,10" Visibility="Hidden"/>-->
+                        <dxe:TextEdit Grid.Row="1"  HorizontalAlignment="Left" Height="48" VerticalAlignment="Top" Width="150" Name="textAddTag" Margin="296,51,0,0" Visibility="Hidden" />
+                        <!--<Button Grid.Row="1"  Content="AddTAg" HorizontalAlignment="Left" Height="45" VerticalAlignment="Top" Width="71" Click="AddTagButton_Click_1" Margin="388,10,0,0" Visibility="Hidden"/>-->
+                        </Grid>
+                        <!--<dxe:TextEdit HorizontalAlignment="Left" Height="77" Margin="10,10,0,0" VerticalAlignment="Top" Width="665" Text="{Binding ThisTicket.Number,Mode=TwoWay}" Grid.ColumnSpan="2"/>
+                        <dxe:TextEdit HorizontalAlignment="Left" Height="79" Margin="10,92,0,0" VerticalAlignment="Top" Width="665" EditValue="{Binding ThisTicket.Subject,Mode=TwoWay}" Grid.ColumnSpan="2"/>-->
+                        <dxe:TextEdit HorizontalAlignment="Left" Height="79" Margin="10,10,0,0" VerticalAlignment="Top" Width="665" EditValue="{Binding ThisTicket.ComplexSubject, Mode=TwoWay}" Grid.ColumnSpan="2"/>
+                    </Grid>
+                   
+                </Grid>
+            </dx:DXTabItem>
+        </dx:DXTabControl>
+
+
+
+    </Grid>
+
+</Window>

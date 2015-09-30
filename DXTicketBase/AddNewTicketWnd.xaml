@@ -1,0 +1,15 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" x:Class="DXTicketBase.AddNewTicketWnd"
+        Title="AddNewTicketWnd" Height="300" Width="300">
+    <Grid>
+
+        <dxe:TextEdit HorizontalAlignment="Left" Height="46" Margin="18,19,0,0" VerticalAlignment="Top" Width="150" Text="{Binding ThisTicket.Number,Mode=TwoWay}"/>
+        <dxe:TextEdit HorizontalAlignment="Left" Height="54" Margin="18,92,0,0" VerticalAlignment="Top" Width="150" Text="{Binding ThisTicket.Subject,Mode=TwoWay}"/>
+        <Button Content="Add" HorizontalAlignment="Left" Height="38" Margin="28,210,0,0" VerticalAlignment="Top" Width="191" Click="Button_Click_1" />
+        <dxe:CheckEdit HorizontalAlignment="Left" Height="27" Margin="28,178,0,0" VerticalAlignment="Top" Width="150" Content="MakeFolder" IsChecked="{Binding IsMakeFolder}"/>
+        <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="207,92,0,0" Click="Button_Click_2"/>
+
+    </Grid>
+</Window>
