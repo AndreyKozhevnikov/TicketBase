@@ -60,7 +60,7 @@
                         <dxe:CheckEdit Grid.Row="1" HorizontalAlignment="Left" Height="41" Margin="294,87,0,0"  VerticalAlignment="Top" Width="150" Content="IsToDelete" IsChecked="{Binding SelectedTicket.IsToDelete}" Visibility="Hidden"/>-->
                         <dxe:TextEdit HorizontalAlignment="Left" Height="127"  VerticalAlignment="Top" Width="246" Margin="242,10,0,0" Text="{Binding SelectedTicket.Comment}"  TextWrapping="Wrap" Grid.Column="1"/>
                         <Button Content="GoToWeb" HorizontalAlignment="Left" Height="32" Margin="239,0,0,125" VerticalAlignment="Bottom" Width="131" Click="GoToWebButton_Click_1" Grid.Column="1"/>
-                        <Button Content="AddNewTicket" HorizontalAlignment="Left" Height="33" Margin="10,0,0,174" VerticalAlignment="Bottom" Width="254" Click="Button_Click_1"/>
+                        <Button Content="AddNewTicket" HorizontalAlignment="Left" Height="33" Margin="10,0,0,174" VerticalAlignment="Bottom" Width="254" Click="Button_Click_1_AddNewTicket"/>
 
                         <Grid Grid.Column="1">
                             <Grid.RowDefinitions>

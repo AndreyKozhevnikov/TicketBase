@@ -9,35 +9,15 @@ using System.Data;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Diagnostics;
-using DophinMSSQLConnector;
+
 using System.Text.RegularExpressions;
 
 namespace DXTicketBase {
     public class MyTicket : INotifyPropertyChanged {
-        //public MyTicket(DataRow row) {
-        //    Id = int.Parse(row["Id"].ToString());
-        //    Number = row["TicketNo"].ToString();
-        //    Subject = row["Subject"].ToString();
-        //    _isMy = bool.Parse(row["IsMy"].ToString());
-        //    _isConsider = bool.Parse(row["IsConsider"].ToString());
-        //    _comment = row["Comment"].ToString();
-        //    _isToDelete = bool.Parse(row["IsToDelete"].ToString());
-        //    ListTags = new MyListTag(row["Tags"]);
-        //   // AddDate = DateTime.Parse(row["AddDate"].ToString());
-        //    DateTime _d;
-        //    DateTime.TryParse(row["AddDate"].ToString(), out _d);
-        //    if (_d != null)
-        //        AddDate = _d;
-        //    _isSaved = true;
-        //}
         Ticket parentTicketEntity;
         public MyTicket(Ticket tck) {
             parentTicketEntity = tck;
         }
-        //public MyTicket() {
-        // //   ListTags = new MyListTag();
-        //}
-        //int _id;
 
         public int Id {
             get { return parentTicketEntity.Id; }
@@ -76,27 +56,6 @@ namespace DXTicketBase {
             get { return parentTicketEntity.AddDate; }
             set { parentTicketEntity.AddDate = value; }
         }
-        //public MyListTag ListTags { get; set; }
-        //public string ListTagsString {
-        //    get {
-        //        return ListTags.ToString();
-        //    }
-        //}
-        //public bool IsMy {
-        //    get { return _isMy; }
-        //    set {
-        //        _isMy = value;
-        //        IsSaved = false;
-        //        Change();
-        //    }
-        //}
-        //public bool IsConsider {
-        //    get { return _isConsider; }
-        //    set {
-        //        _isConsider = value;
-        //        IsSaved = false;
-        //    }
-        //}
         public bool IsSaved {
             get { return _isSaved; }
             set {
@@ -162,25 +121,12 @@ namespace DXTicketBase {
         }
 
 
-        //public void AddTag(Tag tg) {
-        //    ListTags.Add(tg);
-        //    NotifyPropertyChanged("ListTagsString");
-        //    IsSaved = false;
-        //}
         public void Save() {
-          //  parentTicketEntity.sa
-          //if (IsSaved) return;
-          //string quer = string.Format("update tickets set tags='{1}',IsMy='{2}', IsConsider='{3}',Comment='{4}' where id={0}", Id, ListTags.StringToSave, IsMy, IsConsider, Comment);
-          //MsSqlConnector.MakeNonQuery(quer);
-          //Debug.Print(Id.ToString());
-          
             MainWindow.generalEntity.SaveChanges();
             IsSaved = true;
         }
         public void SaveNewTicket() {
             AddDate = DateTime.Now;
-            //string st = string.Format("insert into tickets ([TicketNo],[Subject],[IsMy],[IsConsider],[IsToDelete],[AddDate]) values('{0}','{1}','0','0','0','{2}');select SCOPE_IDENTITY()", Number, Subject, AddDate);
-            //Id = int.Parse(MsSqlConnector.ExecuteScalar(st).ToString());
             MainWindow.generalEntity.Tickets.Add(parentTicketEntity);
             MainWindow.generalEntity.SaveChanges();
             IsSaved = true;
@@ -197,82 +143,4 @@ namespace DXTicketBase {
         }
     }
 
-    //public class Tag {
-    //    public Tag() {
-    //        if (TagsDictionary == null)
-    //            TagsDictionary = new Dictionary<int, string>();
-    //    }
-    //    public Tag(DataRow row)
-    //        : this() {
-    //        Id = (int)row["Id"];
-    //        Name = row["name"].ToString();
-
-    //        TagsDictionary.Add(Id, Name);
-    //    }
-    //    public Tag(string nm)
-    //        : this() {
-    //        Name = nm;
-    //        Save();
-    //        TagsDictionary.Add(Id, Name);
-    //    }
-    //    public Tag(int _id)
-    //        : this() {
-    //        Id = _id;
-    //        Name = TagsDictionary[Id];
-    //    }
-
-    //    public static Dictionary<int, string> TagsDictionary { get; set; }
-
-    //    public int Id { get; set; }
-    //    public string Name { get; set; }
-
-    //    public void Save() {
-    //        if (Id == 0) {
-    //            string quer = string.Format("insert into tags ([name]) values ('{0}');select SCOPE_IDENTITY()", Name);
-    //            Id = (int.Parse(MsSqlConnector.ExecuteScalar(quer).ToString()));
-    //        }
-    //    }
-    //}
-
-
-    //public class MyListTag {
-    //    public MyListTag() {
-    //        ListTags = new ObservableCollection<Tag>();
-    //    }
-    //    public MyListTag(object o)
-    //        : this() {
-    //        string st = o.ToString();
-    //        string[] arr = st.Split(';');
-    //        foreach (string s in arr) {
-    //            int id;
-    //            if (int.TryParse(s, out id)) {
-    //                ListTags.Add(new Tag(id));
-    //            }
-    //        }
-    //    }
-    //    public ObservableCollection<Tag> ListTags { get; set; }
-    //    public string StringToSave {
-    //        get {
-    //            string st = "";
-    //            List<int> tmpList = new List<int>();
-    //            foreach (Tag tg in ListTags)
-    //                tmpList.Add(tg.Id);
-    //            st = string.Join(";", tmpList);
-    //            return st;
-    //        }
-    //    }
-
-    //    public void Add(Tag tg) {
-    //        ListTags.Add(tg);
-    //    }
-
-    //    public override string ToString() {
-    //        string st = "";
-    //        List<string> tmpList = new List<string>();
-    //        foreach (Tag tg in ListTags)
-    //            tmpList.Add(tg.Name);
-    //        st = string.Join(";", tmpList);
-    //        return st;
-    //    }
-    //}
 }
