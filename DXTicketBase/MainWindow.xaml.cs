@@ -21,6 +21,7 @@ using DevExpress.Xpf.Grid;
 using System.Diagnostics;
 
 using System.IO;
+using System.Windows.Threading;
 
 
 namespace DXTicketBase {
@@ -86,6 +87,20 @@ namespace DXTicketBase {
         bool CheckIftheTicketExist(string number) {
             var listNum = generalEntity.Tickets.Select(x =>x.TicketNo.TrimEnd()).ToList();
             if (listNum.Contains(number)) {
+
+                var v = ListTickets.Select(x => x.Number).OrderBy(x => x.ToString()).ToList();
+
+
+                gridControlTickets.CurrentItem = ListTickets.Where(x => x.Number.TrimEnd() == number).First();
+                TableView tv = gridControlTickets.View as TableView;
+                int rH = tv.FocusedRowHandle + 6;
+                rH = Math.Min(gridControlTickets.VisibleRowCount - 1, rH);
+                tv.ScrollIntoView(0);
+
+                Dispatcher.BeginInvoke((Action)(() => {
+                    tv.ScrollIntoView(rH);
+                }), DispatcherPriority.Input);
+
                 string solvedPath = @"d:\!Tickets\!Solved";
                 string solvedPathOld = @"d:\!Tickets\!Solved\!Old";
                 string ticketPath = @"d:\!Tickets\";
