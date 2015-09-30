@@ -85,13 +85,9 @@ namespace DXTicketBase {
         }
 
         bool CheckIftheTicketExist(string number) {
-            var listNum = generalEntity.Tickets.Select(x =>x.TicketNo.TrimEnd()).ToList();
-            if (listNum.Contains(number)) {
-
-                var v = ListTickets.Select(x => x.Number).OrderBy(x => x.ToString()).ToList();
-
-
-                gridControlTickets.CurrentItem = ListTickets.Where(x => x.Number.TrimEnd() == number).First();
+            var currTickect = ListTickets.Where(x => x.Number.TrimEnd() == number).FirstOrDefault();
+            if (currTickect!=null){
+                gridControlTickets.CurrentItem = currTickect;
                 TableView tv = gridControlTickets.View as TableView;
                 int rH = tv.FocusedRowHandle + 6;
                 rH = Math.Min(gridControlTickets.VisibleRowCount - 1, rH);
