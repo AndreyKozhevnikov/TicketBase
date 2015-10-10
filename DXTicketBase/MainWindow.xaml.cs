@@ -40,7 +40,14 @@ namespace DXTicketBase {
 
         public ObservableCollection<MyTicket> ListTickets { get; set; }
         private static void ConnectToDataBase() {
-            generalEntity = new DXTicketsBaseEntities();
+            string machineName = System.Environment.MachineName;
+            if (machineName == "KOZHEVNIKOV-W8") {
+
+                generalEntity = new DXTicketsBaseEntities("DXTicketsBaseEntitiesWork");
+            }
+            else {
+                generalEntity = new DXTicketsBaseEntities("DXTicketsBaseEntitiesHome");
+            }
         }
         void CreateTicketList() {
             ListTickets = new ObservableCollection<MyTicket>();
@@ -173,22 +180,29 @@ namespace DXTicketBase {
 
 
 
-    public class MyViewModel {
-        public static DXTicketsBaseEntities generalEntity;
-        public MyViewModel() {
-            ConnectToDataBase();
-        }
-        public ObservableCollection<MyTicket> ListTickets { get; set; }
-        private static void ConnectToDataBase() {
-            generalEntity = new DXTicketsBaseEntities();
-        }
-        void CreateTicketList() {
-            ListTickets = new ObservableCollection<MyTicket>();
-            foreach (var v in generalEntity.Tickets) {
-                ListTickets.Add(new MyTicket(v));
-            }
-        }
-    }
+    //public class MyViewModel {
+    //    public static DXTicketsBaseEntities generalEntity;
+    //    public MyViewModel() {
+    //        ConnectToDataBase();
+    //    }
+    //    public ObservableCollection<MyTicket> ListTickets { get; set; }
+    //    private static void ConnectToDataBase() {
+    //        string machineName = System.Environment.MachineName;
+    //        if (machineName == "KOZHEVNIKOV-W8") {
+
+    //            generalEntity = new DXTicketsBaseEntities();
+    //        }
+    //        else {
+    //            generalEntity = new DXTicketsBaseEntities("DXTicketsBaseEntitiesHome");
+    //        }
+    //    }
+    //    void CreateTicketList() {
+    //        ListTickets = new ObservableCollection<MyTicket>();
+    //        foreach (var v in generalEntity.Tickets) {
+    //            ListTickets.Add(new MyTicket(v));
+    //        }
+    //    }
+    //}
 
  
 
