@@ -62,7 +62,6 @@ namespace DXTicketBase {
             set {
                 _isSaved = value;
                 NotifyPropertyChanged("IsSaved");
-                Change();
             }
         }
         public string Comment {
@@ -80,13 +79,7 @@ namespace DXTicketBase {
                 IsSaved = false;
             }
         }
-        public bool BChange {
-            get { return _bChange; }
-            set {
-                _bChange = value;
-                NotifyPropertyChanged("BChange");
-            }
-        }
+    
 
 
 
@@ -95,7 +88,7 @@ namespace DXTicketBase {
         bool _isConsider;
         bool _isSaved;
         string _comment;
-        bool _bChange;
+        
         string _subject;
         DateTime _addDate;
         bool _isToDelete;
@@ -132,9 +125,7 @@ namespace DXTicketBase {
             MainWindow.generalEntity.SaveChanges();
             IsSaved = true;
         }
-        public void Change() {
-            BChange = !BChange;
-        }
+     
 
         public event PropertyChangedEventHandler PropertyChanged;
         private void NotifyPropertyChanged(String propertyName) {

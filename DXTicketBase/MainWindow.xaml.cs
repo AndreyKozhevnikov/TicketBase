@@ -70,9 +70,9 @@ namespace DXTicketBase {
         MyTicket _selectedItem;
 
         private void SaveAllTicketsButton_Click_2(object sender, RoutedEventArgs e) {
-            var unsavedtickets = ListTickets.Where(x => x.BChange == false).ToList();
+            var unsavedtickets = ListTickets.Where(x => x.IsSaved == false).ToList();
             foreach (var ticket in unsavedtickets) {
-                ticket.BChange = true;
+                ticket.IsSaved = true;
             }
             generalEntity.SaveChanges();
         }

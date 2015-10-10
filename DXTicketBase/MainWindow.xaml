@@ -13,7 +13,7 @@
     <Window.Resources>
         <Style x:Key="TicketStyle" TargetType="{x:Type dxg:RowControl}">
             <Style.Triggers>
-                <DataTrigger Binding="{Binding Row.BChange}" Value="False">
+                <DataTrigger Binding="{Binding Row.IsSaved}" Value="False">
                     <Setter Property="Background" Value="Pink"/>
                 </DataTrigger>
             </Style.Triggers>
