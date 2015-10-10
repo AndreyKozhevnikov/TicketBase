@@ -111,6 +111,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="MyTicket.cs" />
+    <Compile Include="MyViewModel.cs" />
     <Compile Include="Ticket.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

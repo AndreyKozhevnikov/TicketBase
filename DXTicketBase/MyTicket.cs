@@ -116,13 +116,13 @@ namespace DXTicketBase {
 
 
         public void Save() {
-            MainWindow.generalEntity.SaveChanges();
+            MyViewModel.generalEntity.SaveChanges();
             IsSaved = true;
         }
         public void SaveNewTicket() {
             AddDate = DateTime.Now;
-            MainWindow.generalEntity.Tickets.Add(parentTicketEntity);
-            MainWindow.generalEntity.SaveChanges();
+            MyViewModel.generalEntity.Tickets.Add(parentTicketEntity);
+            MyViewModel.generalEntity.SaveChanges();
             IsSaved = true;
         }
      

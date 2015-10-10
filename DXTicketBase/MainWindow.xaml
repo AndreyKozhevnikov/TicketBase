@@ -3,12 +3,14 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:DXTicketBase"
     xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
-    xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+    xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+    xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
     xmlns:dxgt="http://schemas.devexpress.com/winfx/2008/xaml/grid/themekeys"
     x:Class="DXTicketBase.MainWindow"
     Title="TICKETS BASE" Height="700" Width="1100"
     SnapsToDevicePixels="True" UseLayoutRounding="True"
-    x:Name="ico" Icon="0196.ico" Loaded="ico_Loaded"
+    x:Name="ico" Icon="0196.ico" 
     >
     <Window.Resources>
         <Style x:Key="TicketStyle" TargetType="{x:Type dxg:RowControl}">
@@ -19,59 +21,75 @@
             </Style.Triggers>
         </Style>
     </Window.Resources>
+    <dxmvvm:Interaction.Behaviors>
+        <dxmvvm:EventToCommand Command="{Binding WindowLoadedCommand}" EventName="Loaded" PassEventArgsToCommand="True"/>
+        <local:MoveFocusedRowService MyTableView="{Binding ElementName=TableView1}"/>
+    </dxmvvm:Interaction.Behaviors>
     <Grid>
-        <dx:DXTabControl>
-            <dx:DXTabItem Header="dxTabItem">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <dxg:GridControl  ItemsSource="{Binding ListTickets}" Name="gridControlTickets" Grid.Row="0" CurrentItem="{Binding SelectedTicket, Mode=TwoWay}" >
+            <dxg:GridControl.Columns>
+                <dxg:GridColumn FieldName="Number" Width="30"/>
+                <dxg:GridColumn FieldName="Subject"/>
+                <dxg:GridColumn FieldName="Comment"/>
+                <dxg:GridColumn FieldName="AddDate"/>
+            </dxg:GridControl.Columns>
+            <dxg:GridControl.View>
+                <dxg:TableView ShowTotalSummary="True"   x:Name="TableView1"
+                                           AutoWidth="True" AllowEditing="False" 
+                                           RowStyle="{StaticResource TicketStyle}" 
+                                           >
+                    <dxmvvm:Interaction.Behaviors>
+                        <dxmvvm:EventToCommand EventName="CopyingToClipboard"
+                                               Command="{Binding CopyToClipBoardCommand}"
+                                               PassEventArgsToCommand="True"/>
+                    </dxmvvm:Interaction.Behaviors>
+                </dxg:TableView>
+            </dxg:GridControl.View>
 
-                    </Grid.RowDefinitions>
-                    <dxg:GridControl  ItemsSource="{Binding ListTickets}" Name="gridControlTickets" Grid.Row="0" CurrentItem="{Binding SelectedTicket, Mode=TwoWay}" >
-                        <dxg:GridControl.Columns>
-                            <dxg:GridColumn FieldName="Number" Width="30"/>
-                            <dxg:GridColumn FieldName="Subject"/>
-                            <dxg:GridColumn FieldName="Comment"/>
-                            <dxg:GridColumn FieldName="AddDate"/>
-                        </dxg:GridControl.Columns>
-                        <dxg:GridControl.View>
-                            <dxg:TableView ShowTotalSummary="True"   
-                                           AutoWidth="True" AllowEditing="False" CopyingToClipboard="TableView_CopyingToClipboard_1" 
-                                           RowStyle="{StaticResource TicketStyle}"
-                                           />
+        </dxg:GridControl>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0">
+                <dxe:TextEdit  EditValue="{Binding ThisTicket.ComplexSubject, Mode=TwoWay}" Height="80" Margin="0,0,0,50" />
+                <Button Content="AddNewTicket" Height="60" Margin="0,0,0,50">
+                    <dxmvvm:Interaction.Behaviors>
+                        <dxmvvm:EventToCommand EventName="Click" Command="{Binding AddNewTicketCommand}" />
+                    </dxmvvm:Interaction.Behaviors>
+                </Button>
+                <Button Content="Create and open a solution"  Height="50">
+                    <dxmvvm:Interaction.Behaviors>
+                        <dxmvvm:EventToCommand EventName="Click" Command="{Binding CreateAndOpenSolutionCommand}" />
+                    </dxmvvm:Interaction.Behaviors>
+                </Button>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Margin="10,0,0,0">
+                <dxe:TextEdit Text="{Binding SelectedTicket.Comment}"  TextWrapping="Wrap" Height="30" Margin="0,0,0,10"/>
+                <Button Content="saveall" Height="30" Margin="0,0,0,20">
+                    <dxmvvm:Interaction.Behaviors>
+                        <dxmvvm:EventToCommand EventName="Click" Command="{Binding SaveAllCommand}"/>
+                    </dxmvvm:Interaction.Behaviors>
+                </Button>
+                <Button Content="GoToWeb" Height="30">
+                    <dxmvvm:Interaction.Behaviors>
+                        <dxmvvm:EventToCommand EventName="Click" Command="{Binding GoToWebCommand}"/>
+                    </dxmvvm:Interaction.Behaviors>
+                </Button>
+            </StackPanel>
+            
+            
+            
+            
 
-                        </dxg:GridControl.View>
-
-                    </dxg:GridControl>
-                    <Grid Grid.Row="1">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition />
-                            <ColumnDefinition />
-                        </Grid.ColumnDefinitions>
-                        <Button Content="saveall" HorizontalAlignment="Left" Height="113" VerticalAlignment="Top" Width="61" Click="SaveAllTicketsButton_Click_2" Margin="375,142,0,0" Grid.Column="1"/>
-                        <dxe:CheckEdit Grid.Row="1" HorizontalAlignment="Left" Height="41" Margin="294,87,0,0"  VerticalAlignment="Top" Width="150" Content="IsToDelete" IsChecked="{Binding SelectedTicket.IsToDelete}" Visibility="Hidden"/>
-                        <dxe:TextEdit HorizontalAlignment="Left" Height="127"  VerticalAlignment="Top" Width="246" Margin="242,10,0,0" Text="{Binding SelectedTicket.Comment}"  TextWrapping="Wrap" Grid.Column="1"/>
-                        <Button Content="GoToWeb" HorizontalAlignment="Left" Height="32" Margin="239,0,0,125" VerticalAlignment="Bottom" Width="131" Click="GoToWebButton_Click_1" Grid.Column="1"/>
-                        <Button Content="AddNewTicket" HorizontalAlignment="Left" Height="33" Margin="10,0,0,174" VerticalAlignment="Bottom" Width="254" Click="Button_Click_1_AddNewTicket"/>
-
-                        <Grid Grid.Column="1">
-                            <Grid.RowDefinitions>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                            </Grid.RowDefinitions>
-                            <dxe:TextEdit Grid.Row="1"  HorizontalAlignment="Left" Height="48" VerticalAlignment="Top" Width="150" Name="textAddTag" Margin="296,51,0,0" Visibility="Hidden" />
-                        </Grid>
-                        <dxe:TextEdit HorizontalAlignment="Left" Height="79" Margin="10,10,0,0" VerticalAlignment="Top" Width="665" EditValue="{Binding ThisTicket.ComplexSubject, Mode=TwoWay}" Grid.ColumnSpan="2"/>
-                        <Button Content="Create and open a solution" HorizontalAlignment="Left" Height="42" Margin="10,142,0,0" VerticalAlignment="Top" Width="254" Click="Button_Click_CreateSolution" />
-                    </Grid>
-
-                </Grid>
-            </dx:DXTabItem>
-        </dx:DXTabControl>
-
-
-
+       
+            
+        </Grid>
     </Grid>
 
 </Window>
