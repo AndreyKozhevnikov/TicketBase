@@ -55,6 +55,10 @@ namespace DXTicketBase {
                 ListTickets.Add(new MyTicket(v));
             }
         }
+
+        //   string parentPath = @"d:\!Tickets\";
+        string parentPath = @"f:\temp\!Tickets\";
+        string dropBoxPath = @"f:\Dropbox\";
         MyTicket _thisTicket;
 
         public MyTicket ThisTicket {
@@ -97,7 +101,7 @@ namespace DXTicketBase {
 
         bool CheckIftheTicketExist(string number) {
             var currTickect = ListTickets.Where(x => x.Number.TrimEnd() == number).FirstOrDefault();
-            if (currTickect!=null){
+            if (currTickect != null) {
                 gridControlTickets.CurrentItem = currTickect;
                 TableView tv = gridControlTickets.View as TableView;
                 int rH = tv.FocusedRowHandle + 6;
@@ -126,6 +130,7 @@ namespace DXTicketBase {
             return false;
         }
 
+        string currentThreadFolder;
         private void Button_Click_1_AddNewTicket(object sender, RoutedEventArgs e) {
 
             ThisTicket.ParseComplexSubject();
@@ -146,10 +151,10 @@ namespace DXTicketBase {
             name = name.Replace("|", "");
             if (name.Length > 40)
                 name = name.Remove(40);
-            string path = @"d:\!Tickets\";
 
-            string res = path + name;
 
+            string res = parentPath + name;
+            currentThreadFolder = res;
 
 
 
@@ -173,6 +178,68 @@ namespace DXTicketBase {
 
             Clipboard.SetText(SelectedTicket.Number);
             e.Handled = true;
+        }
+
+        private void Button_Click_CreateSolution(object sender, RoutedEventArgs e) {
+            string folderPath = "";
+            string number = SelectedTicket.Number;
+            if (currentThreadFolder != null && currentThreadFolder.Contains(number)) { //find folder
+                folderPath = currentThreadFolder;
+            }
+            else {
+                var allFiles = Directory.GetDirectories(parentPath).ToList();//rewrite
+                if (allFiles.Count > 0) {
+                    var sel = allFiles.Where(x => x.Contains(number)).FirstOrDefault();
+                    if (sel != null) {
+                        folderPath = sel;
+                    }
+                }
+                if (string.IsNullOrEmpty(folderPath)) {
+                    MessageBox.Show("There is no directory");
+                    return;
+                }
+
+            }
+            string solutionPath = dropBoxPath + @"work\templates\dxSampleGrid\";
+            folderPath = folderPath + @"\dxSampleGrid";
+            DirectoryCopy(solutionPath, folderPath, true);
+            
+            string slnPath = folderPath + @"\dxSampleGrid.sln";
+            Process.Start(slnPath);
+
+        }
+
+        private static void DirectoryCopy(string sourceDirName, string destDirName, bool copySubDirs) {
+            // Get the subdirectories for the specified directory.
+            DirectoryInfo dir = new DirectoryInfo(sourceDirName);
+
+            if (!dir.Exists) {
+                throw new DirectoryNotFoundException(
+                    "Source directory does not exist or could not be found: "
+                    + sourceDirName);
+            }
+
+            DirectoryInfo[] dirs = dir.GetDirectories();
+            // If the destination directory doesn't exist, create it.
+            if (!Directory.Exists(destDirName)) {
+                Directory.CreateDirectory(destDirName);
+            }
+
+            // Get the files in the directory and copy them to the new location.
+            FileInfo[] files = dir.GetFiles();
+            foreach (FileInfo file in files) {
+                string temppath = System.IO.Path.Combine(destDirName, file.Name);
+                file.CopyTo(temppath, false);
+            }
+
+            // If copying subdirectories, copy them and their contents to new location.
+            if (copySubDirs) {
+                foreach (DirectoryInfo subdir in dirs) {
+                    string temppath = System.IO.Path.Combine(destDirName, subdir.Name);
+                    DirectoryCopy(subdir.FullName, temppath, copySubDirs);
+                    
+                }
+            }
         }
 
 
@@ -204,7 +271,7 @@ namespace DXTicketBase {
     //    }
     //}
 
- 
+
 
 
     public partial class DXTicketsBaseEntities {
