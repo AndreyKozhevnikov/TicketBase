@@ -39,15 +39,20 @@ namespace DXTicketBase {
         public static DXTicketsBaseEntities generalEntity;
 
         public ObservableCollection<MyTicket> ListTickets { get; set; }
-        private static void ConnectToDataBase() {
+        private void ConnectToDataBase() {
             string machineName = System.Environment.MachineName;
             if (machineName == "KOZHEVNIKOV-W8") {
-
                 generalEntity = new DXTicketsBaseEntities("DXTicketsBaseEntitiesWork");
+                parentPath = @"D\!Tickets\";
+                dropBoxPath = @"D:\Dropbox\";
             }
             else {
                 generalEntity = new DXTicketsBaseEntities("DXTicketsBaseEntitiesHome");
+                parentPath = @"F:\temp\!Tickets\";
+                dropBoxPath = @"F:\Dropbox\";
             }
+            solvedPath = parentPath + @"!Solved";
+            solvedPathOld = parentPath + @"!Solved\!Old";
         }
         void CreateTicketList() {
             ListTickets = new ObservableCollection<MyTicket>();
@@ -56,9 +61,13 @@ namespace DXTicketBase {
             }
         }
 
-        //   string parentPath = @"d:\!Tickets\";
-        string parentPath = @"f:\temp\!Tickets\";
-        string dropBoxPath = @"f:\Dropbox\";
+   
+        string parentPath;// = @"f:\temp\!Tickets\";
+        string dropBoxPath;// = @"f:\Dropbox\";
+        string solvedPath;// = @"d:\!Tickets\!Solved";
+        string solvedPathOld;// = @"!Solved\!Old";
+       // string ticketPath = @"d:\!Tickets\";
+
         MyTicket _thisTicket;
 
         public MyTicket ThisTicket {
@@ -112,16 +121,14 @@ namespace DXTicketBase {
                     tv.ScrollIntoView(rH);
                 }), DispatcherPriority.Input);
 
-                string solvedPath = @"d:\!Tickets\!Solved";
-                string solvedPathOld = @"d:\!Tickets\!Solved\!Old";
-                string ticketPath = @"d:\!Tickets\";
+              
                 var allFiles = Directory.GetDirectories(solvedPath).ToList();
                 var allFilesOld = Directory.GetDirectories(solvedPathOld).ToList();
                 allFiles = allFiles.Concat(allFilesOld).ToList();
                 var targetPath = allFiles.Find(x => x.Contains(number));
                 if (targetPath != null) {
                     DirectoryInfo di = new DirectoryInfo(targetPath);
-                    string fullTargetName = ticketPath + di.Name;
+                    string fullTargetName = parentPath + di.Name;
                     Directory.Move(targetPath, fullTargetName);
                 }
                 ThisTicket.ComplexSubject = string.Empty;
@@ -173,9 +180,7 @@ namespace DXTicketBase {
         }
 
         private void TableView_CopyingToClipboard_1(object sender, CopyingToClipboardEventArgs e) {
-            Debug.Print("co");
             Clipboard.Clear();
-
             Clipboard.SetText(SelectedTicket.Number);
             e.Handled = true;
         }
