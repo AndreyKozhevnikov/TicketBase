@@ -41,7 +41,6 @@ namespace DXTicketBase {
             set {
                 string st = value.Replace("'", "");
                 parentTicketEntity.Subject = st;
-
             }
         }
 
@@ -79,10 +78,6 @@ namespace DXTicketBase {
                 IsSaved = false;
             }
         }
-    
-
-
-
 
         bool _isMy;
         bool _isConsider;

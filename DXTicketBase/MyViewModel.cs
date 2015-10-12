@@ -21,7 +21,6 @@ namespace DXTicketBase {
         public event PropertyChangedEventHandler PropertyChanged;
         public static DXTicketsBaseEntities generalEntity;
 
-
         string parentPath;
         string dropBoxPath;
         string solvedPath;
@@ -44,8 +43,6 @@ namespace DXTicketBase {
                     _goToWebCommand = new DelegateCommand(GoToWeb);
                 return _goToWebCommand; }
         }
-
-       
         public ICommand SaveAllCommand {
             get {
                 if (_saveAllCommand == null)
@@ -53,8 +50,6 @@ namespace DXTicketBase {
                 return _saveAllCommand; }
            
         }
-
-    
         public ICommand CreateAndOpenSolutionCommand {
             get {
                 if (_createAndOpenSolutionCommand==null)
@@ -62,18 +57,12 @@ namespace DXTicketBase {
                     
                 return _createAndOpenSolutionCommand; }
         }
-
-     
         public ICommand AddNewTicketCommand {
             get {
                 if (_addNewTicketCommand == null)
                     _addNewTicketCommand = new DelegateCommand(AddNewTicket);
                 return _addNewTicketCommand; }
-            
         }
-
-    
-
         public ICommand WindowLoadedCommand {
             get {
                 if (_windowLoadedCommand == null)
@@ -85,11 +74,7 @@ namespace DXTicketBase {
                 if (_copyToClipBoardCommand == null)
                     _copyToClipBoardCommand = new DelegateCommand<CopyingToClipboardEventArgs>(CopyToClipBoard);
                 return _copyToClipBoardCommand; }
-
         }
-
-   
-   
 
         public ObservableCollection<MyTicket> ListTickets { get; set; }
         public MyTicket ThisTicket {
@@ -138,7 +123,7 @@ namespace DXTicketBase {
             string machineName = System.Environment.MachineName;
             if (machineName == "KOZHEVNIKOV-W8") {
                 generalEntity = new DXTicketsBaseEntities("DXTicketsBaseEntitiesWork");
-                parentPath = @"D\!Tickets\";
+                parentPath = @"D:\!Tickets\";
                 dropBoxPath = @"D:\Dropbox\";
             }
             else {
@@ -146,8 +131,9 @@ namespace DXTicketBase {
                 parentPath = @"F:\temp\!Tickets\";
                 dropBoxPath = @"F:\Dropbox\";
             }
-            solvedPath = parentPath;// 
-            solvedPathOld = parentPath;// + @"!Solved\!Old";
+            solvedPath = parentPath + @"!Solved";
+            solvedPathOld = parentPath + @"!Solved\!Old";
+
         }
 
         void CreateTicketList() {
