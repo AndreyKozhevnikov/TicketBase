@@ -27,8 +27,11 @@ using System.Windows.Threading;
 namespace DXTicketBase {
     public partial class MainWindow : Window {
         public MainWindow() {
+
+
             InitializeComponent();
             DataContext = new MyViewModel();
+
         }
     }
 }
