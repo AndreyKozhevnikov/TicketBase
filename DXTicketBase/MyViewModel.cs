@@ -188,7 +188,6 @@ namespace DXTicketBase {
             var currTickect = ListTickets.Where(x => x.Number.TrimEnd() == number).FirstOrDefault();
             if (currTickect != null) {
                 SelectedTicket = currTickect;
-
                 MoveFocusedRowService.Move();
                 //
 
@@ -200,6 +199,7 @@ namespace DXTicketBase {
                     DirectoryInfo di = new DirectoryInfo(targetPath);
                     string fullTargetName = parentPath + di.Name;
                     Directory.Move(targetPath, fullTargetName);
+                    Process.Start(fullTargetName);
                 }
                 ThisTicket.ComplexSubject = string.Empty;
                 return true;
