@@ -189,8 +189,7 @@ namespace DXTicketBase {
             if (currTickect != null) {
                 SelectedTicket = currTickect;
                 MoveFocusedRowService.Move();
-                //
-
+              
                 var allFiles = Directory.GetDirectories(solvedPath).ToList();
                 var allFilesOld = Directory.GetDirectories(solvedPathOld).ToList();
                 allFiles = allFiles.Concat(allFilesOld).ToList();
@@ -200,6 +199,13 @@ namespace DXTicketBase {
                     string fullTargetName = parentPath + di.Name;
                     Directory.Move(targetPath, fullTargetName);
                     Process.Start(fullTargetName);
+                }
+                else {
+                    var currentFolderList = Directory.GetDirectories(parentPath).ToList();
+                    string currentTicketPath = currentFolderList.Find(x => x.Contains(number));
+                    if (currentTicketPath!=null) {
+                        Process.Start(currentTicketPath);
+                    }
                 }
                 ThisTicket.ComplexSubject = string.Empty;
                 return true;
