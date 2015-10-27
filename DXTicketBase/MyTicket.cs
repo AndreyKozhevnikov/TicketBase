@@ -30,7 +30,7 @@ namespace DXTicketBase {
     //    string _number;
 
         public string Number {
-            get { return parentTicketEntity.TicketNo; }
+            get { return parentTicketEntity.TicketNo.Trim(); }
             set {
                 parentTicketEntity.TicketNo = value;
                 NotifyPropertyChanged("Number");

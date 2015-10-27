@@ -185,7 +185,7 @@ namespace DXTicketBase {
         }
 
         bool CheckIftheTicketExist(string number) {
-            var currTickect = ListTickets.Where(x => x.Number.TrimEnd() == number).FirstOrDefault();
+            var currTickect = ListTickets.Where(x => x.Number == number).FirstOrDefault();
             if (currTickect != null) {
                 SelectedTicket = currTickect;
                 MoveFocusedRowService.Move();
@@ -225,15 +225,20 @@ namespace DXTicketBase {
                     if (sel != null) {
                         folderPath = sel;
                     }
+                    else {
+                        MessageBox.Show("There is no directory");
+                        return;
+                    }
                 }
-                if (string.IsNullOrEmpty(folderPath)) {
-                    MessageBox.Show("There is no directory");
-                    return;
-                }
-
             }
             string solutionPath = dropBoxPath + @"work\templates\dxSampleGrid\";
             folderPath = folderPath + @"\dxSampleGrid";
+            var isAlreadyExist = Directory.Exists(folderPath);
+            if (isAlreadyExist) {
+                MessageBox.Show("Solution already exists");
+                return;
+            }
+
             DirectoryCopy(solutionPath, folderPath, true);
 
             string slnPath = folderPath + @"\dxSampleGrid.sln";
