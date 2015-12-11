@@ -233,16 +233,15 @@ namespace DXTicketBase {
             }
             string solutionPath = dropBoxPath + @"work\templates\dxSampleGrid\";
             folderPath = folderPath + @"\dxSampleGrid";
-            var isAlreadyExist = Directory.Exists(folderPath);
-            if (isAlreadyExist) {
-                MessageBox.Show("Solution already exists");
-                return;
-            }
 
-            DirectoryCopy(solutionPath, folderPath, true);
+            var isAlreadyExist = Directory.Exists(folderPath);
+            if (!isAlreadyExist) {
+                DirectoryCopy(solutionPath, folderPath, true);
+            }
 
             string slnPath = folderPath + @"\dxSampleGrid.sln";
             Process.Start(slnPath);
+          
         }
         private void SaveAll() {
             var unsavedtickets = ListTickets.Where(x => x.IsSaved == false).ToList();
