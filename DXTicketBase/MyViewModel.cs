@@ -101,7 +101,7 @@ namespace DXTicketBase {
             }
         }
         IServiceContainer ISupportServices.ServiceContainer { get { return ServiceContainer; } }
-        IMoveFocusedRow MoveFocusedRowService { get { return ServiceContainer.GetService<IMoveFocusedRow>(); } }
+        IManageGridControl MyManageGridControlService { get { return ServiceContainer.GetService<IManageGridControl>(); } }
         
 
     }
@@ -151,6 +151,8 @@ namespace DXTicketBase {
             e.Handled = true;
         }
         private void AddNewTicket() {
+            MyManageGridControlService.ClearFilter();
+
             ThisTicket.ParseComplexSubject();
             if (ThisTicket.Number == null)
                 return;
@@ -188,7 +190,7 @@ namespace DXTicketBase {
             var currTickect = ListTickets.Where(x => x.Number == number).FirstOrDefault();
             if (currTickect != null) {
                 SelectedTicket = currTickect;
-                MoveFocusedRowService.Move();
+                MyManageGridControlService.Move();
               
                 var allFiles = Directory.GetDirectories(solvedPath).ToList();
                 var allFilesOld = Directory.GetDirectories(solvedPathOld).ToList();
@@ -300,11 +302,12 @@ namespace DXTicketBase {
         }
     }
 
-    interface IMoveFocusedRow {
+    interface IManageGridControl {
         void Move();
+        void ClearFilter();
     }
 
-    public class MoveFocusedRowService:ServiceBase,IMoveFocusedRow {
+    public class ManageGridControlService : ServiceBase, IManageGridControl {
         public TableView MyTableView {
             get { return (TableView)GetValue(MyTableViewProperty); }
             set { SetValue(MyTableViewProperty, value); }
@@ -312,18 +315,21 @@ namespace DXTicketBase {
 
         // Using a DependencyProperty as the backing store for MyTableView.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty MyTableViewProperty =
-            DependencyProperty.Register("MyTableView", typeof(TableView), typeof(MoveFocusedRowService), new PropertyMetadata(null));
+            DependencyProperty.Register("MyTableView", typeof(TableView), typeof(ManageGridControlService), new PropertyMetadata(null));
 
 
         public void Move() {
-            TableView tv = MyTableView;
-            int rH = tv.FocusedRowHandle + 6;
-            rH = Math.Min(tv.DataControl.VisibleRowCount - 1, rH);
-            tv.ScrollIntoView(0);
+           
+            int rH = MyTableView.FocusedRowHandle + 6;
+            rH = Math.Min(MyTableView.DataControl.VisibleRowCount - 1, rH);
+            MyTableView.ScrollIntoView(0);
 
             Dispatcher.BeginInvoke((Action)(() => {
-                tv.ScrollIntoView(rH);
+                MyTableView.ScrollIntoView(rH);
             }), DispatcherPriority.Input);
+        }
+        public void ClearFilter() {
+            MyTableView.SearchString = null;
         }
     }
 }

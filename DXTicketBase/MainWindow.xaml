@@ -23,7 +23,7 @@
     </Window.Resources>
     <dxmvvm:Interaction.Behaviors>
         <dxmvvm:EventToCommand Command="{Binding WindowLoadedCommand}" EventName="Loaded" PassEventArgsToCommand="True"/>
-        <local:MoveFocusedRowService MyTableView="{Binding ElementName=TableView1}"/>
+        <local:ManageGridControlService MyTableView="{Binding ElementName=TableView1}"/>
     </dxmvvm:Interaction.Behaviors>
     <Grid>
         <Grid.RowDefinitions>
