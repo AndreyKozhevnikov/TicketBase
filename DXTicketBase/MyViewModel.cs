@@ -41,39 +41,45 @@ namespace DXTicketBase {
             get {
                 if (_goToWebCommand == null)
                     _goToWebCommand = new DelegateCommand(GoToWeb);
-                return _goToWebCommand; }
+                return _goToWebCommand;
+            }
         }
         public ICommand SaveAllCommand {
             get {
                 if (_saveAllCommand == null)
                     _saveAllCommand = new DelegateCommand(SaveAll);
-                return _saveAllCommand; }
-           
+                return _saveAllCommand;
+            }
+
         }
         public ICommand CreateAndOpenSolutionCommand {
             get {
-                if (_createAndOpenSolutionCommand==null)
+                if (_createAndOpenSolutionCommand == null)
                     _createAndOpenSolutionCommand = new DelegateCommand(CreateAndOpenSolution);
-                    
-                return _createAndOpenSolutionCommand; }
+
+                return _createAndOpenSolutionCommand;
+            }
         }
         public ICommand AddNewTicketCommand {
             get {
                 if (_addNewTicketCommand == null)
                     _addNewTicketCommand = new DelegateCommand(AddNewTicket);
-                return _addNewTicketCommand; }
+                return _addNewTicketCommand;
+            }
         }
         public ICommand WindowLoadedCommand {
             get {
                 if (_windowLoadedCommand == null)
                     _windowLoadedCommand = new DelegateCommand(WindowLoaded);
-                return _windowLoadedCommand; }
+                return _windowLoadedCommand;
+            }
         }
         public ICommand CopyToClipBoardCommand {
             get {
                 if (_copyToClipBoardCommand == null)
                     _copyToClipBoardCommand = new DelegateCommand<CopyingToClipboardEventArgs>(CopyToClipBoard);
-                return _copyToClipBoardCommand; }
+                return _copyToClipBoardCommand;
+            }
         }
 
         public ObservableCollection<MyTicket> ListTickets { get; set; }
@@ -102,7 +108,7 @@ namespace DXTicketBase {
         }
         IServiceContainer ISupportServices.ServiceContainer { get { return ServiceContainer; } }
         IManageGridControl MyManageGridControlService { get { return ServiceContainer.GetService<IManageGridControl>(); } }
-        
+
 
     }
 
@@ -191,7 +197,7 @@ namespace DXTicketBase {
             if (currTickect != null) {
                 SelectedTicket = currTickect;
                 MyManageGridControlService.Move();
-              
+
                 var allFiles = Directory.GetDirectories(solvedPath).ToList();
                 var allFilesOld = Directory.GetDirectories(solvedPathOld).ToList();
                 allFiles = allFiles.Concat(allFilesOld).ToList();
@@ -205,7 +211,7 @@ namespace DXTicketBase {
                 else {
                     var currentFolderList = Directory.GetDirectories(parentPath).ToList();
                     string currentTicketPath = currentFolderList.Find(x => x.Contains(number));
-                    if (currentTicketPath!=null) {
+                    if (currentTicketPath != null) {
                         Process.Start(currentTicketPath);
                     }
                 }
@@ -243,7 +249,7 @@ namespace DXTicketBase {
 
             string slnPath = folderPath + @"\dxSampleGrid.sln";
             Process.Start(slnPath);
-          
+
         }
         private void SaveAll() {
             var unsavedtickets = ListTickets.Where(x => x.IsSaved == false).ToList();
@@ -319,7 +325,7 @@ namespace DXTicketBase {
 
 
         public void Move() {
-           
+
             int rH = MyTableView.FocusedRowHandle + 6;
             rH = Math.Min(MyTableView.DataControl.VisibleRowCount - 1, rH);
             MyTableView.ScrollIntoView(0);
