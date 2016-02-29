@@ -346,6 +346,7 @@ namespace DXTicketBase {
         }
         public void ClearFilter() {
             MyTableView.SearchString = null;
+            MyTableView.Grid.FilterString = null;
         }
 
 
