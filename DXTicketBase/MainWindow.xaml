@@ -30,7 +30,9 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <dxg:GridControl  ItemsSource="{Binding ListTickets}" Name="gridControlTickets" Grid.Row="0" CurrentItem="{Binding SelectedTicket, Mode=TwoWay}" >
+        <dxg:GridControl  ItemsSource="{Binding ListTickets}" Name="gridControlTickets" Grid.Row="0" CurrentItem="{Binding SelectedTicket, Mode=TwoWay}"
+                         
+                          >
             <dxg:GridControl.Columns>
                 <dxg:GridColumn FieldName="Number" Width="30"/>
                 <dxg:GridColumn FieldName="Subject"/>
@@ -41,6 +43,7 @@
                 <dxg:TableView ShowTotalSummary="True"   x:Name="TableView1"
                                            AutoWidth="True" AllowEditing="False" 
                                            RowStyle="{StaticResource TicketStyle}" 
+                               SearchString="{Binding SearchStringVM,Mode=TwoWay}"
                                            >
                     <dxmvvm:Interaction.Behaviors>
                         <dxmvvm:EventToCommand EventName="CopyingToClipboard"

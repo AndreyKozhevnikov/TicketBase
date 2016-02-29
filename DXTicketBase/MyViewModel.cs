@@ -26,6 +26,7 @@ namespace DXTicketBase {
         string solvedPath;
         string solvedPathOld;
         string currentThreadFolder;
+        string searchStringVM;
 
         MyTicket _thisTicket;
         MyTicket _selectedTicket;
@@ -97,7 +98,15 @@ namespace DXTicketBase {
                 NotifyPropertyChanged();
             }
         }
-
+        public string SearchStringVM {
+            get { return searchStringVM; }
+            set {
+                searchStringVM = value;
+                if (value == null) {
+                    MyManageGridControlService.MoveToLastRow();
+                }
+            }
+        }
         IServiceContainer serviceContainer = null;
         protected IServiceContainer ServiceContainer {
             get {
@@ -311,6 +320,7 @@ namespace DXTicketBase {
     interface IManageGridControl {
         void Move();
         void ClearFilter();
+        void MoveToLastRow();
     }
 
     public class ManageGridControlService : ServiceBase, IManageGridControl {
@@ -336,6 +346,15 @@ namespace DXTicketBase {
         }
         public void ClearFilter() {
             MyTableView.SearchString = null;
+        }
+
+
+        public void MoveToLastRow() {
+            Dispatcher.BeginInvoke((Action)(() => {
+                int maxRow = MyTableView.Grid.VisibleRowCount;
+                var rh = MyTableView.Grid.GetRowHandleByVisibleIndex(maxRow - 1);
+                MyTableView.FocusedRowHandle = rh;
+            }), DispatcherPriority.Background);
         }
     }
 }
