@@ -98,10 +98,10 @@ namespace DXTicketBase {
           if (ind < 0)
               return;
          string tmpSt = st.Substring(0, ind);
-          Regex reg = new Regex(@".\d{4,6}");
+          Regex reg = new Regex(@"[B,E,S,Q,T]\d{4,6}:\s");
 
-          var isNum = reg.IsMatch(tmpSt);
-          if (!isNum) {
+          var isCorrectNumber = reg.IsMatch(st);
+          if (!isCorrectNumber) {
               return;
              
           }
