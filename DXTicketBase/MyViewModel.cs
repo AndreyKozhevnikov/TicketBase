@@ -223,6 +223,11 @@ namespace DXTicketBase {
                     if (currentTicketPath != null) {
                         Process.Start(currentTicketPath);
                     }
+                    else {
+                        var dst =string.Format("{0}{1}", parentPath , number);
+                        System.IO.Directory.CreateDirectory(dst);
+                        Process.Start(dst);
+                    }
                 }
                 ThisTicket.ComplexSubject = string.Empty;
                 return true;
