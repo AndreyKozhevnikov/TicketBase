@@ -350,7 +350,7 @@ namespace DXTicketBase {
             }), DispatcherPriority.Input);
         }
         public void ClearFilter() {
-            MyTableView.SearchString = null;
+            MyTableView.SearchString = string.Empty; //to fix
             MyTableView.Grid.FilterString = null;
         }
 
