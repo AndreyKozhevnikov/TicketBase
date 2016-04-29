@@ -262,7 +262,10 @@ namespace DXTicketBase {
             }
 
             string slnPath = folderPath + @"\dxSampleGrid.sln";
-            Process.Start(slnPath);
+            string slnPathWithProjectName=folderPath+string.Format(@"\{0}.sln",number);
+            System.IO.File.Move(slnPath,slnPathWithProjectName);
+
+            Process.Start(slnPathWithProjectName);
 
         }
         private void SaveAll() {
