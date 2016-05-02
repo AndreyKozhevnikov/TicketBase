@@ -254,16 +254,30 @@ namespace DXTicketBase {
                 }
             }
             string solutionPath = dropBoxPath + @"work\templates\dxSampleGrid\";
-            folderPath = folderPath + @"\dxSampleGrid";
+            folderPath = folderPath + string.Format(@"\{0}",number);
 
             var isAlreadyExist = Directory.Exists(folderPath);
             if (!isAlreadyExist) {
                 DirectoryCopy(solutionPath, folderPath, true);
             }
 
+            string csProjPath = folderPath + @"\dxSampleGrid\dxSampleGrid.csproj";
+            string csProjPathWithName = folderPath + string.Format(@"\dxSampleGrid\{0}.csproj\", number);
+            System.IO.File.Move(csProjPath, csProjPathWithName);
+
+            string projPath = folderPath + @"\dxSampleGrid\";
+            string projPathWithName = folderPath + string.Format(@"\{0}\", number);
+            System.IO.Directory.Move(projPath, projPathWithName);
+
             string slnPath = folderPath + @"\dxSampleGrid.sln";
             string slnPathWithProjectName=folderPath+string.Format(@"\{0}.sln",number);
-            System.IO.File.Move(slnPath,slnPathWithProjectName);
+            System.IO.File.Move(slnPath, slnPathWithProjectName);
+
+            string slnText = File.ReadAllText(slnPathWithProjectName);
+            slnText = slnText.Replace("dxSampleGrid", number);
+            File.WriteAllText(slnPathWithProjectName, slnText);
+
+           
 
             Process.Start(slnPathWithProjectName);
 
