@@ -253,8 +253,9 @@ namespace DXTicketBase {
                     }
                 }
             }
+            string folderNumber = number + "dx";
             string solutionPath = dropBoxPath + @"work\templates\dxSampleGrid\";
-            folderPath = folderPath + string.Format(@"\{0}",number);
+            folderPath = folderPath + string.Format(@"\{0}", folderNumber);
 
             var isAlreadyExist = Directory.Exists(folderPath);
             if (!isAlreadyExist) {
@@ -262,19 +263,19 @@ namespace DXTicketBase {
             }
 
             string csProjPath = folderPath + @"\dxSampleGrid\dxSampleGrid.csproj";
-            string csProjPathWithName = folderPath + string.Format(@"\dxSampleGrid\{0}.csproj\", number);
+            string csProjPathWithName = folderPath + string.Format(@"\dxSampleGrid\{0}.csproj\", folderNumber);
             System.IO.File.Move(csProjPath, csProjPathWithName);
 
             string projPath = folderPath + @"\dxSampleGrid\";
-            string projPathWithName = folderPath + string.Format(@"\{0}\", number);
+            string projPathWithName = folderPath + string.Format(@"\{0}\", folderNumber);
             System.IO.Directory.Move(projPath, projPathWithName);
 
             string slnPath = folderPath + @"\dxSampleGrid.sln";
-            string slnPathWithProjectName=folderPath+string.Format(@"\{0}.sln",number);
+            string slnPathWithProjectName = folderPath + string.Format(@"\{0}.sln", folderNumber);
             System.IO.File.Move(slnPath, slnPathWithProjectName);
 
             string slnText = File.ReadAllText(slnPathWithProjectName);
-            slnText = slnText.Replace("dxSampleGrid", number);
+            slnText = slnText.Replace("dxSampleGrid", folderNumber);
             File.WriteAllText(slnPathWithProjectName, slnText);
 
            
