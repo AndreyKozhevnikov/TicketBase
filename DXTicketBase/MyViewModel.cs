@@ -270,6 +270,10 @@ namespace DXTicketBase {
             string projPathWithName = folderPath + string.Format(@"\{0}\", folderNumber);
             var s = projPath;
             var s2 = projPathWithName;
+
+            var b1 = Directory.Exists(s);
+            var b2 = Directory.Exists(s2);
+            var st = b1.ToString() + b2;
             System.IO.Directory.Move(projPath, projPathWithName);
 
             string slnPath = folderPath + @"\dxSampleGrid.sln";
