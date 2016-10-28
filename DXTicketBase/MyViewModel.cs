@@ -9,7 +9,9 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
@@ -189,6 +191,7 @@ namespace DXTicketBase {
 
 
             string res = parentPath + name;
+            res = res.Trim();
             currentThreadFolder = res;
 
 
@@ -258,10 +261,10 @@ namespace DXTicketBase {
             folderPath = folderPath + string.Format(@"\{0}", folderNumber);
 
             var isAlreadyExist = Directory.Exists(folderPath);
-            if (!isAlreadyExist) {
-                DirectoryCopy(solutionPath, folderPath, true);
+            if (isAlreadyExist) {
+                return;
             }
-
+            DirectoryCopy(solutionPath, folderPath, true);
             string csProjPath = folderPath + @"\dxSampleGrid\dxSampleGrid.csproj";
             string csProjPathWithName = folderPath + string.Format(@"\dxSampleGrid\{0}.csproj\", folderNumber);
             System.IO.File.Move(csProjPath, csProjPathWithName);
@@ -274,7 +277,19 @@ namespace DXTicketBase {
             var b1 = Directory.Exists(s);
             var b2 = Directory.Exists(s2);
             var st = b1.ToString() + b2;
-            System.IO.Directory.Move(projPath, projPathWithName);
+            try {
+                System.IO.Directory.Move(projPath, projPathWithName);
+            }
+            catch {
+                var er = Marshal.GetLastWin32Error();
+                string st555 = er.ToString();
+                Directory.Delete(folderPath);
+                //    System.IO.Directory.Move(projPath, projPathWithName);
+
+
+
+                //return;
+            }
 
             string slnPath = folderPath + @"\dxSampleGrid.sln";
             string slnPathWithProjectName = folderPath + string.Format(@"\{0}.sln", folderNumber);
