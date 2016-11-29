@@ -29,11 +29,13 @@ using System.Threading;
 
 namespace DXTicketBase {
     public partial class MainWindow : Window {
+        MyViewModel vm;
         public MainWindow() {
 
 
             InitializeComponent();
-            DataContext = new MyViewModel();
+            vm = new MyViewModel();
+            DataContext = vm;
             ClipboardMonitor.Start();
             ClipboardMonitor.OnClipboardChange += ClipboardMonitor_OnClipboardChange;
 
@@ -43,7 +45,8 @@ namespace DXTicketBase {
             ClipboardMonitor.Stop();
         }
         private void ClipboardMonitor_OnClipboardChange(ClipboardFormat format, object data) {
-        
+            if (format == ClipboardFormat.Text)
+                vm.ThisTicket.ComplexSubject = data.ToString();
         }
     }
 
