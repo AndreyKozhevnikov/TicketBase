@@ -22,7 +22,10 @@ using System.Diagnostics;
 
 using System.IO;
 using System.Windows.Threading;
-
+using System.Runtime.InteropServices;
+using System.Windows.Interop;
+using System.Windows.Forms;
+using System.Threading;
 
 namespace DXTicketBase {
     public partial class MainWindow : Window {
@@ -31,7 +34,19 @@ namespace DXTicketBase {
 
             InitializeComponent();
             DataContext = new MyViewModel();
+            ClipboardMonitor.Start();
+            ClipboardMonitor.OnClipboardChange += ClipboardMonitor_OnClipboardChange;
+
 
         }
+        ~MainWindow() {
+            ClipboardMonitor.Stop();
+        }
+        private void ClipboardMonitor_OnClipboardChange(ClipboardFormat format, object data) {
+        
+        }
     }
+
+
+
 }
