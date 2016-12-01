@@ -11,6 +11,7 @@
     Title="TICKETS BASE" Height="700" Width="1100"
     SnapsToDevicePixels="True" UseLayoutRounding="True"
     x:Name="ico" Icon="0196.ico" 
+    Closed="ico_Closed"
     >
     <Window.Resources>
         <Style x:Key="TicketStyle" TargetType="{x:Type dxg:RowControl}">

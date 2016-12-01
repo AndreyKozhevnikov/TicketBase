@@ -53,9 +53,7 @@ namespace DXTicketBase {
             }
         }
 
-        ~MainWindow() {
-            ClipboardMonitor.Stop();
-        }
+     
         private void ClipboardMonitor_OnClipboardChange(ClipboardFormat format, object data) {
             if (format == ClipboardFormat.Text) {
                 var st = data.ToString().Split(new string[] { "\r\n" },StringSplitOptions.None);
@@ -66,6 +64,12 @@ namespace DXTicketBase {
 
             }
         }
+
+        private void ico_Closed(object sender, EventArgs e) {
+            ClipboardMonitor.Stop();
+        }
+
+    
     }
 
 
