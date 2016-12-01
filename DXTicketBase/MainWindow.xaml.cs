@@ -45,8 +45,14 @@ namespace DXTicketBase {
             ClipboardMonitor.Stop();
         }
         private void ClipboardMonitor_OnClipboardChange(ClipboardFormat format, object data) {
-            if (format == ClipboardFormat.Text)
-                vm.ThisTicket.ComplexSubject = data.ToString();
+            if (format == ClipboardFormat.Text) {
+                var st = data.ToString().Split(new string[] { "\r\n" },StringSplitOptions.None);
+                if (st.Count() == 2) {
+                    vm.ThisTicket.ComplexSubject = st[0];
+                }
+                
+
+            }
         }
     }
 

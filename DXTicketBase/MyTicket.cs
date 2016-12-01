@@ -94,11 +94,11 @@ namespace DXTicketBase {
           string st = ComplexSubject;
           if (st == null)
               return;
-          int ind = st.IndexOf(':');
+          int ind = st.IndexOf('-')-1;
           if (ind < 0)
               return;
          string tmpSt = st.Substring(0, ind);
-          Regex reg = new Regex(@"[B,E,S,Q,T]\d{4,6}:\s");
+          Regex reg = new Regex(@"[B,E,S,Q,T]\d{4,6}\s");
 
           var isCorrectNumber = reg.IsMatch(st);
           if (!isCorrectNumber) {
