@@ -39,7 +39,7 @@ namespace DXTicketBase {
             ClipboardMonitor.Start();
             ClipboardMonitor.OnClipboardChange += ClipboardMonitor_OnClipboardChange;
 
-           // MakeMajorFolderOld();
+         //   MakeMajorFolderOld();
         }
 
         private static void MakeMajorFolderOld() {

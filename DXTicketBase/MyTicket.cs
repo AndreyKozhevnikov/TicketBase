@@ -92,21 +92,26 @@ namespace DXTicketBase {
 
       public  void ParseComplexSubject() {
           string st = ComplexSubject;
-          if (st == null)
-              return;
-          int ind = st.IndexOf('-')-1;
-          if (ind < 0)
-              return;
-         string tmpSt = st.Substring(0, ind);
-          Regex reg = new Regex(@"[B,E,S,Q,T]\d{4,6}\s");
+         // if (st == null)
+         //     return;
+         // int ind = st.IndexOf('-')-1;
+         // if (ind < 0)
+         //     return;
+         //string tmpSt = st.Substring(0, ind);
+          Regex reg = new Regex(@"[B,E,S,Q,T]\d{4,6}");
 
-          var isCorrectNumber = reg.IsMatch(st);
-          if (!isCorrectNumber) {
+        
+           var res = reg.Match(st);
+        
+
+          if (!res.Success) {
               return;
              
           }
+            var tmpSt = res.Value;
+            var ost = st.Replace(tmpSt, "").Replace("-", "").Trim();
           this.Number = tmpSt;
-          this.Subject = st.Substring(ind+2, st.Length-ind-2);
+          this.Subject = ost;
         }
 
 

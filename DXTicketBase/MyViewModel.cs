@@ -177,15 +177,26 @@ namespace DXTicketBase {
             if (isAlreadeExist)
                 return;
             string name = string.Format("{0} {1}", ThisTicket.Number, ThisTicket.Subject);
-            name = name.Replace("\\", "");
-            name = name.Replace("/", "");
-            name = name.Replace(":", "");
-            name = name.Replace("*", "");
-            name = name.Replace("?", "");
-            name = name.Replace("\"", "");
-            name = name.Replace("<", "");
-            name = name.Replace(">", "");
-            name = name.Replace("|", "");
+            var lst = Path.GetInvalidFileNameChars();
+            var b = name.IndexOfAny(lst) >= 0;
+            if (b) {
+                foreach (var ch in lst) {
+                    name = name.Replace(new string(new char[] { ch }), "");
+                    //var ind2 = fileName.IndexOf(ch);
+                    //if (ind2 >= 0) {
+                    //    fileName = fileName.Remove(ind2, 1);
+                    //}
+                }
+            }
+            //name = name.Replace("\\", "");
+            //name = name.Replace("/", "");
+            //name = name.Replace(":", "");
+            //name = name.Replace("*", "");
+            //name = name.Replace("?", "");
+            //name = name.Replace("\"", "");
+            //name = name.Replace("<", "");
+            //name = name.Replace(">", "");
+            //name = name.Replace("|", "");
             if (name.Length > 40)
                 name = name.Remove(40);
 
