@@ -39,8 +39,20 @@ namespace DXTicketBase {
             ClipboardMonitor.Start();
             ClipboardMonitor.OnClipboardChange += ClipboardMonitor_OnClipboardChange;
 
-
+           // MakeMajorFolderOld();
         }
+
+        private static void MakeMajorFolderOld() {
+            var drs = Directory.GetDirectories(@"C:\!Tickets\");
+            foreach (string d in drs) {
+                var dInfo = new DirectoryInfo(d);
+                if (dInfo.Name[0] == '!') {
+                    dInfo.LastWriteTime = new DateTime(2028, 12, 12);
+                    var st = "sdf";
+                }
+            }
+        }
+
         ~MainWindow() {
             ClipboardMonitor.Stop();
         }

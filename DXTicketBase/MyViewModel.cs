@@ -218,6 +218,8 @@ namespace DXTicketBase {
                     DirectoryInfo di = new DirectoryInfo(targetPath);
                     string fullTargetName = parentPath + di.Name;
                     Directory.Move(targetPath, fullTargetName);
+                    var newDirInfo = new DirectoryInfo(fullTargetName);
+                    newDirInfo.LastWriteTime = DateTime.Now;
                     Process.Start(fullTargetName);
                 }
                 else {

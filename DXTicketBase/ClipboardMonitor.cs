@@ -120,7 +120,8 @@ namespace DXTicketBase {
                         break;
                     }
                 }
-
+                if (format == null)
+                    return;
                 object data = iData.GetData(format.ToString());
 
                 if (data == null || format == null)
