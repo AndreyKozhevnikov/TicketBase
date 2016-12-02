@@ -229,14 +229,14 @@ namespace DXTicketBase {
                     DirectoryInfo di = new DirectoryInfo(targetPath);
                     string fullTargetName = parentPath + di.Name;
                     Directory.Move(targetPath, fullTargetName);
-                    var newDirInfo = new DirectoryInfo(fullTargetName);
-                    newDirInfo.LastWriteTime = DateTime.Now;
+                    MakeFolderYoung(fullTargetName);
                     Process.Start(fullTargetName);
                 }
                 else {
                     var currentFolderList = Directory.GetDirectories(parentPath).ToList();
                     string currentTicketPath = currentFolderList.Find(x => x.Contains(number));
                     if (currentTicketPath != null) {
+                        MakeFolderYoung(currentTicketPath);
                         Process.Start(currentTicketPath);
                     }
                     else {
@@ -250,6 +250,12 @@ namespace DXTicketBase {
             }
             return false;
         }
+
+        private static void MakeFolderYoung(string fullTargetName) {
+            var newDirInfo = new DirectoryInfo(fullTargetName);
+            newDirInfo.LastWriteTime = DateTime.Now;
+        }
+
         private void CreateAndOpenSolution() {
             string folderPath = "";
             string number = SelectedTicket.Number;
