@@ -39,7 +39,7 @@ namespace DXTicketBase {
         ICommand _createAndOpenSolutionCommand;
         ICommand _saveAllCommand;
         ICommand _goToWebCommand;
-
+        ICommand _openFolderCommand;
         public ICommand GoToWebCommand {
             get {
                 if (_goToWebCommand == null)
@@ -84,7 +84,14 @@ namespace DXTicketBase {
                 return _copyToClipBoardCommand;
             }
         }
+        public ICommand OpenFolderCommand {
+            get {
+                if (_openFolderCommand == null)
+                    _openFolderCommand = new DelegateCommand(OpenFolder);
+                return _openFolderCommand;
+            }
 
+        }
         public ObservableCollection<MyTicket> ListTickets { get; set; }
         public MyTicket ThisTicket {
             get { return _thisTicket; }
@@ -120,7 +127,15 @@ namespace DXTicketBase {
         IServiceContainer ISupportServices.ServiceContainer { get { return ServiceContainer; } }
         IManageGridControl MyManageGridControlService { get { return ServiceContainer.GetService<IManageGridControl>(); } }
 
-
+        void OpenFolder() {
+            var num = SelectedTicket.Number;
+            string currentTicketPath = GetFolderInCurrentTickets(num);
+            if (currentTicketPath != null) {
+                Process.Start(currentTicketPath);
+                MakeFolderYoung(currentTicketPath);
+            }
+        }
+    
     }
 
     public partial class MyViewModel {
@@ -233,14 +248,13 @@ namespace DXTicketBase {
                     Process.Start(fullTargetName);
                 }
                 else {
-                    var currentFolderList = Directory.GetDirectories(parentPath).ToList();
-                    string currentTicketPath = currentFolderList.Find(x => x.Contains(number));
+                    string currentTicketPath = GetFolderInCurrentTickets(number);
                     if (currentTicketPath != null) {
                         MakeFolderYoung(currentTicketPath);
                         Process.Start(currentTicketPath);
                     }
                     else {
-                        var dst =string.Format("{0}{1}", parentPath , number);
+                        var dst = string.Format("{0}{1}", parentPath, number);
                         System.IO.Directory.CreateDirectory(dst);
                         Process.Start(dst);
                     }
@@ -251,9 +265,18 @@ namespace DXTicketBase {
             return false;
         }
 
+        private string GetFolderInCurrentTickets(string number) {
+            var currentFolderList = Directory.GetDirectories(parentPath).ToList();
+            string currentTicketPath = currentFolderList.Find(x => x.Contains(number));
+            return currentTicketPath;
+        }
+
         private static void MakeFolderYoung(string fullTargetName) {
             var newDirInfo = new DirectoryInfo(fullTargetName);
-            newDirInfo.LastWriteTime = DateTime.Now;
+            try {
+                newDirInfo.LastWriteTime = DateTime.Now;
+            }
+            catch { }
         }
 
         private void CreateAndOpenSolution() {
