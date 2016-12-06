@@ -183,6 +183,9 @@ namespace DXTicketBase {
             e.Handled = true;
         }
         private void AddNewTicket() {
+            if (string.IsNullOrEmpty(ThisTicket.ComplexSubject))
+                return;
+
             MyManageGridControlService.ClearFilter();
 
             ThisTicket.ParseComplexSubject();
