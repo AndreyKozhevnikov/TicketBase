@@ -39,7 +39,7 @@ namespace DXTicketBase {
             ClipboardMonitor.Start();
             ClipboardMonitor.OnClipboardChange += ClipboardMonitor_OnClipboardChange;
 
-         //   MakeMajorFolderOld();
+            //   MakeMajorFolderOld();
         }
 
         private static void MakeMajorFolderOld() {
@@ -53,14 +53,18 @@ namespace DXTicketBase {
             }
         }
 
-     
+
         private void ClipboardMonitor_OnClipboardChange(ClipboardFormat format, object data) {
             if (format == ClipboardFormat.Text) {
-                var st = data.ToString().Split(new string[] { "\r\n" },StringSplitOptions.None);
+                var st = data.ToString().Split(new string[] { "\r\n" }, StringSplitOptions.None);
                 if (st.Count() == 2) {
-                    vm.ThisTicket.ComplexSubject = st[0];
+                    var preSubj = st[0];
+                    string tmp;
+                    var b = MyTicket.IsTicketSubject(preSubj, out tmp);
+                    if (b)
+                        vm.ThisTicket.ComplexSubject = st[0];
                 }
-                
+
 
             }
         }
@@ -69,7 +73,7 @@ namespace DXTicketBase {
             ClipboardMonitor.Stop();
         }
 
-    
+
     }
 
 

@@ -27,10 +27,10 @@ namespace DXTicketBase {
                 NotifyPropertyChanged("Id");
             }
         }
-    //    string _number;
+        //    string _number;
 
         public string Number {
-            get { return parentTicketEntity.TicketNo; } 
+            get { return parentTicketEntity.TicketNo; }
             set {
                 parentTicketEntity.TicketNo = value;
                 NotifyPropertyChanged("Number");
@@ -48,8 +48,9 @@ namespace DXTicketBase {
 
         public string ComplexSubject {
             get { return _complexSubject; }
-            set { _complexSubject = value;
-            NotifyPropertyChanged("ComplexSubject");
+            set {
+                _complexSubject = value;
+                NotifyPropertyChanged("ComplexSubject");
             }
         }
         public DateTime? AddDate {
@@ -83,35 +84,39 @@ namespace DXTicketBase {
         bool _isConsider;
         bool _isSaved;
         string _comment;
-        
+
         string _subject;
         DateTime _addDate;
         bool _isToDelete;
 
+        public static bool IsTicketSubject(string input, out string result) {
+            Regex reg = new Regex(@"[B,E,S,Q,T]\d{4,6}");
 
 
-      public  void ParseComplexSubject() {
-          string st = ComplexSubject;
-         // if (st == null)
-         //     return;
-         // int ind = st.IndexOf('-')-1;
-         // if (ind < 0)
-         //     return;
-         //string tmpSt = st.Substring(0, ind);
-          Regex reg = new Regex(@"[B,E,S,Q,T]\d{4,6}");
+            var res = reg.Match(input);
+            result = res.Value;
+            return res.Success;
+        }
 
-        
-           var res = reg.Match(st);
-        
 
-          if (!res.Success) {
-              return;
-             
-          }
-            var tmpSt = res.Value;
+        public void ParseComplexSubject() {
+            string st = ComplexSubject;
+            // if (st == null)
+            //     return;
+            // int ind = st.IndexOf('-')-1;
+            // if (ind < 0)
+            //     return;
+            //string tmpSt = st.Substring(0, ind);
+            string tmpSt = String.Empty;
+            bool isSubj = IsTicketSubject(st,out tmpSt);
+
+            if (!isSubj) {
+                return;
+            }
+           
             var ost = st.Replace(tmpSt, "").Replace("-", "").Trim();
-          this.Number = tmpSt;
-          this.Subject = ost;
+            this.Number = tmpSt;
+            this.Subject = ost;
         }
 
 
@@ -125,7 +130,7 @@ namespace DXTicketBase {
             MyViewModel.generalEntity.SaveChanges();
             IsSaved = true;
         }
-     
+
 
         public event PropertyChangedEventHandler PropertyChanged;
         private void NotifyPropertyChanged(String propertyName) {
