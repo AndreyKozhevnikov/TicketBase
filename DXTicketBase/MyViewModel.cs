@@ -20,6 +20,8 @@ using System.Windows.Threading;
 namespace DXTicketBase {
     public partial class MyViewModel : INotifyPropertyChanged, ISupportServices {
 
+        static string totalCmdPath = @"C:\Program Files (x86)\totalcmd\TOTALCMD64.EXE";
+
         public event PropertyChangedEventHandler PropertyChanged;
         public static DXTicketsBaseEntities generalEntity;
 
@@ -248,24 +250,31 @@ namespace DXTicketBase {
                     string fullTargetName = parentPath + di.Name;
                     Directory.Move(targetPath, fullTargetName);
                     MakeFolderYoung(fullTargetName);
-                    Process.Start(fullTargetName);
+                    OpenFolderInTotalCommander(fullTargetName);
                 }
                 else {
                     string currentTicketPath = GetFolderInCurrentTickets(number);
                     if (currentTicketPath != null) {
                         MakeFolderYoung(currentTicketPath);
-                        Process.Start(currentTicketPath);
+                        OpenFolderInTotalCommander(currentTicketPath);
                     }
                     else {
                         var dst = string.Format("{0}{1}", parentPath, number);
                         System.IO.Directory.CreateDirectory(dst);
-                        Process.Start(dst);
+                        OpenFolderInTotalCommander(dst);
                     }
                 }
                 ThisTicket.ComplexSubject = string.Empty;
                 return true;
             }
             return false;
+        }
+
+        void OpenFolderInTotalCommander(string path) {
+            ProcessStartInfo startInfo = new ProcessStartInfo();
+            startInfo.FileName = totalCmdPath;
+            startInfo.Arguments = string.Format("/O /T /R=\"{0}\"",path);
+            Process.Start(startInfo);
         }
 
         private string GetFolderInCurrentTickets(string number) {
