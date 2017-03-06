@@ -230,9 +230,12 @@ namespace DXTicketBase {
             ThisTicket.SaveNewTicket();
             System.IO.Directory.CreateDirectory(res);
             ListTickets.Add(ThisTicket);
-            SelectedTicket = ThisTicket;
-            CreateNewticket();
-            generalEntity.SaveChanges();
+            Dispatcher.CurrentDispatcher.BeginInvoke((Action)(() =>
+            {
+                SelectedTicket = ThisTicket;
+                CreateNewticket();
+                generalEntity.SaveChanges();
+            }), DispatcherPriority.Background);
         }
 
         bool CheckIftheTicketExist(string number) {
