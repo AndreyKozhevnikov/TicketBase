@@ -133,7 +133,7 @@ namespace DXTicketBase {
             var num = SelectedTicket.Number;
             string currentTicketPath = GetFolderInCurrentTickets(num);
             if (currentTicketPath != null) {
-                Process.Start(currentTicketPath);
+                OpenFolderInTotalCommander(currentTicketPath);
                 MakeFolderYoung(currentTicketPath);
             }
         }
