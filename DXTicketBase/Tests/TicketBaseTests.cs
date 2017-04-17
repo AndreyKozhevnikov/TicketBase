@@ -57,20 +57,31 @@ namespace DXTicketBase {
             tkt.ParseComplexSubject();
             Assert.AreEqual(tkt.Number, "T123123");
         }
-            [Test]
+        [Test]
         public void ParseWrongSubject2() {
             MyTicket tkt = new MyTicket(new Ticket());
             tkt.ComplexSubject = @"123123: test";
             tkt.ParseComplexSubject();
             Assert.AreEqual(tkt.Number, null);
         }
-            [Test]
+        [Test]
         public void ParseWrongSubject3() {
             MyTicket tkt = new MyTicket(new Ticket());
             tkt.ComplexSubject = @"123123:test";
             tkt.ParseComplexSubject();
             Assert.AreEqual(tkt.Number, null);
         }
-
+        [Test]
+        public void NorimalizeTitle() {
+            //arrange
+            var st = "TreeListControl; setting CurrentItem from viewmodel not highlighting/selecting he row on grid when multi select row is enabled";
+            var vm = new MyViewModel();
+            //act
+            var res = vm.NormalizeTitle(st);
+            //assert
+            Assert.AreEqual(false, res.Contains(";"));
+            Assert.AreEqual(false, res.Contains("/"));
+            Assert.LessOrEqual(40, res.Length);
+        }
     }
 }

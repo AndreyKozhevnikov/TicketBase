@@ -137,7 +137,7 @@ namespace DXTicketBase {
                 MakeFolderYoung(currentTicketPath);
             }
         }
-    
+
     }
 
     public partial class MyViewModel {
@@ -184,6 +184,20 @@ namespace DXTicketBase {
             Clipboard.SetText(SelectedTicket.Number);
             e.Handled = true;
         }
+        protected internal string NormalizeTitle(string st) {
+            var lst = Path.GetInvalidFileNameChars().ToList();
+            lst.Add(';');
+            var b = st.IndexOfAny(lst.ToArray()) >= 0;
+            if (b) {
+                foreach (var ch in lst) {
+                    st = st.Replace(new string(new char[] { ch }), "");
+                }
+            }
+
+            if (st.Length > 40)
+                st = st.Remove(40);
+            return st;
+        }
         private void AddNewTicket() {
             if (string.IsNullOrEmpty(ThisTicket.ComplexSubject))
                 return;
@@ -197,28 +211,8 @@ namespace DXTicketBase {
             if (isAlreadeExist)
                 return;
             string name = string.Format("{0} {1}", ThisTicket.Number, ThisTicket.Subject);
-            var lst = Path.GetInvalidFileNameChars();
-            var b = name.IndexOfAny(lst) >= 0;
-            if (b) {
-                foreach (var ch in lst) {
-                    name = name.Replace(new string(new char[] { ch }), "");
-                    //var ind2 = fileName.IndexOf(ch);
-                    //if (ind2 >= 0) {
-                    //    fileName = fileName.Remove(ind2, 1);
-                    //}
-                }
-            }
-            //name = name.Replace("\\", "");
-            //name = name.Replace("/", "");
-            //name = name.Replace(":", "");
-            //name = name.Replace("*", "");
-            //name = name.Replace("?", "");
-            //name = name.Replace("\"", "");
-            //name = name.Replace("<", "");
-            //name = name.Replace(">", "");
-            //name = name.Replace("|", "");
-            if (name.Length > 40)
-                name = name.Remove(40);
+            name = NormalizeTitle(name);
+
 
 
             string res = parentPath + name;
@@ -230,8 +224,7 @@ namespace DXTicketBase {
             ThisTicket.SaveNewTicket();
             System.IO.Directory.CreateDirectory(res);
             ListTickets.Add(ThisTicket);
-            Dispatcher.CurrentDispatcher.BeginInvoke((Action)(() =>
-            {
+            Dispatcher.CurrentDispatcher.BeginInvoke((Action)(() => {
                 SelectedTicket = ThisTicket;
                 CreateNewticket();
                 generalEntity.SaveChanges();
@@ -276,7 +269,7 @@ namespace DXTicketBase {
         void OpenFolderInTotalCommander(string path) {
             ProcessStartInfo startInfo = new ProcessStartInfo();
             startInfo.FileName = totalCmdPath;
-            startInfo.Arguments = string.Format("/O /T /R=\"{0}\"",path);
+            startInfo.Arguments = string.Format("/O /T /R=\"{0}\"", path);
             Process.Start(startInfo);
         }
 
@@ -356,7 +349,7 @@ namespace DXTicketBase {
             slnText = slnText.Replace("dxSampleGrid", folderNumber);
             File.WriteAllText(slnPathWithProjectName, slnText);
 
-           
+
 
             Process.Start(slnPathWithProjectName);
 
