@@ -234,8 +234,13 @@ namespace DXTicketBase {
         bool CheckIftheTicketExist(string number) {
             var currTickect = ListTickets.Where(x => x.Number == number).FirstOrDefault();
             if (currTickect != null) {
-                SelectedTicket = currTickect;
-                MyManageGridControlService.Move();
+                Dispatcher.CurrentDispatcher.BeginInvoke((Action)(() =>
+                {
+                    SelectedTicket = currTickect;
+                    MyManageGridControlService.Move();
+                }), DispatcherPriority.Input);
+
+              
 
                 var allFiles = Directory.GetDirectories(solvedPath).ToList();
                 var allFilesOld = Directory.GetDirectories(solvedPathOld).ToList();
