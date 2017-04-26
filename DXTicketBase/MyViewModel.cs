@@ -42,6 +42,7 @@ namespace DXTicketBase {
         ICommand _saveAllCommand;
         ICommand _goToWebCommand;
         ICommand _openFolderCommand;
+        ICommand _deleteFoldersCommand;
         public ICommand GoToWebCommand {
             get {
                 if (_goToWebCommand == null)
@@ -94,6 +95,15 @@ namespace DXTicketBase {
             }
 
         }
+
+        public ICommand DeleteFoldersCommand {
+            get {
+                if (_deleteFoldersCommand == null)
+                    _deleteFoldersCommand = new DelegateCommand(DeleteFolders);
+                return _deleteFoldersCommand;
+            }
+
+        }
         public ObservableCollection<MyTicket> ListTickets { get; set; }
         public MyTicket ThisTicket {
             get { return _thisTicket; }
@@ -129,14 +139,8 @@ namespace DXTicketBase {
         IServiceContainer ISupportServices.ServiceContainer { get { return ServiceContainer; } }
         IManageGridControl MyManageGridControlService { get { return ServiceContainer.GetService<IManageGridControl>(); } }
 
-        void OpenFolder() {
-            var num = SelectedTicket.Number;
-            string currentTicketPath = GetFolderInCurrentTickets(num);
-            if (currentTicketPath != null) {
-                OpenFolderInTotalCommander(currentTicketPath);
-                MakeFolderYoung(currentTicketPath);
-            }
-        }
+
+
 
     }
 
@@ -171,8 +175,9 @@ namespace DXTicketBase {
         }
 
         void CreateTicketList() {
+            var lst = generalEntity.Tickets.Where(x => !x.IsFolderDelete).ToList();
             ListTickets = new ObservableCollection<MyTicket>();
-            foreach (var v in generalEntity.Tickets) {
+            foreach (var v in lst) {
                 ListTickets.Add(new MyTicket(v));
             }
         }
@@ -230,21 +235,24 @@ namespace DXTicketBase {
                 generalEntity.SaveChanges();
             }), DispatcherPriority.Background);
         }
-
+        List<string> GetAllDirectories() {
+            var allFiles = Directory.GetDirectories(solvedPath).ToList();
+            var allFilesOld = Directory.GetDirectories(solvedPathOld).ToList();
+            allFiles = allFiles.Concat(allFilesOld).ToList();
+            return allFiles;
+        }
         bool CheckIftheTicketExist(string number) {
             var currTickect = ListTickets.Where(x => x.Number == number).FirstOrDefault();
             if (currTickect != null) {
-                Dispatcher.CurrentDispatcher.BeginInvoke((Action)(() =>
-                {
+                Dispatcher.CurrentDispatcher.BeginInvoke((Action)(() => {
                     SelectedTicket = currTickect;
                     MyManageGridControlService.Move();
                 }), DispatcherPriority.Input);
 
-              
 
-                var allFiles = Directory.GetDirectories(solvedPath).ToList();
-                var allFilesOld = Directory.GetDirectories(solvedPathOld).ToList();
-                allFiles = allFiles.Concat(allFilesOld).ToList();
+
+
+                var allFiles = GetAllDirectories();
                 var targetPath = allFiles.Find(x => x.Contains(number));
                 if (targetPath != null) {
                     DirectoryInfo di = new DirectoryInfo(targetPath);
@@ -404,6 +412,38 @@ namespace DXTicketBase {
                 }
             }
         }
+        void OpenFolder() {
+            var num = SelectedTicket.Number;
+            string currentTicketPath = GetFolderInCurrentTickets(num);
+            if (currentTicketPath != null) {
+                OpenFolderInTotalCommander(currentTicketPath);
+                MakeFolderYoung(currentTicketPath);
+            }
+        }
+        void DeleteFolders() {
+            var stDate = DateTime.Today.AddMonths(-12);
+            var ticketsToDelet = ListTickets.Where(x => x.AddDate < stDate).ToList();
+            var res = MessageBox.Show(string.Format("delete {0} folders?", ticketsToDelet.Count), "Delete", MessageBoxButton.YesNo);
+            if (res == MessageBoxResult.Yes) {
+                var allDirectories = GetAllDirectories();
+                foreach (var ticket in ticketsToDelet) {
+                    var tNumber = ticket.Number;
+                    string st;
+                    var isRealTicketNumber = MyTicket.IsTicketSubject(tNumber, out st);
+                    if (isRealTicketNumber) {
+                        var targetPath = allDirectories.Find(x => x.Contains(ticket.Number + " "));
+                        if (targetPath != null)
+                            try {
+                                Directory.Delete(targetPath, true);
+                            }
+                            catch { }
+                    }
+                    ticket.IsIsFolderDeleted = true;
+                }
+            }
+        }
+
+
         private void NotifyPropertyChanged([CallerMemberName]String propertyName = "") {
             if (PropertyChanged != null) {
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));

@@ -79,6 +79,14 @@ namespace DXTicketBase {
                 IsSaved = false;
             }
         }
+        public bool IsIsFolderDeleted {
+            get {
+                return parentTicketEntity.IsFolderDelete;
+            }
+            set {
+                parentTicketEntity.IsFolderDelete = value;
+            }
+        }
 
         bool _isMy;
         bool _isConsider;

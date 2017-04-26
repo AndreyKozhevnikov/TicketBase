@@ -110,6 +110,7 @@
                     </dxmvvm:Interaction.Behaviors>
                 </Button>
                 <Button Height="35" Command="{Binding OpenFolderCommand}" Content="Open folder" />
+                <Button Height="20" Margin="0,50,0,0" Content="Delete old folders" Command="{Binding DeleteFoldersCommand}" />
             </StackPanel>
         </Grid>
     </Grid>

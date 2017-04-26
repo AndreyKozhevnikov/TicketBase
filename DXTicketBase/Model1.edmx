@@ -11,9 +11,10 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="AddDate" Type="datetime" />
-          <Property Name="TicketNo" Type="nchar" MaxLength="7" />
+          <Property Name="TicketNo" Type="varchar(max)" />
           <Property Name="Subject" Type="varchar(max)" />
           <Property Name="Comment" Type="varchar(max)" />
+          <Property Name="IsFolderDelete" Type="bit" Nullable="false" />
         </EntityType>
         <EntityContainer Name="DXTicketsBaseModelStoreContainer">
           <EntitySet Name="Tickets" EntityType="Self.Tickets" Schema="dbo" store:Type="Tables" />
@@ -28,9 +29,10 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="AddDate" Type="DateTime" Precision="3" />
-          <Property Name="TicketNo" Type="String" MaxLength="7" FixedLength="true" Unicode="true" />
+          <Property Name="TicketNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Subject" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IsFolderDelete" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityContainer Name="DXTicketsBaseEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Tickets" EntityType="Self.Ticket" />
@@ -44,6 +46,7 @@
           <EntitySetMapping Name="Tickets">
             <EntityTypeMapping TypeName="DXTicketsBaseModel.Ticket">
               <MappingFragment StoreEntitySet="Tickets">
+                <ScalarProperty Name="IsFolderDelete" ColumnName="IsFolderDelete" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="AddDate" ColumnName="AddDate" />
                 <ScalarProperty Name="TicketNo" ColumnName="TicketNo" />

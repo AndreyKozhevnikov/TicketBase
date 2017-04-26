@@ -19,5 +19,6 @@ namespace DXTicketBase
         public string TicketNo { get; set; }
         public string Subject { get; set; }
         public string Comment { get; set; }
+        public bool IsFolderDelete { get; set; }
     }
 }

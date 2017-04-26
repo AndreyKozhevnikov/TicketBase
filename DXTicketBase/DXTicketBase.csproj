@@ -149,9 +149,6 @@
     </Compile>
     <Compile Include="MyTicket.cs" />
     <Compile Include="MyViewModel.cs" />
-    <Compile Include="Tag.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Tests\TicketBaseTests.cs" />
     <Compile Include="Ticket.cs">
       <DependentUpon>Model1.tt</DependentUpon>
