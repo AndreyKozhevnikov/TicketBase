@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.Xpf.Core;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -14,6 +15,9 @@ namespace DXTicketBase {
     /// Interaction logic for App.xaml
     /// </summary>
     public partial class App : Application {
+        public App() {
+            ApplicationThemeHelper.UseLegacyDefaultTheme = true;
+        }
         protected override void OnStartup(StartupEventArgs e) {
             var pLst = Process.GetProcessesByName(Process.GetCurrentProcess().ProcessName);
             if (pLst.Length > 1) {

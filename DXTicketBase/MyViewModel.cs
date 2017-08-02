@@ -11,6 +11,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -319,8 +320,8 @@ namespace DXTicketBase {
                     }
                 }
             }
-            string folderNumber = number + "dx";
-            string solutionPath = dropBoxPath + @"work\templates\dxSampleGrid\";
+            string folderNumber = "dx" + number;
+            string solutionPath = dropBoxPath + @"work\templates\dxTestSolution\";
             folderPath = folderPath + string.Format(@"\{0}", folderNumber);
 
             var isAlreadyExist = Directory.Exists(folderPath);
@@ -328,43 +329,92 @@ namespace DXTicketBase {
                 return;
             }
             DirectoryCopy(solutionPath, folderPath, true);
-            string csProjPath = folderPath + @"\dxSampleGrid\dxSampleGrid.csproj";
-            string csProjPathWithName = folderPath + string.Format(@"\dxSampleGrid\{0}.csproj\", folderNumber);
-            System.IO.File.Move(csProjPath, csProjPathWithName);
 
-            string projPath = folderPath + @"\dxSampleGrid\";
-            string projPathWithName = folderPath + string.Format(@"\{0}\", folderNumber);
-            var s = projPath;
-            var s2 = projPathWithName;
+            //rename folders
+            //1 folders/files
+            var lst = new List<string>();
+            lst.Add(@"dxTestSolution.Module\dxTestSolution.Module.csproj");
+            lst.Add("dxTestSolution.Module\\");
+            lst.Add(@"dxTestSolution.Module.Win\dxTestSolution.Module.Win.csproj");
+            lst.Add("dxTestSolution.Module.Win\\");
+            lst.Add(@"dxTestSolution.Win\dxTestSolution.Win.csproj");
+            lst.Add("dxTestSolution.Win\\");
+            
+            lst.Add("dxTestSolution.sln");
+            var pattern = "dxTestSolution";
+            var replacement = folderNumber;
 
-            var b1 = Directory.Exists(s);
-            var b2 = Directory.Exists(s2);
-            var st = b1.ToString() + b2;
-            try {
-                System.IO.Directory.Move(projPath, projPathWithName);
+            foreach (var fl in lst) {
+                Regex rgx = new Regex(pattern);
+                MatchCollection matches = rgx.Matches(fl);
+                var newFl = rgx.Replace(fl, replacement, 1, matches.Count-1);
+                var fullFileName = folderPath + "\\" + fl;
+                var fullNewFileName = folderPath + "\\" + newFl;
+                Move(fullFileName, fullNewFileName);
             }
-            catch {
-                var er = Marshal.GetLastWin32Error();
-                string st555 = er.ToString();
-                Directory.Delete(folderPath);
-                //    System.IO.Directory.Move(projPath, projPathWithName);
+            void Move(string fromPath, string toPath)
+            {
+                var lstChar = fromPath[fromPath.Length - 1];
+                if (lstChar == '\\') {
+                    Directory.Move(fromPath, toPath);
+                    return;
+                }
+                File.Move(fromPath, toPath);
 
-
-
-                //return;
             }
 
-            string slnPath = folderPath + @"\dxSampleGrid.sln";
+
+            //2 sln file
             string slnPathWithProjectName = folderPath + string.Format(@"\{0}.sln", folderNumber);
-            System.IO.File.Move(slnPath, slnPathWithProjectName);
-
             string slnText = File.ReadAllText(slnPathWithProjectName);
-            slnText = slnText.Replace("dxSampleGrid", folderNumber);
+            slnText = slnText.Replace(pattern, replacement);
             File.WriteAllText(slnPathWithProjectName, slnText);
 
+            //3 connectionstring
+
+            string winAppConfPathWithProjectName = folderPath + string.Format(@"\{0}.Win\App.config",folderNumber);
+            string winAppConfText = File.ReadAllText(winAppConfPathWithProjectName);
+            winAppConfText = winAppConfText.Replace(pattern, replacement);
+            File.WriteAllText(winAppConfPathWithProjectName, winAppConfText);
 
 
-            Process.Start(slnPathWithProjectName);
+            //string csProjPath = folderPath + @"\dxSampleGrid\dxSampleGrid.csproj";
+            //string csProjPathWithName = folderPath + string.Format(@"\dxSampleGrid\{0}.csproj\", folderNumber);
+            //System.IO.File.Move(csProjPath, csProjPathWithName);
+
+            //string projPath = folderPath + @"\dxSampleGrid\";
+            //string projPathWithName = folderPath + string.Format(@"\{0}\", folderNumber);
+            //var s = projPath;
+            //var s2 = projPathWithName;
+
+            //var b1 = Directory.Exists(s);
+            //var b2 = Directory.Exists(s2);
+            //var st = b1.ToString() + b2;
+            //try {
+            //    System.IO.Directory.Move(projPath, projPathWithName);
+            //}
+            //catch {
+            //    var er = Marshal.GetLastWin32Error();
+            //    string st555 = er.ToString();
+            //    Directory.Delete(folderPath);
+            //    //    System.IO.Directory.Move(projPath, projPathWithName);
+
+
+
+            //    //return;
+            //}
+
+            //string slnPath = folderPath + @"\dxSampleGrid.sln";
+            //string slnPathWithProjectName = folderPath + string.Format(@"\{0}.sln", folderNumber);
+            //System.IO.File.Move(slnPath, slnPathWithProjectName);
+
+            //string slnText = File.ReadAllText(slnPathWithProjectName);
+            //slnText = slnText.Replace("dxSampleGrid", folderNumber);
+            //File.WriteAllText(slnPathWithProjectName, slnText);
+
+
+
+              Process.Start(slnPathWithProjectName);
 
         }
         private void SaveAll() {
