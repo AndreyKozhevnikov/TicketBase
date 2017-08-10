@@ -342,12 +342,11 @@ namespace DXTicketBase {
             
             lst.Add("dxTestSolution.sln");
             var pattern = "dxTestSolution";
-            var replacement = folderNumber;
 
             foreach (var fl in lst) {
                 Regex rgx = new Regex(pattern);
                 MatchCollection matches = rgx.Matches(fl);
-                var newFl = rgx.Replace(fl, replacement, 1, matches.Count-1);
+                var newFl = rgx.Replace(fl, folderNumber, 1, matches.Count-1);
                 var fullFileName = folderPath + "\\" + fl;
                 var fullNewFileName = folderPath + "\\" + newFl;
                 Move(fullFileName, fullNewFileName);
@@ -364,57 +363,33 @@ namespace DXTicketBase {
             }
 
 
-            //2 sln file
+            //4 replace old solution name in text files
+
+            var fileList = new List<string>();
+
+            fileList.Add(@"\{0}.Module\Module.cs");
+            fileList.Add(@"\{0}.Module\Module.Designer.cs");
+            fileList.Add(@"\{0}.Module\BusinessObjects\Contact.cs");
+            fileList.Add(@"\{0}.Module\DatabaseUpdate\Updater.cs");
+            fileList.Add(@"\{0}.Module.Win\WinModule.cs");
+            fileList.Add(@"\{0}.Module.Win\WinModule.Designer.cs");
+            fileList.Add(@"\{0}.Win\Program.cs");
+            fileList.Add(@"\{0}.Win\WinApplication.cs");
+            fileList.Add(@"\{0}.Win\WinApplication.Designer.cs");
+            fileList.Add(@"\{0}.Win\App.config"); //connectionstring
+            fileList.Add(@"\{0}.sln");
+
+            foreach (var file in fileList) {
+                string filePath = folderPath + string.Format(file, folderNumber);
+                string fileText = File.ReadAllText(filePath);
+                fileText = fileText.Replace(pattern, folderNumber);
+                File.WriteAllText(filePath, fileText);
+            }
             string slnPathWithProjectName = folderPath + string.Format(@"\{0}.sln", folderNumber);
-            string slnText = File.ReadAllText(slnPathWithProjectName);
-            slnText = slnText.Replace(pattern, replacement);
-            File.WriteAllText(slnPathWithProjectName, slnText);
-
-            //3 connectionstring
-
-            string winAppConfPathWithProjectName = folderPath + string.Format(@"\{0}.Win\App.config",folderNumber);
-            string winAppConfText = File.ReadAllText(winAppConfPathWithProjectName);
-            winAppConfText = winAppConfText.Replace(pattern, replacement);
-            File.WriteAllText(winAppConfPathWithProjectName, winAppConfText);
+         
 
 
-            //string csProjPath = folderPath + @"\dxSampleGrid\dxSampleGrid.csproj";
-            //string csProjPathWithName = folderPath + string.Format(@"\dxSampleGrid\{0}.csproj\", folderNumber);
-            //System.IO.File.Move(csProjPath, csProjPathWithName);
-
-            //string projPath = folderPath + @"\dxSampleGrid\";
-            //string projPathWithName = folderPath + string.Format(@"\{0}\", folderNumber);
-            //var s = projPath;
-            //var s2 = projPathWithName;
-
-            //var b1 = Directory.Exists(s);
-            //var b2 = Directory.Exists(s2);
-            //var st = b1.ToString() + b2;
-            //try {
-            //    System.IO.Directory.Move(projPath, projPathWithName);
-            //}
-            //catch {
-            //    var er = Marshal.GetLastWin32Error();
-            //    string st555 = er.ToString();
-            //    Directory.Delete(folderPath);
-            //    //    System.IO.Directory.Move(projPath, projPathWithName);
-
-
-
-            //    //return;
-            //}
-
-            //string slnPath = folderPath + @"\dxSampleGrid.sln";
-            //string slnPathWithProjectName = folderPath + string.Format(@"\{0}.sln", folderNumber);
-            //System.IO.File.Move(slnPath, slnPathWithProjectName);
-
-            //string slnText = File.ReadAllText(slnPathWithProjectName);
-            //slnText = slnText.Replace("dxSampleGrid", folderNumber);
-            //File.WriteAllText(slnPathWithProjectName, slnText);
-
-
-
-              Process.Start(slnPathWithProjectName);
+            Process.Start(slnPathWithProjectName);
 
         }
         private void SaveAll() {
