@@ -150,6 +150,7 @@ namespace DXTicketBase {
             ConnectToDataBase();
             CreateTicketList();
             CreateNewticket();
+            IsWinAttached = true;
         }
 
         private void CreateNewticket() {
@@ -301,7 +302,12 @@ namespace DXTicketBase {
             catch { }
         }
 
+        public bool IsWinAttached { get; set; }
+        public bool IsWebAttached { get; set; }
+
         private void CreateAndOpenSolution() {
+
+
             string folderPath = "";
             string number = SelectedTicket.Number;
             if (currentThreadFolder != null && currentThreadFolder.Contains(number)) { //find folder
@@ -321,32 +327,77 @@ namespace DXTicketBase {
                 }
             }
             string folderNumber = "dx" + number;
-            string solutionPath = dropBoxPath + @"work\templates\dxTestSolution\";
-            folderPath = folderPath + string.Format(@"\{0}", folderNumber);
+            string solutionPath = dropBoxPath + @"work\templates\dxTestSolution(ASP)\";
+            folderPath = folderPath + string.Format(@"\{0}\", folderNumber);
 
             var isAlreadyExist = Directory.Exists(folderPath);
             if (isAlreadyExist) {
                 return;
             }
-            DirectoryCopy(solutionPath, folderPath, true);
+            //   DirectoryCopy(solutionPath, folderPath, true);
+            Directory.CreateDirectory(folderPath);
+            DirectoryCopy(solutionPath, folderPath, "dxTestSolution.Module", true);
+            File.Copy(solutionPath + "dxTestSolution.sln", folderPath + "dxTestSolution.sln", true);
+            if (IsWinAttached) {
+                DirectoryCopy(solutionPath, folderPath, "dxTestSolution.Module.Win", true);
+                DirectoryCopy(solutionPath, folderPath, "dxTestSolution.Win", true);
+            }
+            if (IsWebAttached) {
+                DirectoryCopy(solutionPath, folderPath, "dxTestSolution.Module.Web", true);
+                DirectoryCopy(solutionPath, folderPath, "dxTestSolution.Web", true);
+            }
+            //add projects to sln
+            string projectString = "";
+            if (IsWinAttached) {
+                projectString = projectString + @"Project(""{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"")=""dxTestSolution.Module.Win"",""dxTestSolution.Module.Win\dxTestSolution.Module.Win.csproj"",""{7964F87D-BC5D-4C4E-8B2F-71E89739AA97}""";
+                projectString += Environment.NewLine;
+                projectString = projectString + "EndProject";
+                projectString += Environment.NewLine;
+                projectString = projectString + @"Project(""{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"")=""dxTestSolution.Win"",""dxTestSolution.Win\dxTestSolution.Win.csproj"",""{D05D93DF-312D-4D4E-B980-726871EC7833}""";
+                projectString += Environment.NewLine;
+                projectString = projectString + "EndProject";
+                projectString += Environment.NewLine;
+            }
+            if (IsWebAttached) {
+                projectString = projectString + @"Project(""{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"")=""dxTestSolution.Module.Web"",""dxTestSolution.Module.Web\dxTestSolution.Module.Web.csproj"",""{0C729AAD-7626-4668-A7F1-35F7D240489D}""";
+                projectString += Environment.NewLine;
+                projectString = projectString + "EndProject";
+                projectString += Environment.NewLine;
+                projectString = projectString + @"Project(""{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"")=""dxTestSolution.Web"",""dxTestSolution.Web\dxTestSolution.Web.csproj"",""{82A6DBC9-B1B4-44E4-9718-55DF930CD349}""";
+                projectString += Environment.NewLine;
+                projectString = projectString + "EndProject";
+                projectString += Environment.NewLine;
+            }
+            string slnPath = folderPath + "dxTestSolution.sln";
+            string slnText = File.ReadAllText(slnPath);
+            slnText = slnText.Replace("<ReplaceString>", projectString);
+            File.WriteAllText(slnPath, slnText);
+
 
             //rename folders
             //1 folders/files
             var lst = new List<string>();
             lst.Add(@"dxTestSolution.Module\dxTestSolution.Module.csproj");
             lst.Add("dxTestSolution.Module\\");
-            lst.Add(@"dxTestSolution.Module.Win\dxTestSolution.Module.Win.csproj");
-            lst.Add("dxTestSolution.Module.Win\\");
-            lst.Add(@"dxTestSolution.Win\dxTestSolution.Win.csproj");
-            lst.Add("dxTestSolution.Win\\");
-            
+            if (IsWinAttached) {
+                lst.Add(@"dxTestSolution.Module.Win\dxTestSolution.Module.Win.csproj");
+                lst.Add("dxTestSolution.Module.Win\\");
+                lst.Add(@"dxTestSolution.Win\dxTestSolution.Win.csproj");
+                lst.Add("dxTestSolution.Win\\");
+            }
+            if (IsWebAttached) {
+                lst.Add(@"dxTestSolution.Module.Web\dxTestSolution.Module.Web.csproj");
+                lst.Add("dxTestSolution.Module.Web\\");
+                lst.Add(@"dxTestSolution.Web\dxTestSolution.Web.csproj");
+                lst.Add("dxTestSolution.Web\\");
+            }
             lst.Add("dxTestSolution.sln");
             var pattern = "dxTestSolution";
 
             foreach (var fl in lst) {
                 Regex rgx = new Regex(pattern);
                 MatchCollection matches = rgx.Matches(fl);
-                var newFl = rgx.Replace(fl, folderNumber, 1, matches.Count-1);
+                var newFl = rgx.Replace(fl, folderNumber, 1, matches.Count - 1);
                 var fullFileName = folderPath + "\\" + fl;
                 var fullNewFileName = folderPath + "\\" + newFl;
                 Move(fullFileName, fullNewFileName);
@@ -363,20 +414,44 @@ namespace DXTicketBase {
             }
 
 
+
             //4 replace old solution name in text files
 
             var fileList = new List<string>();
 
             fileList.Add(@"\{0}.Module\Module.cs");
+            fileList.Add(@"\{0}.Module\{0}.Module.csproj");
             fileList.Add(@"\{0}.Module\Module.Designer.cs");
+            fileList.Add(@"\{0}.Module\Module.Designer.cs");
+            fileList.Add(@"\{0}.Module\Model.DesignedDiffs.xafml");
+            fileList.Add(@"\{0}.Module\Properties\AssemblyInfo.cs");
+            fileList.Add(@"\{0}.Module\Welcome.html");
             fileList.Add(@"\{0}.Module\BusinessObjects\Contact.cs");
             fileList.Add(@"\{0}.Module\DatabaseUpdate\Updater.cs");
-            fileList.Add(@"\{0}.Module.Win\WinModule.cs");
-            fileList.Add(@"\{0}.Module.Win\WinModule.Designer.cs");
-            fileList.Add(@"\{0}.Win\Program.cs");
-            fileList.Add(@"\{0}.Win\WinApplication.cs");
-            fileList.Add(@"\{0}.Win\WinApplication.Designer.cs");
-            fileList.Add(@"\{0}.Win\App.config"); //connectionstring
+            if (IsWinAttached) {
+                fileList.Add(@"\{0}.Module.Win\{0}.Module.Win.csproj");
+                fileList.Add(@"\{0}.Module.Win\Properties\AssemblyInfo.cs");
+                fileList.Add(@"\{0}.Module.Win\WinModule.cs");
+                fileList.Add(@"\{0}.Module.Win\WinModule.Designer.cs");
+                fileList.Add(@"\{0}.Win\Program.cs");
+                fileList.Add(@"\{0}.Win\WinApplication.cs");
+                fileList.Add(@"\{0}.Win\WinApplication.Designer.cs");
+                fileList.Add(@"\{0}.Win\App.config"); //connectionstring
+                fileList.Add(@"\{0}.Win\{0}.Win.csproj");
+                fileList.Add(@"\{0}.Win\Properties\AssemblyInfo.cs");
+                fileList.Add(@"\{0}.Win\Properties\Resources.Designer.cs");
+                fileList.Add(@"\{0}.Win\Properties\Settings.Designer.cs");
+            }
+            if (IsWebAttached) {
+                fileList.Add(@"\{0}.Module.Web\{0}.Module.Web.csproj");
+                fileList.Add(@"\{0}.Module.Web\WebModule.cs");
+                fileList.Add(@"\{0}.Module.Web\WebModule.Designer.cs");
+                fileList.Add(@"\{0}.Web\{0}.Web.csproj");
+                fileList.Add(@"\{0}.Web\Global.asax.cs");
+                fileList.Add(@"\{0}.Web\Global.asax");
+                fileList.Add(@"\{0}.Web\Web.config");
+                fileList.Add(@"\{0}.Web\WebApplication.cs");
+            }
             fileList.Add(@"\{0}.sln");
 
             foreach (var file in fileList) {
@@ -386,7 +461,7 @@ namespace DXTicketBase {
                 File.WriteAllText(filePath, fileText);
             }
             string slnPathWithProjectName = folderPath + string.Format(@"\{0}.sln", folderNumber);
-         
+
 
 
             Process.Start(slnPathWithProjectName);
@@ -404,6 +479,11 @@ namespace DXTicketBase {
             string adr = "https://isc.devexpress.com/Thread/WorkplaceDetails/" + n;
             System.Diagnostics.Process.Start(adr);
         }
+
+        private static void DirectoryCopy(string sourceDirName, string destDirName, string subFolderName, bool copySubDirs) {
+            DirectoryCopy(sourceDirName + subFolderName, destDirName + subFolderName, copySubDirs);
+        }
+
 
         private static void DirectoryCopy(string sourceDirName, string destDirName, bool copySubDirs) {
             // Get the subdirectories for the specified directory.
