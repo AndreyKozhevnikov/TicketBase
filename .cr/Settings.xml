@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Containers>
+  <Container Key="-1592402827">
+    <Items>
+      <Item Id="{f735fae3-54af-4af1-9429-66c3dd2ec165}">
+        <Id>1</Id>
+        <File>DXTicketBase\MyViewModel.cs</File>
+        <Line>307</Line>
+        <Character>25</Character>
+      </Item>
+    </Items>
+  </Container>
+</Containers>

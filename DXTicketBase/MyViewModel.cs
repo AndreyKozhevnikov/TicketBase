@@ -359,11 +359,11 @@ namespace DXTicketBase {
                 projectString += Environment.NewLine;
             }
             if (IsWebAttached) {
-                projectString = projectString + @"Project(""{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"")=""dxTestSolution.Module.Web"",""dxTestSolution.Module.Web\dxTestSolution.Module.Web.csproj"",""{0C729AAD-7626-4668-A7F1-35F7D240489D}""";
+                projectString = projectString + @"Project(""{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"")=""dxTestSolution.Web"",""dxTestSolution.Web\dxTestSolution.Web.csproj"",""{82A6DBC9-B1B4-44E4-9718-55DF930CD349}""";
                 projectString += Environment.NewLine;
                 projectString = projectString + "EndProject";
                 projectString += Environment.NewLine;
-                projectString = projectString + @"Project(""{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"")=""dxTestSolution.Web"",""dxTestSolution.Web\dxTestSolution.Web.csproj"",""{82A6DBC9-B1B4-44E4-9718-55DF930CD349}""";
+                projectString = projectString + @"Project(""{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"")=""dxTestSolution.Module.Web"",""dxTestSolution.Module.Web\dxTestSolution.Module.Web.csproj"",""{0C729AAD-7626-4668-A7F1-35F7D240489D}""";
                 projectString += Environment.NewLine;
                 projectString = projectString + "EndProject";
                 projectString += Environment.NewLine;
