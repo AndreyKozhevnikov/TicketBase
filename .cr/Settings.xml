@@ -2,7 +2,7 @@
 <Containers>
   <Container Key="-1592402827">
     <Items>
-      <Item Id="{f735fae3-54af-4af1-9429-66c3dd2ec165}">
+      <Item Id="{eb247c62-2ce9-42ac-83a2-176e6fb00b63}">
         <Id>1</Id>
         <File>DXTicketBase\MyViewModel.cs</File>
         <Line>307</Line>
