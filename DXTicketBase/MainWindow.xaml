@@ -91,6 +91,7 @@
                 <StackPanel Orientation="Horizontal">
                     <CheckBox Content="Win" IsChecked="{Binding IsWinAttached,Mode=TwoWay}"/>
                     <CheckBox Content="Web" IsChecked="{Binding IsWebAttached,Mode=TwoWay}"/>
+                    <CheckBox Content="Security" IsChecked="{Binding IsSecurity,Mode=TwoWay}"/>
                 </StackPanel>
                 
             </StackPanel>
