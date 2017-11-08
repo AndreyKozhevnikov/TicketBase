@@ -425,6 +425,8 @@ namespace DXTicketBase {
             fileList.Add(@"\{0}.Module\Welcome.html");
             fileList.Add(@"\{0}.Module\BusinessObjects\Contact.cs");
             fileList.Add(@"\{0}.Module\BusinessObjects\MyTask.cs");
+            fileList.Add(@"\{0}.Module\BusinessObjects\CustomClasses.cs");
+            fileList.Add(@"\{0}.Module\Controllers\CustomControllers.cs");
             fileList.Add(@"\{0}.Module\DatabaseUpdate\Updater.cs");
             if(IsWinAttached) {
                 fileList.Add(@"\{0}.Module.Win\{0}.Module.Win.csproj");
