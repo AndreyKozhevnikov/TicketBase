@@ -51,6 +51,13 @@ namespace DXTicketBase {
             Assert.AreEqual(tkt.Number, "E1234");
         }
         [Test]
+        public void ParseExample2() {
+            MyTicket tkt = new MyTicket(new Ticket());
+            tkt.ComplexSubject = @"E689: test";
+            tkt.ParseComplexSubject();
+            Assert.AreEqual("E689",tkt.Number);
+        }
+        [Test]
         public void ParseWrongSubject0() {
             MyTicket tkt = new MyTicket(new Ticket());
             tkt.ComplexSubject = @"E1234:test";

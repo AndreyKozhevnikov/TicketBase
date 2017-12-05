@@ -98,7 +98,7 @@ namespace DXTicketBase {
         bool _isToDelete;
 
         public static bool IsTicketSubject(string input, out string result) {
-            Regex reg = new Regex(@"[B,E,S,Q,T,K]\d{4,6}");
+            Regex reg = new Regex(@"[B,E,S,Q,T,K]\d{3,6}");
             var res = reg.Match(input);
             result = res.Value;
             return res.Success;
