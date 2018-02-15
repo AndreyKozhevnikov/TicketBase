@@ -434,6 +434,7 @@ namespace DXTicketBase {
                 fileList.Add(@"\{0}.Module.Win\Properties\AssemblyInfo.cs");
                 fileList.Add(@"\{0}.Module.Win\WinModule.cs");
                 fileList.Add(@"\{0}.Module.Win\WinModule.Designer.cs");
+                fileList.Add(@"\{0}.Module.Win\Controllers\CustomWinController.cs");
                 fileList.Add(@"\{0}.Win\Program.cs");
                 fileList.Add(@"\{0}.Win\WinApplication.cs");
                 fileList.Add(@"\{0}.Win\WinApplication.Designer.cs");
@@ -447,8 +448,9 @@ namespace DXTicketBase {
                 fileList.Add(@"\{0}.Module.Web\{0}.Module.Web.csproj");
                 fileList.Add(@"\{0}.Module.Web\WebModule.cs");
                 fileList.Add(@"\{0}.Module.Web\WebModule.Designer.cs");
+                fileList.Add(@"\{0}.Module.Web\Controllers\CustomWebController.cs");
                 fileList.Add(@"\{0}.Web\{0}.Web.csproj");
-                fileList.Add(@"\{0}.Web\Global.asax.cs");
+                fileList.Add(@"\{0}.Web\Global.asax.cs"); 
                 fileList.Add(@"\{0}.Web\Global.asax");
                 fileList.Add(@"\{0}.Web\Web.config");
                 fileList.Add(@"\{0}.Web\WebApplication.cs");
