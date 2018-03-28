@@ -304,6 +304,7 @@ namespace DXTicketBase {
         public bool IsSecurity { get; set; }
         string folderPath = "";
         string folderNumber = "";
+        string finalSolutionFolderPath = "";
         private void CreateAndOpenSolution() {
 
 
@@ -325,23 +326,41 @@ namespace DXTicketBase {
             }
             folderNumber = "dx" + number;
             string solutionPath = dropBoxPath + @"work\templates\dxTestSolution(Secur)\";
-            folderPath = folderPath + string.Format(@"\{0}\", folderNumber);
+            finalSolutionFolderPath = folderPath + string.Format(@"\{0}\", folderNumber);
 
-            var isAlreadyExist = Directory.Exists(folderPath);
-            if(isAlreadyExist) {
-                return;
-            }
-            //   DirectoryCopy(solutionPath, folderPath, true);
-            Directory.CreateDirectory(folderPath);
-            DirectoryCopy(solutionPath, folderPath, "dxTestSolution.Module", true);
-            File.Copy(solutionPath + "dxTestSolution.sln", folderPath + "dxTestSolution.sln", true);
+            bool canNotCreateSolution = true;
+            int tmpCount = 0;
+            MessageBoxResult? needCreateNewOne = null;
+            do {
+
+                var isAlreadyExist = Directory.Exists(finalSolutionFolderPath);
+                if(isAlreadyExist) {
+                    if(needCreateNewOne == null)
+                        needCreateNewOne = MessageBox.Show("Solution exists. Create a new one?", "Already exists", MessageBoxButton.YesNo);
+                    if(needCreateNewOne.Value == MessageBoxResult.Yes) {
+                        var tmpFolderNumber = folderNumber + "v" + ++tmpCount;
+                        finalSolutionFolderPath = folderPath + string.Format(@"\{0}\", tmpFolderNumber);
+                    } else {
+                        return;
+                    }
+                } else {
+                    canNotCreateSolution = false;
+                }
+            } while(canNotCreateSolution);
+
+
+
+                //   DirectoryCopy(solutionPath, folderPath, true);
+            Directory.CreateDirectory(finalSolutionFolderPath);
+            DirectoryCopy(solutionPath, finalSolutionFolderPath, "dxTestSolution.Module", true);
+            File.Copy(solutionPath + "dxTestSolution.sln", finalSolutionFolderPath + "dxTestSolution.sln", true);
             if(IsWinAttached) {
-                DirectoryCopy(solutionPath, folderPath, "dxTestSolution.Module.Win", true);
-                DirectoryCopy(solutionPath, folderPath, "dxTestSolution.Win", true);
+                DirectoryCopy(solutionPath, finalSolutionFolderPath, "dxTestSolution.Module.Win", true);
+                DirectoryCopy(solutionPath, finalSolutionFolderPath, "dxTestSolution.Win", true);
             }
             if(IsWebAttached) {
-                DirectoryCopy(solutionPath, folderPath, "dxTestSolution.Module.Web", true);
-                DirectoryCopy(solutionPath, folderPath, "dxTestSolution.Web", true);
+                DirectoryCopy(solutionPath, finalSolutionFolderPath, "dxTestSolution.Module.Web", true);
+                DirectoryCopy(solutionPath, finalSolutionFolderPath, "dxTestSolution.Web", true);
             }
             //add projects to sln
             string projectString = "";
@@ -365,7 +384,7 @@ namespace DXTicketBase {
                 projectString += Environment.NewLine;
                 projectString = projectString + "EndProject";
             }
-            string slnPath = folderPath + "dxTestSolution.sln";
+            string slnPath = finalSolutionFolderPath + "dxTestSolution.sln";
             string slnText = File.ReadAllText(slnPath);
             slnText = slnText.Replace("<ReplaceString>", projectString);
             File.WriteAllText(slnPath, slnText);
@@ -395,8 +414,8 @@ namespace DXTicketBase {
                 Regex rgx = new Regex(pattern);
                 MatchCollection matches = rgx.Matches(fl);
                 var newFl = rgx.Replace(fl, folderNumber, 1, matches.Count - 1);
-                var fullFileName = folderPath + "\\" + fl;
-                var fullNewFileName = folderPath + "\\" + newFl;
+                var fullFileName = finalSolutionFolderPath + "\\" + fl;
+                var fullNewFileName = finalSolutionFolderPath + "\\" + newFl;
                 Move(fullFileName, fullNewFileName);
             }
             void Move(string fromPath, string toPath)
@@ -427,7 +446,7 @@ namespace DXTicketBase {
             fileList.Add(@"\{0}.Module\BusinessObjects\MyTask.cs");
             fileList.Add(@"\{0}.Module\BusinessObjects\CustomClass.cs");
             fileList.Add(@"\{0}.Module\Controllers\CustomControllers.cs");
-            
+
             fileList.Add(@"\{0}.Module\DatabaseUpdate\Updater.cs");
             if(IsWinAttached) {
                 fileList.Add(@"\{0}.Module.Win\{0}.Module.Win.csproj");
@@ -450,7 +469,7 @@ namespace DXTicketBase {
                 fileList.Add(@"\{0}.Module.Web\WebModule.Designer.cs");
                 fileList.Add(@"\{0}.Module.Web\Controllers\CustomWebController.cs");
                 fileList.Add(@"\{0}.Web\{0}.Web.csproj");
-                fileList.Add(@"\{0}.Web\Global.asax.cs"); 
+                fileList.Add(@"\{0}.Web\Global.asax.cs");
                 fileList.Add(@"\{0}.Web\Global.asax");
                 fileList.Add(@"\{0}.Web\Web.config");
                 fileList.Add(@"\{0}.Web\WebApplication.cs");
@@ -487,13 +506,13 @@ namespace DXTicketBase {
             }
 
 
-            string slnPathWithProjectName = folderPath + string.Format(@"\{0}.sln", folderNumber);
+            string slnPathWithProjectName = finalSolutionFolderPath + string.Format(@"\{0}.sln", folderNumber);
             Process.Start(slnPathWithProjectName);
 
         }
 
         void ReplaceTextInFile(string fileName, string oldValue, string newValue) {
-            string filePath = folderPath + string.Format(fileName, folderNumber);
+            string filePath = finalSolutionFolderPath + string.Format(fileName, folderNumber);
             string fileText = File.ReadAllText(filePath);
             fileText = fileText.Replace(oldValue, newValue);
             File.WriteAllText(filePath, fileText);
