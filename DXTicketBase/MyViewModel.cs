@@ -364,15 +364,7 @@ namespace DXTicketBase {
             }
             //add projects to sln
             string projectString = "";
-            if(IsWinAttached) {
-                projectString = projectString + @"Project(""{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"")=""dxTestSolution.Win"",""dxTestSolution.Win\dxTestSolution.Win.csproj"",""{D05D93DF-312D-4D4E-B980-726871EC7833}""";
-                projectString += Environment.NewLine;
-                projectString = projectString + "EndProject";
-                projectString += Environment.NewLine;
-                projectString = projectString + @"Project(""{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"")=""dxTestSolution.Module.Win"",""dxTestSolution.Module.Win\dxTestSolution.Module.Win.csproj"",""{7964F87D-BC5D-4C4E-8B2F-71E89739AA97}""";
-                projectString += Environment.NewLine;
-                projectString = projectString + "EndProject";
-            }
+          
             if(IsWebAttached) {
                 if(IsWinAttached) //how to get rid off?
                     projectString += Environment.NewLine;
@@ -381,6 +373,15 @@ namespace DXTicketBase {
                 projectString = projectString + "EndProject";
                 projectString += Environment.NewLine;
                 projectString = projectString + @"Project(""{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"")=""dxTestSolution.Module.Web"",""dxTestSolution.Module.Web\dxTestSolution.Module.Web.csproj"",""{0C729AAD-7626-4668-A7F1-35F7D240489D}""";
+                projectString += Environment.NewLine;
+                projectString = projectString + "EndProject";
+            }
+            if(IsWinAttached) {
+                projectString = projectString + @"Project(""{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"")=""dxTestSolution.Win"",""dxTestSolution.Win\dxTestSolution.Win.csproj"",""{D05D93DF-312D-4D4E-B980-726871EC7833}""";
+                projectString += Environment.NewLine;
+                projectString = projectString + "EndProject";
+                projectString += Environment.NewLine;
+                projectString = projectString + @"Project(""{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"")=""dxTestSolution.Module.Win"",""dxTestSolution.Module.Win\dxTestSolution.Module.Win.csproj"",""{7964F87D-BC5D-4C4E-8B2F-71E89739AA97}""";
                 projectString += Environment.NewLine;
                 projectString = projectString + "EndProject";
             }
