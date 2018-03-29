@@ -21,21 +21,21 @@
             userRole.AddTypePermissionsRecursively<PermissionPolicyRole>(SecurityOperations.Read, SecurityPermissionState.Allow);
             userRole.AddTypePermissionsRecursively<AuditDataItemPersistent>(SecurityOperations.CRUDAccess, SecurityPermissionState.Allow);
             // ... 
-            // If a user named 'Sam' does not exist in the database, create this user. 
+           
             PermissionPolicyUser user1 = ObjectSpace.FindObject<PermissionPolicyUser>(
-              new BinaryOperator("UserName", "Sam"));
+              new BinaryOperator("UserName", "Admin"));
             if(user1 == null) {
                 user1 = ObjectSpace.CreateObject<PermissionPolicyUser>();
-                user1.UserName = "Sam";
+                user1.UserName = "Admin";
                 // Set a password if the standard authentication type is used. 
                 user1.SetPassword("");
             }
-            // If a user named 'John' does not exist in the database, create this user. 
+            
             PermissionPolicyUser user2 = ObjectSpace.FindObject<PermissionPolicyUser>(
-                 new BinaryOperator("UserName", "John"));
+                 new BinaryOperator("UserName", "User"));
             if(user2 == null) {
                 user2 = ObjectSpace.CreateObject<PermissionPolicyUser>();
-                user2.UserName = "John";
+                user2.UserName = "User";
                 // Set a password if the standard authentication type is used. 
                 user2.SetPassword("");
             }
