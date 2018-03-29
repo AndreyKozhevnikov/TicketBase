@@ -366,8 +366,6 @@ namespace DXTicketBase {
             string projectString = "";
           
             if(IsWebAttached) {
-                if(IsWinAttached) //how to get rid off?
-                    projectString += Environment.NewLine;
                 projectString = projectString + @"Project(""{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"")=""dxTestSolution.Web"",""dxTestSolution.Web\dxTestSolution.Web.csproj"",""{82A6DBC9-B1B4-44E4-9718-55DF930CD349}""";
                 projectString += Environment.NewLine;
                 projectString = projectString + "EndProject";
@@ -377,6 +375,8 @@ namespace DXTicketBase {
                 projectString = projectString + "EndProject";
             }
             if(IsWinAttached) {
+                if(IsWebAttached) //how to get rid off?
+                    projectString += Environment.NewLine;
                 projectString = projectString + @"Project(""{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"")=""dxTestSolution.Win"",""dxTestSolution.Win\dxTestSolution.Win.csproj"",""{D05D93DF-312D-4D4E-B980-726871EC7833}""";
                 projectString += Environment.NewLine;
                 projectString = projectString + "EndProject";
