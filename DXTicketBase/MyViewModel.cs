@@ -434,53 +434,60 @@ namespace DXTicketBase {
 
             //4 replace old solution name in text files
 
-            var fileList = new List<string>();
-
-            fileList.Add(@"\{0}.Module\Module.cs");
-            fileList.Add(@"\{0}.Module\{0}.Module.csproj");
-            fileList.Add(@"\{0}.Module\Module.Designer.cs");
-            fileList.Add(@"\{0}.Module\Module.Designer.cs");
-            fileList.Add(@"\{0}.Module\Model.DesignedDiffs.xafml");
-            fileList.Add(@"\{0}.Module\Properties\AssemblyInfo.cs");
-            fileList.Add(@"\{0}.Module\Welcome.html");
-            fileList.Add(@"\{0}.Module\BusinessObjects\Contact.cs");
-            fileList.Add(@"\{0}.Module\BusinessObjects\MyTask.cs");
-            fileList.Add(@"\{0}.Module\BusinessObjects\CustomClass.cs");
-            fileList.Add(@"\{0}.Module\Controllers\CustomControllers.cs");
-
-            fileList.Add(@"\{0}.Module\DatabaseUpdate\Updater.cs");
-            if(IsWinAttached) {
-                fileList.Add(@"\{0}.Module.Win\{0}.Module.Win.csproj");
-                fileList.Add(@"\{0}.Module.Win\Properties\AssemblyInfo.cs");
-                fileList.Add(@"\{0}.Module.Win\WinModule.cs");
-                fileList.Add(@"\{0}.Module.Win\WinModule.Designer.cs");
-                fileList.Add(@"\{0}.Module.Win\Controllers\CustomWinController.cs");
-                fileList.Add(@"\{0}.Win\Program.cs");
-                fileList.Add(@"\{0}.Win\WinApplication.cs");
-                fileList.Add(@"\{0}.Win\WinApplication.Designer.cs");
-                fileList.Add(@"\{0}.Win\App.config"); //connectionstring
-                fileList.Add(@"\{0}.Win\{0}.Win.csproj");
-                fileList.Add(@"\{0}.Win\Properties\AssemblyInfo.cs");
-                fileList.Add(@"\{0}.Win\Properties\Resources.Designer.cs");
-                fileList.Add(@"\{0}.Win\Properties\Settings.Designer.cs");
+           
+            var alltxtFiles = Directory.GetFiles(finalSolutionFolderPath,"*.*",SearchOption.AllDirectories);
+            foreach (var fl in alltxtFiles) {
+                var txt = File.ReadAllText(fl);
+                if(txt.Contains(pattern)) {
+                    txt = txt.Replace(pattern, folderNumber);
+                    File.WriteAllText(fl, txt);
+                }
             }
-            if(IsWebAttached) {
-                fileList.Add(@"\{0}.Module.Web\{0}.Module.Web.csproj");
-                fileList.Add(@"\{0}.Module.Web\WebModule.cs");
-                fileList.Add(@"\{0}.Module.Web\WebModule.Designer.cs");
-                fileList.Add(@"\{0}.Module.Web\Controllers\CustomWebController.cs");
-                fileList.Add(@"\{0}.Web\{0}.Web.csproj");
-                fileList.Add(@"\{0}.Web\Global.asax.cs");
-                fileList.Add(@"\{0}.Web\Global.asax");
-                fileList.Add(@"\{0}.Web\Web.config");
-                fileList.Add(@"\{0}.Web\WebApplication.cs");
-            }
-            fileList.Add(@"\{0}.sln");
+            
+            //fileList.Add(@"\{0}.Module\Module.cs");
+            //fileList.Add(@"\{0}.Module\{0}.Module.csproj");
+            //fileList.Add(@"\{0}.Module\Module.Designer.cs");
+            //fileList.Add(@"\{0}.Module\Model.DesignedDiffs.xafml");
+            //fileList.Add(@"\{0}.Module\Properties\AssemblyInfo.cs");
+            //fileList.Add(@"\{0}.Module\Welcome.html");
+            //fileList.Add(@"\{0}.Module\BusinessObjects\Contact.cs");
+            //fileList.Add(@"\{0}.Module\BusinessObjects\MyTask.cs");
+            //fileList.Add(@"\{0}.Module\BusinessObjects\CustomClass.cs");
+            //fileList.Add(@"\{0}.Module\Controllers\CustomControllers.cs");
 
-            foreach(var file in fileList) {
-                ReplaceTextInFile(file, pattern, folderNumber);
+            //fileList.Add(@"\{0}.Module\DatabaseUpdate\Updater.cs");
+            //if(IsWinAttached) {
+            //    fileList.Add(@"\{0}.Module.Win\{0}.Module.Win.csproj");
+            //    fileList.Add(@"\{0}.Module.Win\Properties\AssemblyInfo.cs");
+            //    fileList.Add(@"\{0}.Module.Win\WinModule.cs");
+            //    fileList.Add(@"\{0}.Module.Win\WinModule.Designer.cs");
+            //    fileList.Add(@"\{0}.Module.Win\Controllers\CustomWinController.cs");
+            //    fileList.Add(@"\{0}.Win\Program.cs");
+            //    fileList.Add(@"\{0}.Win\WinApplication.cs");
+            //    fileList.Add(@"\{0}.Win\WinApplication.Designer.cs");
+            //    fileList.Add(@"\{0}.Win\App.config"); //connectionstring
+            //    fileList.Add(@"\{0}.Win\{0}.Win.csproj");
+            //    fileList.Add(@"\{0}.Win\Properties\AssemblyInfo.cs");
+            //    fileList.Add(@"\{0}.Win\Properties\Resources.Designer.cs");
+            //    fileList.Add(@"\{0}.Win\Properties\Settings.Designer.cs");
+            //}
+            //if(IsWebAttached) {
+            //    fileList.Add(@"\{0}.Module.Web\{0}.Module.Web.csproj");
+            //    fileList.Add(@"\{0}.Module.Web\WebModule.cs");
+            //    fileList.Add(@"\{0}.Module.Web\WebModule.Designer.cs");
+            //    fileList.Add(@"\{0}.Module.Web\Controllers\CustomWebController.cs");
+            //    fileList.Add(@"\{0}.Web\{0}.Web.csproj");
+            //    fileList.Add(@"\{0}.Web\Global.asax.cs");
+            //    fileList.Add(@"\{0}.Web\Global.asax");
+            //    fileList.Add(@"\{0}.Web\Web.config");
+            //    fileList.Add(@"\{0}.Web\WebApplication.cs");
+            //}
+            //fileList.Add(@"\{0}.sln");
 
-            }
+            //foreach(var file in fileList) {
+            //    ReplaceTextInFile(file, pattern, folderNumber);
+
+            //}
 
             //5 add security
             if(IsSecurity) {
@@ -502,8 +509,6 @@ namespace DXTicketBase {
                         ReplaceTextInFile(fl, key, securityDictionary[key]);
                     }
                 }
-
-
             }
 
 
@@ -555,6 +560,17 @@ namespace DXTicketBase {
             var st4 = "   this.Modules.Add(this.securityModule1);\r\n" +
            " this.Security = this.securityStrategyComplex1;\r\n";
             dict["//secur#4"] = st4;
+
+            return dict;
+        }
+
+        Dictionary<string,string> CreateReportDictionary() {
+            Dictionary<string, string> dict = new Dictionary<string, string>();
+            var st0 = @"    <Reference Include=""DevExpress.ExpressApp.ReportsV2.v17.2, Version = 17.2.7.0, Culture = neutral, PublicKeyToken = b88d1754d700e49a, processorArchitecture = MSIL"">
+                              <SpecificVersion>False</SpecificVersion>
+                             </Reference>";
+            dict["//reprt0"] = st0;
+
 
             return dict;
         }

@@ -97,5 +97,10 @@ namespace DXTicketBase {
             Assert.AreEqual(false, res.Contains("/"));
             Assert.LessOrEqual(40, res.Length);
         }
+
+        [Test]
+        public void TestGetAllFilesWithSolution() {
+           // var lst=dir
+        }
     }
 }
