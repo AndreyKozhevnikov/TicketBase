@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace DXTicketBase {
     [TestFixture]
@@ -100,7 +101,17 @@ namespace DXTicketBase {
 
         [Test]
         public void TestGetAllFilesWithSolution() {
-           // var lst=dir
+              var xDoc = XDocument.Load("TextToReplace.txt");
+            var files = xDoc.Element("Replace").Element("Files").Elements();
+            var items = xDoc.Element("Replace").Element("Items").Elements();
+            foreach (var e in items) {
+                Console.WriteLine(e.Value);
+            }
+            
+            var xEl = new XElement("myname");
+            xEl.Value = "<test>";
+            Console.Write(xEl);
+            
         }
     }
 }

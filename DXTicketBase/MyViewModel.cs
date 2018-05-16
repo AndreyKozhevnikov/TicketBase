@@ -17,6 +17,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Threading;
+using System.Xml.Linq;
 
 namespace DXTicketBase {
     public partial class MyViewModel : INotifyPropertyChanged, ISupportServices {
@@ -302,6 +303,7 @@ namespace DXTicketBase {
         public bool IsWinAttached { get; set; }
         public bool IsWebAttached { get; set; }
         public bool IsSecurity { get; set; }
+        public bool IsReport{ get; set; }
         string folderPath = "";
         string folderNumber = "";
         string finalSolutionFolderPath = "";
@@ -325,7 +327,7 @@ namespace DXTicketBase {
                 }
             }
             folderNumber = "dx" + number;
-            string solutionPath = dropBoxPath + @"work\templates\dxTestSolution(Secur)\";
+            string solutionPath = dropBoxPath + @"work\templates\MainSolution\dxTestSolution(Secur)\";
             finalSolutionFolderPath = folderPath + string.Format(@"\{0}\", folderNumber);
 
             bool canNotCreateSolution = true;
@@ -443,7 +445,7 @@ namespace DXTicketBase {
                     File.WriteAllText(fl, txt);
                 }
             }
-            
+
             //fileList.Add(@"\{0}.Module\Module.cs");
             //fileList.Add(@"\{0}.Module\{0}.Module.csproj");
             //fileList.Add(@"\{0}.Module\Module.Designer.cs");
@@ -490,28 +492,34 @@ namespace DXTicketBase {
             //}
 
             //5 add security
+            List<string> tokens = new List<string>();
             if(IsSecurity) {
-                Dictionary<string, string> securityDictionary = CreateSecurityDictionary();
-
-                var updateFile = @"\{0}.Module\DatabaseUpdate\Updater.cs";
-                var winFile = @"\{0}.Win\WinApplication.Designer.cs";
-                var webFile = @"\{0}.Web\WebApplication.cs";
-                ReplaceTextInFile(updateFile, "//secur#0", securityDictionary["//secur#0"]);
-                var lstProjectFiles = new List<string>();
-                if(IsWinAttached)
-                    lstProjectFiles.Add(winFile);
-                if(IsWebAttached)
-                    lstProjectFiles.Add(webFile);
-
-                foreach(var fl in lstProjectFiles) {
-                    for(int i = 1; i <= 4; i++) {
-                        var key = "//secur#" + i;
-                        ReplaceTextInFile(fl, key, securityDictionary[key]);
+                tokens.Add("security");
+            }
+            if(IsReport) {
+                tokens.Add("report");
+            }
+            if(tokens.Count > 0) {
+                var xDoc = XDocument.Load(solutionPath+"TextToReplace.txt");
+                var files = xDoc.Element("Replace").Element("Files").Elements();
+                var items = xDoc.Element("Replace").Element("Items").Elements();
+                foreach (var file in files) {
+                    string fileName = file.Value;
+                    string filePath = finalSolutionFolderPath + string.Format(fileName, folderNumber);
+                    if(!File.Exists(filePath))
+                        continue;
+                    string fileText = File.ReadAllText(filePath);
+                    foreach(var item in items) {
+                        string token = item.Attribute("token").Value;
+                        if(tokens.Contains(token)) {
+                            string marker = item.Attribute("marker").Value;
+                            string value = item.Value;
+                            fileText = fileText.Replace(marker, value);
+                        }
                     }
+                    File.WriteAllText(filePath, fileText);
                 }
             }
-
-
             string slnPathWithProjectName = finalSolutionFolderPath + string.Format(@"\{0}.sln", folderNumber);
             Process.Start(slnPathWithProjectName);
 
@@ -527,39 +535,39 @@ namespace DXTicketBase {
         Dictionary<string, string> CreateSecurityDictionary() {
             var dict = new Dictionary<string, string>();
 
-            var st0 = Properties.Resources.secur0;
-            dict["//secur#0"] = st0;
+        //    var st0 = Properties.Resources.secur0;
+        //    dict["//secur#0"] = st0;
 
-            var st1 = "   private DevExpress.ExpressApp.Security.SecurityStrategyComplex securityStrategyComplex1;\r\n" +
-        "private DevExpress.ExpressApp.Security.AuthenticationStandard authenticationStandard1;\r\n" +
-        "private DevExpress.ExpressApp.Security.SecurityModule securityModule1;\r\n";
+        //    var st1 = "   private DevExpress.ExpressApp.Security.SecurityStrategyComplex securityStrategyComplex1;\r\n" +
+        //"private DevExpress.ExpressApp.Security.AuthenticationStandard authenticationStandard1;\r\n" +
+        //"private DevExpress.ExpressApp.Security.SecurityModule securityModule1;\r\n";
 
-            dict["//secur#1"] = st1;
+        //    dict["//secur#1"] = st1;
 
-            var st2 = "this.securityStrategyComplex1 = new DevExpress.ExpressApp.Security.SecurityStrategyComplex();\r\n" +
-            "this.securityModule1 = new DevExpress.ExpressApp.Security.SecurityModule();\r\n" +
-            "this.authenticationStandard1 = new DevExpress.ExpressApp.Security.AuthenticationStandard();\r\n";
+        //    var st2 = "this.securityStrategyComplex1 = new DevExpress.ExpressApp.Security.SecurityStrategyComplex();\r\n" +
+        //    "this.securityModule1 = new DevExpress.ExpressApp.Security.SecurityModule();\r\n" +
+        //    "this.authenticationStandard1 = new DevExpress.ExpressApp.Security.AuthenticationStandard();\r\n";
 
-            dict["//secur#2"] = st2;
+        //    dict["//secur#2"] = st2;
 
-            var st3 = "// \r\n" +
-            "// securityStrategyComplex1\r\n" +
-            "// \r\n" +
-            "this.securityStrategyComplex1.Authentication = this.authenticationStandard1;\r\n" +
-            "this.securityStrategyComplex1.RoleType = typeof(DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyRole);\r\n" +
-            "this.securityStrategyComplex1.UsePermissionRequestProcessor = false;\r\n" +
-            "this.securityStrategyComplex1.UserType = typeof(DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyUser);\r\n" +
-            "// \r\n" +
-            "// authenticationStandard1\r\n" +
-            "// \r\n" +
-            "this.authenticationStandard1.LogonParametersType = typeof(DevExpress.ExpressApp.Security.AuthenticationStandardLogonParameters);\r\n" +
-            "// \r\n";
+        //    var st3 = "// \r\n" +
+        //    "// securityStrategyComplex1\r\n" +
+        //    "// \r\n" +
+        //    "this.securityStrategyComplex1.Authentication = this.authenticationStandard1;\r\n" +
+        //    "this.securityStrategyComplex1.RoleType = typeof(DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyRole);\r\n" +
+        //    "this.securityStrategyComplex1.UsePermissionRequestProcessor = false;\r\n" +
+        //    "this.securityStrategyComplex1.UserType = typeof(DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyUser);\r\n" +
+        //    "// \r\n" +
+        //    "// authenticationStandard1\r\n" +
+        //    "// \r\n" +
+        //    "this.authenticationStandard1.LogonParametersType = typeof(DevExpress.ExpressApp.Security.AuthenticationStandardLogonParameters);\r\n" +
+        //    "// \r\n";
 
-            dict["//secur#3"] = st3;
+        //    dict["//secur#3"] = st3;
 
-            var st4 = "   this.Modules.Add(this.securityModule1);\r\n" +
-           " this.Security = this.securityStrategyComplex1;\r\n";
-            dict["//secur#4"] = st4;
+        //    var st4 = "   this.Modules.Add(this.securityModule1);\r\n" +
+        //   " this.Security = this.securityStrategyComplex1;\r\n";
+        //    dict["//secur#4"] = st4;
 
             return dict;
         }

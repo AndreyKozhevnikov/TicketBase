@@ -92,6 +92,7 @@
                     <CheckBox Content="Win" IsChecked="{Binding IsWinAttached,Mode=TwoWay}"/>
                     <CheckBox Content="Web" IsChecked="{Binding IsWebAttached,Mode=TwoWay}"/>
                     <CheckBox Content="Security" IsChecked="{Binding IsSecurity,Mode=TwoWay}"/>
+                    <CheckBox Content="Report" IsChecked="{Binding IsReport,Mode=TwoWay}"/>
                 </StackPanel>
                 
             </StackPanel>

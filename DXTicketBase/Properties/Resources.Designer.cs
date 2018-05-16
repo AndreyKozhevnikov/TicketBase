@@ -59,21 +59,5 @@ namespace DXTicketBase.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to             PermissionPolicyRole adminRole = ObjectSpace.FindObject&lt;PermissionPolicyRole&gt;(new BinaryOperator(&quot;Name&quot;, SecurityStrategy.AdministratorRoleName));
-        ///            if(adminRole == null) {
-        ///                adminRole = ObjectSpace.CreateObject&lt;PermissionPolicyRole&gt;();
-        ///                adminRole.Name = SecurityStrategy.AdministratorRoleName;
-        ///                adminRole.IsAdministrative = true;
-        ///            }
-        ///
-        ///            PermissionPolicyRole userRole = ObjectSpace.FindObject&lt;PermissionPolicyRole&gt;(new  [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string secur0 {
-            get {
-                return ResourceManager.GetString("secur0", resourceCulture);
-            }
-        }
     }
 }
