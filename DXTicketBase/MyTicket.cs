@@ -99,7 +99,7 @@ namespace DXTicketBase {
 
         public static bool IsTicketSubject(string input, out string result) {
             Regex reg = new Regex(@"[B,E,S,Q,T,K]\d{3,6}");
-            var res = reg.Match(input);
+            var res = reg.Match(input.ToUpper());
             result = res.Value;
             return res.Success;
         }
