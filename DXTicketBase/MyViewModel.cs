@@ -482,64 +482,6 @@ namespace DXTicketBase {
             Process.Start(slnPathWithProjectName);
 
         }
-
-        void ReplaceTextInFile(string fileName, string oldValue, string newValue) {
-            string filePath = finalSolutionFolderPath + string.Format(fileName, folderNumber);
-            string fileText = File.ReadAllText(filePath);
-            fileText = fileText.Replace(oldValue, newValue);
-            File.WriteAllText(filePath, fileText);
-        }
-
-        Dictionary<string, string> CreateSecurityDictionary() {
-            var dict = new Dictionary<string, string>();
-
-            //    var st0 = Properties.Resources.secur0;
-            //    dict["//secur#0"] = st0;
-
-            //    var st1 = "   private DevExpress.ExpressApp.Security.SecurityStrategyComplex securityStrategyComplex1;\r\n" +
-            //"private DevExpress.ExpressApp.Security.AuthenticationStandard authenticationStandard1;\r\n" +
-            //"private DevExpress.ExpressApp.Security.SecurityModule securityModule1;\r\n";
-
-            //    dict["//secur#1"] = st1;
-
-            //    var st2 = "this.securityStrategyComplex1 = new DevExpress.ExpressApp.Security.SecurityStrategyComplex();\r\n" +
-            //    "this.securityModule1 = new DevExpress.ExpressApp.Security.SecurityModule();\r\n" +
-            //    "this.authenticationStandard1 = new DevExpress.ExpressApp.Security.AuthenticationStandard();\r\n";
-
-            //    dict["//secur#2"] = st2;
-
-            //    var st3 = "// \r\n" +
-            //    "// securityStrategyComplex1\r\n" +
-            //    "// \r\n" +
-            //    "this.securityStrategyComplex1.Authentication = this.authenticationStandard1;\r\n" +
-            //    "this.securityStrategyComplex1.RoleType = typeof(DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyRole);\r\n" +
-            //    "this.securityStrategyComplex1.UsePermissionRequestProcessor = false;\r\n" +
-            //    "this.securityStrategyComplex1.UserType = typeof(DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyUser);\r\n" +
-            //    "// \r\n" +
-            //    "// authenticationStandard1\r\n" +
-            //    "// \r\n" +
-            //    "this.authenticationStandard1.LogonParametersType = typeof(DevExpress.ExpressApp.Security.AuthenticationStandardLogonParameters);\r\n" +
-            //    "// \r\n";
-
-            //    dict["//secur#3"] = st3;
-
-            //    var st4 = "   this.Modules.Add(this.securityModule1);\r\n" +
-            //   " this.Security = this.securityStrategyComplex1;\r\n";
-            //    dict["//secur#4"] = st4;
-
-            return dict;
-        }
-
-        Dictionary<string, string> CreateReportDictionary() {
-            Dictionary<string, string> dict = new Dictionary<string, string>();
-            var st0 = @"    <Reference Include=""DevExpress.ExpressApp.ReportsV2.v17.2, Version = 17.2.7.0, Culture = neutral, PublicKeyToken = b88d1754d700e49a, processorArchitecture = MSIL"">
-                              <SpecificVersion>False</SpecificVersion>
-                             </Reference>";
-            dict["//reprt0"] = st0;
-
-
-            return dict;
-        }
         private void SaveAll() {
             var unsavedtickets = ListTickets.Where(x => x.IsSaved == false).ToList();
             foreach(var ticket in unsavedtickets) {
