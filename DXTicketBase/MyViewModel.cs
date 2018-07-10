@@ -303,7 +303,8 @@ namespace DXTicketBase {
         public bool IsWinAttached { get; set; }
         public bool IsWebAttached { get; set; }
         public bool IsSecurity { get; set; }
-        public bool IsReport{ get; set; }
+        public bool IsReport { get; set; }
+        public bool IsXPO { get; set; }
         string folderPath = "";
         string folderNumber = "";
         string finalSolutionFolderPath = "";
@@ -327,7 +328,7 @@ namespace DXTicketBase {
                 }
             }
             folderNumber = "dx" + number;
-            string solutionPath = dropBoxPath + @"work\templates\MainSolution\dxTestSolution(Secur)\";
+
             finalSolutionFolderPath = folderPath + string.Format(@"\{0}\", folderNumber);
 
             bool canNotCreateSolution = true;
@@ -349,178 +350,135 @@ namespace DXTicketBase {
                     canNotCreateSolution = false;
                 }
             } while(canNotCreateSolution);
-
-
-
-                //   DirectoryCopy(solutionPath, folderPath, true);
             Directory.CreateDirectory(finalSolutionFolderPath);
-            DirectoryCopy(solutionPath, finalSolutionFolderPath, "dxTestSolution.Module", true);
-            File.Copy(solutionPath + "dxTestSolution.sln", finalSolutionFolderPath + "dxTestSolution.sln", true);
-            if(IsWinAttached) {
-                DirectoryCopy(solutionPath, finalSolutionFolderPath, "dxTestSolution.Module.Win", true);
-                DirectoryCopy(solutionPath, finalSolutionFolderPath, "dxTestSolution.Win", true);
-            }
-            if(IsWebAttached) {
-                DirectoryCopy(solutionPath, finalSolutionFolderPath, "dxTestSolution.Module.Web", true);
-                DirectoryCopy(solutionPath, finalSolutionFolderPath, "dxTestSolution.Web", true);
-            }
-            //add projects to sln
-            string projectString = "";
-          
-            if(IsWebAttached) {
-                projectString = projectString + @"Project(""{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"")=""dxTestSolution.Web"",""dxTestSolution.Web\dxTestSolution.Web.csproj"",""{82A6DBC9-B1B4-44E4-9718-55DF930CD349}""";
-                projectString += Environment.NewLine;
-                projectString = projectString + "EndProject";
-                projectString += Environment.NewLine;
-                projectString = projectString + @"Project(""{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"")=""dxTestSolution.Module.Web"",""dxTestSolution.Module.Web\dxTestSolution.Module.Web.csproj"",""{0C729AAD-7626-4668-A7F1-35F7D240489D}""";
-                projectString += Environment.NewLine;
-                projectString = projectString + "EndProject";
-            }
-            if(IsWinAttached) {
-                if(IsWebAttached) //how to get rid off?
+            string solutionPath = "";
+            string slnPathWithProjectName = "";
+            if(IsXPO) {
+                solutionPath = dropBoxPath + @"work\templates\MainSolution\ConsoleApp1\";
+                DirectoryCopy(solutionPath, finalSolutionFolderPath, true);
+                slnPathWithProjectName = solutionPath + "ConsoleApp1.sln";
+            } else {
+                solutionPath = dropBoxPath + @"work\templates\MainSolution\dxTestSolution(Secur)\";
+                //   DirectoryCopy(solutionPath, folderPath, true);
+
+                DirectoryCopy(solutionPath, finalSolutionFolderPath, "dxTestSolution.Module", true);
+                File.Copy(solutionPath + "dxTestSolution.sln", finalSolutionFolderPath + "dxTestSolution.sln", true);
+                if(IsWinAttached) {
+                    DirectoryCopy(solutionPath, finalSolutionFolderPath, "dxTestSolution.Module.Win", true);
+                    DirectoryCopy(solutionPath, finalSolutionFolderPath, "dxTestSolution.Win", true);
+                }
+                if(IsWebAttached) {
+                    DirectoryCopy(solutionPath, finalSolutionFolderPath, "dxTestSolution.Module.Web", true);
+                    DirectoryCopy(solutionPath, finalSolutionFolderPath, "dxTestSolution.Web", true);
+                }
+                //add projects to sln
+                string projectString = "";
+
+                if(IsWebAttached) {
+                    projectString = projectString + @"Project(""{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"")=""dxTestSolution.Web"",""dxTestSolution.Web\dxTestSolution.Web.csproj"",""{82A6DBC9-B1B4-44E4-9718-55DF930CD349}""";
                     projectString += Environment.NewLine;
-                projectString = projectString + @"Project(""{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"")=""dxTestSolution.Win"",""dxTestSolution.Win\dxTestSolution.Win.csproj"",""{D05D93DF-312D-4D4E-B980-726871EC7833}""";
-                projectString += Environment.NewLine;
-                projectString = projectString + "EndProject";
-                projectString += Environment.NewLine;
-                projectString = projectString + @"Project(""{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"")=""dxTestSolution.Module.Win"",""dxTestSolution.Module.Win\dxTestSolution.Module.Win.csproj"",""{7964F87D-BC5D-4C4E-8B2F-71E89739AA97}""";
-                projectString += Environment.NewLine;
-                projectString = projectString + "EndProject";
-            }
-            string slnPath = finalSolutionFolderPath + "dxTestSolution.sln";
-            string slnText = File.ReadAllText(slnPath);
-            slnText = slnText.Replace("<ReplaceString>", projectString);
-            File.WriteAllText(slnPath, slnText);
-
-
-            //rename folders
-            //1 folders/files
-            var lst = new List<string>();
-            lst.Add(@"dxTestSolution.Module\dxTestSolution.Module.csproj");
-            lst.Add("dxTestSolution.Module\\");
-            if(IsWinAttached) {
-                lst.Add(@"dxTestSolution.Module.Win\dxTestSolution.Module.Win.csproj");
-                lst.Add("dxTestSolution.Module.Win\\");
-                lst.Add(@"dxTestSolution.Win\dxTestSolution.Win.csproj");
-                lst.Add("dxTestSolution.Win\\");
-            }
-            if(IsWebAttached) {
-                lst.Add(@"dxTestSolution.Module.Web\dxTestSolution.Module.Web.csproj");
-                lst.Add("dxTestSolution.Module.Web\\");
-                lst.Add(@"dxTestSolution.Web\dxTestSolution.Web.csproj");
-                lst.Add("dxTestSolution.Web\\");
-            }
-            lst.Add("dxTestSolution.sln");
-            var pattern = "dxTestSolution";
-
-            foreach(var fl in lst) {
-                Regex rgx = new Regex(pattern);
-                MatchCollection matches = rgx.Matches(fl);
-                var newFl = rgx.Replace(fl, folderNumber, 1, matches.Count - 1);
-                var fullFileName = finalSolutionFolderPath + "\\" + fl;
-                var fullNewFileName = finalSolutionFolderPath + "\\" + newFl;
-                Move(fullFileName, fullNewFileName);
-            }
-            void Move(string fromPath, string toPath)
-            {
-                var lstChar = fromPath[fromPath.Length - 1];
-                if(lstChar == '\\') {
-                    Directory.Move(fromPath, toPath);
-                    return;
+                    projectString = projectString + "EndProject";
+                    projectString += Environment.NewLine;
+                    projectString = projectString + @"Project(""{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"")=""dxTestSolution.Module.Web"",""dxTestSolution.Module.Web\dxTestSolution.Module.Web.csproj"",""{0C729AAD-7626-4668-A7F1-35F7D240489D}""";
+                    projectString += Environment.NewLine;
+                    projectString = projectString + "EndProject";
                 }
-                File.Move(fromPath, toPath);
-
-            }
-
-
-
-            //4 replace old solution name in text files
-
-           
-            var alltxtFiles = Directory.GetFiles(finalSolutionFolderPath,"*.*",SearchOption.AllDirectories);
-            foreach (var fl in alltxtFiles) {
-                var txt = File.ReadAllText(fl);
-                if(txt.Contains(pattern)) {
-                    txt = txt.Replace(pattern, folderNumber);
-                    File.WriteAllText(fl, txt);
+                if(IsWinAttached) {
+                    if(IsWebAttached) //how to get rid off?
+                        projectString += Environment.NewLine;
+                    projectString = projectString + @"Project(""{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"")=""dxTestSolution.Win"",""dxTestSolution.Win\dxTestSolution.Win.csproj"",""{D05D93DF-312D-4D4E-B980-726871EC7833}""";
+                    projectString += Environment.NewLine;
+                    projectString = projectString + "EndProject";
+                    projectString += Environment.NewLine;
+                    projectString = projectString + @"Project(""{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"")=""dxTestSolution.Module.Win"",""dxTestSolution.Module.Win\dxTestSolution.Module.Win.csproj"",""{7964F87D-BC5D-4C4E-8B2F-71E89739AA97}""";
+                    projectString += Environment.NewLine;
+                    projectString = projectString + "EndProject";
                 }
-            }
+                string slnPath = finalSolutionFolderPath + "dxTestSolution.sln";
+                string slnText = File.ReadAllText(slnPath);
+                slnText = slnText.Replace("<ReplaceString>", projectString);
+                File.WriteAllText(slnPath, slnText);
 
-            //fileList.Add(@"\{0}.Module\Module.cs");
-            //fileList.Add(@"\{0}.Module\{0}.Module.csproj");
-            //fileList.Add(@"\{0}.Module\Module.Designer.cs");
-            //fileList.Add(@"\{0}.Module\Model.DesignedDiffs.xafml");
-            //fileList.Add(@"\{0}.Module\Properties\AssemblyInfo.cs");
-            //fileList.Add(@"\{0}.Module\Welcome.html");
-            //fileList.Add(@"\{0}.Module\BusinessObjects\Contact.cs");
-            //fileList.Add(@"\{0}.Module\BusinessObjects\MyTask.cs");
-            //fileList.Add(@"\{0}.Module\BusinessObjects\CustomClass.cs");
-            //fileList.Add(@"\{0}.Module\Controllers\CustomControllers.cs");
 
-            //fileList.Add(@"\{0}.Module\DatabaseUpdate\Updater.cs");
-            //if(IsWinAttached) {
-            //    fileList.Add(@"\{0}.Module.Win\{0}.Module.Win.csproj");
-            //    fileList.Add(@"\{0}.Module.Win\Properties\AssemblyInfo.cs");
-            //    fileList.Add(@"\{0}.Module.Win\WinModule.cs");
-            //    fileList.Add(@"\{0}.Module.Win\WinModule.Designer.cs");
-            //    fileList.Add(@"\{0}.Module.Win\Controllers\CustomWinController.cs");
-            //    fileList.Add(@"\{0}.Win\Program.cs");
-            //    fileList.Add(@"\{0}.Win\WinApplication.cs");
-            //    fileList.Add(@"\{0}.Win\WinApplication.Designer.cs");
-            //    fileList.Add(@"\{0}.Win\App.config"); //connectionstring
-            //    fileList.Add(@"\{0}.Win\{0}.Win.csproj");
-            //    fileList.Add(@"\{0}.Win\Properties\AssemblyInfo.cs");
-            //    fileList.Add(@"\{0}.Win\Properties\Resources.Designer.cs");
-            //    fileList.Add(@"\{0}.Win\Properties\Settings.Designer.cs");
-            //}
-            //if(IsWebAttached) {
-            //    fileList.Add(@"\{0}.Module.Web\{0}.Module.Web.csproj");
-            //    fileList.Add(@"\{0}.Module.Web\WebModule.cs");
-            //    fileList.Add(@"\{0}.Module.Web\WebModule.Designer.cs");
-            //    fileList.Add(@"\{0}.Module.Web\Controllers\CustomWebController.cs");
-            //    fileList.Add(@"\{0}.Web\{0}.Web.csproj");
-            //    fileList.Add(@"\{0}.Web\Global.asax.cs");
-            //    fileList.Add(@"\{0}.Web\Global.asax");
-            //    fileList.Add(@"\{0}.Web\Web.config");
-            //    fileList.Add(@"\{0}.Web\WebApplication.cs");
-            //}
-            //fileList.Add(@"\{0}.sln");
+                //rename folders
+                //1 folders/files
+                var lst = new List<string>();
+                lst.Add(@"dxTestSolution.Module\dxTestSolution.Module.csproj");
+                lst.Add("dxTestSolution.Module\\");
+                if(IsWinAttached) {
+                    lst.Add(@"dxTestSolution.Module.Win\dxTestSolution.Module.Win.csproj");
+                    lst.Add("dxTestSolution.Module.Win\\");
+                    lst.Add(@"dxTestSolution.Win\dxTestSolution.Win.csproj");
+                    lst.Add("dxTestSolution.Win\\");
+                }
+                if(IsWebAttached) {
+                    lst.Add(@"dxTestSolution.Module.Web\dxTestSolution.Module.Web.csproj");
+                    lst.Add("dxTestSolution.Module.Web\\");
+                    lst.Add(@"dxTestSolution.Web\dxTestSolution.Web.csproj");
+                    lst.Add("dxTestSolution.Web\\");
+                }
+                lst.Add("dxTestSolution.sln");
+                var pattern = "dxTestSolution";
 
-            //foreach(var file in fileList) {
-            //    ReplaceTextInFile(file, pattern, folderNumber);
+                foreach(var fl in lst) {
+                    Regex rgx = new Regex(pattern);
+                    MatchCollection matches = rgx.Matches(fl);
+                    var newFl = rgx.Replace(fl, folderNumber, 1, matches.Count - 1);
+                    var fullFileName = finalSolutionFolderPath + "\\" + fl;
+                    var fullNewFileName = finalSolutionFolderPath + "\\" + newFl;
+                    Move(fullFileName, fullNewFileName);
+                }
 
-            //}
-
-            //5 add security
-            List<string> tokens = new List<string>();
-            if(IsSecurity) {
-                tokens.Add("security");
-            }
-            if(IsReport) {
-                tokens.Add("report");
-            }
-            if(tokens.Count > 0) {
-                var xDoc = XDocument.Load(solutionPath+"TextToReplace.txt");
-                var files = xDoc.Element("Replace").Element("Files").Elements();
-                var items = xDoc.Element("Replace").Element("Items").Elements();
-                foreach (var file in files) {
-                    string fileName = file.Value;
-                    string filePath = finalSolutionFolderPath + string.Format(fileName, folderNumber);
-                    if(!File.Exists(filePath))
-                        continue;
-                    string fileText = File.ReadAllText(filePath);
-                    foreach(var item in items) {
-                        string token = item.Attribute("token").Value;
-                        if(tokens.Contains(token)) {
-                            string marker = item.Attribute("marker").Value;
-                            string value = item.Value;
-                            fileText = fileText.Replace(marker, value);
-                        }
+                void Move(string fromPath, string toPath) {
+                    var lstChar = fromPath[fromPath.Length - 1];
+                    if(lstChar == '\\') {
+                        Directory.Move(fromPath, toPath);
+                        return;
                     }
-                    File.WriteAllText(filePath, fileText);
+                    File.Move(fromPath, toPath);
                 }
+
+                //4 replace old solution name in text files
+                var alltxtFiles = Directory.GetFiles(finalSolutionFolderPath, "*.*", SearchOption.AllDirectories);
+                foreach(var fl in alltxtFiles) {
+                    var txt = File.ReadAllText(fl);
+                    if(txt.Contains(pattern)) {
+                        txt = txt.Replace(pattern, folderNumber);
+                        File.WriteAllText(fl, txt);
+                    }
+                }
+
+                //5 add security
+                List<string> tokens = new List<string>();
+                if(IsSecurity) {
+                    tokens.Add("security");
+                }
+                if(IsReport) {
+                    tokens.Add("report");
+                }
+                if(tokens.Count > 0) {
+                    var xDoc = XDocument.Load(solutionPath + "TextToReplace.txt");
+                    var files = xDoc.Element("Replace").Element("Files").Elements();
+                    var items = xDoc.Element("Replace").Element("Items").Elements();
+                    foreach(var file in files) {
+                        string fileName = file.Value;
+                        string filePath = finalSolutionFolderPath + string.Format(fileName, folderNumber);
+                        if(!File.Exists(filePath))
+                            continue;
+                        string fileText = File.ReadAllText(filePath);
+                        foreach(var item in items) {
+                            string token = item.Attribute("token").Value;
+                            if(tokens.Contains(token)) {
+                                string marker = item.Attribute("marker").Value;
+                                string value = item.Value;
+                                fileText = fileText.Replace(marker, value);
+                            }
+                        }
+                        File.WriteAllText(filePath, fileText);
+                    }
+                }
+                slnPathWithProjectName = finalSolutionFolderPath + string.Format(@"\{0}.sln", folderNumber);
             }
-            string slnPathWithProjectName = finalSolutionFolderPath + string.Format(@"\{0}.sln", folderNumber);
             Process.Start(slnPathWithProjectName);
 
         }
@@ -535,44 +493,44 @@ namespace DXTicketBase {
         Dictionary<string, string> CreateSecurityDictionary() {
             var dict = new Dictionary<string, string>();
 
-        //    var st0 = Properties.Resources.secur0;
-        //    dict["//secur#0"] = st0;
+            //    var st0 = Properties.Resources.secur0;
+            //    dict["//secur#0"] = st0;
 
-        //    var st1 = "   private DevExpress.ExpressApp.Security.SecurityStrategyComplex securityStrategyComplex1;\r\n" +
-        //"private DevExpress.ExpressApp.Security.AuthenticationStandard authenticationStandard1;\r\n" +
-        //"private DevExpress.ExpressApp.Security.SecurityModule securityModule1;\r\n";
+            //    var st1 = "   private DevExpress.ExpressApp.Security.SecurityStrategyComplex securityStrategyComplex1;\r\n" +
+            //"private DevExpress.ExpressApp.Security.AuthenticationStandard authenticationStandard1;\r\n" +
+            //"private DevExpress.ExpressApp.Security.SecurityModule securityModule1;\r\n";
 
-        //    dict["//secur#1"] = st1;
+            //    dict["//secur#1"] = st1;
 
-        //    var st2 = "this.securityStrategyComplex1 = new DevExpress.ExpressApp.Security.SecurityStrategyComplex();\r\n" +
-        //    "this.securityModule1 = new DevExpress.ExpressApp.Security.SecurityModule();\r\n" +
-        //    "this.authenticationStandard1 = new DevExpress.ExpressApp.Security.AuthenticationStandard();\r\n";
+            //    var st2 = "this.securityStrategyComplex1 = new DevExpress.ExpressApp.Security.SecurityStrategyComplex();\r\n" +
+            //    "this.securityModule1 = new DevExpress.ExpressApp.Security.SecurityModule();\r\n" +
+            //    "this.authenticationStandard1 = new DevExpress.ExpressApp.Security.AuthenticationStandard();\r\n";
 
-        //    dict["//secur#2"] = st2;
+            //    dict["//secur#2"] = st2;
 
-        //    var st3 = "// \r\n" +
-        //    "// securityStrategyComplex1\r\n" +
-        //    "// \r\n" +
-        //    "this.securityStrategyComplex1.Authentication = this.authenticationStandard1;\r\n" +
-        //    "this.securityStrategyComplex1.RoleType = typeof(DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyRole);\r\n" +
-        //    "this.securityStrategyComplex1.UsePermissionRequestProcessor = false;\r\n" +
-        //    "this.securityStrategyComplex1.UserType = typeof(DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyUser);\r\n" +
-        //    "// \r\n" +
-        //    "// authenticationStandard1\r\n" +
-        //    "// \r\n" +
-        //    "this.authenticationStandard1.LogonParametersType = typeof(DevExpress.ExpressApp.Security.AuthenticationStandardLogonParameters);\r\n" +
-        //    "// \r\n";
+            //    var st3 = "// \r\n" +
+            //    "// securityStrategyComplex1\r\n" +
+            //    "// \r\n" +
+            //    "this.securityStrategyComplex1.Authentication = this.authenticationStandard1;\r\n" +
+            //    "this.securityStrategyComplex1.RoleType = typeof(DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyRole);\r\n" +
+            //    "this.securityStrategyComplex1.UsePermissionRequestProcessor = false;\r\n" +
+            //    "this.securityStrategyComplex1.UserType = typeof(DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyUser);\r\n" +
+            //    "// \r\n" +
+            //    "// authenticationStandard1\r\n" +
+            //    "// \r\n" +
+            //    "this.authenticationStandard1.LogonParametersType = typeof(DevExpress.ExpressApp.Security.AuthenticationStandardLogonParameters);\r\n" +
+            //    "// \r\n";
 
-        //    dict["//secur#3"] = st3;
+            //    dict["//secur#3"] = st3;
 
-        //    var st4 = "   this.Modules.Add(this.securityModule1);\r\n" +
-        //   " this.Security = this.securityStrategyComplex1;\r\n";
-        //    dict["//secur#4"] = st4;
+            //    var st4 = "   this.Modules.Add(this.securityModule1);\r\n" +
+            //   " this.Security = this.securityStrategyComplex1;\r\n";
+            //    dict["//secur#4"] = st4;
 
             return dict;
         }
 
-        Dictionary<string,string> CreateReportDictionary() {
+        Dictionary<string, string> CreateReportDictionary() {
             Dictionary<string, string> dict = new Dictionary<string, string>();
             var st0 = @"    <Reference Include=""DevExpress.ExpressApp.ReportsV2.v17.2, Version = 17.2.7.0, Culture = neutral, PublicKeyToken = b88d1754d700e49a, processorArchitecture = MSIL"">
                               <SpecificVersion>False</SpecificVersion>
