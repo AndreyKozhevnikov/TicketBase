@@ -450,11 +450,15 @@ namespace DXTicketBase {
 
                 //5 add security
                 List<string> tokens = new List<string>();
+                
                 if(IsSecurity) {
                     tokens.Add("security");
                 }
                 if(IsReport) {
                     tokens.Add("report");
+                }
+                if(!(IsSecurity || IsReport)){
+                    tokens.Add("inmemory");
                 }
                 if(tokens.Count > 0) {
                     var xDoc = XDocument.Load(solutionPath + "TextToReplace.txt");
