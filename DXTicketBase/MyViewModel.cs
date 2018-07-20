@@ -356,7 +356,7 @@ namespace DXTicketBase {
             if(IsXPO) {
                 solutionPath = dropBoxPath + @"work\templates\MainSolution\ConsoleApp1\";
                 DirectoryCopy(solutionPath, finalSolutionFolderPath, true);
-                slnPathWithProjectName = solutionPath + "ConsoleApp1.sln";
+                slnPathWithProjectName = finalSolutionFolderPath + "ConsoleApp1.sln";
             } else {
                 solutionPath = dropBoxPath + @"work\templates\MainSolution\dxTestSolution(Secur)\";
                 //   DirectoryCopy(solutionPath, folderPath, true);
