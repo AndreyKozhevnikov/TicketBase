@@ -19,6 +19,7 @@ namespace DXTicketBase {
             ApplicationThemeHelper.UseLegacyDefaultTheme = true;
         }
         protected override void OnStartup(StartupEventArgs e) {
+            AssemblyResolverDll.AsseblyResolver.Attach("Dll181");
             var pLst = Process.GetProcessesByName(Process.GetCurrentProcess().ProcessName);
             if (pLst.Length > 1) {
                 var p = pLst[0];
