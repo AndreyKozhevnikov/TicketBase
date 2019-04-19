@@ -1,6 +1,7 @@
 ﻿using DevExpress.Mvvm;
 using DevExpress.Mvvm.UI;
 using DevExpress.Xpf.Grid;
+using DXTicketBase.Classes;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -151,7 +152,8 @@ namespace DXTicketBase {
             ConnectToDataBase();
             CreateTicketList();
             CreateNewticket();
-            IsWinAttached = true;
+            //   IsWinAttached = true;
+            FirstProjectType = FirstProjectEnum.Win;
         }
 
         private void CreateNewticket() {
@@ -300,8 +302,9 @@ namespace DXTicketBase {
             catch { }
         }
 
-        public bool IsWinAttached { get; set; }
-        public bool IsWebAttached { get; set; }
+        //public bool IsWinAttached { get; set; }
+        //public bool IsWebAttached { get; set; }
+        public FirstProjectEnum FirstProjectType{ get; set; }
         public bool IsSecurity { get; set; }
         public bool IsReport { get; set; }
         public bool IsXPO { get; set; }
@@ -309,9 +312,6 @@ namespace DXTicketBase {
         string folderNumber = "";
         string finalSolutionFolderPath = "";
         private void CreateAndOpenSolution() {
-
-
-
             string number = SelectedTicket.Number;
             if(currentThreadFolder != null && currentThreadFolder.Contains(number)) { //find folder
                 folderPath = currentThreadFolder;
@@ -363,37 +363,46 @@ namespace DXTicketBase {
 
                 DirectoryCopy(solutionPath, finalSolutionFolderPath, "dxTestSolution.Module", true);
                 File.Copy(solutionPath + "dxTestSolution.sln", finalSolutionFolderPath + "dxTestSolution.sln", true);
-                if(IsWinAttached) {
-                    DirectoryCopy(solutionPath, finalSolutionFolderPath, "dxTestSolution.Module.Win", true);
-                    DirectoryCopy(solutionPath, finalSolutionFolderPath, "dxTestSolution.Win", true);
-                }
-                if(IsWebAttached) {
-                    DirectoryCopy(solutionPath, finalSolutionFolderPath, "dxTestSolution.Module.Web", true);
-                    DirectoryCopy(solutionPath, finalSolutionFolderPath, "dxTestSolution.Web", true);
-                }
+                DirectoryCopy(solutionPath, finalSolutionFolderPath, "dxTestSolution.Module.Win", true);
+                DirectoryCopy(solutionPath, finalSolutionFolderPath, "dxTestSolution.Win", true);
+                DirectoryCopy(solutionPath, finalSolutionFolderPath, "dxTestSolution.Module.Web", true);
+                DirectoryCopy(solutionPath, finalSolutionFolderPath, "dxTestSolution.Web", true);
                 //add projects to sln
                 string projectString = "";
-
-                if(IsWebAttached) {
-                    projectString = projectString + @"Project(""{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"")=""dxTestSolution.Web"",""dxTestSolution.Web\dxTestSolution.Web.csproj"",""{82A6DBC9-B1B4-44E4-9718-55DF930CD349}""";
-                    projectString += Environment.NewLine;
-                    projectString = projectString + "EndProject";
-                    projectString += Environment.NewLine;
-                    projectString = projectString + @"Project(""{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"")=""dxTestSolution.Module.Web"",""dxTestSolution.Module.Web\dxTestSolution.Module.Web.csproj"",""{0C729AAD-7626-4668-A7F1-35F7D240489D}""";
-                    projectString += Environment.NewLine;
-                    projectString = projectString + "EndProject";
+                string webProjectString = "";
+                string winProjectString = "";
+                webProjectString = webProjectString + @"Project(""{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"")=""dxTestSolution.Web"",""dxTestSolution.Web\dxTestSolution.Web.csproj"",""{82A6DBC9-B1B4-44E4-9718-55DF930CD349}""";
+                webProjectString += Environment.NewLine;
+                webProjectString = webProjectString + "EndProject";
+                webProjectString += Environment.NewLine;
+                webProjectString = webProjectString + @"Project(""{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"")=""dxTestSolution.Module.Web"",""dxTestSolution.Module.Web\dxTestSolution.Module.Web.csproj"",""{0C729AAD-7626-4668-A7F1-35F7D240489D}""";
+                webProjectString += Environment.NewLine;
+                webProjectString = webProjectString + "EndProject";
+                webProjectString += Environment.NewLine;
+                winProjectString = winProjectString + @"Project(""{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"")=""dxTestSolution.Win"",""dxTestSolution.Win\dxTestSolution.Win.csproj"",""{D05D93DF-312D-4D4E-B980-726871EC7833}""";
+                winProjectString += Environment.NewLine;
+                winProjectString = winProjectString + "EndProject";
+                winProjectString += Environment.NewLine;
+                winProjectString = winProjectString + @"Project(""{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"")=""dxTestSolution.Module.Win"",""dxTestSolution.Module.Win\dxTestSolution.Module.Win.csproj"",""{7964F87D-BC5D-4C4E-8B2F-71E89739AA97}""";
+                winProjectString += Environment.NewLine;
+                winProjectString = winProjectString + "EndProject";
+                winProjectString += Environment.NewLine;
+                switch(FirstProjectType){
+                    case FirstProjectEnum.Web:
+                        projectString = webProjectString + winProjectString;
+                        break;
+                    case FirstProjectEnum.Win:
+                        projectString = winProjectString + webProjectString;
+                        break;
                 }
-                if(IsWinAttached) {
-                    if(IsWebAttached) //how to get rid off?
-                        projectString += Environment.NewLine;
-                    projectString = projectString + @"Project(""{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"")=""dxTestSolution.Win"",""dxTestSolution.Win\dxTestSolution.Win.csproj"",""{D05D93DF-312D-4D4E-B980-726871EC7833}""";
-                    projectString += Environment.NewLine;
-                    projectString = projectString + "EndProject";
-                    projectString += Environment.NewLine;
-                    projectString = projectString + @"Project(""{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"")=""dxTestSolution.Module.Win"",""dxTestSolution.Module.Win\dxTestSolution.Module.Win.csproj"",""{7964F87D-BC5D-4C4E-8B2F-71E89739AA97}""";
-                    projectString += Environment.NewLine;
-                    projectString = projectString + "EndProject";
-                }
+                //if(IsWebAttached) {
+                   
+                //}
+                //if(IsWinAttached) {
+                //    if(IsWebAttached) //how to get rid off?
+                        
+                   
+                //}
                 string slnPath = finalSolutionFolderPath + "dxTestSolution.sln";
                 string slnText = File.ReadAllText(slnPath);
                 slnText = slnText.Replace("<ReplaceString>", projectString);
@@ -405,18 +414,14 @@ namespace DXTicketBase {
                 var lst = new List<string>();
                 lst.Add(@"dxTestSolution.Module\dxTestSolution.Module.csproj");
                 lst.Add("dxTestSolution.Module\\");
-                if(IsWinAttached) {
-                    lst.Add(@"dxTestSolution.Module.Win\dxTestSolution.Module.Win.csproj");
-                    lst.Add("dxTestSolution.Module.Win\\");
-                    lst.Add(@"dxTestSolution.Win\dxTestSolution.Win.csproj");
-                    lst.Add("dxTestSolution.Win\\");
-                }
-                if(IsWebAttached) {
-                    lst.Add(@"dxTestSolution.Module.Web\dxTestSolution.Module.Web.csproj");
-                    lst.Add("dxTestSolution.Module.Web\\");
-                    lst.Add(@"dxTestSolution.Web\dxTestSolution.Web.csproj");
-                    lst.Add("dxTestSolution.Web\\");
-                }
+                lst.Add(@"dxTestSolution.Module.Win\dxTestSolution.Module.Win.csproj");
+                lst.Add("dxTestSolution.Module.Win\\");
+                lst.Add(@"dxTestSolution.Win\dxTestSolution.Win.csproj");
+                lst.Add("dxTestSolution.Win\\");
+                lst.Add(@"dxTestSolution.Module.Web\dxTestSolution.Module.Web.csproj");
+                lst.Add("dxTestSolution.Module.Web\\");
+                lst.Add(@"dxTestSolution.Web\dxTestSolution.Web.csproj");
+                lst.Add("dxTestSolution.Web\\");
                 lst.Add("dxTestSolution.sln");
                 var pattern = "dxTestSolution";
 
@@ -450,14 +455,14 @@ namespace DXTicketBase {
 
                 //5 add security
                 List<string> tokens = new List<string>();
-                
+
                 if(IsSecurity) {
                     tokens.Add("security");
                 }
                 if(IsReport) {
                     tokens.Add("report");
                 }
-                if(!(IsSecurity || IsReport)){
+                if(!(IsSecurity || IsReport)) {
                     tokens.Add("inmemory");
                 }
                 if(tokens.Count > 0) {
@@ -483,7 +488,7 @@ namespace DXTicketBase {
                 }
                 slnPathWithProjectName = finalSolutionFolderPath + string.Format(@"\{0}.sln", folderNumber);
             }
-            Process.Start(slnPathWithProjectName);
+           // Process.Start(slnPathWithProjectName);
 
         }
         private void SaveAll() {
