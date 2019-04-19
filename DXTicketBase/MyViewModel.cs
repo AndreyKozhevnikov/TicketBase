@@ -370,6 +370,9 @@ namespace DXTicketBase {
                 if(IsReport) {
                     File.Copy(solutionPath + @"Controllers\ClearReportCacheController.cs", finalSolutionFolderPath + @"dxTestSolution.Module\Controllers\ClearReportCacheController.cs");
                 }
+                if(IsOffice) {
+                    File.Copy(solutionPath + @"Controllers\ClearMailMergeCacheController.cs", finalSolutionFolderPath + @"dxTestSolution.Module.Win\Controllers\ClearMailMergeCacheController.cs");
+                }
                 //add projects to sln
                 string projectString = "";
                 string webProjectString = "";
