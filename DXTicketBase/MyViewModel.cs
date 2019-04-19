@@ -367,6 +367,9 @@ namespace DXTicketBase {
                 DirectoryCopy(solutionPath, finalSolutionFolderPath, "dxTestSolution.Win", true);
                 DirectoryCopy(solutionPath, finalSolutionFolderPath, "dxTestSolution.Module.Web", true);
                 DirectoryCopy(solutionPath, finalSolutionFolderPath, "dxTestSolution.Web", true);
+                if(IsReport) {
+                    File.Copy(solutionPath + @"Controllers\ClearReportCacheController.cs", finalSolutionFolderPath + @"dxTestSolution.Module\Controllers\ClearReportCacheController.cs");
+                }
                 //add projects to sln
                 string projectString = "";
                 string webProjectString = "";
