@@ -93,7 +93,7 @@
                         <dxmvvm:EventToCommand Command="{Binding CreateAndOpenSolutionCommand}" EventName="Click" />
                     </dxmvvm:Interaction.Behaviors>
                 </Button>
-                <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
                     <RadioButton
                         Content="Win"
                         GroupName="ProjectType"

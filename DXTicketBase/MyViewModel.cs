@@ -395,14 +395,6 @@ namespace DXTicketBase {
                         projectString = winProjectString + webProjectString;
                         break;
                 }
-                //if(IsWebAttached) {
-                   
-                //}
-                //if(IsWinAttached) {
-                //    if(IsWebAttached) //how to get rid off?
-                        
-                   
-                //}
                 string slnPath = finalSolutionFolderPath + "dxTestSolution.sln";
                 string slnText = File.ReadAllText(slnPath);
                 slnText = slnText.Replace("<ReplaceString>", projectString);
