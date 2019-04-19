@@ -304,10 +304,10 @@ namespace DXTicketBase {
 
         //public bool IsWinAttached { get; set; }
         //public bool IsWebAttached { get; set; }
-        public FirstProjectEnum FirstProjectType{ get; set; }
+        public FirstProjectEnum FirstProjectType { get; set; }
         public bool IsSecurity { get; set; }
         public bool IsReport { get; set; }
-        public bool IsXPO { get; set; }
+        public bool IsOffice { get; set; }
         string folderPath = "";
         string folderNumber = "";
         string finalSolutionFolderPath = "";
@@ -353,7 +353,7 @@ namespace DXTicketBase {
             Directory.CreateDirectory(finalSolutionFolderPath);
             string solutionPath = "";
             string slnPathWithProjectName = "";
-            if(IsXPO) {
+            if(FirstProjectType == FirstProjectEnum.XPO) {
                 solutionPath = dropBoxPath + @"work\templates\MainSolution\ConsoleApp1\";
                 DirectoryCopy(solutionPath, finalSolutionFolderPath, true);
                 slnPathWithProjectName = finalSolutionFolderPath + "ConsoleApp1.sln";
@@ -387,7 +387,7 @@ namespace DXTicketBase {
                 winProjectString += Environment.NewLine;
                 winProjectString = winProjectString + "EndProject";
                 winProjectString += Environment.NewLine;
-                switch(FirstProjectType){
+                switch(FirstProjectType) {
                     case FirstProjectEnum.Web:
                         projectString = webProjectString + winProjectString;
                         break;
@@ -454,7 +454,10 @@ namespace DXTicketBase {
                 if(IsReport) {
                     tokens.Add("report");
                 }
-                if(!(IsSecurity || IsReport)) {
+                if(IsOffice) {
+                    tokens.Add("office");
+                }
+                if(!(IsSecurity || IsReport || IsOffice)) {
                     tokens.Add("inmemory");
                 }
                 if(tokens.Count > 0) {
@@ -480,7 +483,7 @@ namespace DXTicketBase {
                 }
                 slnPathWithProjectName = finalSolutionFolderPath + string.Format(@"\{0}.sln", folderNumber);
             }
-           // Process.Start(slnPathWithProjectName);
+            Process.Start(slnPathWithProjectName);
 
         }
         private void SaveAll() {

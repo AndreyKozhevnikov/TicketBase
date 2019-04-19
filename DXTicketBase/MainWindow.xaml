@@ -106,9 +106,16 @@
                         IsChecked="{Binding Path=FirstProjectType, Mode=TwoWay, 
                                  Converter={StaticResource enumConverter},
                                  ConverterParameter=Web}" />
-                    <CheckBox Content="Security" IsChecked="{Binding IsSecurity,Mode=TwoWay}" />
-                    <CheckBox Content="Report" IsChecked="{Binding IsReport,Mode=TwoWay}" />
-                    <CheckBox Content="XPO" IsChecked="{Binding IsXPO,Mode=TwoWay}" />
+                    <RadioButton
+                        Content="XPO"
+                        GroupName="ProjectType"
+                        IsChecked="{Binding Path=FirstProjectType, Mode=TwoWay, 
+                                 Converter={StaticResource enumConverter},
+                                 ConverterParameter=XPO}"
+                        Margin="0,0,20,0"/>
+                    <CheckBox Content="Security" IsChecked="{Binding IsSecurity,Mode=TwoWay}" Margin="0,0,20,0" />
+                    <CheckBox Content="Report" IsChecked="{Binding IsReport,Mode=TwoWay}" Margin="0,0,20,0" />
+                    <CheckBox Content="Office" IsChecked="{Binding IsOffice,Mode=TwoWay}" Margin="0,0,20,0" />
                 </StackPanel>
             </StackPanel>
             <StackPanel Grid.Column="1" Margin="10,0,0,0">
