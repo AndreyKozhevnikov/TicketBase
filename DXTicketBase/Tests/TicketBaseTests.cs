@@ -102,6 +102,13 @@ namespace DXTicketBase {
             Assert.AreEqual(tkt.Number, "A2944");
         }
         [Test]
+        public void ParseSubject5() {
+            MyTicket tkt = new MyTicket(new Ticket());
+            tkt.ComplexSubject = @"KA18826: How To: Show a custom page in a new popup window in my XAF ASP.Net application";
+            tkt.ParseComplexSubject();
+            Assert.AreEqual(tkt.Number, "KA18826");
+        }
+        [Test]
         public void NorimalizeTitle() {
             //arrange
             var st = "TreeListControl; setting CurrentItem from viewmodel not highlighting/selecting he row on grid when multi select row is enabled";
@@ -114,19 +121,19 @@ namespace DXTicketBase {
             Assert.LessOrEqual(40, res.Length);
         }
 
-        [Test]
-        public void TestGetAllFilesWithSolution() {
-              var xDoc = XDocument.Load("TextToReplace.txt");
-            var files = xDoc.Element("Replace").Element("Files").Elements();
-            var items = xDoc.Element("Replace").Element("Items").Elements();
-            foreach (var e in items) {
-                Console.WriteLine(e.Value);
-            }
+        //[Test]
+        //public void TestGetAllFilesWithSolution() {
+        //    var xDoc = XDocument.Load("TextToReplace.txt");
+        //    var files = xDoc.Element("Replace").Element("Files").Elements();
+        //    var items = xDoc.Element("Replace").Element("Items").Elements();
+        //    foreach (var e in items) {
+        //        Console.WriteLine(e.Value);
+        //    }
             
-            var xEl = new XElement("myname");
-            xEl.Value = "<test>";
-            Console.Write(xEl);
+        //    var xEl = new XElement("myname");
+        //    xEl.Value = "<test>";
+        //    Console.Write(xEl);
             
-        }
+        //}
     }
 }
