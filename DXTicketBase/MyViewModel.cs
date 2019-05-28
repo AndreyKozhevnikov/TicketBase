@@ -441,15 +441,7 @@ namespace DXTicketBase {
                     File.Move(fromPath, toPath);
                 }
 
-                //4 replace old solution name in text files
-                var alltxtFiles = Directory.GetFiles(finalSolutionFolderPath, "*.*", SearchOption.AllDirectories);
-                foreach(var fl in alltxtFiles) {
-                    var txt = File.ReadAllText(fl);
-                    if(txt.Contains(pattern)) {
-                        txt = txt.Replace(pattern, folderNumber);
-                        File.WriteAllText(fl, txt);
-                    }
-                }
+     
 
                 //5 add security
                 List<string> tokens = new List<string>();
@@ -487,6 +479,17 @@ namespace DXTicketBase {
                         File.WriteAllText(filePath, fileText);
                     }
                 }
+
+                //4 replace old solution name in text files
+                var alltxtFiles = Directory.GetFiles(finalSolutionFolderPath, "*.*", SearchOption.AllDirectories);
+                foreach(var fl in alltxtFiles) {
+                    var txt = File.ReadAllText(fl);
+                    if(txt.Contains(pattern)) {
+                        txt = txt.Replace(pattern, folderNumber);
+                        File.WriteAllText(fl, txt);
+                    }
+                }
+
                 slnPathWithProjectName = finalSolutionFolderPath + string.Format(@"\{0}.sln", folderNumber);
             }
             Process.Start(slnPathWithProjectName);
