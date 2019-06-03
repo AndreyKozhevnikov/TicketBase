@@ -328,9 +328,7 @@ namespace DXTicketBase {
                 }
             }
             folderNumber = "dx" + number;
-
             finalSolutionFolderPath = folderPath + string.Format(@"\{0}\", folderNumber);
-
             bool canNotCreateSolution = true;
             int tmpCount = 0;
             MessageBoxResult? needCreateNewOne = null;
@@ -410,7 +408,6 @@ namespace DXTicketBase {
                 slnText = slnText.Replace("<ReplaceString>", projectString);
                 File.WriteAllText(slnPath, slnText);
 
-
                 //rename folders
                 //1 folders/files
                 filesWithSolutionName.Add(@"dxTestSolution.Module\dxTestSolution.Module.csproj");
@@ -424,12 +421,6 @@ namespace DXTicketBase {
                 filesWithSolutionName.Add(@"dxTestSolution.Web\dxTestSolution.Web.csproj");
                 filesWithSolutionName.Add("dxTestSolution.Web\\");
                 filesWithSolutionName.Add("dxTestSolution.sln");
-                
-
-
-    
-     
-
                 //5 add security
                 List<string> tokens = new List<string>();
 
