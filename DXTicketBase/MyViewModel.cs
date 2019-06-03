@@ -353,14 +353,18 @@ namespace DXTicketBase {
             Directory.CreateDirectory(finalSolutionFolderPath);
             string solutionPath = "";
             string slnPathWithProjectName = "";
+            List<string> filesWithSolutionName = new List<string>();
+            string pattern;
             if(FirstProjectType == FirstProjectEnum.XPO) {
+                pattern = "dxTestSolutionXPO";
                 solutionPath = dropBoxPath + @"work\templates\MainSolution\ConsoleApp1\";
                 DirectoryCopy(solutionPath, finalSolutionFolderPath, true);
-                slnPathWithProjectName = finalSolutionFolderPath + "ConsoleApp1.sln";
+                filesWithSolutionName.Add(@"dxTestSolutionXPO\dxTestSolutionXPO.csproj");
+                filesWithSolutionName.Add(@"dxTestSolutionXPO\\");
+                filesWithSolutionName.Add(@"dxTestSolutionXPO.sln");
             } else {
+                pattern = "dxTestSolution";
                 solutionPath = dropBoxPath + @"work\templates\MainSolution\dxTestSolution(Secur)\";
-                //   DirectoryCopy(solutionPath, folderPath, true);
-
                 DirectoryCopy(solutionPath, finalSolutionFolderPath, "dxTestSolution.Module", true);
                 File.Copy(solutionPath + "dxTestSolution.sln", finalSolutionFolderPath + "dxTestSolution.sln", true);
                 DirectoryCopy(solutionPath, finalSolutionFolderPath, "dxTestSolution.Module.Win", true);
@@ -409,38 +413,21 @@ namespace DXTicketBase {
 
                 //rename folders
                 //1 folders/files
-                var lst = new List<string>();
-                lst.Add(@"dxTestSolution.Module\dxTestSolution.Module.csproj");
-                lst.Add("dxTestSolution.Module\\");
-                lst.Add(@"dxTestSolution.Module.Win\dxTestSolution.Module.Win.csproj");
-                lst.Add("dxTestSolution.Module.Win\\");
-                lst.Add(@"dxTestSolution.Win\dxTestSolution.Win.csproj");
-                lst.Add("dxTestSolution.Win\\");
-                lst.Add(@"dxTestSolution.Module.Web\dxTestSolution.Module.Web.csproj");
-                lst.Add("dxTestSolution.Module.Web\\");
-                lst.Add(@"dxTestSolution.Web\dxTestSolution.Web.csproj");
-                lst.Add("dxTestSolution.Web\\");
-                lst.Add("dxTestSolution.sln");
-                var pattern = "dxTestSolution";
+                filesWithSolutionName.Add(@"dxTestSolution.Module\dxTestSolution.Module.csproj");
+                filesWithSolutionName.Add("dxTestSolution.Module\\");
+                filesWithSolutionName.Add(@"dxTestSolution.Module.Win\dxTestSolution.Module.Win.csproj");
+                filesWithSolutionName.Add("dxTestSolution.Module.Win\\");
+                filesWithSolutionName.Add(@"dxTestSolution.Win\dxTestSolution.Win.csproj");
+                filesWithSolutionName.Add("dxTestSolution.Win\\");
+                filesWithSolutionName.Add(@"dxTestSolution.Module.Web\dxTestSolution.Module.Web.csproj");
+                filesWithSolutionName.Add("dxTestSolution.Module.Web\\");
+                filesWithSolutionName.Add(@"dxTestSolution.Web\dxTestSolution.Web.csproj");
+                filesWithSolutionName.Add("dxTestSolution.Web\\");
+                filesWithSolutionName.Add("dxTestSolution.sln");
+                
 
-                foreach(var fl in lst) {
-                    Regex rgx = new Regex(pattern);
-                    MatchCollection matches = rgx.Matches(fl);
-                    var newFl = rgx.Replace(fl, folderNumber, 1, matches.Count - 1);
-                    var fullFileName = finalSolutionFolderPath + "\\" + fl;
-                    var fullNewFileName = finalSolutionFolderPath + "\\" + newFl;
-                    Move(fullFileName, fullNewFileName);
-                }
 
-                void Move(string fromPath, string toPath) {
-                    var lstChar = fromPath[fromPath.Length - 1];
-                    if(lstChar == '\\') {
-                        Directory.Move(fromPath, toPath);
-                        return;
-                    }
-                    File.Move(fromPath, toPath);
-                }
-
+    
      
 
                 //5 add security
@@ -479,22 +466,37 @@ namespace DXTicketBase {
                         File.WriteAllText(filePath, fileText);
                     }
                 }
-
-                //4 replace old solution name in text files
-                var alltxtFiles = Directory.GetFiles(finalSolutionFolderPath, "*.*", SearchOption.AllDirectories);
-                foreach(var fl in alltxtFiles) {
-                    var txt = File.ReadAllText(fl);
-                    if(txt.Contains(pattern)) {
-                        txt = txt.Replace(pattern, folderNumber);
-                        File.WriteAllText(fl, txt);
-                    }
-                }
-
-                slnPathWithProjectName = finalSolutionFolderPath + string.Format(@"\{0}.sln", folderNumber);
             }
+            foreach(var fl in filesWithSolutionName) {
+                Regex rgx = new Regex(pattern);
+                MatchCollection matches = rgx.Matches(fl);
+                var newFl = rgx.Replace(fl, folderNumber, 1, matches.Count - 1);
+                var fullFileName = finalSolutionFolderPath + "\\" + fl;
+                var fullNewFileName = finalSolutionFolderPath + "\\" + newFl;
+                Move(fullFileName, fullNewFileName);
+            }
+            //4 replace old solution name in text files
+            var alltxtFiles = Directory.GetFiles(finalSolutionFolderPath, "*.*", SearchOption.AllDirectories);
+            foreach(var fl in alltxtFiles) {
+                var txt = File.ReadAllText(fl);
+                if(txt.Contains(pattern)) {
+                    txt = txt.Replace(pattern, folderNumber);
+                    File.WriteAllText(fl, txt);
+                }
+            }
+            slnPathWithProjectName = finalSolutionFolderPath + string.Format(@"\{0}.sln", pattern);
             Process.Start(slnPathWithProjectName);
-
         }
+
+        void Move(string fromPath, string toPath) {
+            var lstChar = fromPath[fromPath.Length - 1];
+            if(lstChar == '\\') {
+                Directory.Move(fromPath, toPath);
+                return;
+            }
+            File.Move(fromPath, toPath);
+        }
+
         private void SaveAll() {
             var unsavedtickets = ListTickets.Where(x => x.IsSaved == false).ToList();
             foreach(var ticket in unsavedtickets) {
