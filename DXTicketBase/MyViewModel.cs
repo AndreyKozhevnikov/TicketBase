@@ -484,7 +484,7 @@ namespace DXTicketBase {
                     File.WriteAllText(fl, txt);
                 }
             }
-            slnPathWithProjectName = finalSolutionFolderPath + string.Format(@"\{0}.sln", pattern);
+            slnPathWithProjectName = finalSolutionFolderPath + string.Format(@"{0}.sln", folderNumber);
             Process.Start(slnPathWithProjectName);
         }
 
