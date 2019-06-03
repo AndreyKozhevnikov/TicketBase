@@ -29,7 +29,7 @@ namespace DXTicketBase.Classes {
             if(useValue)
                 return Enum.Parse(targetType, targetValue);
 
-            return null;
+            return Binding.DoNothing;
         }
     }
 
