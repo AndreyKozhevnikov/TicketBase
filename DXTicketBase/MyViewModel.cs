@@ -154,6 +154,7 @@ namespace DXTicketBase {
             CreateNewticket();
             //   IsWinAttached = true;
             FirstProjectType = FirstProjectEnum.Win;
+            IsInMemoryStore = true;
         }
 
         private void CreateNewticket() {
@@ -305,9 +306,49 @@ namespace DXTicketBase {
         //public bool IsWinAttached { get; set; }
         //public bool IsWebAttached { get; set; }
         public FirstProjectEnum FirstProjectType { get; set; }
-        public bool IsSecurity { get; set; }
-        public bool IsReport { get; set; }
-        public bool IsOffice { get; set; }
+        bool isSecurity;
+        public bool IsSecurity {
+            get {
+                return isSecurity;
+            }
+            set {
+                isSecurity = value;
+                if(value)
+                    IsInMemoryStore = false;
+            }
+        }
+        bool isReport;
+        public bool IsReport {
+            get {
+                return isReport;
+            }
+            set {
+                isReport = value;
+                if(value)
+                    IsInMemoryStore = false;
+            }
+        }
+        bool isOffice;
+        public bool IsOffice {
+            get {
+                return isOffice;
+            }
+            set {
+                isOffice = value;
+                if(value)
+                    IsInMemoryStore = false;
+            }
+        }
+        bool isInMemoryStore;
+        public bool IsInMemoryStore {
+            get {
+                return isInMemoryStore;
+            }
+            set {
+                isInMemoryStore = value;
+                NotifyPropertyChanged();
+            }
+        }
         string folderPath = "";
         string folderNumber = "";
         string finalSolutionFolderPath = "";
@@ -353,6 +394,7 @@ namespace DXTicketBase {
             string slnPathWithProjectName = "";
             List<string> filesWithSolutionName = new List<string>();
             string pattern;
+            List<string> tokens = new List<string>();
             if(FirstProjectType == FirstProjectEnum.XPO) {
                 pattern = "dxTestSolutionXPO";
                 solutionPath = dropBoxPath + @"work\templates\MainSolution\ConsoleApp1\";
@@ -360,6 +402,9 @@ namespace DXTicketBase {
                 filesWithSolutionName.Add(@"dxTestSolutionXPO\dxTestSolutionXPO.csproj");
                 filesWithSolutionName.Add(@"dxTestSolutionXPO\\");
                 filesWithSolutionName.Add(@"dxTestSolutionXPO.sln");
+                if(IsInMemoryStore) {
+                    tokens.Add("inmemory");
+                }
             } else {
                 pattern = "dxTestSolution";
                 solutionPath = dropBoxPath + @"work\templates\MainSolution\dxTestSolution(Secur)\";
@@ -422,7 +467,7 @@ namespace DXTicketBase {
                 filesWithSolutionName.Add("dxTestSolution.Web\\");
                 filesWithSolutionName.Add("dxTestSolution.sln");
                 //5 add security
-                List<string> tokens = new List<string>();
+
 
                 if(IsSecurity) {
                     tokens.Add("security");
@@ -433,31 +478,13 @@ namespace DXTicketBase {
                 if(IsOffice) {
                     tokens.Add("office");
                 }
-                if(!(IsSecurity || IsReport || IsOffice)) {
+                if(IsInMemoryStore) {
                     tokens.Add("inmemory");
                 }
-                if(tokens.Count > 0) {
-                    var xDoc = XDocument.Load(solutionPath + "TextToReplace.txt");
-                    var files = xDoc.Element("Replace").Element("Files").Elements();
-                    var items = xDoc.Element("Replace").Element("Items").Elements();
-                    foreach(var file in files) {
-                        string fileName = file.Value;
-                        string filePath = finalSolutionFolderPath + string.Format(fileName, folderNumber);
-                        if(!File.Exists(filePath))
-                            continue;
-                        string fileText = File.ReadAllText(filePath);
-                        foreach(var item in items) {
-                            string token = item.Attribute("token").Value;
-                            if(tokens.Contains(token)) {
-                                string marker = item.Attribute("marker").Value;
-                                string value = item.Value;
-                                fileText = fileText.Replace(marker, value);
-                            }
-                        }
-                        File.WriteAllText(filePath, fileText);
-                    }
-                }
             }
+
+
+
             foreach(var fl in filesWithSolutionName) {
                 Regex rgx = new Regex(pattern);
                 MatchCollection matches = rgx.Matches(fl);
@@ -466,6 +493,30 @@ namespace DXTicketBase {
                 var fullNewFileName = finalSolutionFolderPath + "\\" + newFl;
                 Move(fullFileName, fullNewFileName);
             }
+
+            if(tokens.Count > 0) {
+                var xDoc = XDocument.Load(solutionPath + "TextToReplace.txt");
+                var files = xDoc.Element("Replace").Element("Files").Elements();
+                var items = xDoc.Element("Replace").Element("Items").Elements();
+                foreach(var file in files) {
+                    string fileName = file.Value;
+                    string filePath = finalSolutionFolderPath + string.Format(fileName, folderNumber);
+                    if(!File.Exists(filePath))
+                        continue;
+                    string fileText = File.ReadAllText(filePath);
+                    foreach(var item in items) {
+                        string token = item.Attribute("token").Value;
+                        if(tokens.Contains(token)) {
+                            string marker = item.Attribute("marker").Value;
+                            string value = item.Value;
+                            fileText = fileText.Replace(marker, value);
+                        }
+                    }
+                    File.WriteAllText(filePath, fileText);
+                }
+            }
+
+
             //4 replace old solution name in text files
             var alltxtFiles = Directory.GetFiles(finalSolutionFolderPath, "*.*", SearchOption.AllDirectories);
             foreach(var fl in alltxtFiles) {
