@@ -390,6 +390,7 @@ namespace DXTicketBase {
                 }
             } while(canNotCreateSolution);
             Directory.CreateDirectory(finalSolutionFolderPath);
+            File.Copy(Path.Combine(dropBoxPath, @"work\templates\MainSolution\delbinobj.bat"), Path.Combine(finalSolutionFolderPath, "delbinobj.bat"));
             string solutionPath = "";
             string slnPathWithProjectName = "";
             List<string> filesWithSolutionName = new List<string>();
