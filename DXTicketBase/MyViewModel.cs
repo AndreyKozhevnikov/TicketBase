@@ -391,6 +391,8 @@ namespace DXTicketBase {
             } while(canNotCreateSolution);
             Directory.CreateDirectory(finalSolutionFolderPath);
             File.Copy(Path.Combine(dropBoxPath, @"work\templates\MainSolution\delbinobj.bat"), Path.Combine(finalSolutionFolderPath, "delbinobj.bat"));
+            var gitBatchFile = Path.Combine(finalSolutionFolderPath, "createGit.bat");
+            File.Copy(Path.Combine(dropBoxPath, @"work\templates\MainSolution\createGit.bat"), gitBatchFile);
             string solutionPath = "";
             string slnPathWithProjectName = "";
             List<string> filesWithSolutionName = new List<string>();
@@ -527,6 +529,7 @@ namespace DXTicketBase {
                     File.WriteAllText(fl, txt);
                 }
             }
+            Process.Start(gitBatchFile);
             slnPathWithProjectName = finalSolutionFolderPath + string.Format(@"{0}.sln", folderNumber);
             Process.Start(slnPathWithProjectName);
         }
