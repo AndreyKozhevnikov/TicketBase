@@ -373,20 +373,22 @@ namespace DXTicketBase {
             bool canNotCreateSolution = true;
             int tmpCount = 0;
             MessageBoxResult? needCreateNewOne = null;
+            string tmpFolderNumber = null;
             do {
-
                 var isAlreadyExist = Directory.Exists(finalSolutionFolderPath);
                 if(isAlreadyExist) {
                     if(needCreateNewOne == null)
                         needCreateNewOne = MessageBox.Show("Solution exists. Create a new one?", "Already exists", MessageBoxButton.YesNo);
                     if(needCreateNewOne.Value == MessageBoxResult.Yes) {
-                        var tmpFolderNumber = folderNumber + "v" + ++tmpCount;
+                        tmpFolderNumber = folderNumber + "v" + ++tmpCount;
                         finalSolutionFolderPath = folderPath + string.Format(@"\{0}\", tmpFolderNumber);
                     } else {
                         return;
                     }
                 } else {
                     canNotCreateSolution = false;
+                    if(tmpFolderNumber != null)
+                        folderNumber = tmpFolderNumber;
                 }
             } while(canNotCreateSolution);
             Directory.CreateDirectory(finalSolutionFolderPath);
