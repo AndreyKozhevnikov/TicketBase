@@ -420,6 +420,7 @@ namespace DXTicketBase {
                 DirectoryCopy(solutionPath, finalSolutionFolderPath, "dxTestSolution.Win", true);
                 DirectoryCopy(solutionPath, finalSolutionFolderPath, "dxTestSolution.Module.Web", true);
                 DirectoryCopy(solutionPath, finalSolutionFolderPath, "dxTestSolution.Web", true);
+                DirectoryCopy(solutionPath, finalSolutionFolderPath, ".vs", true);
                 if(IsReport) {
                     File.Copy(solutionPath + @"Controllers\ClearReportCacheController.cs", finalSolutionFolderPath + @"dxTestSolution.Module\Controllers\ClearReportCacheController.cs");
                 }
@@ -471,6 +472,7 @@ namespace DXTicketBase {
                 filesWithSolutionName.Add("dxTestSolution.Module.Web\\");
                 filesWithSolutionName.Add(@"dxTestSolution.Web\dxTestSolution.Web.csproj");
                 filesWithSolutionName.Add("dxTestSolution.Web\\");
+                filesWithSolutionName.Add(@".vs\dxTestSolution\");
                 filesWithSolutionName.Add("dxTestSolution.sln");
                 //5 add security
 

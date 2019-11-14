@@ -1,0 +1,13 @@
+DevExpress.Data.v18.1.dll 18.1.7
+DevExpress.Mvvm.v18.1.dll 18.1.7
+DevExpress.Pdf.v18.1.Core.dll 18.1.7
+DevExpress.Office.v18.1.Core.dll 18.1.7
+DevExpress.RichEdit.v18.1.Core.dll 18.1.7
+DevExpress.RichEdit.v18.1.Export.dll 18.1.7
+DevExpress.Printing.v18.1.Core.dll 18.1.7
+DevExpress.Xpf.CodeView.v18.1.dll 18.1.7
+DevExpress.Xpf.Core.v18.1.dll 18.1.7
+devexpress.xpf.grid.v18.1.dll 18.1.7
+DevExpress.Xpf.Grid.v18.1.Core.dll 18.1.7
+DevExpress.Xpf.Printing.v18.1.dll 18.1.7
+DevExpress.Xpf.Themes.Office2016White.v18.1.dll 18.1.7
