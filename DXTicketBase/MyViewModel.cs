@@ -395,7 +395,7 @@ namespace DXTicketBase {
             File.Copy(Path.Combine(dropBoxPath, @"work\templates\MainSolution\delbinobj.bat"), Path.Combine(finalSolutionFolderPath, "delbinobj.bat"));
             var gitBatchFile = Path.Combine(finalSolutionFolderPath, "createGit.bat");
             File.Copy(Path.Combine(dropBoxPath, @"work\templates\MainSolution\createGit.bat"), gitBatchFile);
-            File.Copy(Path.Combine(dropBoxPath, @"work\templates\MainSolution\.gitignore"), Path.Combine(finalSolutionFolderPath, ".gitignore"));
+            File.Copy(Path.Combine(dropBoxPath, @"work\templates\MainSolution\.gitignoreToCopy"), Path.Combine(finalSolutionFolderPath, ".gitignore"));
             string solutionPath = "";
             string slnPathWithProjectName = "";
             List<string> filesWithSolutionName = new List<string>();
