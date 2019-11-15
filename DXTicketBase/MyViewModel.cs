@@ -420,45 +420,20 @@ namespace DXTicketBase {
                 DirectoryCopy(solutionPath, finalSolutionFolderPath, "dxTestSolution.Win", true);
                 DirectoryCopy(solutionPath, finalSolutionFolderPath, "dxTestSolution.Module.Web", true);
                 DirectoryCopy(solutionPath, finalSolutionFolderPath, "dxTestSolution.Web", true);
-                DirectoryCopy(solutionPath, finalSolutionFolderPath, ".vs", true);
                 if(IsReport) {
                     File.Copy(solutionPath + @"Controllers\ClearReportCacheController.cs", finalSolutionFolderPath + @"dxTestSolution.Module\Controllers\ClearReportCacheController.cs");
                 }
                 if(IsOffice) {
                     File.Copy(solutionPath + @"Controllers\ClearMailMergeCacheController.cs", finalSolutionFolderPath + @"dxTestSolution.Module.Win\Controllers\ClearMailMergeCacheController.cs");
                 }
-                //add projects to sln
-                string projectString = "";
-                string webProjectString = "";
-                string winProjectString = "";
-                webProjectString = webProjectString + @"Project(""{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"")=""dxTestSolution.Web"",""dxTestSolution.Web\dxTestSolution.Web.csproj"",""{82A6DBC9-B1B4-44E4-9718-55DF930CD349}""";
-                webProjectString += Environment.NewLine;
-                webProjectString = webProjectString + "EndProject";
-                webProjectString += Environment.NewLine;
-                webProjectString = webProjectString + @"Project(""{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"")=""dxTestSolution.Module.Web"",""dxTestSolution.Module.Web\dxTestSolution.Module.Web.csproj"",""{0C729AAD-7626-4668-A7F1-35F7D240489D}""";
-                webProjectString += Environment.NewLine;
-                webProjectString = webProjectString + "EndProject";
-                webProjectString += Environment.NewLine;
-                winProjectString = winProjectString + @"Project(""{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"")=""dxTestSolution.Win"",""dxTestSolution.Win\dxTestSolution.Win.csproj"",""{D05D93DF-312D-4D4E-B980-726871EC7833}""";
-                winProjectString += Environment.NewLine;
-                winProjectString = winProjectString + "EndProject";
-                winProjectString += Environment.NewLine;
-                winProjectString = winProjectString + @"Project(""{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"")=""dxTestSolution.Module.Win"",""dxTestSolution.Module.Win\dxTestSolution.Module.Win.csproj"",""{7964F87D-BC5D-4C4E-8B2F-71E89739AA97}""";
-                winProjectString += Environment.NewLine;
-                winProjectString = winProjectString + "EndProject";
-                winProjectString += Environment.NewLine;
                 switch(FirstProjectType) {
                     case FirstProjectEnum.Web:
-                        projectString = webProjectString + winProjectString;
+                        DirectoryCopy(solutionPath + ".vsWeb", finalSolutionFolderPath + ".vs", true);
                         break;
                     case FirstProjectEnum.Win:
-                        projectString = winProjectString + webProjectString;
+                        DirectoryCopy(solutionPath + ".vsWin", finalSolutionFolderPath + ".vs", true);
                         break;
                 }
-                string slnPath = finalSolutionFolderPath + "dxTestSolution.sln";
-                string slnText = File.ReadAllText(slnPath);
-                slnText = slnText.Replace("<ReplaceString>", projectString);
-                File.WriteAllText(slnPath, slnText);
 
                 //rename folders
                 //1 folders/files
