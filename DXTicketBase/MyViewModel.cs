@@ -1,5 +1,6 @@
 ﻿using DevExpress.Mvvm;
 using DevExpress.Mvvm.UI;
+using DevExpress.Xpf.Editors;
 using DevExpress.Xpf.Grid;
 using DXTicketBase.Classes;
 using System;
@@ -46,6 +47,8 @@ namespace DXTicketBase {
         ICommand _goToWebCommand;
         ICommand _openFolderCommand;
         ICommand _deleteFoldersCommand;
+        ICommand _availableItemsChangedCommand;
+
         public ICommand GoToWebCommand {
             get {
                 if(_goToWebCommand == null)
@@ -107,7 +110,20 @@ namespace DXTicketBase {
             }
 
         }
+        public ICommand AvailableItemsChangedCommand {
+            get {
+                if(_availableItemsChangedCommand == null)
+                    _availableItemsChangedCommand = new DelegateCommand<EditValueChangedEventArgs>(AvailableItemsChanged);
+                return _availableItemsChangedCommand;
+            }
+
+        }
+        
         public ObservableCollection<MyTicket> ListTickets { get; set; }
+
+        public List<String> AvailableModules{ get; set; }
+        public List<object> SelectedModules{ get; set; }
+
         public MyTicket ThisTicket {
             get { return _thisTicket; }
             set {
@@ -142,7 +158,7 @@ namespace DXTicketBase {
         IServiceContainer ISupportServices.ServiceContainer { get { return ServiceContainer; } }
         IManageGridControl MyManageGridControlService { get { return ServiceContainer.GetService<IManageGridControl>(); } }
 
-
+        string solutionPath = "";
 
 
     }
@@ -154,7 +170,18 @@ namespace DXTicketBase {
             CreateNewticket();
             //   IsWinAttached = true;
             FirstProjectType = FirstProjectEnum.Win;
-            IsInMemoryStore = true;
+            SelectedModules = new List<object>();
+            SelectedModules.Add("inmemory");
+            PopulateAvailableModules();
+        }
+
+        private void PopulateAvailableModules() {
+            solutionPath = dropBoxPath + @"work\templates\MainSolution\dxTestSolution(Secur)\";
+            var xDoc = XDocument.Load(solutionPath + "TextToReplace.txt");
+            var files = xDoc.Element("Replace").Element("Files").Elements();
+            var fileTokens = xDoc.Element("Replace").Element("Tokens").Elements();
+
+            AvailableModules = fileTokens.Select(x => x.Attribute("name").Value).ToList();
         }
 
         private void CreateNewticket() {
@@ -306,49 +333,7 @@ namespace DXTicketBase {
         //public bool IsWinAttached { get; set; }
         //public bool IsWebAttached { get; set; }
         public FirstProjectEnum FirstProjectType { get; set; }
-        bool isSecurity;
-        public bool IsSecurity {
-            get {
-                return isSecurity;
-            }
-            set {
-                isSecurity = value;
-                if(value)
-                    IsInMemoryStore = false;
-            }
-        }
-        bool isReport;
-        public bool IsReport {
-            get {
-                return isReport;
-            }
-            set {
-                isReport = value;
-                if(value)
-                    IsInMemoryStore = false;
-            }
-        }
-        bool isOffice;
-        public bool IsOffice {
-            get {
-                return isOffice;
-            }
-            set {
-                isOffice = value;
-                if(value)
-                    IsInMemoryStore = false;
-            }
-        }
-        bool isInMemoryStore;
-        public bool IsInMemoryStore {
-            get {
-                return isInMemoryStore;
-            }
-            set {
-                isInMemoryStore = value;
-                NotifyPropertyChanged();
-            }
-        }
+       
         string folderPath = "";
         string folderNumber = "";
         string finalSolutionFolderPath = "";
@@ -396,7 +381,7 @@ namespace DXTicketBase {
             var gitBatchFile = Path.Combine(finalSolutionFolderPath, "createGit.bat");
             File.Copy(Path.Combine(dropBoxPath, @"work\templates\MainSolution\createGit.bat"), gitBatchFile);
             File.Copy(Path.Combine(dropBoxPath, @"work\templates\MainSolution\.gitignoreToCopy"), Path.Combine(finalSolutionFolderPath, ".gitignore"));
-            string solutionPath = "";
+            
             string slnPathWithProjectName = "";
             List<string> filesWithSolutionName = new List<string>();
             string pattern;
@@ -408,22 +393,22 @@ namespace DXTicketBase {
                 filesWithSolutionName.Add(@"dxTestSolutionXPO\dxTestSolutionXPO.csproj");
                 filesWithSolutionName.Add(@"dxTestSolutionXPO\\");
                 filesWithSolutionName.Add(@"dxTestSolutionXPO.sln");
-                if(IsInMemoryStore) {
+                if(AvailableModules.Contains("inmemory")) {
                     tokens.Add("inmemory");
                 }
             } else {
                 pattern = "dxTestSolution";
-                solutionPath = dropBoxPath + @"work\templates\MainSolution\dxTestSolution(Secur)\";
+               
                 DirectoryCopy(solutionPath, finalSolutionFolderPath, "dxTestSolution.Module", true);
                 File.Copy(solutionPath + "dxTestSolution.sln", finalSolutionFolderPath + "dxTestSolution.sln", true);
                 DirectoryCopy(solutionPath, finalSolutionFolderPath, "dxTestSolution.Module.Win", true);
                 DirectoryCopy(solutionPath, finalSolutionFolderPath, "dxTestSolution.Win", true);
                 DirectoryCopy(solutionPath, finalSolutionFolderPath, "dxTestSolution.Module.Web", true);
                 DirectoryCopy(solutionPath, finalSolutionFolderPath, "dxTestSolution.Web", true);
-                if(IsReport) {
+                if(AvailableModules.Contains("report")) {
                     File.Copy(solutionPath + @"Controllers\ClearReportCacheController.cs", finalSolutionFolderPath + @"dxTestSolution.Module\Controllers\ClearReportCacheController.cs");
                 }
-                if(IsOffice) {
+                if(AvailableModules.Contains("office")) {
                     File.Copy(solutionPath + @"Controllers\ClearMailMergeCacheController.cs", finalSolutionFolderPath + @"dxTestSolution.Module.Win\Controllers\ClearMailMergeCacheController.cs");
                 }
                 switch(FirstProjectType) {
@@ -451,19 +436,7 @@ namespace DXTicketBase {
                 filesWithSolutionName.Add("dxTestSolution.sln");
                 //5 add security
 
-
-                if(IsSecurity) {
-                    tokens.Add("security");
-                }
-                if(IsReport) {
-                    tokens.Add("report");
-                }
-                if(IsOffice) {
-                    tokens.Add("office");
-                }
-                if(IsInMemoryStore) {
-                    tokens.Add("inmemory");
-                }
+                tokens = SelectedModules.Cast<string>().ToList();
             }
 
 
@@ -589,6 +562,11 @@ namespace DXTicketBase {
                 MakeFolderYoung(currentTicketPath);
             }
         }
+
+        void AvailableItemsChanged(EditValueChangedEventArgs e) {
+            //todo change inmemory when a module added
+        }
+
         void DeleteFolders() {
             var stDate = DateTime.Today.AddMonths(-12);
             var ticketsToDelet = ListTickets.Where(x => x.AddDate < stDate).ToList();

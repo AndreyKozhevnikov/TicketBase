@@ -71,6 +71,11 @@
             </dxg:GridControl.View>
         </dxg:GridControl>
         <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="25"/>
+            </Grid.RowDefinitions>
+            <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />
@@ -93,31 +98,7 @@
                         <dxmvvm:EventToCommand Command="{Binding CreateAndOpenSolutionCommand}" EventName="Click" />
                     </dxmvvm:Interaction.Behaviors>
                 </Button>
-                <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
-                    <RadioButton
-                        Content="Win"
-                        GroupName="ProjectType"
-                        IsChecked="{Binding Path=FirstProjectType, Mode=TwoWay, 
-                                 Converter={StaticResource enumConverter},
-                                 ConverterParameter=Win}" />
-                    <RadioButton
-                        Content="Web"
-                        GroupName="ProjectType"
-                        IsChecked="{Binding Path=FirstProjectType, Mode=TwoWay, 
-                                 Converter={StaticResource enumConverter},
-                                 ConverterParameter=Web}" />
-                    <RadioButton
-                        Content="XPO"
-                        GroupName="ProjectType"
-                        IsChecked="{Binding Path=FirstProjectType, Mode=TwoWay, 
-                                 Converter={StaticResource enumConverter},
-                                 ConverterParameter=XPO}"
-                        Margin="0,0,20,0"/>
-                    <CheckBox Content="InMemoryStore" IsChecked="{Binding IsInMemoryStore,Mode=TwoWay}" Margin="0,0,20,0"/>
-                    <CheckBox Content="Security" IsChecked="{Binding IsSecurity,Mode=TwoWay}" Margin="20,0,20,0" />
-                    <CheckBox Content="Report" IsChecked="{Binding IsReport,Mode=TwoWay}" Margin="0,0,20,0" />
-                    <CheckBox Content="Office" IsChecked="{Binding IsOffice,Mode=TwoWay}" Margin="0,0,20,0" />
-                </StackPanel>
+                
             </StackPanel>
             <StackPanel Grid.Column="1" Margin="10,0,0,0">
                 <dxe:TextEdit
@@ -150,6 +131,47 @@
                     Margin="0,50,0,0"
                     Command="{Binding DeleteFoldersCommand}"
                     Content="Delete old folders" />
+            </StackPanel>
+            </Grid>
+            <StackPanel Grid.Row="1" Orientation="Horizontal" >
+                <RadioButton
+                        Content="Win"
+                        GroupName="ProjectType"
+                        IsChecked="{Binding Path=FirstProjectType, Mode=TwoWay, 
+                                 Converter={StaticResource enumConverter},
+                                 ConverterParameter=Win}" />
+                <RadioButton
+                        Content="Web"
+                        GroupName="ProjectType"
+                        IsChecked="{Binding Path=FirstProjectType, Mode=TwoWay, 
+                                 Converter={StaticResource enumConverter},
+                                 ConverterParameter=Web}" />
+                <RadioButton
+                        Content="XPO"
+                        GroupName="ProjectType"
+                        IsChecked="{Binding Path=FirstProjectType, Mode=TwoWay, 
+                                 Converter={StaticResource enumConverter},
+                                 ConverterParameter=XPO}"
+                        Margin="0,0,20,0"/>
+                <CheckBox Content="InMemoryStore" IsChecked="{Binding IsInMemoryStore,Mode=TwoWay}" Margin="0,0,20,0"/>
+                <dxe:ListBoxEdit ItemsSource="{Binding AvailableModules}"
+                                 EditValue="{Binding SelectedModules,Mode=TwoWay}"
+                                 >
+                    <dxmvvm:Interaction.Behaviors>
+                        <dxmvvm:EventToCommand Command="{Binding AvailableItemsChangedCommand}" EventName="EditValueChanged" PassEventArgsToCommand="True" />
+                    </dxmvvm:Interaction.Behaviors>
+                    <dxe:ListBoxEdit.StyleSettings>
+                        <dxe:CheckedListBoxEditStyleSettings />
+                    </dxe:ListBoxEdit.StyleSettings>
+                    <dxe:ListBoxEdit.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal" />
+                        </ItemsPanelTemplate>
+                    </dxe:ListBoxEdit.ItemsPanel>
+                </dxe:ListBoxEdit>
+                <!--<CheckBox Content="Security" IsChecked="{Binding IsSecurity,Mode=TwoWay}" Margin="20,0,20,0" />
+                    <CheckBox Content="Report" IsChecked="{Binding IsReport,Mode=TwoWay}" Margin="0,0,20,0" />
+                    <CheckBox Content="Office" IsChecked="{Binding IsOffice,Mode=TwoWay}" Margin="0,0,20,0" />-->
             </StackPanel>
         </Grid>
     </Grid>
