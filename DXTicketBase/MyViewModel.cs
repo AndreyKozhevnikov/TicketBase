@@ -477,27 +477,7 @@ namespace DXTicketBase {
                 Move(fullFileName, fullNewFileName);
             }
 
-            if(tokens.Count > 0) {
-                var xDoc = XDocument.Load(solutionPath + "TextToReplace.txt");
-                var files = xDoc.Element("Replace").Element("Files").Elements();
-                var items = xDoc.Element("Replace").Element("Items").Elements();
-                foreach(var file in files) {
-                    string fileName = file.Value;
-                    string filePath = finalSolutionFolderPath + string.Format(fileName, folderNumber);
-                    if(!File.Exists(filePath))
-                        continue;
-                    string fileText = File.ReadAllText(filePath);
-                    foreach(var item in items) {
-                        string token = item.Attribute("token").Value;
-                        if(tokens.Contains(token)) {
-                            string marker = item.Attribute("marker").Value;
-                            string value = item.Value;
-                            fileText = fileText.Replace(marker, value);
-                        }
-                    }
-                    File.WriteAllText(filePath, fileText);
-                }
-            }
+            AddAdditionalModules(tokens, solutionPath);
 
 
             //4 replace old solution name in text files
@@ -512,6 +492,34 @@ namespace DXTicketBase {
             Process.Start(gitBatchFile);
             slnPathWithProjectName = finalSolutionFolderPath + string.Format(@"{0}.sln", folderNumber);
             Process.Start(slnPathWithProjectName);
+        }
+
+        void AddAdditionalModules(List<string> tokens, string solutionPath) {
+            if(tokens.Count > 0) {
+                var xDoc = XDocument.Load(solutionPath + "TextToReplace.txt");
+                var files = xDoc.Element("Replace").Element("Files").Elements();
+                var fileTokens = xDoc.Element("Replace").Element("Tokens").Elements();
+                foreach(var file in files) {
+                    string fileName = file.Value;
+                    string filePath = finalSolutionFolderPath + string.Format(fileName, folderNumber);
+                    if(!File.Exists(filePath))
+                        continue;
+                    string fileText = File.ReadAllText(filePath);
+                    foreach(var token in fileTokens) {
+                        string tokenName = token.Attribute("name").Value;
+                        //   string token = item.Attribute("token").Value;
+                        if(tokens.Contains(tokenName)) {
+                            var tokenItems = token.Elements();
+                            foreach(var item in tokenItems) {
+                                string marker = item.Attribute("marker").Value;
+                                string value = item.Value;
+                                fileText = fileText.Replace(marker, value);
+                            }
+                        }
+                    }
+                    File.WriteAllText(filePath, fileText);
+                }
+            }
         }
 
         void Move(string fromPath, string toPath) {
