@@ -118,11 +118,11 @@ namespace DXTicketBase {
             }
 
         }
-        
+
         public ObservableCollection<MyTicket> ListTickets { get; set; }
 
-        public List<String> AvailableModules{ get; set; }
-        public List<object> SelectedModules{ get; set; }
+        public List<String> AvailableModules { get; set; }
+        public List<object> SelectedModules { get; set; }
 
         public MyTicket ThisTicket {
             get { return _thisTicket; }
@@ -333,7 +333,7 @@ namespace DXTicketBase {
         //public bool IsWinAttached { get; set; }
         //public bool IsWebAttached { get; set; }
         public FirstProjectEnum FirstProjectType { get; set; }
-       
+
         string folderPath = "";
         string folderNumber = "";
         string finalSolutionFolderPath = "";
@@ -381,7 +381,7 @@ namespace DXTicketBase {
             var gitBatchFile = Path.Combine(finalSolutionFolderPath, "createGit.bat");
             File.Copy(Path.Combine(dropBoxPath, @"work\templates\MainSolution\createGit.bat"), gitBatchFile);
             File.Copy(Path.Combine(dropBoxPath, @"work\templates\MainSolution\.gitignoreToCopy"), Path.Combine(finalSolutionFolderPath, ".gitignore"));
-            
+
             string slnPathWithProjectName = "";
             List<string> filesWithSolutionName = new List<string>();
             string pattern;
@@ -398,7 +398,7 @@ namespace DXTicketBase {
                 }
             } else {
                 pattern = "dxTestSolution";
-               
+
                 DirectoryCopy(solutionPath, finalSolutionFolderPath, "dxTestSolution.Module", true);
                 File.Copy(solutionPath + "dxTestSolution.sln", finalSolutionFolderPath + "dxTestSolution.sln", true);
                 DirectoryCopy(solutionPath, finalSolutionFolderPath, "dxTestSolution.Module.Win", true);
@@ -485,7 +485,7 @@ namespace DXTicketBase {
                             var tokenItems = token.Elements();
                             foreach(var item in tokenItems) {
                                 string marker = item.Attribute("marker").Value;
-                                string value = item.Value;
+                                string value = item.FirstNode != null ? item.FirstNode.ToString() : string.Empty;
                                 fileText = fileText.Replace(marker, value);
                             }
                         }
