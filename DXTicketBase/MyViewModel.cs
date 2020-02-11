@@ -435,8 +435,9 @@ namespace DXTicketBase {
                 filesWithSolutionName.Add(@".vs\dxTestSolution\");
                 filesWithSolutionName.Add("dxTestSolution.sln");
                 //5 add security
-
-                tokens = SelectedModules.Cast<string>().ToList();
+                if(SelectedModules != null) {
+                    tokens = SelectedModules.Cast<string>().ToList();
+                }
             }
 
 
