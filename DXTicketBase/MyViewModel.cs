@@ -485,8 +485,22 @@ namespace DXTicketBase {
                             var tokenItems = token.Elements();
                             foreach(var item in tokenItems) {
                                 string marker = item.Attribute("marker").Value;
-                                string value = item.FirstNode != null ? item.FirstNode.ToString() : string.Empty;
-                                fileText = fileText.Replace(marker, value);
+                                //    string value = item.FirstNode != null ? item.FirstNode.ToString() : string.Empty;
+
+                                var els = item.Elements().ToList();
+                                string st = string.Empty;
+                                if(els.Count > 0) {
+                                    st = string.Join(Environment.NewLine, els);
+                                } else {
+                                    st = item.Value;
+                                }
+                                //var els2 = els.Select(x => x.FirstAttribute);
+                                //if(els2.Count() > 0) {
+                                //    var d = 3;
+                                //}
+
+
+                                fileText = fileText.Replace(marker, st);
                             }
                         }
                     }
