@@ -393,7 +393,7 @@ namespace DXTicketBase {
                 filesWithSolutionName.Add(@"dxTestSolutionXPO\dxTestSolutionXPO.csproj");
                 filesWithSolutionName.Add(@"dxTestSolutionXPO\\");
                 filesWithSolutionName.Add(@"dxTestSolutionXPO.sln");
-                if(AvailableModules.Contains("inmemory")) {
+                if(SelectedModules != null && SelectedModules.Contains("inmemory")) {
                     tokens.Add("inmemory");
                 }
             } else {
@@ -405,10 +405,10 @@ namespace DXTicketBase {
                 DirectoryCopy(solutionPath, finalSolutionFolderPath, "dxTestSolution.Win", true);
                 DirectoryCopy(solutionPath, finalSolutionFolderPath, "dxTestSolution.Module.Web", true);
                 DirectoryCopy(solutionPath, finalSolutionFolderPath, "dxTestSolution.Web", true);
-                if(AvailableModules.Contains("report")) {
+                if(SelectedModules != null && SelectedModules.Contains("report")) {
                     File.Copy(solutionPath + @"Controllers\ClearReportCacheController.cs", finalSolutionFolderPath + @"dxTestSolution.Module\Controllers\ClearReportCacheController.cs");
                 }
-                if(AvailableModules.Contains("office")) {
+                if(SelectedModules != null && SelectedModules.Contains("office")) {
                     File.Copy(solutionPath + @"Controllers\ClearMailMergeCacheController.cs", finalSolutionFolderPath + @"dxTestSolution.Module.Win\Controllers\ClearMailMergeCacheController.cs");
                 }
                 switch(FirstProjectType) {
