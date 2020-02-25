@@ -22,7 +22,7 @@ using System.Windows.Threading;
 using System.Xml.Linq;
 
 namespace DXTicketBase {
-   
+
 
     public partial class MyViewModel {
         public MyViewModel() {
@@ -30,14 +30,14 @@ namespace DXTicketBase {
             CreateTicketList();
             CreateNewticket();
             //   IsWinAttached = true;
-            FirstProjectType = FirstProjectEnum.Win;
+            SolutionType = SolutionTypeEnum.Win;
             SelectedModules = new List<object>();
             SelectedModules.Add("inmemory");
             PopulateAvailableModules();
         }
 
         private void PopulateAvailableModules() {
-            sourceSolutionPath = dropBoxPath + @"work\templates\MainSolution\dxTestSolution(Secur)\";
+            var sourceSolutionPath = dropBoxPath + @"work\templates\MainSolution\dxTestSolution(Secur)\";
             var xDoc = XDocument.Load(sourceSolutionPath + "TextToReplace.txt");
             var files = xDoc.Element("Replace").Element("Files").Elements();
             var fileTokens = xDoc.Element("Replace").Element("Tokens").Elements();
@@ -193,11 +193,11 @@ namespace DXTicketBase {
 
         //public bool IsWinAttached { get; set; }
         //public bool IsWebAttached { get; set; }
-        public FirstProjectEnum FirstProjectType { get; set; }
+        public SolutionTypeEnum SolutionType { get; set; }
 
-        
-        
-        
+
+
+
         private void CreateAndOpenSolution() {
             string folderPath = "";
             string ticketNumber = SelectedTicket.Number;
@@ -215,22 +215,28 @@ namespace DXTicketBase {
                     }
                 }
             }
+            SolutionCreator creator = CreateSolutionCreator();
 
-            var creator = new SolutionCreator(ticketNumber, folderPath,dropBoxPath);
+            creator.SetParameters(ticketNumber, folderPath, dropBoxPath, SelectedModules);
             creator.CreateSolution();
             creator.StartSolution();
         }
 
-       
-
-        void Move(string fromPath, string toPath) {
-            var lstChar = fromPath[fromPath.Length - 1];
-            if(lstChar == '\\') {
-                Directory.Move(fromPath, toPath);
-                return;
+        SolutionCreator CreateSolutionCreator() {
+            switch(SolutionType) {
+                case SolutionTypeEnum.XPO:
+                    return new XPOSolutionCreator();
+                case SolutionTypeEnum.Win:
+                    return new XAFWinSolutionCreator();
+                case SolutionTypeEnum.Web:
+                    return new XAFWebSolutionCreator();
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
-            File.Move(fromPath, toPath);
         }
+
+
+
 
         private void SaveAll() {
             var unsavedtickets = ListTickets.Where(x => x.IsSaved == false).ToList();
@@ -245,7 +251,7 @@ namespace DXTicketBase {
             System.Diagnostics.Process.Start(adr);
         }
 
-       
+
         void OpenFolder() {
             var num = SelectedTicket.Number;
             string currentTicketPath = GetFolderInCurrentTickets(num);

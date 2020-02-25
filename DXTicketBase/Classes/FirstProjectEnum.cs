@@ -5,5 +5,5 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace DXTicketBase.Classes {
-    public enum FirstProjectEnum { Win, Web, XPO }
+    public enum SolutionTypeEnum { Win, Web, XPO }
 }

@@ -137,19 +137,19 @@
                 <RadioButton
                         Content="Win"
                         GroupName="ProjectType"
-                        IsChecked="{Binding Path=FirstProjectType, Mode=TwoWay, 
+                        IsChecked="{Binding Path=SolutionType, Mode=TwoWay, 
                                  Converter={StaticResource enumConverter},
                                  ConverterParameter=Win}" />
                 <RadioButton
                         Content="Web"
                         GroupName="ProjectType"
-                        IsChecked="{Binding Path=FirstProjectType, Mode=TwoWay, 
+                        IsChecked="{Binding Path=SolutionType, Mode=TwoWay, 
                                  Converter={StaticResource enumConverter},
                                  ConverterParameter=Web}" />
                 <RadioButton
                         Content="XPO"
                         GroupName="ProjectType"
-                        IsChecked="{Binding Path=FirstProjectType, Mode=TwoWay, 
+                        IsChecked="{Binding Path=SolutionType, Mode=TwoWay, 
                                  Converter={StaticResource enumConverter},
                                  ConverterParameter=XPO}"
                         Margin="0,0,20,0"/>

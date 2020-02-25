@@ -26,12 +26,15 @@ using System.Runtime.InteropServices;
 using System.Windows.Interop;
 using System.Windows.Forms;
 using System.Threading;
+using DevExpress.Logify.WPF;
 
 namespace DXTicketBase {
     public partial class MainWindow : Window {
         MyViewModel vm;
         public MainWindow() {
-
+            LogifyAlert.Instance.ApiKey = "05D7BFD019A243CBA6E1EBC59C4E830C";
+            LogifyAlert.Instance.StartExceptionsHandling();
+        
 
             InitializeComponent();
             vm = new MyViewModel();

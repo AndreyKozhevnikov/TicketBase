@@ -101,6 +101,12 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\..\..\EnglishDevelop\EnglishDX\EnglishDX\bin\Debug\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Logify.Alert.Core, Version=1.0.53.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Logify.Alert.Core.1.0.53\lib\net45\Logify.Alert.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Logify.Alert.Wpf, Version=1.0.53.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Logify.Alert.Wpf.1.0.53\lib\net45\Logify.Alert.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.core">
       <HintPath>..\packages\NUnitTestAdapter.2.0.0\lib\nunit.core.dll</HintPath>
       <Private>False</Private>
@@ -152,6 +158,12 @@
     </Compile>
     <Compile Include="Classes\EnumMatchToBooleanConverter.cs" />
     <Compile Include="Classes\FirstProjectEnum.cs" />
+    <Compile Include="Classes\MyViewModelProperties.cs" />
+    <Compile Include="Classes\SolutionCreators\SolutionCreator.cs" />
+    <Compile Include="Classes\SolutionCreators\XAFSolutionCreator.cs" />
+    <Compile Include="Classes\SolutionCreators\XAFWebSolutionCreator.cs" />
+    <Compile Include="Classes\SolutionCreators\XAFWinSolutionCreator.cs" />
+    <Compile Include="Classes\SolutionCreators\XPOSolutionCreator.cs" />
     <Compile Include="ClipboardMonitor.cs" />
     <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>
@@ -169,7 +181,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="MyTicket.cs" />
-    <Compile Include="MyViewModel.cs" />
+    <Compile Include="Classes\MyViewModelMethods.cs" />
     <Compile Include="Tests\TicketBaseTests.cs" />
     <Compile Include="Ticket.cs">
       <DependentUpon>Model1.tt</DependentUpon>
