@@ -31,11 +31,12 @@ namespace DXTicketBase {
             CreateNewticket();
             //   IsWinAttached = true;
             SolutionType = SolutionTypeEnum.Win;
-            SelectedModules = new List<object>();
-            SelectedModules.Add("inmemory");
+            SelectedModules = GetDefaultSelectedModules();
             PopulateAvailableModules();
         }
-
+        List<object> GetDefaultSelectedModules() {
+            return new List<object>(){"inmemory" };
+        }
         private void PopulateAvailableModules() {
             var sourceSolutionPath = dropBoxPath + @"work\templates\MainSolution\dxTestSolution(Secur)\";
             var xDoc = XDocument.Load(sourceSolutionPath + "TextToReplace.txt");
@@ -127,6 +128,7 @@ namespace DXTicketBase {
                 CreateNewticket();
                 generalEntity.SaveChanges();
             }), DispatcherPriority.Background);
+            SelectedModules = GetDefaultSelectedModules();
         }
         List<string> GetAllDirectories() {
             var allFiles = Directory.GetDirectories(solvedPath).ToList();
