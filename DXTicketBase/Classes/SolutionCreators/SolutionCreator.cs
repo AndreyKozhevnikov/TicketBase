@@ -136,12 +136,33 @@ namespace DXTicketBase.Classes {
             CopySolutionFiles();
             RenameSolutionFiles();
             AddAdditionalModules(SourceSolutionPath);
+            RenameDataBaseName();
             ReplaceOldSolutionNameInTextFiles();
             Process.Start(gitBatchFile);
             slnPathWithProjectName = finalSolutionFolderPath + string.Format(@"{0}.sln", folderNumber);
 
         }
 
+        void RenameDataBaseName() {
+            List<string> configFiles = new List<string>();
+            configFiles.AddRange(Directory.GetFiles(finalSolutionFolderPath,"app.config", SearchOption.AllDirectories));
+            configFiles.AddRange(Directory.GetFiles(finalSolutionFolderPath, "web.config", SearchOption.AllDirectories));
+            string dbName = GetDbName();
+            foreach(string configFile in configFiles) {
+                var txt = File.ReadAllText(configFile);
+                if(txt.Contains(SolutionPattern)) {
+                    txt = txt.Replace(SolutionPattern, dbName);
+                    File.WriteAllText(configFile, txt);
+                }
+            }
+        }
+        string GetDbName() {
+            var st = DateTime.Now.Day;
+            var rnd = new Random(DateTime.Now.Millisecond);
+            var rndValue = rnd.Next(1, 99);
+            var dbName = string.Format("{0}-{1}-{2}", st, rndValue, folderNumber);
+            return dbName;
+        }
         internal void DirectoryCopy(string sourceDirName, string destDirName, bool copySubDirs) {
             // Get the subdirectories for the specified directory.
             DirectoryInfo dir = new DirectoryInfo(sourceDirName);
