@@ -261,8 +261,16 @@ namespace DXTicketBase {
             }
         }
 
-        void AvailableItemsChanged(EditValueChangedEventArgs e) {
-            //todo change inmemory when a module added
+        void SelectedModulesChanged(EditValueChangedEventArgs e) {
+            var newLst =e.NewValue!=null?((List<object>)e.NewValue):new List<object>();
+            var oldLst =e.OldValue!=null?((List<object>)e.OldValue):new List<object>();
+
+            if(oldLst.Contains("inmemory") && newLst.Count > 1&&newLst.Contains("inmemory")) {
+                newLst.Remove("inmemory");
+                SelectedModules = newLst;
+            }
+
+            
         }
 
         void DeleteFolders() {
