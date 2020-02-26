@@ -117,8 +117,25 @@ namespace DXTicketBase.Classes {
             }
         }
 
+        List<string> GetTextFilesWithSolutionNameInText() {
+            List<string> res = new List<string>();
+            res.AddRange(Directory.GetFiles(finalSolutionFolderPath, "*.cs", SearchOption.AllDirectories));
+            res.AddRange(Directory.GetFiles(finalSolutionFolderPath, "*.csproj", SearchOption.AllDirectories));
+            res.AddRange(Directory.GetFiles(finalSolutionFolderPath, "*.suo", SearchOption.AllDirectories));
+            res.AddRange(Directory.GetFiles(finalSolutionFolderPath, "*.ide-wal", SearchOption.AllDirectories));
+            res.AddRange(Directory.GetFiles(finalSolutionFolderPath, "*.ide", SearchOption.AllDirectories));
+            res.AddRange(Directory.GetFiles(finalSolutionFolderPath, "*.asax", SearchOption.AllDirectories));
+            res.AddRange(Directory.GetFiles(finalSolutionFolderPath, "*.config", SearchOption.AllDirectories));
+            res.AddRange(Directory.GetFiles(finalSolutionFolderPath, "*.ets", SearchOption.AllDirectories));
+            res.AddRange(Directory.GetFiles(finalSolutionFolderPath, "*.html", SearchOption.AllDirectories));
+            res.AddRange(Directory.GetFiles(finalSolutionFolderPath, "*.sln", SearchOption.AllDirectories));
+            res.AddRange(Directory.GetFiles(finalSolutionFolderPath, "*.xafml", SearchOption.AllDirectories));
+            res.AddRange(Directory.GetFiles(finalSolutionFolderPath, "*.xml", SearchOption.AllDirectories));
+            return res;
+        }
+
         void ReplaceOldSolutionNameInTextFiles() {
-            var alltxtFiles = Directory.GetFiles(finalSolutionFolderPath, "*.*", SearchOption.AllDirectories);
+            var alltxtFiles = GetTextFilesWithSolutionNameInText();
             foreach(var fl in alltxtFiles) {
                 var txt = File.ReadAllText(fl);
                 if(txt.Contains(SolutionPattern)) {
@@ -145,7 +162,7 @@ namespace DXTicketBase.Classes {
 
         void RenameDataBaseName() {
             List<string> configFiles = new List<string>();
-            configFiles.AddRange(Directory.GetFiles(finalSolutionFolderPath,"app.config", SearchOption.AllDirectories));
+            configFiles.AddRange(Directory.GetFiles(finalSolutionFolderPath, "app.config", SearchOption.AllDirectories));
             configFiles.AddRange(Directory.GetFiles(finalSolutionFolderPath, "web.config", SearchOption.AllDirectories));
             string dbName = GetDbName();
             foreach(string configFile in configFiles) {
