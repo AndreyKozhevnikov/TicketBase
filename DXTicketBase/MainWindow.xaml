@@ -155,9 +155,10 @@
                         Margin="0,0,20,0"/>
                 <dxe:ListBoxEdit ItemsSource="{Binding AvailableModules}"
                                  EditValue="{Binding SelectedModules,Mode=TwoWay}"
+                                 
                                  >
                     <dxmvvm:Interaction.Behaviors>
-                        <dxmvvm:EventToCommand Command="{Binding AvailableItemsChangedCommand}" EventName="EditValueChanged" PassEventArgsToCommand="True" />
+                        <dxmvvm:EventToCommand Command="{Binding SelectedModulesChangedCommand}" EventName="EditValueChanged" PassEventArgsToCommand="True" />
                     </dxmvvm:Interaction.Behaviors>
                     <dxe:ListBoxEdit.StyleSettings>
                         <dxe:CheckedListBoxEditStyleSettings />

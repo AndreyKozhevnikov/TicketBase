@@ -36,7 +36,7 @@ namespace DXTicketBase {
         ICommand _goToWebCommand;
         ICommand _openFolderCommand;
         ICommand _deleteFoldersCommand;
-        ICommand _availableItemsChangedCommand;
+        ICommand _selectedModulesChangedCommand;
 
         public ICommand GoToWebCommand {
             get {
@@ -99,11 +99,11 @@ namespace DXTicketBase {
             }
 
         }
-        public ICommand AvailableItemsChangedCommand {
+        public ICommand SelectedModulesChangedCommand {
             get {
-                if(_availableItemsChangedCommand == null)
-                    _availableItemsChangedCommand = new DelegateCommand<EditValueChangedEventArgs>(AvailableItemsChanged);
-                return _availableItemsChangedCommand;
+                if(_selectedModulesChangedCommand == null)
+                    _selectedModulesChangedCommand = new DelegateCommand<EditValueChangedEventArgs>(SelectedModulesChanged);
+                return _selectedModulesChangedCommand;
             }
 
         }
@@ -111,7 +111,13 @@ namespace DXTicketBase {
         public ObservableCollection<MyTicket> ListTickets { get; set; }
 
         public List<String> AvailableModules { get; set; }
-        public List<object> SelectedModules { get; set; }
+        public List<object> SelectedModules {
+            get { return selectedModules; }
+            set {
+                selectedModules = value;
+                NotifyPropertyChanged("SelectedModules");
+            }
+        }
 
         public MyTicket ThisTicket {
             get { return _thisTicket; }
@@ -148,7 +154,6 @@ namespace DXTicketBase {
         IManageGridControl MyManageGridControlService { get { return ServiceContainer.GetService<IManageGridControl>(); } }
 
         string sourceSolutionPath = "";
-
-
+        private List<object> selectedModules;
     }
 }
