@@ -118,7 +118,19 @@ namespace DXTicketBase {
             //assert
             Assert.AreEqual(false, res.Contains(";"));
             Assert.AreEqual(false, res.Contains("/"));
-            Assert.LessOrEqual(40, res.Length);
+            Assert.LessOrEqual( res.Length, 40);
+        }
+
+        [Test]
+        public void NorimalizeTitleWithDots() {
+            //arrange
+            var st = "XAF Office Module ... MailMerge formatting Date Issue";
+            var vm = new MyViewModel();
+            //act
+            var res = vm.NormalizeTitle(st);
+            //assert
+            Assert.AreEqual(false, res.Contains("..."));
+            Assert.LessOrEqual(res.Length, 40);
         }
 
         //[Test]
