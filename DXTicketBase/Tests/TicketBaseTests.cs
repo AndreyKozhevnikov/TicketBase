@@ -23,7 +23,7 @@ namespace DXTicketBase {
             tkt.ParseComplexSubject();
             Assert.AreEqual(tkt.Number, "Q123123");
         }
-  
+
         [Test]
         public void ParseQuestion5() {
             MyTicket tkt = new MyTicket(new Ticket());
@@ -64,7 +64,7 @@ namespace DXTicketBase {
             MyTicket tkt = new MyTicket(new Ticket());
             tkt.ComplexSubject = @"E689: test";
             tkt.ParseComplexSubject();
-            Assert.AreEqual("E689",tkt.Number);
+            Assert.AreEqual("E689", tkt.Number);
         }
         [Test]
         public void ParseWrongSubject0() {
@@ -141,11 +141,11 @@ namespace DXTicketBase {
         //    foreach (var e in items) {
         //        Console.WriteLine(e.Value);
         //    }
-            
+
         //    var xEl = new XElement("myname");
         //    xEl.Value = "<test>";
         //    Console.Write(xEl);
-            
+
         //}
     }
 }

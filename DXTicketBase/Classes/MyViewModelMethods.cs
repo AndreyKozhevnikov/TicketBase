@@ -35,7 +35,7 @@ namespace DXTicketBase {
             PopulateAvailableModules();
         }
         List<object> GetDefaultSelectedModules() {
-            return new List<object>(){"inmemory" };
+            return new List<object>() { "inmemory" };
         }
         private void PopulateAvailableModules() {
             var sourceSolutionPath = dropBoxPath + @"work\templates\MainSolution\dxTestSolution(Secur)\";
@@ -266,15 +266,15 @@ namespace DXTicketBase {
         }
 
         void SelectedModulesChanged(EditValueChangedEventArgs e) {
-            var newLst =e.NewValue!=null?((List<object>)e.NewValue):new List<object>();
-            var oldLst =e.OldValue!=null?((List<object>)e.OldValue):new List<object>();
+            var newLst = e.NewValue != null ? ((List<object>)e.NewValue) : new List<object>();
+            var oldLst = e.OldValue != null ? ((List<object>)e.OldValue) : new List<object>();
 
-            if(oldLst.Contains("inmemory") && newLst.Count > 1&&newLst.Contains("inmemory")) {
+            if(oldLst.Contains("inmemory") && newLst.Count > 1 && newLst.Contains("inmemory")) {
                 newLst.Remove("inmemory");
                 SelectedModules = newLst;
             }
 
-            
+
         }
 
         void DeleteFolders() {
