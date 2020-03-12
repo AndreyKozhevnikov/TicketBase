@@ -175,9 +175,8 @@ namespace DXTicketBase.Classes {
         }
         string GetDbName() {
             var st = DateTime.Now.Day;
-            var rnd = new Random(DateTime.Now.Millisecond);
-            var rndValue = rnd.Next(1, 99);
-            var dbName = string.Format("d{0}-{1}-{2}", st, rndValue, folderNumber);
+            var hrValue = DateTime.Now.Hour;
+            var dbName = string.Format("d{0}-{1}-{2}", st, hrValue, folderNumber);
             return dbName;
         }
         internal void DirectoryCopy(string sourceDirName, string destDirName, bool copySubDirs) {
