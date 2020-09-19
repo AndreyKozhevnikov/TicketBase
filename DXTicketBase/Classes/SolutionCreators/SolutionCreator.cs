@@ -24,6 +24,7 @@ namespace DXTicketBase.Classes {
             CreateT4File<TextTemplates.Updater>();
             CreateT4File<TextTemplates.Module>();
             CreateT4File<TextTemplates.ModuleDesigner>();
+            CreateT4File<TextTemplates.Contact>();
 
 
 

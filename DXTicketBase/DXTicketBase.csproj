@@ -184,15 +184,20 @@
     <Compile Include="Classes\MyViewModelMethods.cs" />
     <Compile Include="Tests\TicketBaseTests.cs" />
     <Compile Include="TextTemplates\BaseTemplate.cs" />
+    <Compile Include="TextTemplates\Contact.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Contact.tt</DependentUpon>
+    </Compile>
     <Compile Include="TextTemplates\Module.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Module.tt</DependentUpon>
     </Compile>
-    <Compile Include="TextTemplates\test213.cs">
+    <Compile Include="TextTemplates\ModuleDesigner.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>test213.tt</DependentUpon>
+      <DependentUpon>ModuleDesigner.tt</DependentUpon>
     </Compile>
     <Compile Include="TextTemplates\Updater.cs">
       <AutoGen>True</AutoGen>
@@ -284,13 +289,17 @@
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="TextTemplates\Contact.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Contact.cs</LastGenOutput>
+    </Content>
     <Content Include="TextTemplates\Module.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>Module.cs</LastGenOutput>
     </Content>
-    <Content Include="TextTemplates\test213.tt">
+    <Content Include="TextTemplates\ModuleDesigner.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>test213.cs</LastGenOutput>
+      <LastGenOutput>ModuleDesigner.cs</LastGenOutput>
     </Content>
     <Content Include="TextTemplates\Updater.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
