@@ -104,24 +104,27 @@
 				<Reference Include="DevExpress.Spreadsheet.v20.1.Core" >
 					<SpecificVersion>False</SpecificVersion>
 				</Reference>
+						<Reference Include="DevExpress.RichEdit.v20.1.Export">
+			<SpecificVersion>False</SpecificVersion>
+		</Reference>
 </Reference>
 		<# } #>
 		
-		
-		
-
-		<Reference Include="DevExpress.ExpressApp.Security.v20.1">
+		<# if (HasSecurity){ #>
+			<Reference Include="DevExpress.ExpressApp.Security.v20.1">
 			<SpecificVersion>False</SpecificVersion>
 		</Reference>
 		<Reference Include="DevExpress.ExpressApp.Security.Xpo.v20.1">
 			<SpecificVersion>False</SpecificVersion>
 			<Private>False</Private>
 		</Reference>
+<# } #>
+		
+
+	
 
 
-		<Reference Include="DevExpress.RichEdit.v20.1.Export">
-			<SpecificVersion>False</SpecificVersion>
-		</Reference>
+
 		<Reference Include="System">
 			<Name>System</Name>
 			<Private>False</Private>

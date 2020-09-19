@@ -128,49 +128,68 @@ namespace DXTicketBase.TextTemplates
 				<Reference Include=""DevExpress.Spreadsheet.v20.1.Core"" >
 					<SpecificVersion>False</SpecificVersion>
 				</Reference>
+						<Reference Include=""DevExpress.RichEdit.v20.1.Export"">
+			<SpecificVersion>False</SpecificVersion>
+		</Reference>
 </Reference>
 		");
             
-            #line 108 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleCsproj.tt"
+            #line 111 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleCsproj.tt"
  } 
             
             #line default
             #line hidden
-            this.Write("\t\t\r\n\t\t\r\n\t\t\r\n\r\n\t\t<Reference Include=\"DevExpress.ExpressApp.Security.v20.1\">\r\n\t\t\t<S" +
-                    "pecificVersion>False</SpecificVersion>\r\n\t\t</Reference>\r\n\t\t<Reference Include=\"De" +
-                    "vExpress.ExpressApp.Security.Xpo.v20.1\">\r\n\t\t\t<SpecificVersion>False</SpecificVer" +
-                    "sion>\r\n\t\t\t<Private>False</Private>\r\n\t\t</Reference>\r\n\r\n\r\n\t\t<Reference Include=\"De" +
-                    "vExpress.RichEdit.v20.1.Export\">\r\n\t\t\t<SpecificVersion>False</SpecificVersion>\r\n\t" +
-                    "\t</Reference>\r\n\t\t<Reference Include=\"System\">\r\n\t\t\t<Name>System</Name>\r\n\t\t\t<Priva" +
-                    "te>False</Private>\r\n\t\t</Reference>\r\n\t\t<Reference Include=\"System.Data\">\r\n\t\t\t<Nam" +
-                    "e>System.Data</Name>\r\n\t\t\t<Private>False</Private>\r\n\t\t</Reference>\r\n\t\t<Reference " +
-                    "Include=\"System.Drawing\">\r\n\t\t\t<Private>False</Private>\r\n\t\t</Reference>\r\n\t\t<Refer" +
-                    "ence Include=\"System.Xml\">\r\n\t\t\t<Name>System.XML</Name>\r\n\t\t\t<Private>False</Priva" +
-                    "te>\r\n\t\t</Reference>\r\n\t</ItemGroup>\r\n\t<ItemGroup>\r\n\t\t<Compile Include=\"BusinessOb" +
-                    "jects\\Contact.cs\" />\r\n\t\t<Compile Include=\"BusinessObjects\\MyTask.cs\" />\r\n\t\t<Comp" +
-                    "ile Include=\"BusinessObjects\\CustomClass.cs\" />\r\n\t\t<!--//report#15-->\r\n\t\t<Compil" +
-                    "e Include=\"Controllers\\CustomControllers.cs\">\r\n\t\t\t<SubType>Component</SubType>\r\n" +
-                    "\t\t</Compile>\r\n\t\t<Compile Include=\"DatabaseUpdate\\Updater.cs\" />\r\n\t\t<Compile Incl" +
-                    "ude=\"Module.cs\">\r\n\t\t\t<SubType>Component</SubType>\r\n\t\t</Compile>\r\n\t\t<Compile Incl" +
-                    "ude=\"Module.Designer.cs\">\r\n\t\t\t<DependentUpon>Module.cs</DependentUpon>\r\n\t\t</Comp" +
-                    "ile>\r\n\t\t<Compile Include=\"Properties\\AssemblyInfo.cs\" />\r\n\t</ItemGroup>\r\n\t<ItemG" +
-                    "roup>\r\n\t\t<EmbeddedResource Include=\"Model.DesignedDiffs.xafml\" />\r\n\t\t<EmbeddedRe" +
-                    "source Include=\"Module.resx\">\r\n\t\t\t<SubType>Designer</SubType>\r\n\t\t\t<DependentUpon" +
-                    ">Module.cs</DependentUpon>\r\n\t\t</EmbeddedResource>\r\n\t\t<EmbeddedResource Include=\"" +
-                    "Properties\\licenses.licx\" />\r\n\t</ItemGroup>\r\n\t<ItemGroup>\r\n\t\t<None Include=\"Data" +
-                    "baseUpdate\\ReadMe.txt\" />\r\n\t</ItemGroup>\r\n\t<ItemGroup>\r\n\t\t<None Include=\"Busines" +
-                    "sObjects\\ReadMe.txt\" />\r\n\t</ItemGroup>\r\n\t<ItemGroup>\r\n\t\t<None Include=\"Controlle" +
-                    "rs\\ReadMe.txt\" />\r\n\t</ItemGroup>\r\n\t<ItemGroup>\r\n\t\t<None Include=\"FunctionalTests" +
-                    "\\ReadMe.txt\" />\r\n\t</ItemGroup>\r\n\t<ItemGroup>\r\n\t\t<None Include=\"FunctionalTests\\s" +
-                    "ample.ets\" />\r\n\t\t<None Include=\"FunctionalTests\\WebSample.ets\" />\r\n\t\t<None Inclu" +
-                    "de=\"Images\\ReadMe.txt\" />\r\n\t\t<None Include=\"ReadMe.txt\" />\r\n\t</ItemGroup>\r\n\t<Ite" +
-                    "mGroup>\r\n\t\t<None Include=\"FunctionalTests\\config.xml\">\r\n\t\t\t<SubType>Designer</Su" +
-                    "bType>\r\n\t\t</None>\r\n\t</ItemGroup>\r\n\t<ItemGroup>\r\n\t\t<Content Include=\"Welcome.html" +
-                    "\" />\r\n\t</ItemGroup>\r\n\t<Import Project=\"$(MSBuildBinPath)\\Microsoft.CSharp.target" +
-                    "s\" />\r\n\t<!-- To modify your build process, add your task inside one of the targe" +
-                    "ts below and uncomment it. \r\n       Other similar extension points exist, see Mi" +
-                    "crosoft.Common.targets.\r\n  <Target Name=\"BeforeBuild\">\r\n  </Target>\r\n  <Target N" +
-                    "ame=\"AfterBuild\">\r\n  </Target>\r\n  -->\r\n</Project>");
+            this.Write("\t\t\r\n\t\t");
+            
+            #line 113 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleCsproj.tt"
+ if (HasSecurity){ 
+            
+            #line default
+            #line hidden
+            this.Write(@"			<Reference Include=""DevExpress.ExpressApp.Security.v20.1"">
+			<SpecificVersion>False</SpecificVersion>
+		</Reference>
+		<Reference Include=""DevExpress.ExpressApp.Security.Xpo.v20.1"">
+			<SpecificVersion>False</SpecificVersion>
+			<Private>False</Private>
+		</Reference>
+");
+            
+            #line 121 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleCsproj.tt"
+ } 
+            
+            #line default
+            #line hidden
+            this.Write("\t\t\r\n\r\n\t\r\n\r\n\r\n\r\n\t\t<Reference Include=\"System\">\r\n\t\t\t<Name>System</Name>\r\n\t\t\t<Privat" +
+                    "e>False</Private>\r\n\t\t</Reference>\r\n\t\t<Reference Include=\"System.Data\">\r\n\t\t\t<Name" +
+                    ">System.Data</Name>\r\n\t\t\t<Private>False</Private>\r\n\t\t</Reference>\r\n\t\t<Reference I" +
+                    "nclude=\"System.Drawing\">\r\n\t\t\t<Private>False</Private>\r\n\t\t</Reference>\r\n\t\t<Refere" +
+                    "nce Include=\"System.Xml\">\r\n\t\t\t<Name>System.XML</Name>\r\n\t\t\t<Private>False</Privat" +
+                    "e>\r\n\t\t</Reference>\r\n\t</ItemGroup>\r\n\t<ItemGroup>\r\n\t\t<Compile Include=\"BusinessObj" +
+                    "ects\\Contact.cs\" />\r\n\t\t<Compile Include=\"BusinessObjects\\MyTask.cs\" />\r\n\t\t<Compi" +
+                    "le Include=\"BusinessObjects\\CustomClass.cs\" />\r\n\t\t<!--//report#15-->\r\n\t\t<Compile" +
+                    " Include=\"Controllers\\CustomControllers.cs\">\r\n\t\t\t<SubType>Component</SubType>\r\n\t" +
+                    "\t</Compile>\r\n\t\t<Compile Include=\"DatabaseUpdate\\Updater.cs\" />\r\n\t\t<Compile Inclu" +
+                    "de=\"Module.cs\">\r\n\t\t\t<SubType>Component</SubType>\r\n\t\t</Compile>\r\n\t\t<Compile Inclu" +
+                    "de=\"Module.Designer.cs\">\r\n\t\t\t<DependentUpon>Module.cs</DependentUpon>\r\n\t\t</Compi" +
+                    "le>\r\n\t\t<Compile Include=\"Properties\\AssemblyInfo.cs\" />\r\n\t</ItemGroup>\r\n\t<ItemGr" +
+                    "oup>\r\n\t\t<EmbeddedResource Include=\"Model.DesignedDiffs.xafml\" />\r\n\t\t<EmbeddedRes" +
+                    "ource Include=\"Module.resx\">\r\n\t\t\t<SubType>Designer</SubType>\r\n\t\t\t<DependentUpon>" +
+                    "Module.cs</DependentUpon>\r\n\t\t</EmbeddedResource>\r\n\t\t<EmbeddedResource Include=\"P" +
+                    "roperties\\licenses.licx\" />\r\n\t</ItemGroup>\r\n\t<ItemGroup>\r\n\t\t<None Include=\"Datab" +
+                    "aseUpdate\\ReadMe.txt\" />\r\n\t</ItemGroup>\r\n\t<ItemGroup>\r\n\t\t<None Include=\"Business" +
+                    "Objects\\ReadMe.txt\" />\r\n\t</ItemGroup>\r\n\t<ItemGroup>\r\n\t\t<None Include=\"Controller" +
+                    "s\\ReadMe.txt\" />\r\n\t</ItemGroup>\r\n\t<ItemGroup>\r\n\t\t<None Include=\"FunctionalTests\\" +
+                    "ReadMe.txt\" />\r\n\t</ItemGroup>\r\n\t<ItemGroup>\r\n\t\t<None Include=\"FunctionalTests\\sa" +
+                    "mple.ets\" />\r\n\t\t<None Include=\"FunctionalTests\\WebSample.ets\" />\r\n\t\t<None Includ" +
+                    "e=\"Images\\ReadMe.txt\" />\r\n\t\t<None Include=\"ReadMe.txt\" />\r\n\t</ItemGroup>\r\n\t<Item" +
+                    "Group>\r\n\t\t<None Include=\"FunctionalTests\\config.xml\">\r\n\t\t\t<SubType>Designer</Sub" +
+                    "Type>\r\n\t\t</None>\r\n\t</ItemGroup>\r\n\t<ItemGroup>\r\n\t\t<Content Include=\"Welcome.html\"" +
+                    " />\r\n\t</ItemGroup>\r\n\t<Import Project=\"$(MSBuildBinPath)\\Microsoft.CSharp.targets" +
+                    "\" />\r\n\t<!-- To modify your build process, add your task inside one of the target" +
+                    "s below and uncomment it. \r\n       Other similar extension points exist, see Mic" +
+                    "rosoft.Common.targets.\r\n  <Target Name=\"BeforeBuild\">\r\n  </Target>\r\n  <Target Na" +
+                    "me=\"AfterBuild\">\r\n  </Target>\r\n  -->\r\n</Project>");
             return this.GenerationEnvironment.ToString();
         }
     }

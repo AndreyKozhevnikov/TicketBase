@@ -28,6 +28,15 @@ namespace DXTicketBase.Classes {
             CreateT4File<TextTemplates.ModuleCsproj>();
             CreateT4File<TextTemplates.WinModule>();
             CreateT4File<TextTemplates.WebModule>();
+            CreateT4File<TextTemplates.ModuleWinCsproj>();
+            CreateT4File<TextTemplates.ModuleWebCsproj>();
+            CreateT4File<TextTemplates.WinApplicationDesigner>();
+            CreateT4File<TextTemplates.WinApplication>();
+            CreateT4File<TextTemplates.WinCsproj>();
+            CreateT4File<TextTemplates.WebCsproj>();
+            CreateT4File<TextTemplates.GlobalAsax>();
+            CreateT4File<TextTemplates.WebApplication>();
+            CreateT4File<TextTemplates.WebConfig>();
 
 
 
