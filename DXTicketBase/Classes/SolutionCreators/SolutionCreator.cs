@@ -20,52 +20,25 @@ namespace DXTicketBase.Classes {
 
         void AddAdditionalModules(string solutionPath) {
             List<string> tokens = GetTokens();
-            if(tokens.Count > 0) {
-                var xDoc = XDocument.Load(solutionPath + "TextToReplace.txt");
-                var files = xDoc.Element("Replace").Element("Files").Elements();
-                var fileTokens = xDoc.Element("Replace").Element("Tokens").Elements();
-                foreach(var file in files) {
-                    string fileName = file.Value;
-                    string filePath = finalSolutionFolderPath + string.Format(fileName, folderNumber);
-                    if(!File.Exists(filePath))
-                        continue;
-                    string fileText = File.ReadAllText(filePath);
-                    foreach(var token in fileTokens) {
-                        string tokenName = token.Attribute("name").Value;
-                        //   string token = item.Attribute("token").Value;
-                        if(tokens.Contains(tokenName)) {
-                            var tokenItems = token.Elements();
-                            foreach(var item in tokenItems) {
-                                string marker = item.Attribute("marker").Value;
-                                //    string value = item.FirstNode != null ? item.FirstNode.ToString() : string.Empty;
 
-                                var els = item.Elements().ToList();
-                                string st = string.Empty;
-                                if(els.Count > 0) {
-                                    st = string.Join(Environment.NewLine, els);
-                                } else {
-                                    st = item.Value;
-                                }
-                                //var els2 = els.Select(x => x.FirstAttribute);
-                                //if(els2.Count() > 0) {
-                                //    var d = 3;
-                                //}
+            CreateT4File<TextTemplates.Updater>();
+            CreateT4File<TextTemplates.Module>();
+            CreateT4File<TextTemplates.ModuleDesigner>();
 
 
-                                fileText = fileText.Replace(marker, st);
-                            }
-                        }
-                    }
-                    File.WriteAllText(filePath, fileText);
-                }
-            }
 
-            var upd = new DXTicketBase.TextTemplates.Updater();
+            // var m = new TextTemplates.Module();
+
+
+
+        }
+
+        void CreateT4File<T>() where T : new() {
+            var upd = ((T)Activator.CreateInstance(typeof(T))) as TextTemplates.BaseTemplate;
             upd.HasSecurity = true;
             var updResult = upd.TransformText();
             string filePath2 = finalSolutionFolderPath + string.Format(upd.FileName, folderNumber);
             File.WriteAllText(filePath2, updResult);
-
         }
 
         void CopyServiceFiles() {

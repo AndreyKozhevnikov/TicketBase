@@ -13,6 +13,7 @@ namespace DXTicketBase.TextTemplates {
         public bool HasSecurity { get; set; }
         public bool HasValidation{ get; set; }
         public bool HasOffice{ get; set; }
+        public bool HasReport{ get; set; }
         public bool UseInMemory{ get; set; }
         public abstract string TransformText();
         #region Fields
