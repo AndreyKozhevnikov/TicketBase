@@ -183,6 +183,12 @@
     <Compile Include="MyTicket.cs" />
     <Compile Include="Classes\MyViewModelMethods.cs" />
     <Compile Include="Tests\TicketBaseTests.cs" />
+    <Compile Include="TextTemplates\BaseTemplate.cs" />
+    <Compile Include="TextTemplates\Updater.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Updater.tt</DependentUpon>
+    </Compile>
     <Compile Include="Ticket.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -266,6 +272,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TextTemplates\Updater.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Updater.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

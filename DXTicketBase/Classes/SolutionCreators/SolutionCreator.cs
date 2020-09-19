@@ -59,6 +59,13 @@ namespace DXTicketBase.Classes {
                     File.WriteAllText(filePath, fileText);
                 }
             }
+
+            var upd = new DXTicketBase.TextTemplates.Updater();
+            upd.HasSecurity = true;
+            var updResult = upd.TransformText();
+            string filePath2 = finalSolutionFolderPath + string.Format(upd.FileName, folderNumber);
+            File.WriteAllText(filePath2, updResult);
+
         }
 
         void CopyServiceFiles() {
