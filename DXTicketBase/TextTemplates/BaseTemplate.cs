@@ -6,16 +6,18 @@ using System.Threading.Tasks;
 
 namespace DXTicketBase.TextTemplates {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
-    public abstract class BaseTemplate {
+    public class BaseTemplate {
 
         public string FileName { get; set; }
         public List<String> AddedModules { get; set; }
         public bool HasSecurity { get; set; }
-        public bool HasValidation{ get; set; }
-        public bool HasOffice{ get; set; }
-        public bool HasReport{ get; set; }
-        public bool UseInMemory{ get; set; }
-        public abstract string TransformText();
+        public bool HasValidation { get; set; }
+        public bool HasOffice { get; set; }
+        public bool HasReports { get; set; }
+        public bool UseInMemory { get; set; }
+        public virtual string TransformText() {
+            return null;
+        }
         #region Fields
         private global::System.Text.StringBuilder generationEnvironmentField;
         private global::System.CodeDom.Compiler.CompilerErrorCollection errorsField;

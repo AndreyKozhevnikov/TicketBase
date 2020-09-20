@@ -21,22 +21,22 @@ namespace DXTicketBase.Classes {
         void AddAdditionalModules(string solutionPath) {
             List<string> tokens = GetTokens();
 
-            CreateT4File<TextTemplates.Updater>();
-            CreateT4File<TextTemplates.Module>();
-            CreateT4File<TextTemplates.ModuleDesigner>();
-            CreateT4File<TextTemplates.Contact>();
-            CreateT4File<TextTemplates.ModuleCsproj>();
-            CreateT4File<TextTemplates.WinModule>();
-            CreateT4File<TextTemplates.WebModule>();
-            CreateT4File<TextTemplates.ModuleWinCsproj>();
-            CreateT4File<TextTemplates.ModuleWebCsproj>();
-            CreateT4File<TextTemplates.WinApplicationDesigner>();
-            CreateT4File<TextTemplates.WinApplication>();
-            CreateT4File<TextTemplates.WinCsproj>();
-            CreateT4File<TextTemplates.WebCsproj>();
-            CreateT4File<TextTemplates.GlobalAsax>();
-            CreateT4File<TextTemplates.WebApplication>();
-            CreateT4File<TextTemplates.WebConfig>();
+            CreateT4File<TextTemplates.Updater>(tokens);
+            CreateT4File<TextTemplates.Module>(tokens);
+            CreateT4File<TextTemplates.ModuleDesigner>(tokens);
+            CreateT4File<TextTemplates.Contact>(tokens);
+            CreateT4File<TextTemplates.ModuleCsproj>(tokens);
+            CreateT4File<TextTemplates.WinModule>(tokens);
+            CreateT4File<TextTemplates.WebModule>(tokens);
+            CreateT4File<TextTemplates.ModuleWinCsproj>(tokens);
+            CreateT4File<TextTemplates.ModuleWebCsproj>(tokens);
+            CreateT4File<TextTemplates.WinApplicationDesigner>(tokens);
+            CreateT4File<TextTemplates.WinApplication>(tokens);
+            CreateT4File<TextTemplates.WinCsproj>(tokens);
+            CreateT4File<TextTemplates.WebCsproj>(tokens);
+            CreateT4File<TextTemplates.GlobalAsax>(tokens);
+            CreateT4File<TextTemplates.WebApplication>(tokens);
+            CreateT4File<TextTemplates.WebConfig>(tokens);
 
 
 
@@ -46,9 +46,20 @@ namespace DXTicketBase.Classes {
 
         }
 
-        void CreateT4File<T>() where T : new() {
+        void CreateT4File<T>(List<String> tokens) where T : new() {
             var upd = ((T)Activator.CreateInstance(typeof(T))) as TextTemplates.BaseTemplate;
-            upd.HasSecurity = true;
+            if(tokens.Contains("validation")) {
+                upd.HasValidation = true;
+            }
+            if(tokens.Contains("report")) {
+                upd.HasReports = true;
+            }
+            if(tokens.Contains("office")) {
+                upd.HasOffice = true;
+            }
+            if(tokens.Contains("inmemory")) {
+                upd.UseInMemory = true;
+            }
             var updResult = upd.TransformText();
             string filePath2 = finalSolutionFolderPath + string.Format(upd.FileName, folderNumber);
             File.WriteAllText(filePath2, updResult);

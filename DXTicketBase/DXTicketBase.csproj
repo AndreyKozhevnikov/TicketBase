@@ -194,15 +194,75 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Module.tt</DependentUpon>
     </Compile>
+    <Compile Include="TextTemplates\ModuleCsproj.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModuleCsproj.tt</DependentUpon>
+    </Compile>
     <Compile Include="TextTemplates\ModuleDesigner.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ModuleDesigner.tt</DependentUpon>
     </Compile>
+    <Compile Include="TextTemplates\ModuleWebCsproj.cs">
+      <DependentUpon>ModuleWebCsproj.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="TextTemplates\WebApplication.cs">
+      <DependentUpon>WebApplication.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="TextTemplates\Updater.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Updater.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TextTemplates\ModuleWinCsproj.cs">
+      <DependentUpon>ModuleWinCsproj.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="TextTemplates\GlobalAsax.cs">
+      <DependentUpon>GlobalAsax.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="TextTemplates\WinApplication.cs">
+      <DependentUpon>WinApplication.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="TextTemplates\WinApplicationDesigner.cs">
+      <DependentUpon>WinApplicationDesigner.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="TextTemplates\WebModule.cs">
+      <DependentUpon>WebModule.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="TextTemplates\WebCsproj.cs">
+      <DependentUpon>WebCsproj.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="TextTemplates\WinCsproj.cs">
+      <DependentUpon>WinCsproj.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="TextTemplates\WebConfig.cs">
+      <DependentUpon>WebConfig.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="TextTemplates\WinModule.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WinModule.tt</DependentUpon>
     </Compile>
     <Compile Include="Ticket.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -297,13 +357,61 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>Module.cs</LastGenOutput>
     </Content>
+    <Content Include="TextTemplates\ModuleCsproj.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ModuleCsproj.cs</LastGenOutput>
+    </Content>
     <Content Include="TextTemplates\ModuleDesigner.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ModuleDesigner.cs</LastGenOutput>
     </Content>
+    <Content Include="TextTemplates\ModuleWebCsproj.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ModuleWebCsproj.cs</LastGenOutput>
+    </Content>
+    <Content Include="TextTemplates\WebApplication.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>WebApplication.cs</LastGenOutput>
+    </Content>
     <Content Include="TextTemplates\Updater.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>Updater.cs</LastGenOutput>
+    </Content>
+    <Content Include="TextTemplates\ModuleWinCsproj.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ModuleWinCsproj.cs</LastGenOutput>
+    </Content>
+    <Content Include="TextTemplates\GlobalAsax.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>GlobalAsax.cs</LastGenOutput>
+    </Content>
+    <Content Include="TextTemplates\WinApplication.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>WinApplication.cs</LastGenOutput>
+    </Content>
+    <Content Include="TextTemplates\WinApplicationDesigner.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>WinApplicationDesigner.cs</LastGenOutput>
+    </Content>
+    <Content Include="TextTemplates\WebModule.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>WebModule.cs</LastGenOutput>
+    </Content>
+    <Content Include="TextTemplates\WebCsproj.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>WebCsproj.cs</LastGenOutput>
+    </Content>
+    <Content Include="TextTemplates\WinCsproj.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>WinCsproj.cs</LastGenOutput>
+    </Content>
+    <Content Include="TextTemplates\WebConfig.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>WebConfig.cs</LastGenOutput>
+    </Content>
+    <Content Include="TextTemplates\WinModule.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>WinModule.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
