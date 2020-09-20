@@ -73,7 +73,7 @@
 			<SpecificVersion>False</SpecificVersion>
 		</Reference>
 		<# if (HasValidation){ #>
-		<Reference Include="DevExpress.ExpressApp.Validation.v20.1>
+		<Reference Include="DevExpress.ExpressApp.Validation.v20.1">
             <SpecificVersion>False</SpecificVersion>
         </Reference>
 		<# } #>

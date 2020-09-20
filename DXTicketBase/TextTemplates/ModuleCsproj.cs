@@ -75,8 +75,8 @@ namespace DXTicketBase.TextTemplates
             
             #line default
             #line hidden
-            this.Write("\t\t<Reference Include=\"DevExpress.ExpressApp.Validation.v20.1>\r\n            <Speci" +
-                    "ficVersion>False</SpecificVersion>\r\n        </Reference>\r\n\t\t");
+            this.Write("\t\t<Reference Include=\"DevExpress.ExpressApp.Validation.v20.1\">\r\n            <Spec" +
+                    "ificVersion>False</SpecificVersion>\r\n        </Reference>\r\n\t\t");
             
             #line 79 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleCsproj.tt"
  } 
