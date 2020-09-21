@@ -29,8 +29,8 @@ namespace dxTestSolution.Module.Web {
         public dxTestSolutionAspNetModule() {
             InitializeComponent();
 		
-			<# if (HasValidation){ #>
-			this.RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.Validation.Web.ValidationAspNetModule));
+<# if (HasValidation){ #>
+this.RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.Validation.Web.ValidationAspNetModule));
 <# } #>
 <# if (HasOffice){ #>
 this.RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.Office.Web.OfficeAspNetModule));

@@ -18,7 +18,7 @@ namespace DXTicketBase.TextTemplates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebModule.tt"
+    #line 1 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebModule.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
     public partial class WebModule : BaseTemplate
     {
@@ -29,7 +29,7 @@ namespace DXTicketBase.TextTemplates
         public override string TransformText()
         {
             
-            #line 6 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebModule.tt"
+            #line 6 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebModule.tt"
  FileName=@"\{0}.Module.Web\WebModule.cs"; 
             
             #line default
@@ -59,23 +59,23 @@ namespace dxTestSolution.Module.Web {
         public dxTestSolutionAspNetModule() {
             InitializeComponent();
 		
-			");
+");
             
-            #line 32 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebModule.tt"
+            #line 32 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebModule.tt"
  if (HasValidation){ 
             
             #line default
             #line hidden
-            this.Write("\t\t\tthis.RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.Validation.Web.Valid" +
-                    "ationAspNetModule));\r\n");
+            this.Write("this.RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.Validation.Web.Validati" +
+                    "onAspNetModule));\r\n");
             
-            #line 34 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebModule.tt"
+            #line 34 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebModule.tt"
  } 
             
             #line default
             #line hidden
             
-            #line 35 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebModule.tt"
+            #line 35 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebModule.tt"
  if (HasOffice){ 
             
             #line default
@@ -83,13 +83,13 @@ namespace dxTestSolution.Module.Web {
             this.Write("this.RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.Office.Web.OfficeAspNet" +
                     "Module));\r\n");
             
-            #line 37 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebModule.tt"
+            #line 37 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebModule.tt"
  } 
             
             #line default
             #line hidden
             
-            #line 38 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebModule.tt"
+            #line 38 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebModule.tt"
  if (HasReports){ 
             
             #line default
@@ -97,7 +97,7 @@ namespace dxTestSolution.Module.Web {
             this.Write("this.RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.ReportsV2.Web.ReportsAs" +
                     "pNetModuleV2));\r\n");
             
-            #line 40 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebModule.tt"
+            #line 40 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebModule.tt"
  } 
             
             #line default
@@ -111,7 +111,7 @@ namespace dxTestSolution.Module.Web {
 			
 			");
             
-            #line 48 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebModule.tt"
+            #line 48 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebModule.tt"
  if (HasSecurity){ 
             
             #line default
@@ -120,7 +120,7 @@ namespace dxTestSolution.Module.Web {
                     "odelDifferenceStore;\r\n            application.CreateCustomUserModelDifferenceSto" +
                     "re += Application_CreateCustomUserModelDifferenceStore;\r\n");
             
-            #line 51 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebModule.tt"
+            #line 51 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebModule.tt"
  } 
             
             #line default
@@ -128,7 +128,7 @@ namespace dxTestSolution.Module.Web {
             this.Write("            // Manage various aspects of the application UI and behavior at the m" +
                     "odule level.\r\n        }\r\n\t\t\r\n\t\t");
             
-            #line 55 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebModule.tt"
+            #line 55 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebModule.tt"
  if (HasSecurity){ 
             
             #line default
@@ -143,7 +143,7 @@ namespace dxTestSolution.Module.Web {
         }
 ");
             
-            #line 64 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebModule.tt"
+            #line 64 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebModule.tt"
  } 
             
             #line default
