@@ -116,22 +116,22 @@ namespace DXTicketBase.TextTemplates
             
             #line default
             #line hidden
-            this.Write(@"					<Reference Include=""DevExpress.ExpressApp.Office.v20.1"" >
-					<SpecificVersion>False</SpecificVersion>
-				</Reference>
-				<Reference Include=""DevExpress.Office.v20.1.Core"">
-					<SpecificVersion>False</SpecificVersion>
-				</Reference>
-				<Reference Include=""DevExpress.RichEdit.v20.1.Core"">
-					<SpecificVersion>False</SpecificVersion>
-				</Reference>
-				<Reference Include=""DevExpress.Spreadsheet.v20.1.Core"" >
-					<SpecificVersion>False</SpecificVersion>
-				</Reference>
-						<Reference Include=""DevExpress.RichEdit.v20.1.Export"">
+            this.Write(@"		<Reference Include=""DevExpress.ExpressApp.Office.v20.1"" >
 			<SpecificVersion>False</SpecificVersion>
 		</Reference>
-</Reference>
+		<Reference Include=""DevExpress.Office.v20.1.Core"">
+			<SpecificVersion>False</SpecificVersion>
+		</Reference>
+		<Reference Include=""DevExpress.RichEdit.v20.1.Core"">
+			<SpecificVersion>False</SpecificVersion>
+		</Reference>
+		<Reference Include=""DevExpress.Spreadsheet.v20.1.Core"" >
+			<SpecificVersion>False</SpecificVersion>
+		</Reference>
+		<Reference Include=""DevExpress.RichEdit.v20.1.Export"">
+			<SpecificVersion>False</SpecificVersion>
+		</Reference>
+
 		");
             
             #line 111 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleCsproj.tt"
@@ -151,7 +151,7 @@ namespace DXTicketBase.TextTemplates
 		</Reference>
 		<Reference Include=""DevExpress.ExpressApp.Security.Xpo.v20.1"">
 			<SpecificVersion>False</SpecificVersion>
-			<Private>False</Private>
+			
 		</Reference>
 ");
             

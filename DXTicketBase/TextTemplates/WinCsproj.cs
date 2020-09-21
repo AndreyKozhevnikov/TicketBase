@@ -77,19 +77,19 @@ namespace DXTicketBase.TextTemplates
             #line hidden
             this.Write(@"<Reference Include=""DevExpress.ExpressApp.ReportsV2.v20.1"" >
       <SpecificVersion>False</SpecificVersion>
-    </Reference>
+</Reference>
 <Reference Include=""DevExpress.ExpressApp.ReportsV2.Win.v20.1"" >
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
+   <SpecificVersion>False</SpecificVersion>
+</Reference>
 <Reference Include=""DevExpress.Utils.v20.1.UI"" >
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
+    <SpecificVersion>False</SpecificVersion>
+</Reference>
 <Reference Include=""DevExpress.XtraReports.v20.1"" >
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
+   <SpecificVersion>False</SpecificVersion>
+</Reference>
 <Reference Include=""DevExpress.XtraReports.v20.1.Extensions"" >
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
+   <SpecificVersion>False</SpecificVersion>
+</Reference>
 ");
             
             #line 88 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinCsproj.tt"
@@ -103,29 +103,26 @@ namespace DXTicketBase.TextTemplates
             
             #line default
             #line hidden
-            this.Write(@"    <Reference Include=""DevExpress.Office.v20.1.Core"">
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include=""DevExpress.RichEdit.v20.1.Core"">
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
-	  	 <Reference Include=""DevExpress.ExpressApp.Office.v20.1"" >
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
+            this.Write(@"<Reference Include=""DevExpress.Office.v20.1.Core"">
+	<SpecificVersion>False</SpecificVersion>
+</Reference>
+<Reference Include=""DevExpress.RichEdit.v20.1.Core"">
+	<SpecificVersion>False</SpecificVersion>
+<Reference Include=""DevExpress.ExpressApp.Office.v20.1"" >
+	<SpecificVersion>False</SpecificVersion>
+</Reference>
 <Reference Include=""DevExpress.ExpressApp.Office.Win.v20.1"" >
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
-    </Reference>
+	<SpecificVersion>False</SpecificVersion>
+</Reference>
 ");
             
-            #line 104 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinCsproj.tt"
+            #line 101 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinCsproj.tt"
  } 
             
             #line default
             #line hidden
             
-            #line 105 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinCsproj.tt"
+            #line 102 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinCsproj.tt"
  if (HasSecurity){ 
             
             #line default
@@ -138,7 +135,7 @@ namespace DXTicketBase.TextTemplates
     </Reference>
 ");
             
-            #line 112 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinCsproj.tt"
+            #line 109 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinCsproj.tt"
  } 
             
             #line default

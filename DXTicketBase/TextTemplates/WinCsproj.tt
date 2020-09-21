@@ -72,35 +72,32 @@
 <# if (HasReports){ #>
 <Reference Include="DevExpress.ExpressApp.ReportsV2.v20.1" >
       <SpecificVersion>False</SpecificVersion>
-    </Reference>
+</Reference>
 <Reference Include="DevExpress.ExpressApp.ReportsV2.Win.v20.1" >
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
+   <SpecificVersion>False</SpecificVersion>
+</Reference>
 <Reference Include="DevExpress.Utils.v20.1.UI" >
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
+    <SpecificVersion>False</SpecificVersion>
+</Reference>
 <Reference Include="DevExpress.XtraReports.v20.1" >
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
+   <SpecificVersion>False</SpecificVersion>
+</Reference>
 <Reference Include="DevExpress.XtraReports.v20.1.Extensions" >
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
+   <SpecificVersion>False</SpecificVersion>
+</Reference>
 <# } #>
 <# if (HasOffice){ #>
-    <Reference Include="DevExpress.Office.v20.1.Core">
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="DevExpress.RichEdit.v20.1.Core">
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
-	  	 <Reference Include="DevExpress.ExpressApp.Office.v20.1" >
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
+<Reference Include="DevExpress.Office.v20.1.Core">
+	<SpecificVersion>False</SpecificVersion>
+</Reference>
+<Reference Include="DevExpress.RichEdit.v20.1.Core">
+	<SpecificVersion>False</SpecificVersion>
+<Reference Include="DevExpress.ExpressApp.Office.v20.1" >
+	<SpecificVersion>False</SpecificVersion>
+</Reference>
 <Reference Include="DevExpress.ExpressApp.Office.Win.v20.1" >
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
-    </Reference>
+	<SpecificVersion>False</SpecificVersion>
+</Reference>
 <# } #>
 <# if (HasSecurity){ #>
     <Reference Include="DevExpress.ExpressApp.Security.v20.1" >

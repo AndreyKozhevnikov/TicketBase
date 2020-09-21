@@ -136,7 +136,7 @@ namespace DXTicketBase.TextTemplates
 <Reference Include=""DevExpress.XtraRichEdit.v20.1"" >
 			<SpecificVersion>False</SpecificVersion>
 		</Reference>
-<Reference Include=""DevExpress.XtraSpreadsheet.v20.1""ы >
+<Reference Include=""DevExpress.XtraSpreadsheet.v20.1"" >
 			<SpecificVersion>False</SpecificVersion>
 		</Reference>
 				<Reference Include=""DevExpress.Office.v20.1.Core"">
