@@ -108,6 +108,7 @@ namespace DXTicketBase.TextTemplates
 </Reference>
 <Reference Include=""DevExpress.RichEdit.v20.1.Core"">
 	<SpecificVersion>False</SpecificVersion>
+</Reference>
 <Reference Include=""DevExpress.ExpressApp.Office.v20.1"" >
 	<SpecificVersion>False</SpecificVersion>
 </Reference>
@@ -116,13 +117,13 @@ namespace DXTicketBase.TextTemplates
 </Reference>
 ");
             
-            #line 101 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinCsproj.tt"
+            #line 102 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinCsproj.tt"
  } 
             
             #line default
             #line hidden
             
-            #line 102 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinCsproj.tt"
+            #line 103 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinCsproj.tt"
  if (HasSecurity){ 
             
             #line default
@@ -135,7 +136,7 @@ namespace DXTicketBase.TextTemplates
     </Reference>
 ");
             
-            #line 109 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinCsproj.tt"
+            #line 110 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinCsproj.tt"
  } 
             
             #line default
