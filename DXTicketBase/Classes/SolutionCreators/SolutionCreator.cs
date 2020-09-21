@@ -57,6 +57,9 @@ namespace DXTicketBase.Classes {
             if(tokens.Contains("office")) {
                 upd.HasOffice = true;
             }
+            if(tokens.Contains("security")) {
+                upd.HasSecurity = true;
+            }
             if(tokens.Contains("inmemory")) {
                 upd.UseInMemory = true;
             }
