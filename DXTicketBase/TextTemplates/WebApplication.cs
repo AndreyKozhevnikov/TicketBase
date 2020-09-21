@@ -18,7 +18,7 @@ namespace DXTicketBase.TextTemplates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
+    #line 1 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
     public partial class WebApplication : BaseTemplate
     {
@@ -29,7 +29,7 @@ namespace DXTicketBase.TextTemplates
         public override string TransformText()
         {
             
-            #line 6 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
+            #line 6 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
  FileName=@"\{0}.Web\WebApplication.cs"; 
             
             #line default
@@ -41,7 +41,7 @@ using System.ComponentModel;
 using DevExpress.ExpressApp.Web;
 using System.Collections.Generic;
 using DevExpress.ExpressApp.Xpo;
-using DevExpress.ExpressApp.Security.ClientServer;
+
 using DevExpress.ExpressApp.Security;
 
 namespace dxTestSolution.Web {
@@ -56,7 +56,7 @@ namespace dxTestSolution.Web {
 		
 ");
             
-            #line 27 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
+            #line 27 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
  if (HasReports){ 
             
             #line default
@@ -65,13 +65,13 @@ namespace dxTestSolution.Web {
                     "     private DevExpress.ExpressApp.ReportsV2.Web.ReportsAspNetModuleV2 reportsAs" +
                     "pNetModuleV21;\r\n");
             
-            #line 30 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
+            #line 30 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
  } 
             
             #line default
             #line hidden
             
-            #line 31 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
+            #line 31 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
  if (HasOffice){ 
             
             #line default
@@ -80,13 +80,13 @@ namespace dxTestSolution.Web {
                     "ivate DevExpress.ExpressApp.Office.Web.OfficeAspNetModule officeAspNetModule1;\r\n" +
                     "");
             
-            #line 34 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
+            #line 34 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
  } 
             
             #line default
             #line hidden
             
-            #line 35 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
+            #line 35 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
  if (HasSecurity){ 
             
             #line default
@@ -97,7 +97,7 @@ namespace dxTestSolution.Web {
         private DevExpress.ExpressApp.Security.SecurityModule securityModule1;
 ");
             
-            #line 40 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
+            #line 40 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
  } 
             
             #line default
@@ -127,7 +127,7 @@ namespace dxTestSolution.Web {
                     "rovider.GetDataStoreProvider(args.ConnectionString, args.Connection, true), fals" +
                     "e);\r\n            }\r\n\t\t\t\r\n\t\t\t");
             
-            #line 73 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
+            #line 73 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
  if (HasSecurity){ 
             
             #line default
@@ -136,7 +136,7 @@ namespace dxTestSolution.Web {
                     "PObjectSpaceProvider.GetDataStoreProvider(args.ConnectionString, args.Connection" +
                     ", true), false);\r\n");
             
-            #line 75 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
+            #line 75 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
  } 
             
             #line default
@@ -175,7 +175,7 @@ namespace dxTestSolution.Web {
                     "estSolutionAspNetModule();\r\n\t\t\t//secur#2\r\n\t\t\t//report#11\r\n\t        //office#12#\r" +
                     "\n\t\t\t");
             
-            #line 124 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
+            #line 124 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
  if (HasReports){ 
             
             #line default
@@ -184,13 +184,13 @@ namespace dxTestSolution.Web {
                     ");\r\n            this.reportsAspNetModuleV21 = new DevExpress.ExpressApp.ReportsV" +
                     "2.Web.ReportsAspNetModuleV2();\r\n");
             
-            #line 127 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
+            #line 127 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
  } 
             
             #line default
             #line hidden
             
-            #line 128 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
+            #line 128 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
  if (HasOffice){ 
             
             #line default
@@ -199,13 +199,13 @@ namespace dxTestSolution.Web {
                     "is.officeAspNetModule1 = new DevExpress.ExpressApp.Office.Web.OfficeAspNetModule" +
                     "();\r\n");
             
-            #line 131 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
+            #line 131 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
  } 
             
             #line default
             #line hidden
             
-            #line 132 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
+            #line 132 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
  if (HasSecurity){ 
             
             #line default
@@ -215,7 +215,7 @@ namespace dxTestSolution.Web {
             this.authenticationStandard1 = new DevExpress.ExpressApp.Security.AuthenticationStandard();
 ");
             
-            #line 136 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
+            #line 136 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
  } 
             
             #line default
@@ -223,7 +223,7 @@ namespace dxTestSolution.Web {
             this.Write("            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();\r\n\t\t\t/" +
                     "/office#14#\r\n\t\t\t//secur#3\r\n\t\t\t//report#12\r\n\t\t\t");
             
-            #line 141 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
+            #line 141 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
  if (HasReports){ 
             
             #line default
@@ -244,13 +244,13 @@ namespace dxTestSolution.Web {
 			
 ");
             
-            #line 156 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
+            #line 156 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
  } 
             
             #line default
             #line hidden
             
-            #line 157 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
+            #line 157 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
  if (HasOffice){ 
             
             #line default
@@ -258,13 +258,13 @@ namespace dxTestSolution.Web {
             this.Write("     this.officeModule1.RichTextMailMergeDataType = typeof(DevExpress.Persistent." +
                     "BaseImpl.RichTextMailMergeData);\r\n");
             
-            #line 159 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
+            #line 159 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
  } 
             
             #line default
             #line hidden
             
-            #line 160 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
+            #line 160 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
  if (HasSecurity){ 
             
             #line default
@@ -285,7 +285,7 @@ namespace dxTestSolution.Web {
             // 
 ");
             
-            #line 175 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
+            #line 175 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
  } 
             
             #line default
@@ -305,7 +305,7 @@ namespace dxTestSolution.Web {
 			//secur#4
 			");
             
-            #line 189 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
+            #line 189 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
  if (HasReports){ 
             
             #line default
@@ -313,13 +313,13 @@ namespace dxTestSolution.Web {
             this.Write("\t\t\t               this.Modules.Add(this.reportsModuleV21);\r\n            this.Modu" +
                     "les.Add(this.reportsAspNetModuleV21);\r\n");
             
-            #line 192 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
+            #line 192 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
  } 
             
             #line default
             #line hidden
             
-            #line 193 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
+            #line 193 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
  if (HasOffice){ 
             
             #line default
@@ -327,13 +327,13 @@ namespace dxTestSolution.Web {
             this.Write(" this.Modules.Add(this.officeModule1);\r\n         this.Modules.Add(this.officeAspN" +
                     "etModule1);\r\n");
             
-            #line 196 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
+            #line 196 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
  } 
             
             #line default
             #line hidden
             
-            #line 197 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
+            #line 197 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
  if (HasSecurity){ 
             
             #line default
@@ -341,7 +341,7 @@ namespace dxTestSolution.Web {
             this.Write("        this.Modules.Add(this.securityModule1);\r\n            this.Security = this" +
                     ".securityStrategyComplex1;\r\n");
             
-            #line 200 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
+            #line 200 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebApplication.tt"
  } 
             
             #line default
