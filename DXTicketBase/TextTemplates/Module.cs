@@ -18,18 +18,19 @@ namespace DXTicketBase.TextTemplates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\Module.tt"
+    #line 1 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\Module.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
-    public partial class Module : BaseTemplate {
+    public partial class Module : BaseTemplate
+    {
 #line hidden
         /// <summary>
         /// Create the template output
         /// </summary>
         public override string TransformText()
         {
-            var t = new BaseTemplate();
-            #line 6 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\Module.tt"
-            FileName =@"\{0}.Module\Module.cs"; 
+            
+            #line 6 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\Module.tt"
+ FileName=@"\{0}.Module\Module.cs"; 
             
             #line default
             #line hidden
@@ -60,14 +61,14 @@ namespace dxTestSolution.Module {
         public dxTestSolutionModule() {
 		 ");
             
-            #line 32 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\Module.tt"
+            #line 32 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\Module.tt"
  if (UseInMemory){ 
             
             #line default
             #line hidden
             this.Write("\t\t\tUseInMemoryStore = true;\r\n\t\t ");
             
-            #line 34 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\Module.tt"
+            #line 34 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\Module.tt"
  } 
             
             #line default
@@ -75,7 +76,7 @@ namespace dxTestSolution.Module {
             this.Write("\r\n\t\t\t\r\n            InitializeComponent();\r\n\t\t\tBaseObject.OidInitializationMode = " +
                     "OidInitializationMode.AfterConstruction;\r\n\t\t\t ");
             
-            #line 39 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\Module.tt"
+            #line 39 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\Module.tt"
  if (HasValidation){ 
             
             #line default
@@ -83,14 +84,14 @@ namespace dxTestSolution.Module {
             this.Write("\t\t\tthis.RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.Validation.Validatio" +
                     "nModule));\r\n\t\t\t ");
             
-            #line 41 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\Module.tt"
+            #line 41 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\Module.tt"
  } 
             
             #line default
             #line hidden
             this.Write("\t\t\t ");
             
-            #line 42 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\Module.tt"
+            #line 42 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\Module.tt"
  if (HasOffice){ 
             
             #line default
@@ -98,7 +99,7 @@ namespace dxTestSolution.Module {
             this.Write("\t\t\tthis.RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.Office.OfficeModule)" +
                     ");\r\n\t\t\t ");
             
-            #line 44 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\Module.tt"
+            #line 44 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\Module.tt"
  } 
             
             #line default

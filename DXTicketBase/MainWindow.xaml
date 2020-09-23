@@ -15,7 +15,7 @@
     Closed="ico_Closed"
     Icon="0196.ico"
     SnapsToDevicePixels="True"
-    Title="TICKETS BASE"
+    Title="TICKETS BASE(1)"
     UseLayoutRounding="True">
 
     <Window.Resources>
