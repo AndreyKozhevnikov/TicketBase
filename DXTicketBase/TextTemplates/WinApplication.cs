@@ -18,7 +18,7 @@ namespace DXTicketBase.TextTemplates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinApplication.tt"
+    #line 1 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinApplication.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
     public partial class WinApplication : BaseTemplate
     {
@@ -29,7 +29,7 @@ namespace DXTicketBase.TextTemplates
         public override string TransformText()
         {
             
-            #line 6 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinApplication.tt"
+            #line 6 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinApplication.tt"
  FileName=@"\{0}.Win\WinApplication.cs"; 
             
             #line default
@@ -43,8 +43,21 @@ using System.Collections.Generic;
 using DevExpress.ExpressApp.Updating;
 using DevExpress.ExpressApp.Xpo;
 using DevExpress.ExpressApp.Security;
-using DevExpress.ExpressApp.Security.ClientServer;
-
+");
+            
+            #line 16 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinApplication.tt"
+ if (HasSecurity){ 
+            
+            #line default
+            #line hidden
+            this.Write("using DevExpress.ExpressApp.Security.ClientServer;\r\n ");
+            
+            #line 18 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinApplication.tt"
+ } 
+            
+            #line default
+            #line hidden
+            this.Write(@"
 namespace dxTestSolution.Win {
     // For more typical usage scenarios, be sure to check out https://documentation.devexpress.com/eXpressAppFramework/DevExpressExpressAppWinWinApplicationMembersTopicAll.aspx
     public partial class dxTestSolutionWindowsFormsApplication : WinApplication {
@@ -65,21 +78,21 @@ namespace dxTestSolution.Win {
 			InitializeDefaults();
 			");
             
-            #line 36 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinApplication.tt"
+            #line 38 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinApplication.tt"
  if (HasSecurity){ 
             
             #line default
             #line hidden
             this.Write("\t\t\tthis.LastLogonParametersRead += MyApplication_LastLogonParametersRead;\r\n\t\t\t");
             
-            #line 38 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinApplication.tt"
+            #line 40 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinApplication.tt"
  } 
             
             #line default
             #line hidden
             this.Write("\t\t\t\r\n        }\r\n\t\t");
             
-            #line 41 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinApplication.tt"
+            #line 43 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinApplication.tt"
  if (HasSecurity){ 
             
             #line default
@@ -94,7 +107,7 @@ namespace dxTestSolution.Win {
         }
 		");
             
-            #line 50 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinApplication.tt"
+            #line 52 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinApplication.tt"
  } 
             
             #line default
@@ -109,7 +122,7 @@ namespace dxTestSolution.Win {
             }
 			");
             
-            #line 59 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinApplication.tt"
+            #line 61 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinApplication.tt"
  if (HasSecurity){ 
             
             #line default
@@ -118,7 +131,7 @@ namespace dxTestSolution.Win {
                     "PObjectSpaceProvider.GetDataStoreProvider(args.ConnectionString, args.Connection" +
                     ", true), false);\r\n\t\t\t");
             
-            #line 61 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinApplication.tt"
+            #line 63 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinApplication.tt"
  } 
             
             #line default

@@ -57,54 +57,27 @@ namespace dxTestSolution.Module {
     // For more typical usage scenarios, be sure to check out https://documentation.devexpress.com/eXpressAppFramework/clsDevExpressExpressAppModuleBasetopic.aspx.
     public sealed partial class dxTestSolutionModule : ModuleBase {
 		public static bool UseInMemoryStore;
-		public static bool UseIntegratedSecurity;
         public dxTestSolutionModule() {
 		 ");
             
-            #line 32 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\Module.tt"
+            #line 31 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\Module.tt"
  if (UseInMemory){ 
             
             #line default
             #line hidden
             this.Write("\t\t\tUseInMemoryStore = true;\r\n\t\t ");
             
-            #line 34 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\Module.tt"
+            #line 33 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\Module.tt"
  } 
             
             #line default
             #line hidden
-            this.Write("\r\n\t\t\t\r\n            InitializeComponent();\r\n\t\t\tBaseObject.OidInitializationMode = " +
-                    "OidInitializationMode.AfterConstruction;\r\n\t\t\t ");
-            
-            #line 39 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\Module.tt"
- if (HasValidation){ 
-            
-            #line default
-            #line hidden
-            this.Write("\t\t\tthis.RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.Validation.Validatio" +
-                    "nModule));\r\n\t\t\t ");
-            
-            #line 41 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\Module.tt"
- } 
-            
-            #line default
-            #line hidden
-            this.Write("\t\t\t ");
-            
-            #line 42 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\Module.tt"
- if (HasOffice){ 
-            
-            #line default
-            #line hidden
-            this.Write("\t\t\tthis.RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.Office.OfficeModule)" +
-                    ");\r\n\t\t\t ");
-            
-            #line 44 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\Module.tt"
- } 
-            
-            #line default
-            #line hidden
-            this.Write(@"        }
+            this.Write(@"
+			
+            InitializeComponent();
+			BaseObject.OidInitializationMode = OidInitializationMode.AfterConstruction;
+
+        }
         public override IEnumerable<ModuleUpdater> GetModuleUpdaters(IObjectSpace objectSpace, Version versionFromDB) {
             ModuleUpdater updater = new DatabaseUpdate.Updater(objectSpace, versionFromDB);
             return new ModuleUpdater[] { updater };

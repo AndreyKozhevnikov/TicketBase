@@ -18,7 +18,7 @@ namespace DXTicketBase.TextTemplates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleDesigner.tt"
+    #line 1 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleDesigner.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
     public partial class ModuleDesigner : BaseTemplate
     {
@@ -29,7 +29,7 @@ namespace DXTicketBase.TextTemplates
         public override string TransformText()
         {
             
-            #line 6 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleDesigner.tt"
+            #line 6 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleDesigner.tt"
  FileName=@"\{0}.Module\Module.Designer.cs"; 
             
             #line default
@@ -54,22 +54,22 @@ namespace DXTicketBase.TextTemplates
                     "tent.BaseImpl.ModelDifferenceAspect));\r\n            \r\n\t\t\tthis.RequiredModuleType" +
                     "s.Add(typeof(DevExpress.ExpressApp.SystemModule.SystemModule));\r\n\t\t\t");
             
-            #line 44 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleDesigner.tt"
- if (HasReports){ 
+            #line 44 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleDesigner.tt"
+ if (HasReport){ 
             
             #line default
             #line hidden
             this.Write("\t\t\tthis.RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.ReportsV2.ReportsMod" +
                     "uleV2));\r\n\t        ");
             
-            #line 46 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleDesigner.tt"
+            #line 46 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleDesigner.tt"
  } 
             
             #line default
             #line hidden
             this.Write("\t\t\t");
             
-            #line 47 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleDesigner.tt"
+            #line 47 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleDesigner.tt"
  if (HasOffice){ 
             
             #line default
@@ -77,12 +77,27 @@ namespace DXTicketBase.TextTemplates
             this.Write("\t\t\t this.RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.Office.OfficeModule" +
                     "));\r\n\t\t\t ");
             
-            #line 49 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleDesigner.tt"
+            #line 49 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleDesigner.tt"
  } 
             
             #line default
             #line hidden
-            this.Write("\t\t}\r\n\r\n\t\t#endregion\r\n\t}\r\n}\r\n");
+            this.Write("\t\t\t");
+            
+            #line 50 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleDesigner.tt"
+ if (HasValidation){ 
+            
+            #line default
+            #line hidden
+            this.Write("\t\t\tthis.RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.Validation.Validatio" +
+                    "nModule));\r\n\t\t\t ");
+            
+            #line 52 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleDesigner.tt"
+ } 
+            
+            #line default
+            #line hidden
+            this.Write("\t\r\n\t\t}\r\n\r\n\t\t#endregion\r\n\t}\r\n}\r\n");
             return this.GenerationEnvironment.ToString();
         }
     }

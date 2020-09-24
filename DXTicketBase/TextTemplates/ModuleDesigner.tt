@@ -47,6 +47,10 @@ namespace dxTestSolution.Module {
 			<# if (HasOffice){ #>
 			 this.RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.Office.OfficeModule));
 			 <# } #>
+			<# if (HasValidation){ #>
+			this.RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.Validation.ValidationModule));
+			 <# } #>
+	
 		}
 
 		#endregion

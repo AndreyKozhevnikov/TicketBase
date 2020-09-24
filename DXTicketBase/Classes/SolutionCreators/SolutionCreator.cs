@@ -37,6 +37,7 @@ namespace DXTicketBase.Classes {
             CreateT4File<TextTemplates.GlobalAsax>(tokens);
             CreateT4File<TextTemplates.WebApplication>(tokens);
             CreateT4File<TextTemplates.WebConfig>(tokens);
+            CreateT4File<TextTemplates.Programm>(tokens);
 
 
 

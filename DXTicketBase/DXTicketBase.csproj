@@ -259,6 +259,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="TextTemplates\Programm.cs">
+      <DependentUpon>Programm.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="TextTemplates\WinModule.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -408,6 +413,10 @@
     <Content Include="TextTemplates\WebConfig.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>WebConfig.cs</LastGenOutput>
+    </Content>
+    <Content Include="TextTemplates\Programm.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Programm.cs</LastGenOutput>
     </Content>
     <Content Include="TextTemplates\WinModule.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
