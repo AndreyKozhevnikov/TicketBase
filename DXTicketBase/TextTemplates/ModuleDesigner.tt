@@ -41,7 +41,7 @@ namespace dxTestSolution.Module {
             this.AdditionalExportedTypes.Add(typeof(DevExpress.Persistent.BaseImpl.ModelDifferenceAspect));
             
 			this.RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.SystemModule.SystemModule));
-			<# if (HasReport){ #>
+			<# if (HasReports){ #>
 			this.RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.ReportsV2.ReportsModuleV2));
 	        <# } #>
 			<# if (HasOffice){ #>

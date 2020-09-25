@@ -18,9 +18,9 @@ namespace DXTicketBase.TextTemplates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\Programm.tt"
+    #line 1 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\Program.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
-    public partial class Programm : BaseTemplate
+    public partial class Program : BaseTemplate
     {
 #line hidden
         /// <summary>
@@ -29,8 +29,8 @@ namespace DXTicketBase.TextTemplates
         public override string TransformText()
         {
             
-            #line 6 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\Programm.tt"
- FileName=@"\{0}.Win\Programm.cs"; 
+            #line 6 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\Program.tt"
+ FileName=@"\{0}.Win\Program.cs"; 
             
             #line default
             #line hidden
@@ -65,7 +65,7 @@ namespace dxTestSolution.Win {
             dxTestSolutionWindowsFormsApplication winApplication = new dxTestSolutionWindowsFormsApplication();
 			");
             
-            #line 36 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\Programm.tt"
+            #line 36 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\Program.tt"
  if (HasSecurity){ 
             
             #line default
@@ -73,7 +73,7 @@ namespace dxTestSolution.Win {
             this.Write("             winApplication.GetSecurityStrategy().RegisterXPOAdapterProviders();\r" +
                     "\n\t\t\t ");
             
-            #line 38 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\Programm.tt"
+            #line 38 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\Program.tt"
  } 
             
             #line default

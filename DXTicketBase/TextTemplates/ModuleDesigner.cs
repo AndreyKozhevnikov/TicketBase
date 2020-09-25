@@ -55,7 +55,7 @@ namespace DXTicketBase.TextTemplates
                     "s.Add(typeof(DevExpress.ExpressApp.SystemModule.SystemModule));\r\n\t\t\t");
             
             #line 44 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleDesigner.tt"
- if (HasReport){ 
+ if (HasReports){ 
             
             #line default
             #line hidden

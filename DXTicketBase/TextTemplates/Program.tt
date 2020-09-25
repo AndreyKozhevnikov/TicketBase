@@ -3,7 +3,7 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
-<# FileName=@"\{0}.Win\Programm.cs"; #>
+<# FileName=@"\{0}.Win\Program.cs"; #>
 
 using System;
 using System.Configuration;

@@ -259,8 +259,8 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="TextTemplates\Programm.cs">
-      <DependentUpon>Programm.tt</DependentUpon>
+    <Compile Include="TextTemplates\Program.cs">
+      <DependentUpon>Program.tt</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
@@ -414,9 +414,9 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>WebConfig.cs</LastGenOutput>
     </Content>
-    <Content Include="TextTemplates\Programm.tt">
+    <Content Include="TextTemplates\Program.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>Programm.cs</LastGenOutput>
+      <LastGenOutput>Program.cs</LastGenOutput>
     </Content>
     <Content Include="TextTemplates\WinModule.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
