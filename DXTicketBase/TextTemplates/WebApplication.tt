@@ -11,7 +11,9 @@ using System.ComponentModel;
 using DevExpress.ExpressApp.Web;
 using System.Collections.Generic;
 using DevExpress.ExpressApp.Xpo;
-
+<# if (HasSecurity){ #>
+using DevExpress.ExpressApp.Security.ClientServer;
+<# } #>
 using DevExpress.ExpressApp.Security;
 
 namespace dxTestSolution.Web {
