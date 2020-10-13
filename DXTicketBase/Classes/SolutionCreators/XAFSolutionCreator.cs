@@ -58,6 +58,29 @@ namespace DXTicketBase.Classes {
             }
             return tokens;
         }
+
+        public override void AddAdditionalModules(string solutionPath) {
+            base.AddAdditionalModules(solutionPath);
+            List<string> tokens = GetTokens();
+            CreateT4File<TextTemplates.Updater>(tokens);
+            CreateT4File<TextTemplates.Module>(tokens);
+            CreateT4File<TextTemplates.ModuleDesigner>(tokens);
+            CreateT4File<TextTemplates.Contact>(tokens);
+            CreateT4File<TextTemplates.ModuleCsproj>(tokens);
+            CreateT4File<TextTemplates.WinModule>(tokens);
+            CreateT4File<TextTemplates.WebModule>(tokens);
+            CreateT4File<TextTemplates.ModuleWinCsproj>(tokens);
+            CreateT4File<TextTemplates.ModuleWebCsproj>(tokens);
+            CreateT4File<TextTemplates.WinApplicationDesigner>(tokens);
+            CreateT4File<TextTemplates.WinApplication>(tokens);
+            CreateT4File<TextTemplates.WinCsproj>(tokens);
+            CreateT4File<TextTemplates.WebCsproj>(tokens);
+            CreateT4File<TextTemplates.GlobalAsax>(tokens);
+            CreateT4File<TextTemplates.WebApplication>(tokens);
+            CreateT4File<TextTemplates.WebConfig>(tokens);
+            CreateT4File<TextTemplates.Program>(tokens);
+
+        }
     }
 
 }

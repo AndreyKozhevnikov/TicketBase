@@ -37,5 +37,12 @@ namespace DXTicketBase.Classes {
             }
             return tokens;
         }
+
+        public override void AddAdditionalModules(string solutionPath) {
+            base.AddAdditionalModules(solutionPath);
+            List<string> tokens = GetTokens();
+            CreateT4File<TextTemplates.XPOConnectionHelper>(tokens);
+        }
+
     }
 }

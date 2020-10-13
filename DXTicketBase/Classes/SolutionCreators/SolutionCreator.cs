@@ -18,36 +18,10 @@ namespace DXTicketBase.Classes {
         internal string finalSolutionFolderPath;
         internal List<object> selectedModules;
 
-        void AddAdditionalModules(string solutionPath) {
-            List<string> tokens = GetTokens();
-
-            CreateT4File<TextTemplates.Updater>(tokens);
-            CreateT4File<TextTemplates.Module>(tokens);
-            CreateT4File<TextTemplates.ModuleDesigner>(tokens);
-            CreateT4File<TextTemplates.Contact>(tokens);
-            CreateT4File<TextTemplates.ModuleCsproj>(tokens);
-            CreateT4File<TextTemplates.WinModule>(tokens);
-            CreateT4File<TextTemplates.WebModule>(tokens);
-            CreateT4File<TextTemplates.ModuleWinCsproj>(tokens);
-            CreateT4File<TextTemplates.ModuleWebCsproj>(tokens);
-            CreateT4File<TextTemplates.WinApplicationDesigner>(tokens);
-            CreateT4File<TextTemplates.WinApplication>(tokens);
-            CreateT4File<TextTemplates.WinCsproj>(tokens);
-            CreateT4File<TextTemplates.WebCsproj>(tokens);
-            CreateT4File<TextTemplates.GlobalAsax>(tokens);
-            CreateT4File<TextTemplates.WebApplication>(tokens);
-            CreateT4File<TextTemplates.WebConfig>(tokens);
-            CreateT4File<TextTemplates.Program>(tokens);
-
-
-
-            // var m = new TextTemplates.Module();
-
-
-
+       public  virtual void AddAdditionalModules(string solutionPath) {
         }
 
-        void CreateT4File<T>(List<String> tokens) where T : new() {
+      internal  void CreateT4File<T>(List<String> tokens) where T : new() {
             var upd = ((T)Activator.CreateInstance(typeof(T))) as TextTemplates.BaseTemplate;
             if(tokens.Contains("validation")) {
                 upd.HasValidation = true;

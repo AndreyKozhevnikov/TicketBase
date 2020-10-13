@@ -55,103 +55,8 @@
     <ApplicationIcon>0196.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AssemblyResolverDll, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\AssemblyResolverDll\AssemblyResolverDll\AssemblyResolverDll\bin\Release\AssemblyResolverDll.dll</HintPath>
-    </Reference>
-    <Reference Include="DevExpress.Data.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
-    <Reference Include="DevExpress.Mvvm.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
-    <Reference Include="DevExpress.Pdf.v18.1.Core, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
-    <Reference Include="DevExpress.Office.v18.1.Core, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
-    <Reference Include="DevExpress.RichEdit.v18.1.Core, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
-    <Reference Include="DevExpress.RichEdit.v18.1.Export, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
-    <Reference Include="DevExpress.Printing.v18.1.Core, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
-    <Reference Include="DevExpress.Xpf.CodeView.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
-    <Reference Include="DevExpress.Xpf.Core.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
-    <Reference Include="devexpress.xpf.grid.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
-    <Reference Include="DevExpress.Xpf.Grid.v18.1.Core, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
-    <Reference Include="DevExpress.Xpf.Printing.v18.1, Version=18.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
-    <Reference Include="EntityFramework">
-      <HintPath>..\..\..\..\Deploy\Dll181\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\..\..\..\Deploy\Dll181\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
-    <Reference Include="Logify.Alert.Core, Version=1.0.53.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Logify.Alert.Core.1.0.53\lib\net45\Logify.Alert.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Logify.Alert.Wpf, Version=1.0.53.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Logify.Alert.Wpf.1.0.53\lib\net45\Logify.Alert.Wpf.dll</HintPath>
-    </Reference>
-    <Reference Include="nunit.core">
-      <HintPath>..\packages\NUnitTestAdapter.2.0.0\lib\nunit.core.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="nunit.core.interfaces">
-      <HintPath>..\packages\NUnitTestAdapter.2.0.0\lib\nunit.core.interfaces.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="nunit.framework">
-      <HintPath>..\..\..\..\..\Distrib\NUnit-2.6.4\NUnit-2.6.4\bin\framework\nunit.framework.dll</HintPath>
-    </Reference>
-    <Reference Include="nunit.util">
-      <HintPath>..\packages\NUnitTestAdapter.2.0.0\lib\nunit.util.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="NUnit.VisualStudio.TestAdapter">
-      <HintPath>..\packages\NUnitTestAdapter.2.0.0\lib\NUnit.VisualStudio.TestAdapter.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Printing" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Security" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Xaml">
-      <RequiredTargetFramework>4.0</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="UIAutomationProvider" />
-    <Reference Include="UIAutomationTypes" />
-    <Reference Include="WindowsBase" />
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -326,13 +231,8 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="0196.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
@@ -449,4 +349,53 @@ echo "Release completed")
   <Target Name="AfterBuild">
   </Target>
   -->
+  <ItemGroup>
+    <ReferencePath Include="C:\Dropbox\C#\AssemblyResolverDll\AssemblyResolverDll\AssemblyResolverDll\bin\Release\AssemblyResolverDll.dll" />
+    <ReferencePath Include="C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DLL\DevExpress.Data.v18.1.dll" />
+    <ReferencePath Include="C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DLL\DevExpress.Mvvm.v18.1.dll" />
+    <ReferencePath Include="C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DLL\DevExpress.Office.v18.1.Core.dll" />
+    <ReferencePath Include="C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DLL\DevExpress.Pdf.v18.1.Core.dll" />
+    <ReferencePath Include="C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DLL\DevExpress.Printing.v18.1.Core.dll" />
+    <ReferencePath Include="C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DLL\DevExpress.RichEdit.v18.1.Core.dll" />
+    <ReferencePath Include="C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DLL\DevExpress.RichEdit.v18.1.Export.dll" />
+    <ReferencePath Include="C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DLL\DevExpress.Xpf.CodeView.v18.1.dll" />
+    <ReferencePath Include="C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DLL\DevExpress.Xpf.Core.v18.1.dll" />
+    <ReferencePath Include="C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DLL\DevExpress.Xpf.Grid.v18.1.Core.dll" />
+    <ReferencePath Include="C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DLL\devexpress.xpf.grid.v18.1.dll" />
+    <ReferencePath Include="C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DLL\DevExpress.Xpf.Printing.v18.1.dll" />
+    <ReferencePath Include="C:\Dropbox\Deploy\Dll181\EntityFramework.dll" />
+    <ReferencePath Include="C:\Dropbox\Deploy\Dll181\EntityFramework.SqlServer.dll" />
+    <ReferencePath Include="C:\Dropbox\C#\DXTicketsBase\DXTicketBase\packages\Logify.Alert.Core.1.0.53\lib\net45\Logify.Alert.Core.dll" />
+    <ReferencePath Include="C:\Dropbox\C#\DXTicketsBase\DXTicketBase\packages\Logify.Alert.Wpf.1.0.53\lib\net45\Logify.Alert.Wpf.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" />
+    <ReferencePath Include="C:\Dropbox\C#\DXTicketsBase\DXTicketBase\packages\NUnitTestAdapter.2.0.0\lib\nunit.core.dll" />
+    <ReferencePath Include="C:\Dropbox\C#\DXTicketsBase\DXTicketBase\packages\NUnitTestAdapter.2.0.0\lib\nunit.core.interfaces.dll" />
+    <ReferencePath Include="C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\nunit.framework\v4.0_3.10.1.0__2638cd05610744eb\nunit.framework.dll" />
+    <ReferencePath Include="C:\Dropbox\C#\DXTicketsBase\DXTicketBase\packages\NUnitTestAdapter.2.0.0\lib\nunit.util.dll" />
+    <ReferencePath Include="C:\Dropbox\C#\DXTicketsBase\DXTicketBase\packages\NUnitTestAdapter.2.0.0\lib\NUnit.VisualStudio.TestAdapter.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\PresentationCore.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\PresentationFramework.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.ComponentModel.DataAnnotations.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Core.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Data.DataSetExtensions.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Data.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Drawing.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Printing.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Runtime.Serialization.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Security.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Windows.Forms.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Xaml.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Xml.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Xml.Linq.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\UIAutomationProvider.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\UIAutomationTypes.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\WindowsBase.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\obj\x86\Release\MainWindow.g.cs" />
+    <Compile Include="C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\obj\x86\Release\App.g.cs" />
+    <Compile Include="C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\obj\x86\Release\DXTicketBase_Content.g.cs" />
+    <Compile Include="C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\obj\x86\Release\GeneratedInternalTypeHelper.g.cs" />
+  </ItemGroup>
 </Project>
