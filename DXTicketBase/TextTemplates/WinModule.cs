@@ -18,7 +18,7 @@ namespace DXTicketBase.TextTemplates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinModule.tt"
+    #line 1 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinModule.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
     public partial class WinModule : BaseTemplate
     {
@@ -29,7 +29,7 @@ namespace DXTicketBase.TextTemplates
         public override string TransformText()
         {
             
-            #line 6 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinModule.tt"
+            #line 6 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinModule.tt"
  FileName=@"\{0}.Module.Win\WinModule.cs"; 
             
             #line default
@@ -61,7 +61,7 @@ namespace dxTestSolution.Module.Win {
 	
 			");
             
-            #line 32 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinModule.tt"
+            #line 32 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinModule.tt"
  if (HasValidation){ 
             
             #line default
@@ -69,14 +69,14 @@ namespace dxTestSolution.Module.Win {
             this.Write("\t\t\tthis.RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.Validation.Win.Valid" +
                     "ationWindowsFormsModule));\r\n\t\t\t");
             
-            #line 34 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinModule.tt"
+            #line 34 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinModule.tt"
  } 
             
             #line default
             #line hidden
             this.Write("\t\t\t");
             
-            #line 35 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinModule.tt"
+            #line 35 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinModule.tt"
  if (HasOffice){ 
             
             #line default
@@ -84,14 +84,14 @@ namespace dxTestSolution.Module.Win {
             this.Write("\t\t\tthis.RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.Office.Win.OfficeWin" +
                     "dowsFormsModule));\r\n\t\t\t");
             
-            #line 37 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinModule.tt"
+            #line 37 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinModule.tt"
  } 
             
             #line default
             #line hidden
             this.Write("\t\t\t");
             
-            #line 38 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinModule.tt"
+            #line 38 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinModule.tt"
  if (HasReports){ 
             
             #line default
@@ -99,7 +99,7 @@ namespace dxTestSolution.Module.Win {
             this.Write("\t\t\tthis.RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.ReportsV2.Win.Report" +
                     "sWindowsFormsModuleV2));\r\n\t\t\t");
             
-            #line 40 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinModule.tt"
+            #line 40 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinModule.tt"
  } 
             
             #line default
@@ -112,16 +112,16 @@ namespace dxTestSolution.Module.Win {
             base.Setup(application);
 			");
             
-            #line 47 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinModule.tt"
+            #line 47 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinModule.tt"
  if (HasSecurity){ 
             
             #line default
             #line hidden
-            this.Write("\t\t\t//application.CreateCustomModelDifferenceStore += Application_CreateCustomMode" +
-                    "lDifferenceStore;\r\n            application.CreateCustomUserModelDifferenceStore " +
-                    "+= Application_CreateCustomUserModelDifferenceStore;\r\n\t\t\t");
+            this.Write("\t\t\tapplication.CreateCustomModelDifferenceStore += Application_CreateCustomModelD" +
+                    "ifferenceStore;\r\n            application.CreateCustomUserModelDifferenceStore +=" +
+                    " Application_CreateCustomUserModelDifferenceStore;\r\n\t\t\t");
             
-            #line 50 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinModule.tt"
+            #line 50 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinModule.tt"
  } 
             
             #line default
@@ -129,7 +129,7 @@ namespace dxTestSolution.Module.Win {
             this.Write("            // Manage various aspects of the application UI and behavior at the m" +
                     "odule level.\r\n        }\r\n\t\t");
             
-            #line 53 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinModule.tt"
+            #line 53 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinModule.tt"
  if (HasSecurity){ 
             
             #line default
@@ -138,9 +138,13 @@ namespace dxTestSolution.Module.Win {
             e.Store = new ModelDifferenceDbStore((XafApplication)sender, typeof(ModelDifference), false, ""Win"");
             e.Handled = true;
         }
+         private void Application_CreateCustomModelDifferenceStore(Object sender, CreateCustomModelDifferenceStoreEventArgs e) {
+            e.Store = new ModelDifferenceDbStore((XafApplication)sender, typeof(ModelDifference), true, ""Win"");
+            e.Handled = true;
+        }
 		");
             
-            #line 58 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinModule.tt"
+            #line 62 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WinModule.tt"
  } 
             
             #line default

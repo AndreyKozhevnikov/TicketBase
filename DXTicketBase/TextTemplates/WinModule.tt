@@ -45,7 +45,7 @@ namespace dxTestSolution.Module.Win {
         public override void Setup(XafApplication application) {
             base.Setup(application);
 			<# if (HasSecurity){ #>
-			//application.CreateCustomModelDifferenceStore += Application_CreateCustomModelDifferenceStore;
+			application.CreateCustomModelDifferenceStore += Application_CreateCustomModelDifferenceStore;
             application.CreateCustomUserModelDifferenceStore += Application_CreateCustomUserModelDifferenceStore;
 			<# } #>
             // Manage various aspects of the application UI and behavior at the module level.
@@ -53,6 +53,10 @@ namespace dxTestSolution.Module.Win {
 		<# if (HasSecurity){ #>
 		 private void Application_CreateCustomUserModelDifferenceStore(Object sender, CreateCustomModelDifferenceStoreEventArgs e) {
             e.Store = new ModelDifferenceDbStore((XafApplication)sender, typeof(ModelDifference), false, "Win");
+            e.Handled = true;
+        }
+         private void Application_CreateCustomModelDifferenceStore(Object sender, CreateCustomModelDifferenceStoreEventArgs e) {
+            e.Store = new ModelDifferenceDbStore((XafApplication)sender, typeof(ModelDifference), true, "Win");
             e.Handled = true;
         }
 		<# } #>

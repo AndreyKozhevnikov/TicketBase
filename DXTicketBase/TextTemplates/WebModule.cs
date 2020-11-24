@@ -116,9 +116,9 @@ namespace dxTestSolution.Module.Web {
             
             #line default
             #line hidden
-            this.Write("\t\t\t   //application.CreateCustomModelDifferenceStore += Application_CreateCustomM" +
-                    "odelDifferenceStore;\r\n            application.CreateCustomUserModelDifferenceSto" +
-                    "re += Application_CreateCustomUserModelDifferenceStore;\r\n");
+            this.Write("\t\t\tapplication.CreateCustomModelDifferenceStore += Application_CreateCustomModelD" +
+                    "ifferenceStore;\r\n            application.CreateCustomUserModelDifferenceStore +=" +
+                    " Application_CreateCustomUserModelDifferenceStore;\r\n");
             
             #line 51 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebModule.tt"
  } 
@@ -133,10 +133,10 @@ namespace dxTestSolution.Module.Web {
             
             #line default
             #line hidden
-            this.Write(@"		  //private void Application_CreateCustomModelDifferenceStore(Object sender, CreateCustomModelDifferenceStoreEventArgs e) {
-        //    e.Store = new ModelDifferenceDbStore((XafApplication)sender, typeof(ModelDifference), true, ""Web"");
-        //    e.Handled = true;
-        //}
+            this.Write(@"		  private void Application_CreateCustomModelDifferenceStore(Object sender, CreateCustomModelDifferenceStoreEventArgs e) {
+            e.Store = new ModelDifferenceDbStore((XafApplication)sender, typeof(ModelDifference), true, ""Web"");
+            e.Handled = true;
+        }
         private void Application_CreateCustomUserModelDifferenceStore(Object sender, CreateCustomModelDifferenceStoreEventArgs e) {
             e.Store = new ModelDifferenceDbStore((XafApplication)sender, typeof(ModelDifference), false, ""Web"");
             e.Handled = true;
