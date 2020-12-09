@@ -18,7 +18,7 @@ namespace DXTicketBase.TextTemplates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebConfig.tt"
+    #line 1 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebConfig.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
     public partial class WebConfig : BaseTemplate
     {
@@ -29,7 +29,7 @@ namespace DXTicketBase.TextTemplates
         public override string TransformText()
         {
             
-            #line 6 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebConfig.tt"
+            #line 6 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebConfig.tt"
  FileName=@"\{0}.Web\Web.config"; 
             
             #line default
@@ -90,7 +90,7 @@ namespace DXTicketBase.TextTemplates
                     "DevExpress.Web.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754" +
                     "d700e49a\" preCondition=\"integratedMode\" />\r\n\t  <!--//report#5-->\r\n\t  ");
             
-            #line 76 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebConfig.tt"
+            #line 76 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebConfig.tt"
  if (HasReports){ 
             
             #line default
@@ -99,7 +99,7 @@ namespace DXTicketBase.TextTemplates
 	 <add name=""ASPxQueryBuilderDesignerHandlerModule"" verb=""GET,POST"" path=""DXQB.axd"" type=""DevExpress.Web.ASPxHttpHandlerModule, DevExpress.Web.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"" preCondition=""integratedMode"" />
 ");
             
-            #line 79 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebConfig.tt"
+            #line 79 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebConfig.tt"
  } 
             
             #line default
@@ -121,7 +121,7 @@ namespace DXTicketBase.TextTemplates
 	  <!--//report#6-->
 	  ");
             
-            #line 95 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebConfig.tt"
+            #line 95 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebConfig.tt"
  if (HasReports){ 
             
             #line default
@@ -130,7 +130,7 @@ namespace DXTicketBase.TextTemplates
 				<add verb=""GET,POST"" path=""DXQB.axd"" type=""DevExpress.Web.ASPxHttpHandlerModule, DevExpress.Web.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"" />
 ");
             
-            #line 98 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebConfig.tt"
+            #line 98 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebConfig.tt"
  } 
             
             #line default
@@ -157,16 +157,16 @@ namespace DXTicketBase.TextTemplates
                     " Culture=neutral, PublicKeyToken=b88d1754d700e49a\" />\r\n        <add assembly=\"De" +
                     "vExpress.Web.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d7" +
                     "00e49a\" />\r\n        <add assembly=\"DevExpress.Web.ASPxTreeList.v20.2, Version=20" +
-                    ".1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a\" />\r\n        <add assem" +
+                    ".2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a\" />\r\n        <add assem" +
                     "bly=\"DevExpress.Web.ASPxThemes.v20.2, Version=20.2.4.0, Culture=neutral, PublicK" +
                     "eyToken=b88d1754d700e49a\" />\r\n        <add assembly=\"DevExpress.Xpo.v20.2, Versi" +
                     "on=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a\" />\r\n        <add " +
                     "assembly=\"DevExpress.ExpressApp.Xpo.v20.2, Version=20.2.4.0, Culture=neutral, Pu" +
                     "blicKeyToken=b88d1754d700e49a\" />\r\n      <add assembly=\"DevExpress.RichEdit.v20." +
-                    "1.Core, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a\" />\r\n" +
+                    "2.Core, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a\" />\r\n" +
                     "\t  <!--//report#7-->\r\n\t  ");
             
-            #line 126 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebConfig.tt"
+            #line 126 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebConfig.tt"
  if (HasReports){ 
             
             #line default
@@ -178,7 +178,7 @@ namespace DXTicketBase.TextTemplates
 				<add assembly=""DevExpress.ExpressApp.ReportsV2.Web.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"" />
 ");
             
-            #line 132 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebConfig.tt"
+            #line 132 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebConfig.tt"
  } 
             
             #line default
