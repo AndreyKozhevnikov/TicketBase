@@ -67,7 +67,7 @@ namespace DXTicketBase.TextTemplates
                     "bols>\r\n    <OutputPath>bin\\</OutputPath>\r\n    <DefineConstants>TRACE;DEBUG;EASYT" +
                     "EST</DefineConstants>\r\n    <DebugType>full</DebugType>\r\n    <PlatformTarget>AnyC" +
                     "PU</PlatformTarget>\r\n    <ErrorReport>prompt</ErrorReport>\r\n  </PropertyGroup>\r\n" +
-                    "  <ItemGroup>\r\n\r\n\t  <Reference Include=\"DevExpress.DataAccess.v20.1\">\r\n      <Sp" +
+                    "  <ItemGroup>\r\n\r\n\t  <Reference Include=\"DevExpress.DataAccess.v20.2\">\r\n      <Sp" +
                     "ecificVersion>False</SpecificVersion>\r\n    </Reference>\r\n");
             
             #line 65 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebCsproj.tt"
@@ -75,19 +75,19 @@ namespace DXTicketBase.TextTemplates
             
             #line default
             #line hidden
-            this.Write(@" <Reference Include=""DevExpress.ExpressApp.ReportsV2.v20.1"">
+            this.Write(@" <Reference Include=""DevExpress.ExpressApp.ReportsV2.v20.2"">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-<Reference Include=""DevExpress.ExpressApp.ReportsV2.Web.v20.1"">
+<Reference Include=""DevExpress.ExpressApp.ReportsV2.Web.v20.2"">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-<Reference Include=""DevExpress.XtraReports.v20.1"">
+<Reference Include=""DevExpress.XtraReports.v20.2"">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-<Reference Include=""DevExpress.XtraReports.v20.1.Extensions"">
+<Reference Include=""DevExpress.XtraReports.v20.2.Extensions"">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-<Reference Include=""DevExpress.XtraReports.v20.1.Web"">
+<Reference Include=""DevExpress.XtraReports.v20.2.Web"">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
 ");
@@ -103,32 +103,32 @@ namespace DXTicketBase.TextTemplates
             
             #line default
             #line hidden
-            this.Write(@"    <Reference Include=""DevExpress.Office.v20.1.Core"">
+            this.Write(@"    <Reference Include=""DevExpress.Office.v20.2.Core"">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include=""DevExpress.RichEdit.v20.1.Core"">
+    <Reference Include=""DevExpress.RichEdit.v20.2.Core"">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-	    <Reference Include=""DevExpress.RichEdit.v20.1.Export"">
+	    <Reference Include=""DevExpress.RichEdit.v20.2.Export"">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
 
-		 <Reference Include=""DevExpress.ExpressApp.Office.v20.1"">
+		 <Reference Include=""DevExpress.ExpressApp.Office.v20.2"">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-<Reference Include=""DevExpress.ExpressApp.Office.Web.v20.1"">
+<Reference Include=""DevExpress.ExpressApp.Office.Web.v20.2"">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-<Reference Include=""DevExpress.RichEdit.v20.1.Core"">
+<Reference Include=""DevExpress.RichEdit.v20.2.Core"">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-<Reference Include=""DevExpress.Spreadsheet.v20.1.Core"">
+<Reference Include=""DevExpress.Spreadsheet.v20.2.Core"">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-<Reference Include=""DevExpress.Web.ASPxRichEdit.v20.1"">
+<Reference Include=""DevExpress.Web.ASPxRichEdit.v20.2"">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-<Reference Include=""DevExpress.Web.ASPxSpreadsheet.v20.1"">
+<Reference Include=""DevExpress.Web.ASPxSpreadsheet.v20.2"">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
 ");
@@ -144,10 +144,10 @@ namespace DXTicketBase.TextTemplates
             
             #line default
             #line hidden
-            this.Write(@"    <Reference Include=""DevExpress.ExpressApp.Security.v20.1"" >
+            this.Write(@"    <Reference Include=""DevExpress.ExpressApp.Security.v20.2"" >
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-	    <Reference Include=""DevExpress.ExpressApp.Security.Xpo.v20.1"">
+	    <Reference Include=""DevExpress.ExpressApp.Security.Xpo.v20.2"">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
 ");
@@ -158,30 +158,30 @@ namespace DXTicketBase.TextTemplates
             #line default
             #line hidden
             this.Write("\t <!--//report#13-->\r\n\t <!--//office#11#-->\r\n\r\n    <Reference Include=\"DevExpress" +
-                    ".ExpressApp.Xpo.v20.1\">\r\n      <SpecificVersion>False</SpecificVersion>\r\n    </R" +
-                    "eference>\r\n\t<Reference Include=\"DevExpress.Images.v20.1\" >\r\n\t  <SpecificVersion>" +
+                    ".ExpressApp.Xpo.v20.2\">\r\n      <SpecificVersion>False</SpecificVersion>\r\n    </R" +
+                    "eference>\r\n\t<Reference Include=\"DevExpress.Images.v20.2\" >\r\n\t  <SpecificVersion>" +
                     "False</SpecificVersion>\r\n    </Reference>\r\n\r\n    <Reference Include=\"DevExpress." +
-                    "Printing.v20.1.Core\">\r\n      <SpecificVersion>False</SpecificVersion>\r\n    </Ref" +
-                    "erence>\r\n    <Reference Include=\"DevExpress.Data.v20.1\">\r\n      <SpecificVersion" +
+                    "Printing.v20.2.Core\">\r\n      <SpecificVersion>False</SpecificVersion>\r\n    </Ref" +
+                    "erence>\r\n    <Reference Include=\"DevExpress.Data.v20.2\">\r\n      <SpecificVersion" +
                     ">False</SpecificVersion>\r\n    </Reference>\r\n    <Reference Include=\"DevExpress.E" +
-                    "xpressApp.Images.v20.1\">\r\n      <SpecificVersion>False</SpecificVersion>\r\n    </" +
-                    "Reference>\r\n    <Reference Include=\"DevExpress.ExpressApp.v20.1\">\r\n      <Specif" +
+                    "xpressApp.Images.v20.2\">\r\n      <SpecificVersion>False</SpecificVersion>\r\n    </" +
+                    "Reference>\r\n    <Reference Include=\"DevExpress.ExpressApp.v20.2\">\r\n      <Specif" +
                     "icVersion>False</SpecificVersion>\r\n    </Reference>\r\n    <Reference Include=\"Dev" +
-                    "Express.ExpressApp.Web.v20.1\">\r\n      <SpecificVersion>False</SpecificVersion>\r\n" +
+                    "Express.ExpressApp.Web.v20.2\">\r\n      <SpecificVersion>False</SpecificVersion>\r\n" +
                     "      <Private>False</Private>\r\n    </Reference>\r\n    <Reference Include=\"DevExp" +
-                    "ress.Persistent.Base.v20.1\">\r\n      <SpecificVersion>False</SpecificVersion>\r\n  " +
-                    "  </Reference>\r\n    <Reference Include=\"DevExpress.Persistent.BaseImpl.v20.1\">\r\n" +
+                    "ress.Persistent.Base.v20.2\">\r\n      <SpecificVersion>False</SpecificVersion>\r\n  " +
+                    "  </Reference>\r\n    <Reference Include=\"DevExpress.Persistent.BaseImpl.v20.2\">\r\n" +
                     "      <SpecificVersion>False</SpecificVersion>\r\n    </Reference>\r\n    <Reference" +
-                    " Include=\"DevExpress.Data.Desktop.v20.1\">\r\n      <SpecificVersion>False</Specifi" +
+                    " Include=\"DevExpress.Data.Desktop.v20.2\">\r\n      <SpecificVersion>False</Specifi" +
                     "cVersion>\r\n      <Private>False</Private>\r\n    </Reference>\r\n    <Reference Incl" +
-                    "ude=\"DevExpress.Utils.v20.1\">\r\n      <SpecificVersion>False</SpecificVersion>\r\n " +
+                    "ude=\"DevExpress.Utils.v20.2\">\r\n      <SpecificVersion>False</SpecificVersion>\r\n " +
                     "     <Private>False</Private>\r\n    </Reference>\r\n    <Reference Include=\"DevExpr" +
-                    "ess.Web.ASPxThemes.v20.1\">\r\n      <SpecificVersion>False</SpecificVersion>\r\n    " +
-                    "</Reference>\r\n    <Reference Include=\"DevExpress.Web.ASPxTreeList.v20.1\">\r\n     " +
+                    "ess.Web.ASPxThemes.v20.2\">\r\n      <SpecificVersion>False</SpecificVersion>\r\n    " +
+                    "</Reference>\r\n    <Reference Include=\"DevExpress.Web.ASPxTreeList.v20.2\">\r\n     " +
                     " <SpecificVersion>False</SpecificVersion>\r\n      <Private>False</Private>\r\n    <" +
-                    "/Reference>\r\n\r\n    <Reference Include=\"DevExpress.Web.v20.1\">\r\n      <SpecificVe" +
+                    "/Reference>\r\n\r\n    <Reference Include=\"DevExpress.Web.v20.2\">\r\n      <SpecificVe" +
                     "rsion>False</SpecificVersion>\r\n    </Reference>\r\n    <Reference Include=\"DevExpr" +
-                    "ess.Xpo.v20.1\">\r\n      <SpecificVersion>False</SpecificVersion>\r\n    </Reference" +
+                    "ess.Xpo.v20.2\">\r\n      <SpecificVersion>False</SpecificVersion>\r\n    </Reference" +
                     ">\r\n    <Reference Include=\"System\">\r\n      <Private>False</Private>\r\n    </Refer" +
                     "ence>\r\n    <Reference Include=\"System.Configuration\">\r\n      <Private>False</Pri" +
                     "vate>\r\n    </Reference>\r\n    <Reference Include=\"System.Data\">\r\n      <Private>F" +

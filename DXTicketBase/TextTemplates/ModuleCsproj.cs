@@ -58,16 +58,16 @@ namespace DXTicketBase.TextTemplates
                     "<OutputPath>bin\\EasyTest\\</OutputPath>\r\n\t\t<DefineConstants>TRACE;DEBUG;EASYTEST<" +
                     "/DefineConstants>\r\n\t\t<DebugType>full</DebugType>\r\n\t\t<PlatformTarget>AnyCPU</Plat" +
                     "formTarget>\r\n\t\t<ErrorReport>prompt</ErrorReport>\r\n\t</PropertyGroup>\r\n\t<ItemGroup" +
-                    ">\r\n\t\t<Reference Include=\"DevExpress.Data.v20.1\">\r\n\t\t\t<SpecificVersion>False</Spe" +
-                    "cificVersion>\r\n\t\t</Reference>\r\n\t\t<Reference Include=\"DevExpress.ExpressApp.v20.1" +
+                    ">\r\n\t\t<Reference Include=\"DevExpress.Data.v20.2\">\r\n\t\t\t<SpecificVersion>False</Spe" +
+                    "cificVersion>\r\n\t\t</Reference>\r\n\t\t<Reference Include=\"DevExpress.ExpressApp.v20.2" +
                     "\">\r\n\t\t\t<SpecificVersion>False</SpecificVersion>\r\n\t\t</Reference>\r\n\t\t<Reference In" +
-                    "clude=\"DevExpress.ExpressApp.Xpo.v20.1\">\r\n\t\t\t<SpecificVersion>False</SpecificVer" +
+                    "clude=\"DevExpress.ExpressApp.Xpo.v20.2\">\r\n\t\t\t<SpecificVersion>False</SpecificVer" +
                     "sion>\r\n\t\t\t<Private>False</Private>\r\n\t\t</Reference>\r\n\t\t<Reference Include=\"DevExp" +
-                    "ress.Persistent.Base.v20.1\">\r\n\t\t\t<SpecificVersion>False</SpecificVersion>\r\n\t\t</R" +
-                    "eference>\r\n\t\t<Reference Include=\"DevExpress.Persistent.BaseImpl.v20.1\">\r\n\t\t\t<Spe" +
+                    "ress.Persistent.Base.v20.2\">\r\n\t\t\t<SpecificVersion>False</SpecificVersion>\r\n\t\t</R" +
+                    "eference>\r\n\t\t<Reference Include=\"DevExpress.Persistent.BaseImpl.v20.2\">\r\n\t\t\t<Spe" +
                     "cificVersion>False</SpecificVersion>\r\n\t\t</Reference>\r\n\t\t<Reference Include=\"DevE" +
-                    "xpress.Printing.v20.1.Core\">\r\n\t\t\t<SpecificVersion>False</SpecificVersion>\r\n\t\t</R" +
-                    "eference>\r\n\t\t<Reference Include=\"DevExpress.Xpo.v20.1\">\r\n\t\t\t<SpecificVersion>Fal" +
+                    "xpress.Printing.v20.2.Core\">\r\n\t\t\t<SpecificVersion>False</SpecificVersion>\r\n\t\t</R" +
+                    "eference>\r\n\t\t<Reference Include=\"DevExpress.Xpo.v20.2\">\r\n\t\t\t<SpecificVersion>Fal" +
                     "se</SpecificVersion>\r\n\t\t</Reference>\r\n\t\t");
             
             #line 75 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleCsproj.tt"
@@ -75,7 +75,7 @@ namespace DXTicketBase.TextTemplates
             
             #line default
             #line hidden
-            this.Write("\t\t<Reference Include=\"DevExpress.ExpressApp.Validation.v20.1\">\r\n            <Spec" +
+            this.Write("\t\t<Reference Include=\"DevExpress.ExpressApp.Validation.v20.2\">\r\n            <Spec" +
                     "ificVersion>False</SpecificVersion>\r\n        </Reference>\r\n\t\t");
             
             #line 79 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleCsproj.tt"
@@ -90,16 +90,16 @@ namespace DXTicketBase.TextTemplates
             
             #line default
             #line hidden
-            this.Write(@"			<Reference Include=""DevExpress.ExpressApp.ReportsV2.v20.1"">
+            this.Write(@"			<Reference Include=""DevExpress.ExpressApp.ReportsV2.v20.2"">
 					<SpecificVersion>False</SpecificVersion>
 				</Reference>
-				<Reference Include=""DevExpress.Utils.v20.1"" >
+				<Reference Include=""DevExpress.Utils.v20.2"" >
 					<SpecificVersion>False</SpecificVersion>
 				</Reference>
-				<Reference Include=""DevExpress.XtraReports.v20.1"" >
+				<Reference Include=""DevExpress.XtraReports.v20.2"" >
 					<SpecificVersion>False</SpecificVersion>
 				</Reference>
-				<Reference Include=""DevExpress.XtraReports.v20.1.Extensions"" >
+				<Reference Include=""DevExpress.XtraReports.v20.2.Extensions"" >
 					<SpecificVersion>False</SpecificVersion>
 				</Reference>
 		");
@@ -116,19 +116,19 @@ namespace DXTicketBase.TextTemplates
             
             #line default
             #line hidden
-            this.Write(@"		<Reference Include=""DevExpress.ExpressApp.Office.v20.1"" >
+            this.Write(@"		<Reference Include=""DevExpress.ExpressApp.Office.v20.2"" >
 			<SpecificVersion>False</SpecificVersion>
 		</Reference>
-		<Reference Include=""DevExpress.Office.v20.1.Core"">
+		<Reference Include=""DevExpress.Office.v20.2.Core"">
 			<SpecificVersion>False</SpecificVersion>
 		</Reference>
-		<Reference Include=""DevExpress.RichEdit.v20.1.Core"">
+		<Reference Include=""DevExpress.RichEdit.v20.2.Core"">
 			<SpecificVersion>False</SpecificVersion>
 		</Reference>
-		<Reference Include=""DevExpress.Spreadsheet.v20.1.Core"" >
+		<Reference Include=""DevExpress.Spreadsheet.v20.2.Core"" >
 			<SpecificVersion>False</SpecificVersion>
 		</Reference>
-		<Reference Include=""DevExpress.RichEdit.v20.1.Export"">
+		<Reference Include=""DevExpress.RichEdit.v20.2.Export"">
 			<SpecificVersion>False</SpecificVersion>
 		</Reference>
 
@@ -146,10 +146,10 @@ namespace DXTicketBase.TextTemplates
             
             #line default
             #line hidden
-            this.Write(@"			<Reference Include=""DevExpress.ExpressApp.Security.v20.1"">
+            this.Write(@"			<Reference Include=""DevExpress.ExpressApp.Security.v20.2"">
 			<SpecificVersion>False</SpecificVersion>
 		</Reference>
-		<Reference Include=""DevExpress.ExpressApp.Security.Xpo.v20.1"">
+		<Reference Include=""DevExpress.ExpressApp.Security.Xpo.v20.2"">
 			<SpecificVersion>False</SpecificVersion>
 			
 		</Reference>
