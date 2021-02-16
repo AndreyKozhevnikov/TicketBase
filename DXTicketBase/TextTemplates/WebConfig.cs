@@ -18,7 +18,7 @@ namespace DXTicketBase.TextTemplates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebConfig.tt"
+    #line 1 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebConfig.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
     public partial class WebConfig : BaseTemplate
     {
@@ -29,7 +29,7 @@ namespace DXTicketBase.TextTemplates
         public override string TransformText()
         {
             
-            #line 6 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebConfig.tt"
+            #line 6 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebConfig.tt"
  FileName=@"\{0}.Web\Web.config"; 
             
             #line default
@@ -41,15 +41,15 @@ namespace DXTicketBase.TextTemplates
                     "onfig.comments usually located in\r\n    \\Windows\\Microsoft.Net\\Framework\\v2.x\\Con" +
                     "fig\r\n-->\r\n<configuration>\r\n  <configSections>\r\n    <sectionGroup name=\"devExpres" +
                     "s\">\r\n      <section name=\"compression\" requirePermission=\"false\" type=\"DevExpres" +
-                    "s.Web.CompressionConfigurationSection, DevExpress.Web.v20.2, Version=20.2.4.0, C" +
+                    "s.Web.CompressionConfigurationSection, DevExpress.Web.v20.2, Version=20.2.5.0, C" +
                     "ulture=neutral, PublicKeyToken=b88d1754d700e49a\" />\r\n      <section name=\"themes" +
                     "\" requirePermission=\"false\" type=\"DevExpress.Web.ThemesConfigurationSection, Dev" +
-                    "Express.Web.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d70" +
+                    "Express.Web.v20.2, Version=20.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d70" +
                     "0e49a\" />\r\n      <section name=\"settings\" requirePermission=\"false\" type=\"DevExp" +
-                    "ress.Web.SettingsConfigurationSection, DevExpress.Web.v20.2, Version=20.2.4.0, C" +
+                    "ress.Web.SettingsConfigurationSection, DevExpress.Web.v20.2, Version=20.2.5.0, C" +
                     "ulture=neutral, PublicKeyToken=b88d1754d700e49a\" />\r\n      <section name=\"resour" +
                     "ces\" requirePermission=\"false\" type=\"DevExpress.Web.ResourcesConfigurationSectio" +
-                    "n, DevExpress.Web.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1" +
+                    "n, DevExpress.Web.v20.2, Version=20.2.5.0, Culture=neutral, PublicKeyToken=b88d1" +
                     "754d700e49a\" />\r\n    </sectionGroup>\r\n  </configSections>\r\n  <devExpress>\r\n    <" +
                     "settings rightToLeft=\"false\" doctypeMode=\"Html5\" ieCompatibilityVersion=\"edge\" /" +
                     ">\r\n    <compression enableHtmlCompression=\"true\" enableCallbackCompression=\"true" +
@@ -81,25 +81,25 @@ namespace DXTicketBase.TextTemplates
                     "\r\n    </switches>\r\n  </system.diagnostics>\r\n  <system.webServer>\r\n    <handlers>" +
                     "\r\n      <add name=\"ASPxUploadProgressHandler\" verb=\"GET,POST\" path=\"ASPxUploadPr" +
                     "ogressHandlerPage.ashx\" type=\"DevExpress.Web.ASPxUploadProgressHttpHandler, DevE" +
-                    "xpress.Web.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700" +
+                    "xpress.Web.v20.2, Version=20.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700" +
                     "e49a\" preCondition=\"integratedMode\" />\r\n      <add name=\"XafHttpHandler\" path=\"D" +
                     "XX.axd\" verb=\"*\" type=\"DevExpress.ExpressApp.Web.XafHttpHandler, DevExpress.Expr" +
-                    "essApp.Web.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700" +
+                    "essApp.Web.v20.2, Version=20.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700" +
                     "e49a\" preCondition=\"integratedMode\" />\r\n      <add name=\"ASPxHttpHandlerModuleXA" +
                     "F\" path=\"DXXRD.axd\" verb=\"GET,POST\" type=\"DevExpress.Web.ASPxHttpHandlerModule, " +
-                    "DevExpress.Web.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754" +
+                    "DevExpress.Web.v20.2, Version=20.2.5.0, Culture=neutral, PublicKeyToken=b88d1754" +
                     "d700e49a\" preCondition=\"integratedMode\" />\r\n\t  <!--//report#5-->\r\n\t  ");
             
-            #line 76 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebConfig.tt"
+            #line 76 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebConfig.tt"
  if (HasReports){ 
             
             #line default
             #line hidden
-            this.Write(@"	  <add name=""ASPxWebDocumentViewerHandlerModule"" verb=""GET,POST"" path=""DXXRDV.axd"" type=""DevExpress.Web.ASPxHttpHandlerModule, DevExpress.Web.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"" preCondition=""integratedMode"" />
-	 <add name=""ASPxQueryBuilderDesignerHandlerModule"" verb=""GET,POST"" path=""DXQB.axd"" type=""DevExpress.Web.ASPxHttpHandlerModule, DevExpress.Web.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"" preCondition=""integratedMode"" />
+            this.Write(@"	  <add name=""ASPxWebDocumentViewerHandlerModule"" verb=""GET,POST"" path=""DXXRDV.axd"" type=""DevExpress.Web.ASPxHttpHandlerModule, DevExpress.Web.v20.2, Version=20.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"" preCondition=""integratedMode"" />
+	 <add name=""ASPxQueryBuilderDesignerHandlerModule"" verb=""GET,POST"" path=""DXQB.axd"" type=""DevExpress.Web.ASPxHttpHandlerModule, DevExpress.Web.v20.2, Version=20.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"" preCondition=""integratedMode"" />
 ");
             
-            #line 79 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebConfig.tt"
+            #line 79 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebConfig.tt"
  } 
             
             #line default
@@ -107,78 +107,78 @@ namespace DXTicketBase.TextTemplates
             this.Write(@"    </handlers>
     <validation validateIntegratedModeConfiguration=""false"" />
     <modules>
-      <add name=""ASPxHttpHandlerModule"" type=""DevExpress.Web.ASPxHttpHandlerModule, DevExpress.Web.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"" />
-      <add name=""XafHttpModule"" type=""DevExpress.ExpressApp.Web.XafHttpModule, DevExpress.ExpressApp.Web.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"" />
+      <add name=""ASPxHttpHandlerModule"" type=""DevExpress.Web.ASPxHttpHandlerModule, DevExpress.Web.v20.2, Version=20.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"" />
+      <add name=""XafHttpModule"" type=""DevExpress.ExpressApp.Web.XafHttpModule, DevExpress.ExpressApp.Web.v20.2, Version=20.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"" />
     </modules>
   </system.webServer>
   <system.web>
     <httpRuntime requestValidationMode=""2.0"" />
     <pages controlRenderingCompatibilityVersion=""3.5"" clientIDMode=""AutoID"" />
     <httpHandlers>
-      <add path=""DXX.axd"" verb=""*"" type=""DevExpress.ExpressApp.Web.XafHttpHandler, DevExpress.ExpressApp.Web.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"" />
-      <add verb=""GET,POST"" path=""ASPxUploadProgressHandlerPage.ashx"" validate=""false"" type=""DevExpress.Web.ASPxUploadProgressHttpHandler, DevExpress.Web.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"" />
-      <add path=""DXXRD.axd"" verb=""GET,POST"" type=""DevExpress.Web.ASPxHttpHandlerModule, DevExpress.Web.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"" validate=""false"" />
+      <add path=""DXX.axd"" verb=""*"" type=""DevExpress.ExpressApp.Web.XafHttpHandler, DevExpress.ExpressApp.Web.v20.2, Version=20.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"" />
+      <add verb=""GET,POST"" path=""ASPxUploadProgressHandlerPage.ashx"" validate=""false"" type=""DevExpress.Web.ASPxUploadProgressHttpHandler, DevExpress.Web.v20.2, Version=20.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"" />
+      <add path=""DXXRD.axd"" verb=""GET,POST"" type=""DevExpress.Web.ASPxHttpHandlerModule, DevExpress.Web.v20.2, Version=20.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"" validate=""false"" />
 	  <!--//report#6-->
 	  ");
             
-            #line 95 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebConfig.tt"
+            #line 95 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebConfig.tt"
  if (HasReports){ 
             
             #line default
             #line hidden
-            this.Write(@"	  		<add verb=""GET,POST"" path=""DXXRDV.axd"" type=""DevExpress.Web.ASPxHttpHandlerModule, DevExpress.Web.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"" />
-				<add verb=""GET,POST"" path=""DXQB.axd"" type=""DevExpress.Web.ASPxHttpHandlerModule, DevExpress.Web.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"" />
+            this.Write(@"	  		<add verb=""GET,POST"" path=""DXXRDV.axd"" type=""DevExpress.Web.ASPxHttpHandlerModule, DevExpress.Web.v20.2, Version=20.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"" />
+				<add verb=""GET,POST"" path=""DXQB.axd"" type=""DevExpress.Web.ASPxHttpHandlerModule, DevExpress.Web.v20.2, Version=20.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"" />
 ");
             
-            #line 98 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebConfig.tt"
+            #line 98 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebConfig.tt"
  } 
             
             #line default
             #line hidden
             this.Write("    </httpHandlers>\r\n    <httpModules>\r\n      <add name=\"ASPxHttpHandlerModule\" t" +
-                    "ype=\"DevExpress.Web.ASPxHttpHandlerModule, DevExpress.Web.v20.2, Version=20.2.4." +
+                    "ype=\"DevExpress.Web.ASPxHttpHandlerModule, DevExpress.Web.v20.2, Version=20.2.5." +
                     "0, Culture=neutral, PublicKeyToken=b88d1754d700e49a\" />\r\n      <add name=\"XafHtt" +
                     "pModule\" type=\"DevExpress.ExpressApp.Web.XafHttpModule, DevExpress.ExpressApp.We" +
-                    "b.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a\" />\r" +
+                    "b.v20.2, Version=20.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a\" />\r" +
                     "\n    </httpModules>\r\n    <!--\r\n    Set compilation debug=\"true\" to insert debugg" +
                     "ing\r\n    symbols into the compiled page. Because this\r\n    affects performance, " +
                     "set this value to true only\r\n    during development.\r\n    -->\r\n    <compilation " +
                     "debug=\"true\" targetFramework=\"4.5.2\">\r\n      <assemblies>\r\n        <add assembly" +
-                    "=\"DevExpress.ExpressApp.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken" +
+                    "=\"DevExpress.ExpressApp.v20.2, Version=20.2.5.0, Culture=neutral, PublicKeyToken" +
                     "=b88d1754d700e49a\" />\r\n        <add assembly=\"DevExpress.ExpressApp.Web.v20.2, V" +
-                    "ersion=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a\" />\r\n        <" +
-                    "add assembly=\"DevExpress.Persistent.Base.v20.2, Version=20.2.4.0, Culture=neutra" +
+                    "ersion=20.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a\" />\r\n        <" +
+                    "add assembly=\"DevExpress.Persistent.Base.v20.2, Version=20.2.5.0, Culture=neutra" +
                     "l, PublicKeyToken=b88d1754d700e49a\" />\r\n        <add assembly=\"DevExpress.Expres" +
-                    "sApp.Images.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d70" +
-                    "0e49a\" />\r\n        <add assembly=\"DevExpress.Printing.v20.2.Core, Version=20.2.4" +
+                    "sApp.Images.v20.2, Version=20.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d70" +
+                    "0e49a\" />\r\n        <add assembly=\"DevExpress.Printing.v20.2.Core, Version=20.2.5" +
                     ".0, Culture=neutral, PublicKeyToken=b88d1754d700e49a\" />\r\n        <add assembly=" +
-                    "\"DevExpress.Data.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d17" +
-                    "54d700e49a\" />\r\n        <add assembly=\"DevExpress.Utils.v20.2, Version=20.2.4.0," +
+                    "\"DevExpress.Data.v20.2, Version=20.2.5.0, Culture=neutral, PublicKeyToken=b88d17" +
+                    "54d700e49a\" />\r\n        <add assembly=\"DevExpress.Utils.v20.2, Version=20.2.5.0," +
                     " Culture=neutral, PublicKeyToken=b88d1754d700e49a\" />\r\n        <add assembly=\"De" +
-                    "vExpress.Web.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d7" +
+                    "vExpress.Web.v20.2, Version=20.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d7" +
                     "00e49a\" />\r\n        <add assembly=\"DevExpress.Web.ASPxTreeList.v20.2, Version=20" +
-                    ".2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a\" />\r\n        <add assem" +
-                    "bly=\"DevExpress.Web.ASPxThemes.v20.2, Version=20.2.4.0, Culture=neutral, PublicK" +
+                    ".2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a\" />\r\n        <add assem" +
+                    "bly=\"DevExpress.Web.ASPxThemes.v20.2, Version=20.2.5.0, Culture=neutral, PublicK" +
                     "eyToken=b88d1754d700e49a\" />\r\n        <add assembly=\"DevExpress.Xpo.v20.2, Versi" +
-                    "on=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a\" />\r\n        <add " +
-                    "assembly=\"DevExpress.ExpressApp.Xpo.v20.2, Version=20.2.4.0, Culture=neutral, Pu" +
+                    "on=20.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a\" />\r\n        <add " +
+                    "assembly=\"DevExpress.ExpressApp.Xpo.v20.2, Version=20.2.5.0, Culture=neutral, Pu" +
                     "blicKeyToken=b88d1754d700e49a\" />\r\n      <add assembly=\"DevExpress.RichEdit.v20." +
-                    "2.Core, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a\" />\r\n" +
+                    "2.Core, Version=20.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a\" />\r\n" +
                     "\t  <!--//report#7-->\r\n\t  ");
             
-            #line 126 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebConfig.tt"
+            #line 126 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebConfig.tt"
  if (HasReports){ 
             
             #line default
             #line hidden
-            this.Write(@"	  	<add assembly=""DevExpress.ExpressApp.ReportsV2.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"" />
-				<add assembly=""DevExpress.XtraReports.v20.2.Web, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"" />
-				<add assembly=""DevExpress.XtraReports.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"" />
-				<add assembly=""DevExpress.XtraReports.v20.2.Extensions, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"" />
-				<add assembly=""DevExpress.ExpressApp.ReportsV2.Web.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"" />
+            this.Write(@"	  	<add assembly=""DevExpress.ExpressApp.ReportsV2.v20.2, Version=20.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"" />
+				<add assembly=""DevExpress.XtraReports.v20.2.Web, Version=20.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"" />
+				<add assembly=""DevExpress.XtraReports.v20.2, Version=20.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"" />
+				<add assembly=""DevExpress.XtraReports.v20.2.Extensions, Version=20.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"" />
+				<add assembly=""DevExpress.ExpressApp.ReportsV2.Web.v20.2, Version=20.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"" />
 ");
             
-            #line 132 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebConfig.tt"
+            #line 132 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebConfig.tt"
  } 
             
             #line default
