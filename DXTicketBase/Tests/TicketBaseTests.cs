@@ -10,6 +10,13 @@ namespace DXTicketBase {
     [TestFixture]
     public class TicketBaseTests {
         [Test]
+        public void ParseQuestion8() {
+            MyTicket tkt = new MyTicket(new Ticket());
+            tkt.ComplexSubject = @"T1000424";
+            tkt.ParseComplexSubject();
+            Assert.AreEqual(tkt.Number, "T1000424");
+        }
+        [Test]
         public void ParseQuestion7() {
             MyTicket tkt = new MyTicket(new Ticket());
             tkt.ComplexSubject = @"t123123";
