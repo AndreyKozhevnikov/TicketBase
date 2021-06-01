@@ -65,82 +65,80 @@
 		<ErrorReport>prompt</ErrorReport>
 	</PropertyGroup>
 	<ItemGroup>
-		<Reference Include="DevExpress.Data.v20.2">
+		<Reference Include="DevExpress.Data.v21.1">
 			<SpecificVersion>False</SpecificVersion>
 		</Reference>
-		<Reference Include="DevExpress.ExpressApp.v20.2">
+		<Reference Include="DevExpress.ExpressApp.v21.1">
 			<SpecificVersion>False</SpecificVersion>
 		</Reference>
-		<Reference Include="DevExpress.ExpressApp.Images.v20.2">
+
+		<Reference Include="DevExpress.ExpressApp.Web.v21.1">
 			<SpecificVersion>False</SpecificVersion>
 		</Reference>
-		<Reference Include="DevExpress.ExpressApp.Web.v20.2">
+		<Reference Include="DevExpress.ExpressApp.Xpo.v21.1">
 			<SpecificVersion>False</SpecificVersion>
 		</Reference>
-		<Reference Include="DevExpress.ExpressApp.Xpo.v20.2">
+		<Reference Include="DevExpress.Persistent.Base.v21.1">
 			<SpecificVersion>False</SpecificVersion>
 		</Reference>
-		<Reference Include="DevExpress.Persistent.Base.v20.2">
+		<Reference Include="DevExpress.Persistent.BaseImpl.v21.1">
 			<SpecificVersion>False</SpecificVersion>
 		</Reference>
-		<Reference Include="DevExpress.Persistent.BaseImpl.v20.2">
-			<SpecificVersion>False</SpecificVersion>
-		</Reference>
-		<Reference Include="DevExpress.Printing.v20.2.Core">
+		<Reference Include="DevExpress.Printing.v21.1.Core">
 			<SpecificVersion>False</SpecificVersion>
 		</Reference>
 
 		<# if (HasValidation){ #>
-				<Reference Include="DevExpress.ExpressApp.Validation.v20.2">
+				<Reference Include="DevExpress.ExpressApp.Validation.v21.1">
   <SpecificVersion>False</SpecificVersion>
 </Reference>
-		<Reference Include="DevExpress.ExpressApp.Validation.Web.v20.2">
+		<Reference Include="DevExpress.ExpressApp.Validation.Web.v21.1">
   <SpecificVersion>False</SpecificVersion>
 </Reference>
 <# } #>
 <# if (HasOffice){ #>
-		<Reference Include="DevExpress.ExpressApp.Office.v20.2">
+		<Reference Include="DevExpress.ExpressApp.Office.v21.1">
 			<SpecificVersion>False</SpecificVersion>
 		</Reference>
-<Reference Include="DevExpress.ExpressApp.Office.Web.v20.2">
+<Reference Include="DevExpress.ExpressApp.Office.Web.v21.1">
 			<SpecificVersion>False</SpecificVersion>
 		</Reference>
-<Reference Include="DevExpress.RichEdit.v20.2.Core">
+<Reference Include="DevExpress.RichEdit.v21.1.Core">
 			<SpecificVersion>False</SpecificVersion>
 		</Reference>
-<Reference Include="DevExpress.Spreadsheet.v20.2.Core">
+<Reference Include="DevExpress.Spreadsheet.v21.1.Core">
 			<SpecificVersion>False</SpecificVersion>
 		</Reference>
-<Reference Include="DevExpress.Web.ASPxRichEdit.v20.2">
+<Reference Include="DevExpress.Web.ASPxRichEdit.v21.1">
 			<SpecificVersion>False</SpecificVersion>
 		</Reference>
-<Reference Include="DevExpress.Web.ASPxSpreadsheet.v20.2">
+<Reference Include="DevExpress.Web.ASPxSpreadsheet.v21.1">
 			<SpecificVersion>False</SpecificVersion>
 		</Reference>
-		<Reference Include="DevExpress.RichEdit.v20.2.Export">
+		<Reference Include="DevExpress.RichEdit.v21.1.Export">
 			<SpecificVersion>False</SpecificVersion>
 		</Reference>
 
-		<Reference Include="DevExpress.Office.v20.2.Core">
+		<Reference Include="DevExpress.Office.v21.1.Core">
 			<SpecificVersion>False</SpecificVersion>
 		</Reference>
-		<Reference Include="DevExpress.RichEdit.v20.2.Core">
+		<Reference Include="DevExpress.RichEdit.v21.1.Core">
 			<SpecificVersion>False</SpecificVersion>
 		</Reference>
 <# } #>
 <# if (HasReports){ #>
-		<Reference Include="DevExpress.ExpressApp.ReportsV2.v20.2" >
+		<Reference Include="DevExpress.ExpressApp.ReportsV2.v21.1" >
 			<SpecificVersion>False</SpecificVersion>
 		</Reference>
-		<Reference Include="DevExpress.ExpressApp.ReportsV2.Web.v20.2" >
+		<Reference Include="DevExpress.ExpressApp.ReportsV2.Web.v21.1" >
 			<SpecificVersion>False</SpecificVersion>
 		</Reference>
 <# } #>
 	
-		<Reference Include="DevExpress.Web.v20.2">
+		<Reference Include="DevExpress.Web.v21.1">
 			<SpecificVersion>False</SpecificVersion>
 		</Reference>
-		<Reference Include="DevExpress.Xpo.v20.2">
+		<Reference Include="DevExpress.Xpo.v21.1">
 			<SpecificVersion>False</SpecificVersion>
 		</Reference>
 		

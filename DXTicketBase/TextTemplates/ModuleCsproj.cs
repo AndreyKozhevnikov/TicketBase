@@ -18,7 +18,7 @@ namespace DXTicketBase.TextTemplates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleCsproj.tt"
+    #line 1 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleCsproj.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
     public partial class ModuleCsproj : BaseTemplate
     {
@@ -29,7 +29,7 @@ namespace DXTicketBase.TextTemplates
         public override string TransformText()
         {
             
-            #line 6 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleCsproj.tt"
+            #line 6 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleCsproj.tt"
  FileName=@"\{0}.Module\{0}.Module.csproj"; 
             
             #line default
@@ -58,104 +58,104 @@ namespace DXTicketBase.TextTemplates
                     "<OutputPath>bin\\EasyTest\\</OutputPath>\r\n\t\t<DefineConstants>TRACE;DEBUG;EASYTEST<" +
                     "/DefineConstants>\r\n\t\t<DebugType>full</DebugType>\r\n\t\t<PlatformTarget>AnyCPU</Plat" +
                     "formTarget>\r\n\t\t<ErrorReport>prompt</ErrorReport>\r\n\t</PropertyGroup>\r\n\t<ItemGroup" +
-                    ">\r\n\t\t<Reference Include=\"DevExpress.Data.v20.2\">\r\n\t\t\t<SpecificVersion>False</Spe" +
-                    "cificVersion>\r\n\t\t</Reference>\r\n\t\t<Reference Include=\"DevExpress.ExpressApp.v20.2" +
+                    ">\r\n\t\t<Reference Include=\"DevExpress.Data.v21.1\">\r\n\t\t\t<SpecificVersion>False</Spe" +
+                    "cificVersion>\r\n\t\t</Reference>\r\n\t\t<Reference Include=\"DevExpress.ExpressApp.v21.1" +
                     "\">\r\n\t\t\t<SpecificVersion>False</SpecificVersion>\r\n\t\t</Reference>\r\n\t\t<Reference In" +
-                    "clude=\"DevExpress.ExpressApp.Xpo.v20.2\">\r\n\t\t\t<SpecificVersion>False</SpecificVer" +
+                    "clude=\"DevExpress.ExpressApp.Xpo.v21.1\">\r\n\t\t\t<SpecificVersion>False</SpecificVer" +
                     "sion>\r\n\t\t\t<Private>False</Private>\r\n\t\t</Reference>\r\n\t\t<Reference Include=\"DevExp" +
-                    "ress.Persistent.Base.v20.2\">\r\n\t\t\t<SpecificVersion>False</SpecificVersion>\r\n\t\t</R" +
-                    "eference>\r\n\t\t<Reference Include=\"DevExpress.Persistent.BaseImpl.v20.2\">\r\n\t\t\t<Spe" +
+                    "ress.Persistent.Base.v21.1\">\r\n\t\t\t<SpecificVersion>False</SpecificVersion>\r\n\t\t</R" +
+                    "eference>\r\n\t\t<Reference Include=\"DevExpress.Persistent.BaseImpl.v21.1\">\r\n\t\t\t<Spe" +
                     "cificVersion>False</SpecificVersion>\r\n\t\t</Reference>\r\n\t\t<Reference Include=\"DevE" +
-                    "xpress.Printing.v20.2.Core\">\r\n\t\t\t<SpecificVersion>False</SpecificVersion>\r\n\t\t</R" +
-                    "eference>\r\n\t\t<Reference Include=\"DevExpress.Xpo.v20.2\">\r\n\t\t\t<SpecificVersion>Fal" +
+                    "xpress.Printing.v21.1.Core\">\r\n\t\t\t<SpecificVersion>False</SpecificVersion>\r\n\t\t</R" +
+                    "eference>\r\n\t\t<Reference Include=\"DevExpress.Xpo.v21.1\">\r\n\t\t\t<SpecificVersion>Fal" +
                     "se</SpecificVersion>\r\n\t\t</Reference>\r\n\t\t");
             
-            #line 75 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleCsproj.tt"
+            #line 75 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleCsproj.tt"
  if (HasValidation){ 
             
             #line default
             #line hidden
-            this.Write("\t\t<Reference Include=\"DevExpress.ExpressApp.Validation.v20.2\">\r\n            <Spec" +
+            this.Write("\t\t<Reference Include=\"DevExpress.ExpressApp.Validation.v21.1\">\r\n            <Spec" +
                     "ificVersion>False</SpecificVersion>\r\n        </Reference>\r\n\t\t");
             
-            #line 79 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleCsproj.tt"
+            #line 79 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleCsproj.tt"
  } 
             
             #line default
             #line hidden
             this.Write("\t\t");
             
-            #line 80 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleCsproj.tt"
+            #line 80 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleCsproj.tt"
  if (HasReports){ 
             
             #line default
             #line hidden
-            this.Write(@"			<Reference Include=""DevExpress.ExpressApp.ReportsV2.v20.2"">
+            this.Write(@"			<Reference Include=""DevExpress.ExpressApp.ReportsV2.v21.1"">
 					<SpecificVersion>False</SpecificVersion>
 				</Reference>
-				<Reference Include=""DevExpress.Utils.v20.2"" >
+				<Reference Include=""DevExpress.Utils.v21.1"" >
 					<SpecificVersion>False</SpecificVersion>
 				</Reference>
-				<Reference Include=""DevExpress.XtraReports.v20.2"" >
+				<Reference Include=""DevExpress.XtraReports.v21.1"" >
 					<SpecificVersion>False</SpecificVersion>
 				</Reference>
-				<Reference Include=""DevExpress.XtraReports.v20.2.Extensions"" >
+				<Reference Include=""DevExpress.XtraReports.v21.1.Extensions"" >
 					<SpecificVersion>False</SpecificVersion>
 				</Reference>
 		");
             
-            #line 93 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleCsproj.tt"
+            #line 93 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleCsproj.tt"
  } 
             
             #line default
             #line hidden
             this.Write("\t\t");
             
-            #line 94 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleCsproj.tt"
+            #line 94 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleCsproj.tt"
  if (HasOffice){ 
             
             #line default
             #line hidden
-            this.Write(@"		<Reference Include=""DevExpress.ExpressApp.Office.v20.2"" >
+            this.Write(@"		<Reference Include=""DevExpress.ExpressApp.Office.v21.1"" >
 			<SpecificVersion>False</SpecificVersion>
 		</Reference>
-		<Reference Include=""DevExpress.Office.v20.2.Core"">
+		<Reference Include=""DevExpress.Office.v21.1.Core"">
 			<SpecificVersion>False</SpecificVersion>
 		</Reference>
-		<Reference Include=""DevExpress.RichEdit.v20.2.Core"">
+		<Reference Include=""DevExpress.RichEdit.v21.1.Core"">
 			<SpecificVersion>False</SpecificVersion>
 		</Reference>
-		<Reference Include=""DevExpress.Spreadsheet.v20.2.Core"" >
+		<Reference Include=""DevExpress.Spreadsheet.v21.1.Core"" >
 			<SpecificVersion>False</SpecificVersion>
 		</Reference>
-		<Reference Include=""DevExpress.RichEdit.v20.2.Export"">
+		<Reference Include=""DevExpress.RichEdit.v21.1.Export"">
 			<SpecificVersion>False</SpecificVersion>
 		</Reference>
 
 		");
             
-            #line 111 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleCsproj.tt"
+            #line 111 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleCsproj.tt"
  } 
             
             #line default
             #line hidden
             this.Write("\t\t\r\n\t\t");
             
-            #line 113 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleCsproj.tt"
+            #line 113 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleCsproj.tt"
  if (HasSecurity){ 
             
             #line default
             #line hidden
-            this.Write(@"			<Reference Include=""DevExpress.ExpressApp.Security.v20.2"">
+            this.Write(@"			<Reference Include=""DevExpress.ExpressApp.Security.v21.1"">
 			<SpecificVersion>False</SpecificVersion>
 		</Reference>
-		<Reference Include=""DevExpress.ExpressApp.Security.Xpo.v20.2"">
+		<Reference Include=""DevExpress.ExpressApp.Security.Xpo.v21.1"">
 			<SpecificVersion>False</SpecificVersion>
 			
 		</Reference>
 ");
             
-            #line 121 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleCsproj.tt"
+            #line 121 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleCsproj.tt"
  } 
             
             #line default
