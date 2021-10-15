@@ -18,7 +18,7 @@ namespace DXTicketBase.TextTemplates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleWinCsproj.tt"
+    #line 1 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleWinCsproj.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
     public partial class ModuleWinCsproj : BaseTemplate
     {
@@ -29,7 +29,7 @@ namespace DXTicketBase.TextTemplates
         public override string TransformText()
         {
             
-            #line 6 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleWinCsproj.tt"
+            #line 6 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleWinCsproj.tt"
  FileName=@"\{0}.Module.Win\{0}.Module.Win.csproj"; 
             
             #line default
@@ -66,107 +66,107 @@ namespace DXTicketBase.TextTemplates
                     "ols>true</DebugSymbols>\r\n\t\t<OutputPath>bin\\EasyTest\\</OutputPath>\r\n\t\t<DefineCons" +
                     "tants>TRACE;DEBUG;EASYTEST</DefineConstants>\r\n\t\t<DebugType>full</DebugType>\r\n\t\t<" +
                     "PlatformTarget>AnyCPU</PlatformTarget>\r\n\t\t<ErrorReport>prompt</ErrorReport>\r\n\t</" +
-                    "PropertyGroup>\r\n\t<ItemGroup>\r\n\t\t<Reference Include=\"DevExpress.Data.v21.1\">\r\n\t\t\t" +
+                    "PropertyGroup>\r\n\t<ItemGroup>\r\n\t\t<Reference Include=\"DevExpress.Data.v21.2\">\r\n\t\t\t" +
                     "<SpecificVersion>False</SpecificVersion>\r\n\t\t</Reference>\r\n\t\t<Reference Include=\"" +
-                    "DevExpress.ExpressApp.v21.1\">\r\n\t\t\t<SpecificVersion>False</SpecificVersion>\r\n\t\t</" +
-                    "Reference>\r\n\t\t<Reference Include=\"DevExpress.ExpressApp.Win.v21.1\">\r\n\t\t\t<Specifi" +
+                    "DevExpress.ExpressApp.v21.2\">\r\n\t\t\t<SpecificVersion>False</SpecificVersion>\r\n\t\t</" +
+                    "Reference>\r\n\t\t<Reference Include=\"DevExpress.ExpressApp.Win.v21.2\">\r\n\t\t\t<Specifi" +
                     "cVersion>False</SpecificVersion>\r\n\t\t</Reference>\r\n\t\t<Reference Include=\"DevExpre" +
-                    "ss.ExpressApp.Xpo.v21.1\">\r\n\t\t\t<SpecificVersion>False</SpecificVersion>\r\n\t\t</Refe" +
-                    "rence>\r\n\t\t<Reference Include=\"DevExpress.Persistent.Base.v21.1\">\r\n\t\t\t<SpecificVe" +
+                    "ss.ExpressApp.Xpo.v21.2\">\r\n\t\t\t<SpecificVersion>False</SpecificVersion>\r\n\t\t</Refe" +
+                    "rence>\r\n\t\t<Reference Include=\"DevExpress.Persistent.Base.v21.2\">\r\n\t\t\t<SpecificVe" +
                     "rsion>False</SpecificVersion>\r\n\t\t</Reference>\r\n\t\t<Reference Include=\"DevExpress." +
-                    "Persistent.BaseImpl.v21.1\">\r\n\t\t\t<SpecificVersion>False</SpecificVersion>\r\n\t\t</Re" +
-                    "ference>\r\n\t\t<Reference Include=\"DevExpress.Printing.v21.1.Core\">\r\n\t\t\t<SpecificVe" +
+                    "Persistent.BaseImpl.v21.2\">\r\n\t\t\t<SpecificVersion>False</SpecificVersion>\r\n\t\t</Re" +
+                    "ference>\r\n\t\t<Reference Include=\"DevExpress.Printing.v21.2.Core\">\r\n\t\t\t<SpecificVe" +
                     "rsion>False</SpecificVersion>\r\n\t\t</Reference>\r\n\t\t<Reference Include=\"DevExpress." +
-                    "Data.Desktop.v21.1\">\r\n\t\t\t<SpecificVersion>False</SpecificVersion>\r\n\t\t</Reference" +
-                    ">\r\n\t\t<Reference Include=\"DevExpress.Utils.v21.1\">\r\n\t\t\t<SpecificVersion>False</Sp" +
-                    "ecificVersion>\r\n\t\t</Reference>\r\n\t\t<Reference Include=\"DevExpress.Xpo.v21.1\">\r\n\t\t" +
+                    "Data.Desktop.v21.2\">\r\n\t\t\t<SpecificVersion>False</SpecificVersion>\r\n\t\t</Reference" +
+                    ">\r\n\t\t<Reference Include=\"DevExpress.Utils.v21.2\">\r\n\t\t\t<SpecificVersion>False</Sp" +
+                    "ecificVersion>\r\n\t\t</Reference>\r\n\t\t<Reference Include=\"DevExpress.Xpo.v21.2\">\r\n\t\t" +
                     "\t<SpecificVersion>False</SpecificVersion>\r\n\t\t</Reference>\r\n\t\t<Reference Include=" +
-                    "\"DevExpress.XtraBars.v21.1\">\r\n\t\t\t<SpecificVersion>False</SpecificVersion>\r\n\t\t</R" +
-                    "eference>\r\n\t\t<Reference Include=\"DevExpress.XtraEditors.v21.1\">\r\n\t\t\t<SpecificVer" +
+                    "\"DevExpress.XtraBars.v21.2\">\r\n\t\t\t<SpecificVersion>False</SpecificVersion>\r\n\t\t</R" +
+                    "eference>\r\n\t\t<Reference Include=\"DevExpress.XtraEditors.v21.2\">\r\n\t\t\t<SpecificVer" +
                     "sion>False</SpecificVersion>\r\n\t\t</Reference>\r\n\t\t<Reference Include=\"DevExpress.X" +
-                    "traGrid.v21.1\">\r\n\t\t\t<SpecificVersion>False</SpecificVersion>\r\n\t\t</Reference>\r\n\t\t" +
-                    "<Reference Include=\"DevExpress.XtraLayout.v21.1\">\r\n\t\t\t<SpecificVersion>False</Sp" +
+                    "traGrid.v21.2\">\r\n\t\t\t<SpecificVersion>False</SpecificVersion>\r\n\t\t</Reference>\r\n\t\t" +
+                    "<Reference Include=\"DevExpress.XtraLayout.v21.2\">\r\n\t\t\t<SpecificVersion>False</Sp" +
                     "ecificVersion>\r\n\t\t</Reference>\r\n\t\t<Reference Include=\"DevExpress.XtraNavBar.v21." +
-                    "1\">\r\n\t\t\t<SpecificVersion>False</SpecificVersion>\r\n\t\t</Reference>\r\n\t\t<Reference I" +
-                    "nclude=\"DevExpress.XtraPrinting.v21.1\">\r\n\t\t\t<SpecificVersion>False</SpecificVers" +
+                    "2\">\r\n\t\t\t<SpecificVersion>False</SpecificVersion>\r\n\t\t</Reference>\r\n\t\t<Reference I" +
+                    "nclude=\"DevExpress.XtraPrinting.v21.2\">\r\n\t\t\t<SpecificVersion>False</SpecificVers" +
                     "ion>\r\n\t\t</Reference>\r\n\t\t");
             
-            #line 116 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleWinCsproj.tt"
+            #line 116 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleWinCsproj.tt"
  if (HasValidation){ 
             
             #line default
             #line hidden
-            this.Write(@"		<Reference Include=""DevExpress.XtraSpreadsheet.v21.1"" >
+            this.Write(@"		<Reference Include=""DevExpress.XtraSpreadsheet.v21.2"" >
 			<SpecificVersion>False</SpecificVersion>
 		</Reference>
-		<Reference Include=""DevExpress.ExpressApp.Validation.v21.1"" >
+		<Reference Include=""DevExpress.ExpressApp.Validation.v21.2"" >
 			<SpecificVersion>False</SpecificVersion>
 		</Reference>
-		<Reference Include=""DevExpress.ExpressApp.Validation.Win.v21.1"" >
+		<Reference Include=""DevExpress.ExpressApp.Validation.Win.v21.2"" >
 			<SpecificVersion>False</SpecificVersion>
 		</Reference>
 ");
             
-            #line 126 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleWinCsproj.tt"
+            #line 126 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleWinCsproj.tt"
  } 
             
             #line default
             #line hidden
             
-            #line 127 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleWinCsproj.tt"
+            #line 127 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleWinCsproj.tt"
  if (HasOffice){ 
             
             #line default
             #line hidden
-            this.Write(@"		<Reference Include=""DevExpress.ExpressApp.Office.v21.1"" >
+            this.Write(@"		<Reference Include=""DevExpress.ExpressApp.Office.v21.2"" >
 			<SpecificVersion>False</SpecificVersion>
 		</Reference>
-<Reference Include=""DevExpress.ExpressApp.Office.Win.v21.1"" >
+<Reference Include=""DevExpress.ExpressApp.Office.Win.v21.2"" >
 			<SpecificVersion>False</SpecificVersion>
 		</Reference>
-<Reference Include=""DevExpress.Office.v21.1.Core"" >
+<Reference Include=""DevExpress.Office.v21.2.Core"" >
 			<SpecificVersion>False</SpecificVersion>
 		</Reference>
-<Reference Include=""DevExpress.RichEdit.v21.1.Core"" >
+<Reference Include=""DevExpress.RichEdit.v21.2.Core"" >
 			<SpecificVersion>False</SpecificVersion>
 		</Reference>
-<Reference Include=""DevExpress.Spreadsheet.v21.1.Core"" >
+<Reference Include=""DevExpress.Spreadsheet.v21.2.Core"" >
 			<SpecificVersion>False</SpecificVersion>
 		</Reference>
-<Reference Include=""DevExpress.XtraRichEdit.v21.1"" >
+<Reference Include=""DevExpress.XtraRichEdit.v21.2"" >
 			<SpecificVersion>False</SpecificVersion>
 		</Reference>
-<Reference Include=""DevExpress.XtraSpreadsheet.v21.1"" >
+<Reference Include=""DevExpress.XtraSpreadsheet.v21.2"" >
 			<SpecificVersion>False</SpecificVersion>
 		</Reference>
-				<Reference Include=""DevExpress.Office.v21.1.Core"">
+				<Reference Include=""DevExpress.Office.v21.2.Core"">
 			<SpecificVersion>False</SpecificVersion>
 		</Reference>
-		<Reference Include=""DevExpress.RichEdit.v21.1.Core"">
+		<Reference Include=""DevExpress.RichEdit.v21.2.Core"">
 			<SpecificVersion>False</SpecificVersion>
 		</Reference>
-		<Reference Include=""DevExpress.RichEdit.v21.1.Export"">
+		<Reference Include=""DevExpress.RichEdit.v21.2.Export"">
 			<SpecificVersion>False</SpecificVersion>
 		</Reference>
 ");
             
-            #line 158 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleWinCsproj.tt"
+            #line 158 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleWinCsproj.tt"
  } 
             
             #line default
             #line hidden
             
-            #line 159 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleWinCsproj.tt"
+            #line 159 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleWinCsproj.tt"
  if (HasReports){ 
             
             #line default
             #line hidden
-            this.Write("\t<Reference Include=\"DevExpress.ExpressApp.ReportsV2.v21.1\" >\r\n\t\t\t<SpecificVersio" +
+            this.Write("\t<Reference Include=\"DevExpress.ExpressApp.ReportsV2.v21.2\" >\r\n\t\t\t<SpecificVersio" +
                     "n>False</SpecificVersion>\r\n\t\t</Reference>\r\n\t\t<Reference Include=\"DevExpress.Expr" +
-                    "essApp.ReportsV2.Win.v21.1\" >\r\n\t\t\t<SpecificVersion>False</SpecificVersion>\r\n\t\t</" +
+                    "essApp.ReportsV2.Win.v21.2\" >\r\n\t\t\t<SpecificVersion>False</SpecificVersion>\r\n\t\t</" +
                     "Reference>\r\n");
             
-            #line 166 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleWinCsproj.tt"
+            #line 166 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleWinCsproj.tt"
  } 
             
             #line default
@@ -203,7 +203,7 @@ namespace DXTicketBase.TextTemplates
 	<ItemGroup>
 		");
             
-            #line 197 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleWinCsproj.tt"
+            #line 197 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleWinCsproj.tt"
  if (HasOffice){ 
             
             #line default
@@ -211,7 +211,7 @@ namespace DXTicketBase.TextTemplates
             this.Write("\t\t<Compile Include=\"Controllers\\ClearMailMergeCacheController.cs\">\r\n  <SubType>Co" +
                     "mponent</SubType>\r\n</Compile>\r\n");
             
-            #line 201 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleWinCsproj.tt"
+            #line 201 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleWinCsproj.tt"
  } 
             
             #line default

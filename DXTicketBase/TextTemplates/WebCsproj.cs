@@ -67,7 +67,7 @@ namespace DXTicketBase.TextTemplates
                     "bols>\r\n    <OutputPath>bin\\</OutputPath>\r\n    <DefineConstants>TRACE;DEBUG;EASYT" +
                     "EST</DefineConstants>\r\n    <DebugType>full</DebugType>\r\n    <PlatformTarget>AnyC" +
                     "PU</PlatformTarget>\r\n    <ErrorReport>prompt</ErrorReport>\r\n  </PropertyGroup>\r\n" +
-                    "  <ItemGroup>\r\n\r\n\t  <Reference Include=\"DevExpress.DataAccess.v21.1\">\r\n      <Sp" +
+                    "  <ItemGroup>\r\n\r\n\t  <Reference Include=\"DevExpress.DataAccess.v21.2\">\r\n      <Sp" +
                     "ecificVersion>False</SpecificVersion>\r\n    </Reference>\r\n");
             
             #line 65 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\WebCsproj.tt"
@@ -75,19 +75,19 @@ namespace DXTicketBase.TextTemplates
             
             #line default
             #line hidden
-            this.Write(@" <Reference Include=""DevExpress.ExpressApp.ReportsV2.v21.1"">
+            this.Write(@" <Reference Include=""DevExpress.ExpressApp.ReportsV2.v21.2"">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-<Reference Include=""DevExpress.ExpressApp.ReportsV2.Web.v21.1"">
+<Reference Include=""DevExpress.ExpressApp.ReportsV2.Web.v21.2"">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-<Reference Include=""DevExpress.XtraReports.v21.1"">
+<Reference Include=""DevExpress.XtraReports.v21.2"">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-<Reference Include=""DevExpress.XtraReports.v21.1.Extensions"">
+<Reference Include=""DevExpress.XtraReports.v21.2.Extensions"">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-<Reference Include=""DevExpress.XtraReports.v21.1.Web"">
+<Reference Include=""DevExpress.XtraReports.v21.2.Web"">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
 ");
@@ -103,32 +103,32 @@ namespace DXTicketBase.TextTemplates
             
             #line default
             #line hidden
-            this.Write(@"    <Reference Include=""DevExpress.Office.v21.1.Core"">
+            this.Write(@"    <Reference Include=""DevExpress.Office.v21.2.Core"">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include=""DevExpress.RichEdit.v21.1.Core"">
+    <Reference Include=""DevExpress.RichEdit.v21.2.Core"">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-	    <Reference Include=""DevExpress.RichEdit.v21.1.Export"">
+	    <Reference Include=""DevExpress.RichEdit.v21.2.Export"">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
 
-		 <Reference Include=""DevExpress.ExpressApp.Office.v21.1"">
+		 <Reference Include=""DevExpress.ExpressApp.Office.v21.2"">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-<Reference Include=""DevExpress.ExpressApp.Office.Web.v21.1"">
+<Reference Include=""DevExpress.ExpressApp.Office.Web.v21.2"">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-<Reference Include=""DevExpress.RichEdit.v21.1.Core"">
+<Reference Include=""DevExpress.RichEdit.v21.2.Core"">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-<Reference Include=""DevExpress.Spreadsheet.v21.1.Core"">
+<Reference Include=""DevExpress.Spreadsheet.v21.2.Core"">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-<Reference Include=""DevExpress.Web.ASPxRichEdit.v21.1"">
+<Reference Include=""DevExpress.Web.ASPxRichEdit.v21.2"">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-<Reference Include=""DevExpress.Web.ASPxSpreadsheet.v21.1"">
+<Reference Include=""DevExpress.Web.ASPxSpreadsheet.v21.2"">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
 ");
@@ -144,10 +144,10 @@ namespace DXTicketBase.TextTemplates
             
             #line default
             #line hidden
-            this.Write(@"    <Reference Include=""DevExpress.ExpressApp.Security.v21.1"" >
+            this.Write(@"    <Reference Include=""DevExpress.ExpressApp.Security.v21.2"" >
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-	    <Reference Include=""DevExpress.ExpressApp.Security.Xpo.v21.1"">
+	    <Reference Include=""DevExpress.ExpressApp.Security.Xpo.v21.2"">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
 ");
@@ -158,31 +158,31 @@ namespace DXTicketBase.TextTemplates
             #line default
             #line hidden
             this.Write("\t <!--//report#13-->\r\n\t <!--//office#11#-->\r\n\r\n    <Reference Include=\"DevExpress" +
-                    ".ExpressApp.Xpo.v21.1\">\r\n      <SpecificVersion>False</SpecificVersion>\r\n    </R" +
-                    "eference>\r\n\t<Reference Include=\"DevExpress.Images.v21.1\">\r\n\t  <SpecificVersion>F" +
+                    ".ExpressApp.Xpo.v21.2\">\r\n      <SpecificVersion>False</SpecificVersion>\r\n    </R" +
+                    "eference>\r\n\t<Reference Include=\"DevExpress.Images.v21.2\">\r\n\t  <SpecificVersion>F" +
                     "alse</SpecificVersion>\r\n    </Reference>\r\n\r\n    <Reference Include=\"DevExpress.P" +
-                    "rinting.v21.1.Core\">\r\n      <SpecificVersion>False</SpecificVersion>\r\n    </Refe" +
-                    "rence>\r\n    <Reference Include=\"DevExpress.Data.v21.1\">\r\n      <SpecificVersion>" +
+                    "rinting.v21.2.Core\">\r\n      <SpecificVersion>False</SpecificVersion>\r\n    </Refe" +
+                    "rence>\r\n    <Reference Include=\"DevExpress.Data.v21.2\">\r\n      <SpecificVersion>" +
                     "False</SpecificVersion>\r\n    </Reference>\r\n    <Reference Include=\"DevExpress.Of" +
-                    "fice.v21.1.Core\">\r\n      <SpecificVersion>False</SpecificVersion>\r\n    </Referen" +
-                    "ce>\r\n\r\n    <Reference Include=\"DevExpress.RichEdit.v21.1.Core\">\r\n      <Specific" +
+                    "fice.v21.2.Core\">\r\n      <SpecificVersion>False</SpecificVersion>\r\n    </Referen" +
+                    "ce>\r\n\r\n    <Reference Include=\"DevExpress.RichEdit.v21.2.Core\">\r\n      <Specific" +
                     "Version>False</SpecificVersion>\r\n    </Reference>\r\n    <Reference Include=\"DevEx" +
-                    "press.ExpressApp.v21.1\">\r\n      <SpecificVersion>False</SpecificVersion>\r\n    </" +
-                    "Reference>\r\n    <Reference Include=\"DevExpress.ExpressApp.Web.v21.1\">\r\n      <Sp" +
+                    "press.ExpressApp.v21.2\">\r\n      <SpecificVersion>False</SpecificVersion>\r\n    </" +
+                    "Reference>\r\n    <Reference Include=\"DevExpress.ExpressApp.Web.v21.2\">\r\n      <Sp" +
                     "ecificVersion>False</SpecificVersion>\r\n      <Private>False</Private>\r\n    </Ref" +
-                    "erence>\r\n    <Reference Include=\"DevExpress.Persistent.Base.v21.1\">\r\n      <Spec" +
+                    "erence>\r\n    <Reference Include=\"DevExpress.Persistent.Base.v21.2\">\r\n      <Spec" +
                     "ificVersion>False</SpecificVersion>\r\n    </Reference>\r\n    <Reference Include=\"D" +
-                    "evExpress.Persistent.BaseImpl.v21.1\">\r\n      <SpecificVersion>False</SpecificVer" +
-                    "sion>\r\n    </Reference>\r\n    <Reference Include=\"DevExpress.Data.Desktop.v21.1\">" +
+                    "evExpress.Persistent.BaseImpl.v21.2\">\r\n      <SpecificVersion>False</SpecificVer" +
+                    "sion>\r\n    </Reference>\r\n    <Reference Include=\"DevExpress.Data.Desktop.v21.2\">" +
                     "\r\n      <SpecificVersion>False</SpecificVersion>\r\n      <Private>False</Private>" +
-                    "\r\n    </Reference>\r\n    <Reference Include=\"DevExpress.Utils.v21.1\">\r\n      <Spe" +
+                    "\r\n    </Reference>\r\n    <Reference Include=\"DevExpress.Utils.v21.2\">\r\n      <Spe" +
                     "cificVersion>False</SpecificVersion>\r\n      <Private>False</Private>\r\n    </Refe" +
-                    "rence>\r\n    <Reference Include=\"DevExpress.Web.ASPxThemes.v21.1\">\r\n      <Specif" +
+                    "rence>\r\n    <Reference Include=\"DevExpress.Web.ASPxThemes.v21.2\">\r\n      <Specif" +
                     "icVersion>False</SpecificVersion>\r\n    </Reference>\r\n    <Reference Include=\"Dev" +
-                    "Express.Web.ASPxTreeList.v21.1\">\r\n      <SpecificVersion>False</SpecificVersion>" +
+                    "Express.Web.ASPxTreeList.v21.2\">\r\n      <SpecificVersion>False</SpecificVersion>" +
                     "\r\n      <Private>False</Private>\r\n    </Reference>\r\n\r\n    <Reference Include=\"De" +
-                    "vExpress.Web.v21.1\">\r\n      <SpecificVersion>False</SpecificVersion>\r\n    </Refe" +
-                    "rence>\r\n    <Reference Include=\"DevExpress.Xpo.v21.1\">\r\n      <SpecificVersion>F" +
+                    "vExpress.Web.v21.2\">\r\n      <SpecificVersion>False</SpecificVersion>\r\n    </Refe" +
+                    "rence>\r\n    <Reference Include=\"DevExpress.Xpo.v21.2\">\r\n      <SpecificVersion>F" +
                     "alse</SpecificVersion>\r\n    </Reference>\r\n    <Reference Include=\"System\">\r\n    " +
                     "  <Private>False</Private>\r\n    </Reference>\r\n    <Reference Include=\"System.Con" +
                     "figuration\">\r\n      <Private>False</Private>\r\n    </Reference>\r\n    <Reference I" +
