@@ -64,11 +64,11 @@ namespace DXTicketBase.TextTemplates
                     "clude=\"DevExpress.ExpressApp.Xpo.v21.2\">\r\n\t\t\t<SpecificVersion>False</SpecificVer" +
                     "sion>\r\n\t\t\t<Private>False</Private>\r\n\t\t</Reference>\r\n\t\t<Reference Include=\"DevExp" +
                     "ress.Persistent.Base.v21.2\">\r\n\t\t\t<SpecificVersion>False</SpecificVersion>\r\n\t\t</R" +
-                    "eference>\r\n\t\t<Reference Include=\"DevExpress.Persistent.BaseImpl.v21.2\">\r\n\t\t\t<Spe" +
-                    "cificVersion>False</SpecificVersion>\r\n\t\t</Reference>\r\n\t\t<Reference Include=\"DevE" +
-                    "xpress.Printing.v21.2.Core\">\r\n\t\t\t<SpecificVersion>False</SpecificVersion>\r\n\t\t</R" +
-                    "eference>\r\n\t\t<Reference Include=\"DevExpress.Xpo.v21.2\">\r\n\t\t\t<SpecificVersion>Fal" +
-                    "se</SpecificVersion>\r\n\t\t</Reference>\r\n\t\t");
+                    "eference>\r\n\t\t<Reference Include=\"DevExpress.Persistent.BaseImpl.Xpo.v21.2\">\r\n\t\t\t" +
+                    "<SpecificVersion>False</SpecificVersion>\r\n\t\t</Reference>\r\n\t\t<Reference Include=\"" +
+                    "DevExpress.Printing.v21.2.Core\">\r\n\t\t\t<SpecificVersion>False</SpecificVersion>\r\n\t" +
+                    "\t</Reference>\r\n\t\t<Reference Include=\"DevExpress.Xpo.v21.2\">\r\n\t\t\t<SpecificVersion" +
+                    ">False</SpecificVersion>\r\n\t\t</Reference>\r\n\t\t");
             
             #line 75 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleCsproj.tt"
  if (HasValidation){ 

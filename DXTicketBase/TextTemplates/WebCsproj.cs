@@ -172,89 +172,90 @@ namespace DXTicketBase.TextTemplates
                     "ecificVersion>False</SpecificVersion>\r\n      <Private>False</Private>\r\n    </Ref" +
                     "erence>\r\n    <Reference Include=\"DevExpress.Persistent.Base.v21.2\">\r\n      <Spec" +
                     "ificVersion>False</SpecificVersion>\r\n    </Reference>\r\n    <Reference Include=\"D" +
-                    "evExpress.Persistent.BaseImpl.v21.2\">\r\n      <SpecificVersion>False</SpecificVer" +
-                    "sion>\r\n    </Reference>\r\n    <Reference Include=\"DevExpress.Data.Desktop.v21.2\">" +
-                    "\r\n      <SpecificVersion>False</SpecificVersion>\r\n      <Private>False</Private>" +
-                    "\r\n    </Reference>\r\n    <Reference Include=\"DevExpress.Utils.v21.2\">\r\n      <Spe" +
-                    "cificVersion>False</SpecificVersion>\r\n      <Private>False</Private>\r\n    </Refe" +
-                    "rence>\r\n    <Reference Include=\"DevExpress.Web.ASPxThemes.v21.2\">\r\n      <Specif" +
-                    "icVersion>False</SpecificVersion>\r\n    </Reference>\r\n    <Reference Include=\"Dev" +
-                    "Express.Web.ASPxTreeList.v21.2\">\r\n      <SpecificVersion>False</SpecificVersion>" +
-                    "\r\n      <Private>False</Private>\r\n    </Reference>\r\n\r\n    <Reference Include=\"De" +
-                    "vExpress.Web.v21.2\">\r\n      <SpecificVersion>False</SpecificVersion>\r\n    </Refe" +
-                    "rence>\r\n    <Reference Include=\"DevExpress.Xpo.v21.2\">\r\n      <SpecificVersion>F" +
-                    "alse</SpecificVersion>\r\n    </Reference>\r\n    <Reference Include=\"System\">\r\n    " +
-                    "  <Private>False</Private>\r\n    </Reference>\r\n    <Reference Include=\"System.Con" +
-                    "figuration\">\r\n      <Private>False</Private>\r\n    </Reference>\r\n    <Reference I" +
-                    "nclude=\"System.Data\">\r\n      <Private>False</Private>\r\n    </Reference>\r\n    <Re" +
-                    "ference Include=\"System.Data.DataSetExtensions\">\r\n      <Private>False</Private>" +
-                    "\r\n    </Reference>\r\n    <Reference Include=\"System.Drawing\">\r\n      <Private>Fal" +
-                    "se</Private>\r\n    </Reference>\r\n    <Reference Include=\"System.EnterpriseService" +
-                    "s\">\r\n      <Private>False</Private>\r\n    </Reference>\r\n    <Reference Include=\"S" +
-                    "ystem.Web\">\r\n      <Private>False</Private>\r\n    </Reference>\r\n    <Reference In" +
-                    "clude=\"System.Web.ApplicationServices\">\r\n      <Private>False</Private>\r\n    </R" +
-                    "eference>\r\n    <Reference Include=\"System.Web.DynamicData\">\r\n      <Private>Fals" +
-                    "e</Private>\r\n    </Reference>\r\n    <Reference Include=\"System.Web.Entity\">\r\n    " +
-                    "  <Private>False</Private>\r\n    </Reference>\r\n    <Reference Include=\"System.Web" +
-                    ".Extensions\">\r\n      <Private>False</Private>\r\n    </Reference>\r\n    <Reference " +
-                    "Include=\"System.Web.Mobile\">\r\n      <Private>False</Private>\r\n    </Reference>\r\n" +
-                    "    <Reference Include=\"System.Web.Services\">\r\n      <Private>False</Private>\r\n " +
-                    "   </Reference>\r\n    <Reference Include=\"System.XML\">\r\n      <Private>False</Pri" +
-                    "vate>\r\n    </Reference>\r\n    <Reference Include=\"System.Xml.Linq\">\r\n      <Priva" +
-                    "te>False</Private>\r\n    </Reference>\r\n  </ItemGroup>\r\n  <ItemGroup>\r\n    <Conten" +
-                    "t Include=\"Default.aspx\" />\r\n    <Content Include=\"Error.aspx\" />\r\n    <Content " +
-                    "Include=\"Global.asax\" />\r\n    <Content Include=\"Images\\Logo.png\" />\r\n    <Conten" +
-                    "t Include=\"Login.aspx\" />\r\n  </ItemGroup>\r\n  <ItemGroup>\r\n    <Compile Include=\"" +
-                    "Default.aspx.designer.cs\">\r\n      <DependentUpon>Default.aspx</DependentUpon>\r\n " +
-                    "   </Compile>\r\n    <Compile Include=\"Error.aspx.designer.cs\">\r\n      <DependentU" +
-                    "pon>Error.aspx</DependentUpon>\r\n    </Compile>\r\n    <Compile Include=\"Global.asa" +
-                    "x.cs\">\r\n      <DependentUpon>Global.asax</DependentUpon>\r\n    </Compile>\r\n    <C" +
-                    "ompile Include=\"Login.aspx.designer.cs\">\r\n      <DependentUpon>Login.aspx</Depen" +
-                    "dentUpon>\r\n    </Compile>\r\n    <Compile Include=\"WebApplication.cs\">\r\n      <Sub" +
-                    "Type>Component</SubType>\r\n    </Compile>\r\n    <Compile Include=\"Default.aspx.cs\"" +
-                    ">\r\n      <DependentUpon>Default.aspx</DependentUpon>\r\n      <SubType>ASPXCodeBeh" +
-                    "ind</SubType>\r\n    </Compile>\r\n    <Compile Include=\"Error.aspx.cs\">\r\n      <Dep" +
-                    "endentUpon>Error.aspx</DependentUpon>\r\n      <SubType>ASPXCodeBehind</SubType>\r\n" +
-                    "    </Compile>\r\n    <Compile Include=\"Login.aspx.cs\">\r\n      <DependentUpon>Logi" +
-                    "n.aspx</DependentUpon>\r\n      <SubType>ASPXCodeBehind</SubType>\r\n    </Compile>\r" +
-                    "\n    <Compile Include=\"Properties\\AssemblyInfo.cs\" />\r\n  </ItemGroup>\r\n  <ItemGr" +
-                    "oup>\r\n    <EmbeddedResource Include=\"WebApplication.resx\">\r\n      <DependentUpon" +
-                    ">WebApplication.cs</DependentUpon>\r\n      <SubType>Designer</SubType>\r\n    </Emb" +
-                    "eddedResource>\r\n  </ItemGroup>\r\n  <ItemGroup>\r\n    <Content Include=\"Model.xafml" +
-                    "\">\r\n      <SubType>Designer</SubType>\r\n    </Content>\r\n  </ItemGroup>\r\n  <ItemGr" +
-                    "oup>\r\n    <ProjectReference Include=\"..\\dxTestSolution.Module\\dxTestSolution.Mod" +
-                    "ule.csproj\">\r\n      <Project>{5F15837D-D1E5-44DC-92F0-4F2EBE9C3F8D}</Project>\r\n " +
-                    "     <Name>dxTestSolution.Module</Name>\r\n    </ProjectReference>\r\n    <ProjectRe" +
-                    "ference Include=\"..\\dxTestSolution.Module.Web\\dxTestSolution.Module.Web.csproj\">" +
-                    "\r\n      <Project>{0C729AAD-7626-4668-A7F1-35F7D240489D}</Project>\r\n      <Name>d" +
-                    "xTestSolution.Module.Web</Name>\r\n    </ProjectReference>\r\n  </ItemGroup>\r\n  <Ite" +
-                    "mGroup>\r\n    <Content Include=\"Model.Desktop.xafml\" />\r\n    <Content Include=\"Mo" +
-                    "del.Tablet.xafml\" />\r\n    <None Include=\"ReadMe.txt\" />\r\n    <Content Include=\"W" +
-                    "eb.config\" />\r\n    <None Include=\"Web.Debug.config\">\r\n      <DependentUpon>Web.c" +
-                    "onfig</DependentUpon>\r\n    </None>\r\n    <None Include=\"Web.EasyTest.config\">\r\n  " +
-                    "    <DependentUpon>Web.config</DependentUpon>\r\n    </None>\r\n    <None Include=\"W" +
-                    "eb.Release.config\">\r\n      <DependentUpon>Web.config</DependentUpon>\r\n    </None" +
-                    ">\r\n  </ItemGroup>\r\n  <PropertyGroup>\r\n    <VisualStudioVersion Condition=\"\'$(Vis" +
-                    "ualStudioVersion)\' == \'\'\">10.0</VisualStudioVersion>\r\n    <VSToolsPath Condition" +
-                    "=\"\'$(VSToolsPath)\' == \'\'\">$(MSBuildExtensionsPath32)\\Microsoft\\VisualStudio\\v$(V" +
-                    "isualStudioVersion)</VSToolsPath>\r\n  </PropertyGroup>\r\n  <Import Project=\"$(MSBu" +
-                    "ildBinPath)\\Microsoft.CSharp.targets\" />\r\n  <Import Project=\"$(VSToolsPath)\\WebA" +
-                    "pplications\\Microsoft.WebApplication.targets\" Condition=\"\'$(VSToolsPath)\' != \'\'\"" +
-                    " />\r\n  <Import Project=\"$(MSBuildExtensionsPath32)\\Microsoft\\VisualStudio\\v10.0\\" +
-                    "WebApplications\\Microsoft.WebApplication.targets\" Condition=\"false\" />\r\n  <!-- T" +
-                    "o modify your build process, add your task inside one of the targets below and u" +
-                    "ncomment it. \r\n       Other similar extension points exist, see Microsoft.Common" +
-                    ".targets.\r\n  <Target Name=\"BeforeBuild\">\r\n  </Target>\r\n  <Target Name=\"AfterBuil" +
-                    "d\">\r\n  </Target>\r\n  -->\r\n  <ProjectExtensions>\r\n    <VisualStudio>\r\n      <Flavo" +
-                    "rProperties GUID=\"{349c5851-65df-11da-9384-00065b846f21}\">\r\n        <WebProjectP" +
-                    "roperties>\r\n          <UseIIS>True</UseIIS>\r\n          <AutoAssignPort>True</Aut" +
-                    "oAssignPort>\r\n          <DevelopmentServerPort>2065</DevelopmentServerPort>\r\n   " +
-                    "       <DevelopmentServerVPath>/</DevelopmentServerVPath>\r\n          <IISUrl>htt" +
-                    "p://localhost:2065/</IISUrl>\r\n          <NTLMAuthentication>False</NTLMAuthentic" +
-                    "ation>\r\n          <UseCustomServer>False</UseCustomServer>\r\n          <CustomSer" +
-                    "verUrl>\r\n          </CustomServerUrl>\r\n          <SaveServerSettingsInUserFile>F" +
-                    "alse</SaveServerSettingsInUserFile>\r\n        </WebProjectProperties>\r\n      </Fl" +
-                    "avorProperties>\r\n    </VisualStudio>\r\n  </ProjectExtensions>\r\n</Project>\r\n\r\n\r\n");
+                    "evExpress.Persistent.BaseImpl.Xpo.v21.2\">\r\n      <SpecificVersion>False</Specifi" +
+                    "cVersion>\r\n    </Reference>\r\n    <Reference Include=\"DevExpress.Data.Desktop.v21" +
+                    ".2\">\r\n      <SpecificVersion>False</SpecificVersion>\r\n      <Private>False</Priv" +
+                    "ate>\r\n    </Reference>\r\n    <Reference Include=\"DevExpress.Utils.v21.2\">\r\n      " +
+                    "<SpecificVersion>False</SpecificVersion>\r\n      <Private>False</Private>\r\n    </" +
+                    "Reference>\r\n    <Reference Include=\"DevExpress.Web.ASPxThemes.v21.2\">\r\n      <Sp" +
+                    "ecificVersion>False</SpecificVersion>\r\n    </Reference>\r\n    <Reference Include=" +
+                    "\"DevExpress.Web.ASPxTreeList.v21.2\">\r\n      <SpecificVersion>False</SpecificVers" +
+                    "ion>\r\n      <Private>False</Private>\r\n    </Reference>\r\n\r\n    <Reference Include" +
+                    "=\"DevExpress.Web.v21.2\">\r\n      <SpecificVersion>False</SpecificVersion>\r\n    </" +
+                    "Reference>\r\n    <Reference Include=\"DevExpress.Xpo.v21.2\">\r\n      <SpecificVersi" +
+                    "on>False</SpecificVersion>\r\n    </Reference>\r\n    <Reference Include=\"System\">\r\n" +
+                    "      <Private>False</Private>\r\n    </Reference>\r\n    <Reference Include=\"System" +
+                    ".Configuration\">\r\n      <Private>False</Private>\r\n    </Reference>\r\n    <Referen" +
+                    "ce Include=\"System.Data\">\r\n      <Private>False</Private>\r\n    </Reference>\r\n   " +
+                    " <Reference Include=\"System.Data.DataSetExtensions\">\r\n      <Private>False</Priv" +
+                    "ate>\r\n    </Reference>\r\n    <Reference Include=\"System.Drawing\">\r\n      <Private" +
+                    ">False</Private>\r\n    </Reference>\r\n    <Reference Include=\"System.EnterpriseSer" +
+                    "vices\">\r\n      <Private>False</Private>\r\n    </Reference>\r\n    <Reference Includ" +
+                    "e=\"System.Web\">\r\n      <Private>False</Private>\r\n    </Reference>\r\n    <Referenc" +
+                    "e Include=\"System.Web.ApplicationServices\">\r\n      <Private>False</Private>\r\n   " +
+                    " </Reference>\r\n    <Reference Include=\"System.Web.DynamicData\">\r\n      <Private>" +
+                    "False</Private>\r\n    </Reference>\r\n    <Reference Include=\"System.Web.Entity\">\r\n" +
+                    "      <Private>False</Private>\r\n    </Reference>\r\n    <Reference Include=\"System" +
+                    ".Web.Extensions\">\r\n      <Private>False</Private>\r\n    </Reference>\r\n    <Refere" +
+                    "nce Include=\"System.Web.Mobile\">\r\n      <Private>False</Private>\r\n    </Referenc" +
+                    "e>\r\n    <Reference Include=\"System.Web.Services\">\r\n      <Private>False</Private" +
+                    ">\r\n    </Reference>\r\n    <Reference Include=\"System.XML\">\r\n      <Private>False<" +
+                    "/Private>\r\n    </Reference>\r\n    <Reference Include=\"System.Xml.Linq\">\r\n      <P" +
+                    "rivate>False</Private>\r\n    </Reference>\r\n  </ItemGroup>\r\n  <ItemGroup>\r\n    <Co" +
+                    "ntent Include=\"Default.aspx\" />\r\n    <Content Include=\"Error.aspx\" />\r\n    <Cont" +
+                    "ent Include=\"Global.asax\" />\r\n    <Content Include=\"Images\\Logo.png\" />\r\n    <Co" +
+                    "ntent Include=\"Login.aspx\" />\r\n  </ItemGroup>\r\n  <ItemGroup>\r\n    <Compile Inclu" +
+                    "de=\"Default.aspx.designer.cs\">\r\n      <DependentUpon>Default.aspx</DependentUpon" +
+                    ">\r\n    </Compile>\r\n    <Compile Include=\"Error.aspx.designer.cs\">\r\n      <Depend" +
+                    "entUpon>Error.aspx</DependentUpon>\r\n    </Compile>\r\n    <Compile Include=\"Global" +
+                    ".asax.cs\">\r\n      <DependentUpon>Global.asax</DependentUpon>\r\n    </Compile>\r\n  " +
+                    "  <Compile Include=\"Login.aspx.designer.cs\">\r\n      <DependentUpon>Login.aspx</D" +
+                    "ependentUpon>\r\n    </Compile>\r\n    <Compile Include=\"WebApplication.cs\">\r\n      " +
+                    "<SubType>Component</SubType>\r\n    </Compile>\r\n    <Compile Include=\"Default.aspx" +
+                    ".cs\">\r\n      <DependentUpon>Default.aspx</DependentUpon>\r\n      <SubType>ASPXCod" +
+                    "eBehind</SubType>\r\n    </Compile>\r\n    <Compile Include=\"Error.aspx.cs\">\r\n      " +
+                    "<DependentUpon>Error.aspx</DependentUpon>\r\n      <SubType>ASPXCodeBehind</SubTyp" +
+                    "e>\r\n    </Compile>\r\n    <Compile Include=\"Login.aspx.cs\">\r\n      <DependentUpon>" +
+                    "Login.aspx</DependentUpon>\r\n      <SubType>ASPXCodeBehind</SubType>\r\n    </Compi" +
+                    "le>\r\n    <Compile Include=\"Properties\\AssemblyInfo.cs\" />\r\n  </ItemGroup>\r\n  <It" +
+                    "emGroup>\r\n    <EmbeddedResource Include=\"WebApplication.resx\">\r\n      <Dependent" +
+                    "Upon>WebApplication.cs</DependentUpon>\r\n      <SubType>Designer</SubType>\r\n    <" +
+                    "/EmbeddedResource>\r\n  </ItemGroup>\r\n  <ItemGroup>\r\n    <Content Include=\"Model.x" +
+                    "afml\">\r\n      <SubType>Designer</SubType>\r\n    </Content>\r\n  </ItemGroup>\r\n  <It" +
+                    "emGroup>\r\n    <ProjectReference Include=\"..\\dxTestSolution.Module\\dxTestSolution" +
+                    ".Module.csproj\">\r\n      <Project>{5F15837D-D1E5-44DC-92F0-4F2EBE9C3F8D}</Project" +
+                    ">\r\n      <Name>dxTestSolution.Module</Name>\r\n    </ProjectReference>\r\n    <Proje" +
+                    "ctReference Include=\"..\\dxTestSolution.Module.Web\\dxTestSolution.Module.Web.cspr" +
+                    "oj\">\r\n      <Project>{0C729AAD-7626-4668-A7F1-35F7D240489D}</Project>\r\n      <Na" +
+                    "me>dxTestSolution.Module.Web</Name>\r\n    </ProjectReference>\r\n  </ItemGroup>\r\n  " +
+                    "<ItemGroup>\r\n    <Content Include=\"Model.Desktop.xafml\" />\r\n    <Content Include" +
+                    "=\"Model.Tablet.xafml\" />\r\n    <None Include=\"ReadMe.txt\" />\r\n    <Content Includ" +
+                    "e=\"Web.config\" />\r\n    <None Include=\"Web.Debug.config\">\r\n      <DependentUpon>W" +
+                    "eb.config</DependentUpon>\r\n    </None>\r\n    <None Include=\"Web.EasyTest.config\">" +
+                    "\r\n      <DependentUpon>Web.config</DependentUpon>\r\n    </None>\r\n    <None Includ" +
+                    "e=\"Web.Release.config\">\r\n      <DependentUpon>Web.config</DependentUpon>\r\n    </" +
+                    "None>\r\n  </ItemGroup>\r\n  <PropertyGroup>\r\n    <VisualStudioVersion Condition=\"\'$" +
+                    "(VisualStudioVersion)\' == \'\'\">10.0</VisualStudioVersion>\r\n    <VSToolsPath Condi" +
+                    "tion=\"\'$(VSToolsPath)\' == \'\'\">$(MSBuildExtensionsPath32)\\Microsoft\\VisualStudio\\" +
+                    "v$(VisualStudioVersion)</VSToolsPath>\r\n  </PropertyGroup>\r\n  <Import Project=\"$(" +
+                    "MSBuildBinPath)\\Microsoft.CSharp.targets\" />\r\n  <Import Project=\"$(VSToolsPath)\\" +
+                    "WebApplications\\Microsoft.WebApplication.targets\" Condition=\"\'$(VSToolsPath)\' !=" +
+                    " \'\'\" />\r\n  <Import Project=\"$(MSBuildExtensionsPath32)\\Microsoft\\VisualStudio\\v1" +
+                    "0.0\\WebApplications\\Microsoft.WebApplication.targets\" Condition=\"false\" />\r\n  <!" +
+                    "-- To modify your build process, add your task inside one of the targets below a" +
+                    "nd uncomment it. \r\n       Other similar extension points exist, see Microsoft.Co" +
+                    "mmon.targets.\r\n  <Target Name=\"BeforeBuild\">\r\n  </Target>\r\n  <Target Name=\"After" +
+                    "Build\">\r\n  </Target>\r\n  -->\r\n  <ProjectExtensions>\r\n    <VisualStudio>\r\n      <F" +
+                    "lavorProperties GUID=\"{349c5851-65df-11da-9384-00065b846f21}\">\r\n        <WebProj" +
+                    "ectProperties>\r\n          <UseIIS>True</UseIIS>\r\n          <AutoAssignPort>True<" +
+                    "/AutoAssignPort>\r\n          <DevelopmentServerPort>2065</DevelopmentServerPort>\r" +
+                    "\n          <DevelopmentServerVPath>/</DevelopmentServerVPath>\r\n          <IISUrl" +
+                    ">http://localhost:2065/</IISUrl>\r\n          <NTLMAuthentication>False</NTLMAuthe" +
+                    "ntication>\r\n          <UseCustomServer>False</UseCustomServer>\r\n          <Custo" +
+                    "mServerUrl>\r\n          </CustomServerUrl>\r\n          <SaveServerSettingsInUserFi" +
+                    "le>False</SaveServerSettingsInUserFile>\r\n        </WebProjectProperties>\r\n      " +
+                    "</FlavorProperties>\r\n    </VisualStudio>\r\n  </ProjectExtensions>\r\n</Project>\r\n\r\n" +
+                    "\r\n");
             return this.GenerationEnvironment.ToString();
         }
     }

@@ -160,74 +160,74 @@ namespace DXTicketBase.TextTemplates
                     "ference>\r\n    <Reference Include=\"DevExpress.ExpressApp.Win.v21.2\">\r\n      <Spec" +
                     "ificVersion>False</SpecificVersion>\r\n    </Reference>\r\n    <Reference Include=\"D" +
                     "evExpress.Persistent.Base.v21.2\">\r\n      <SpecificVersion>False</SpecificVersion" +
-                    ">\r\n    </Reference>\r\n    <Reference Include=\"DevExpress.Persistent.BaseImpl.v21." +
+                    ">\r\n    </Reference>\r\n    <Reference Include=\"DevExpress.Persistent.BaseImpl.Xpo." +
+                    "v21.2\">\r\n      <SpecificVersion>False</SpecificVersion>\r\n    </Reference>\r\n    <" +
+                    "Reference Include=\"DevExpress.Xpo.v21.2\">\r\n      <SpecificVersion>False</Specifi" +
+                    "cVersion>\r\n    </Reference>\r\n    <Reference Include=\"DevExpress.XtraGrid.v21.2\">" +
+                    "\r\n      <SpecificVersion>False</SpecificVersion>\r\n    </Reference>\r\n    <Referen" +
+                    "ce Include=\"DevExpress.XtraBars.v21.2\">\r\n      <SpecificVersion>False</SpecificV" +
+                    "ersion>\r\n    </Reference>\r\n    <Reference Include=\"DevExpress.XtraEditors.v21.2\"" +
+                    ">\r\n      <SpecificVersion>False</SpecificVersion>\r\n    </Reference>\r\n    <Refere" +
+                    "nce Include=\"DevExpress.XtraLayout.v21.2\">\r\n      <SpecificVersion>False</Specif" +
+                    "icVersion>\r\n    </Reference>\r\n    <Reference Include=\"DevExpress.XtraNavBar.v21." +
                     "2\">\r\n      <SpecificVersion>False</SpecificVersion>\r\n    </Reference>\r\n    <Refe" +
-                    "rence Include=\"DevExpress.Xpo.v21.2\">\r\n      <SpecificVersion>False</SpecificVer" +
-                    "sion>\r\n    </Reference>\r\n    <Reference Include=\"DevExpress.XtraGrid.v21.2\">\r\n  " +
-                    "    <SpecificVersion>False</SpecificVersion>\r\n    </Reference>\r\n    <Reference I" +
-                    "nclude=\"DevExpress.XtraBars.v21.2\">\r\n      <SpecificVersion>False</SpecificVersi" +
-                    "on>\r\n    </Reference>\r\n    <Reference Include=\"DevExpress.XtraEditors.v21.2\">\r\n " +
-                    "     <SpecificVersion>False</SpecificVersion>\r\n    </Reference>\r\n    <Reference " +
-                    "Include=\"DevExpress.XtraLayout.v21.2\">\r\n      <SpecificVersion>False</SpecificVe" +
-                    "rsion>\r\n    </Reference>\r\n    <Reference Include=\"DevExpress.XtraNavBar.v21.2\">\r" +
-                    "\n      <SpecificVersion>False</SpecificVersion>\r\n    </Reference>\r\n    <Referenc" +
-                    "e Include=\"DevExpress.XtraPrinting.v21.2\">\r\n      <SpecificVersion>False</Specif" +
-                    "icVersion>\r\n      <Private>False</Private>\r\n    </Reference>\r\n    <Reference Inc" +
-                    "lude=\"DevExpress.XtraRichEdit.v21.2\">\r\n      <SpecificVersion>False</SpecificVer" +
-                    "sion>\r\n      <Private>False</Private>\r\n    </Reference>\r\n    <Reference Include=" +
-                    "\"DevExpress.XtraTreeList.v21.2\">\r\n      <SpecificVersion>False</SpecificVersion>" +
-                    "\r\n      <Private>False</Private>\r\n    </Reference>\r\n    <Reference Include=\"DevE" +
-                    "xpress.XtraVerticalGrid.v21.2\">\r\n      <SpecificVersion>False</SpecificVersion>\r" +
-                    "\n      <Private>False</Private>\r\n    </Reference>\r\n    <Reference Include=\"Syste" +
-                    "m\">\r\n      <Name>System</Name>\r\n      <Private>False</Private>\r\n    </Reference>" +
-                    "\r\n    <Reference Include=\"System.configuration\">\r\n      <Private>False</Private>" +
-                    "\r\n    </Reference>\r\n    <Reference Include=\"System.Data\">\r\n      <Name>System.Da" +
-                    "ta</Name>\r\n      <Private>False</Private>\r\n    </Reference>\r\n    <Reference Incl" +
-                    "ude=\"System.Drawing\">\r\n      <Name>System.Drawing</Name>\r\n      <Private>False</" +
-                    "Private>\r\n    </Reference>\r\n    <Reference Include=\"System.Windows.Forms\">\r\n    " +
-                    "  <Name>System.Windows.Forms</Name>\r\n      <Private>False</Private>\r\n    </Refer" +
-                    "ence>\r\n    <Reference Include=\"System.Xml\">\r\n      <Name>System.XML</Name>\r\n    " +
-                    "  <Private>False</Private>\r\n    </Reference>\r\n  </ItemGroup>\r\n  <ItemGroup>\r\n   " +
-                    " <Compile Include=\"Program.cs\" />\r\n    <Compile Include=\"Properties\\AssemblyInfo" +
-                    ".cs\" />\r\n    <Compile Include=\"WinApplication.cs\">\r\n      <SubType>Component</Su" +
-                    "bType>\r\n    </Compile>\r\n    <Compile Include=\"WinApplication.Designer.cs\">\r\n    " +
-                    "  <DependentUpon>WinApplication.cs</DependentUpon>\r\n    </Compile>\r\n    <Embedde" +
-                    "dResource Include=\"Properties\\Resources.resx\">\r\n      <Generator>ResXFileCodeGen" +
-                    "erator</Generator>\r\n      <LastGenOutput>Resources.Designer.cs</LastGenOutput>\r\n" +
-                    "      <SubType>Designer</SubType>\r\n    </EmbeddedResource>\r\n    <Compile Include" +
-                    "=\"Properties\\Resources.Designer.cs\">\r\n      <AutoGen>True</AutoGen>\r\n      <Depe" +
-                    "ndentUpon>Resources.resx</DependentUpon>\r\n      <DesignTime>True</DesignTime>\r\n " +
-                    "   </Compile>\r\n    <EmbeddedResource Include=\"WinApplication.resx\">\r\n      <Depe" +
-                    "ndentUpon>WinApplication.cs</DependentUpon>\r\n      <SubType>Designer</SubType>\r\n" +
-                    "    </EmbeddedResource>\r\n    <None Include=\"App.config\" />\r\n    <Content Include" +
-                    "=\"Model.xafml\">\r\n      <CopyToOutputDirectory>Always</CopyToOutputDirectory>\r\n  " +
-                    "  </Content>\r\n    <None Include=\"Properties\\Settings.settings\">\r\n      <Generato" +
-                    "r>SettingsSingleFileGenerator</Generator>\r\n      <LastGenOutput>Settings.Designe" +
-                    "r.cs</LastGenOutput>\r\n    </None>\r\n    <Compile Include=\"Properties\\Settings.Des" +
-                    "igner.cs\">\r\n      <AutoGen>True</AutoGen>\r\n      <DependentUpon>Settings.setting" +
-                    "s</DependentUpon>\r\n      <DesignTimeSharedInput>True</DesignTimeSharedInput>\r\n  " +
-                    "  </Compile>\r\n  </ItemGroup>\r\n  <ItemGroup>\r\n    <Content Include=\"ExpressApp.ic" +
-                    "o\" />\r\n    <None Include=\"Images\\ReadMe.txt\" />\r\n    <None Include=\"ReadMe.txt\" " +
-                    "/>\r\n  </ItemGroup>\r\n  <ItemGroup>\r\n    <ProjectReference Include=\"..\\dxTestSolut" +
-                    "ion.Module.Win\\dxTestSolution.Module.Win.csproj\">\r\n      <Project>{7964F87D-BC5D" +
-                    "-4C4E-8B2F-71E89739AA97}</Project>\r\n      <Name>dxTestSolution.Module.Win</Name>" +
-                    "\r\n    </ProjectReference>\r\n    <ProjectReference Include=\"..\\dxTestSolution.Modu" +
-                    "le\\dxTestSolution.Module.csproj\">\r\n      <Project>{5F15837D-D1E5-44DC-92F0-4F2EB" +
-                    "E9C3F8D}</Project>\r\n      <Name>dxTestSolution.Module</Name>\r\n    </ProjectRefer" +
-                    "ence>\r\n  </ItemGroup>\r\n  <ItemGroup>\r\n    <BootstrapperPackage Include=\"Microsof" +
-                    "t.Net.Client.3.5\">\r\n      <Visible>False</Visible>\r\n      <ProductName>.NET Fram" +
-                    "ework 3.5 SP1 Client Profile</ProductName>\r\n      <Install>false</Install>\r\n    " +
-                    "</BootstrapperPackage>\r\n    <BootstrapperPackage Include=\"Microsoft.Net.Framewor" +
-                    "k.3.5.SP1\">\r\n      <Visible>False</Visible>\r\n      <ProductName>.NET Framework 3" +
-                    ".5 SP1</ProductName>\r\n      <Install>true</Install>\r\n    </BootstrapperPackage>\r" +
-                    "\n    <BootstrapperPackage Include=\"Microsoft.Windows.Installer.3.1\">\r\n      <Vis" +
-                    "ible>False</Visible>\r\n      <ProductName>Windows Installer 3.1</ProductName>\r\n  " +
-                    "    <Install>true</Install>\r\n    </BootstrapperPackage>\r\n  </ItemGroup>\r\n  <Impo" +
-                    "rt Project=\"$(MSBuildBinPath)\\Microsoft.CSharp.targets\" />\r\n  <!-- To modify you" +
-                    "r build process, add your task inside one of the targets below and uncomment it." +
-                    " \r\n       Other similar extension points exist, see Microsoft.Common.targets.\r\n " +
-                    " <Target Name=\"BeforeBuild\">\r\n  </Target>\r\n  <Target Name=\"AfterBuild\">\r\n  </Tar" +
-                    "get>\r\n  -->\r\n</Project>\r\n\r\n\r\n\r\n");
+                    "rence Include=\"DevExpress.XtraPrinting.v21.2\">\r\n      <SpecificVersion>False</Sp" +
+                    "ecificVersion>\r\n      <Private>False</Private>\r\n    </Reference>\r\n    <Reference" +
+                    " Include=\"DevExpress.XtraRichEdit.v21.2\">\r\n      <SpecificVersion>False</Specifi" +
+                    "cVersion>\r\n      <Private>False</Private>\r\n    </Reference>\r\n    <Reference Incl" +
+                    "ude=\"DevExpress.XtraTreeList.v21.2\">\r\n      <SpecificVersion>False</SpecificVers" +
+                    "ion>\r\n      <Private>False</Private>\r\n    </Reference>\r\n    <Reference Include=\"" +
+                    "DevExpress.XtraVerticalGrid.v21.2\">\r\n      <SpecificVersion>False</SpecificVersi" +
+                    "on>\r\n      <Private>False</Private>\r\n    </Reference>\r\n    <Reference Include=\"S" +
+                    "ystem\">\r\n      <Name>System</Name>\r\n      <Private>False</Private>\r\n    </Refere" +
+                    "nce>\r\n    <Reference Include=\"System.configuration\">\r\n      <Private>False</Priv" +
+                    "ate>\r\n    </Reference>\r\n    <Reference Include=\"System.Data\">\r\n      <Name>Syste" +
+                    "m.Data</Name>\r\n      <Private>False</Private>\r\n    </Reference>\r\n    <Reference " +
+                    "Include=\"System.Drawing\">\r\n      <Name>System.Drawing</Name>\r\n      <Private>Fal" +
+                    "se</Private>\r\n    </Reference>\r\n    <Reference Include=\"System.Windows.Forms\">\r\n" +
+                    "      <Name>System.Windows.Forms</Name>\r\n      <Private>False</Private>\r\n    </R" +
+                    "eference>\r\n    <Reference Include=\"System.Xml\">\r\n      <Name>System.XML</Name>\r\n" +
+                    "      <Private>False</Private>\r\n    </Reference>\r\n  </ItemGroup>\r\n  <ItemGroup>\r" +
+                    "\n    <Compile Include=\"Program.cs\" />\r\n    <Compile Include=\"Properties\\Assembly" +
+                    "Info.cs\" />\r\n    <Compile Include=\"WinApplication.cs\">\r\n      <SubType>Component" +
+                    "</SubType>\r\n    </Compile>\r\n    <Compile Include=\"WinApplication.Designer.cs\">\r\n" +
+                    "      <DependentUpon>WinApplication.cs</DependentUpon>\r\n    </Compile>\r\n    <Emb" +
+                    "eddedResource Include=\"Properties\\Resources.resx\">\r\n      <Generator>ResXFileCod" +
+                    "eGenerator</Generator>\r\n      <LastGenOutput>Resources.Designer.cs</LastGenOutpu" +
+                    "t>\r\n      <SubType>Designer</SubType>\r\n    </EmbeddedResource>\r\n    <Compile Inc" +
+                    "lude=\"Properties\\Resources.Designer.cs\">\r\n      <AutoGen>True</AutoGen>\r\n      <" +
+                    "DependentUpon>Resources.resx</DependentUpon>\r\n      <DesignTime>True</DesignTime" +
+                    ">\r\n    </Compile>\r\n    <EmbeddedResource Include=\"WinApplication.resx\">\r\n      <" +
+                    "DependentUpon>WinApplication.cs</DependentUpon>\r\n      <SubType>Designer</SubTyp" +
+                    "e>\r\n    </EmbeddedResource>\r\n    <None Include=\"App.config\" />\r\n    <Content Inc" +
+                    "lude=\"Model.xafml\">\r\n      <CopyToOutputDirectory>Always</CopyToOutputDirectory>" +
+                    "\r\n    </Content>\r\n    <None Include=\"Properties\\Settings.settings\">\r\n      <Gene" +
+                    "rator>SettingsSingleFileGenerator</Generator>\r\n      <LastGenOutput>Settings.Des" +
+                    "igner.cs</LastGenOutput>\r\n    </None>\r\n    <Compile Include=\"Properties\\Settings" +
+                    ".Designer.cs\">\r\n      <AutoGen>True</AutoGen>\r\n      <DependentUpon>Settings.set" +
+                    "tings</DependentUpon>\r\n      <DesignTimeSharedInput>True</DesignTimeSharedInput>" +
+                    "\r\n    </Compile>\r\n  </ItemGroup>\r\n  <ItemGroup>\r\n    <Content Include=\"ExpressAp" +
+                    "p.ico\" />\r\n    <None Include=\"Images\\ReadMe.txt\" />\r\n    <None Include=\"ReadMe.t" +
+                    "xt\" />\r\n  </ItemGroup>\r\n  <ItemGroup>\r\n    <ProjectReference Include=\"..\\dxTestS" +
+                    "olution.Module.Win\\dxTestSolution.Module.Win.csproj\">\r\n      <Project>{7964F87D-" +
+                    "BC5D-4C4E-8B2F-71E89739AA97}</Project>\r\n      <Name>dxTestSolution.Module.Win</N" +
+                    "ame>\r\n    </ProjectReference>\r\n    <ProjectReference Include=\"..\\dxTestSolution." +
+                    "Module\\dxTestSolution.Module.csproj\">\r\n      <Project>{5F15837D-D1E5-44DC-92F0-4" +
+                    "F2EBE9C3F8D}</Project>\r\n      <Name>dxTestSolution.Module</Name>\r\n    </ProjectR" +
+                    "eference>\r\n  </ItemGroup>\r\n  <ItemGroup>\r\n    <BootstrapperPackage Include=\"Micr" +
+                    "osoft.Net.Client.3.5\">\r\n      <Visible>False</Visible>\r\n      <ProductName>.NET " +
+                    "Framework 3.5 SP1 Client Profile</ProductName>\r\n      <Install>false</Install>\r\n" +
+                    "    </BootstrapperPackage>\r\n    <BootstrapperPackage Include=\"Microsoft.Net.Fram" +
+                    "ework.3.5.SP1\">\r\n      <Visible>False</Visible>\r\n      <ProductName>.NET Framewo" +
+                    "rk 3.5 SP1</ProductName>\r\n      <Install>true</Install>\r\n    </BootstrapperPacka" +
+                    "ge>\r\n    <BootstrapperPackage Include=\"Microsoft.Windows.Installer.3.1\">\r\n      " +
+                    "<Visible>False</Visible>\r\n      <ProductName>Windows Installer 3.1</ProductName>" +
+                    "\r\n      <Install>true</Install>\r\n    </BootstrapperPackage>\r\n  </ItemGroup>\r\n  <" +
+                    "Import Project=\"$(MSBuildBinPath)\\Microsoft.CSharp.targets\" />\r\n  <!-- To modify" +
+                    " your build process, add your task inside one of the targets below and uncomment" +
+                    " it. \r\n       Other similar extension points exist, see Microsoft.Common.targets" +
+                    ".\r\n  <Target Name=\"BeforeBuild\">\r\n  </Target>\r\n  <Target Name=\"AfterBuild\">\r\n  <" +
+                    "/Target>\r\n  -->\r\n</Project>\r\n\r\n\r\n\r\n");
             return this.GenerationEnvironment.ToString();
         }
     }

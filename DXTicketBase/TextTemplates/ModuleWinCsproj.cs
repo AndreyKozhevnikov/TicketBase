@@ -74,22 +74,22 @@ namespace DXTicketBase.TextTemplates
                     "ss.ExpressApp.Xpo.v21.2\">\r\n\t\t\t<SpecificVersion>False</SpecificVersion>\r\n\t\t</Refe" +
                     "rence>\r\n\t\t<Reference Include=\"DevExpress.Persistent.Base.v21.2\">\r\n\t\t\t<SpecificVe" +
                     "rsion>False</SpecificVersion>\r\n\t\t</Reference>\r\n\t\t<Reference Include=\"DevExpress." +
-                    "Persistent.BaseImpl.v21.2\">\r\n\t\t\t<SpecificVersion>False</SpecificVersion>\r\n\t\t</Re" +
-                    "ference>\r\n\t\t<Reference Include=\"DevExpress.Printing.v21.2.Core\">\r\n\t\t\t<SpecificVe" +
-                    "rsion>False</SpecificVersion>\r\n\t\t</Reference>\r\n\t\t<Reference Include=\"DevExpress." +
-                    "Data.Desktop.v21.2\">\r\n\t\t\t<SpecificVersion>False</SpecificVersion>\r\n\t\t</Reference" +
-                    ">\r\n\t\t<Reference Include=\"DevExpress.Utils.v21.2\">\r\n\t\t\t<SpecificVersion>False</Sp" +
-                    "ecificVersion>\r\n\t\t</Reference>\r\n\t\t<Reference Include=\"DevExpress.Xpo.v21.2\">\r\n\t\t" +
-                    "\t<SpecificVersion>False</SpecificVersion>\r\n\t\t</Reference>\r\n\t\t<Reference Include=" +
-                    "\"DevExpress.XtraBars.v21.2\">\r\n\t\t\t<SpecificVersion>False</SpecificVersion>\r\n\t\t</R" +
-                    "eference>\r\n\t\t<Reference Include=\"DevExpress.XtraEditors.v21.2\">\r\n\t\t\t<SpecificVer" +
-                    "sion>False</SpecificVersion>\r\n\t\t</Reference>\r\n\t\t<Reference Include=\"DevExpress.X" +
-                    "traGrid.v21.2\">\r\n\t\t\t<SpecificVersion>False</SpecificVersion>\r\n\t\t</Reference>\r\n\t\t" +
-                    "<Reference Include=\"DevExpress.XtraLayout.v21.2\">\r\n\t\t\t<SpecificVersion>False</Sp" +
-                    "ecificVersion>\r\n\t\t</Reference>\r\n\t\t<Reference Include=\"DevExpress.XtraNavBar.v21." +
-                    "2\">\r\n\t\t\t<SpecificVersion>False</SpecificVersion>\r\n\t\t</Reference>\r\n\t\t<Reference I" +
-                    "nclude=\"DevExpress.XtraPrinting.v21.2\">\r\n\t\t\t<SpecificVersion>False</SpecificVers" +
-                    "ion>\r\n\t\t</Reference>\r\n\t\t");
+                    "Persistent.BaseImpl.Xpo.v21.2\">\r\n\t\t\t<SpecificVersion>False</SpecificVersion>\r\n\t\t" +
+                    "</Reference>\r\n\t\t<Reference Include=\"DevExpress.Printing.v21.2.Core\">\r\n\t\t\t<Specif" +
+                    "icVersion>False</SpecificVersion>\r\n\t\t</Reference>\r\n\t\t<Reference Include=\"DevExpr" +
+                    "ess.Data.Desktop.v21.2\">\r\n\t\t\t<SpecificVersion>False</SpecificVersion>\r\n\t\t</Refer" +
+                    "ence>\r\n\t\t<Reference Include=\"DevExpress.Utils.v21.2\">\r\n\t\t\t<SpecificVersion>False" +
+                    "</SpecificVersion>\r\n\t\t</Reference>\r\n\t\t<Reference Include=\"DevExpress.Xpo.v21.2\">" +
+                    "\r\n\t\t\t<SpecificVersion>False</SpecificVersion>\r\n\t\t</Reference>\r\n\t\t<Reference Incl" +
+                    "ude=\"DevExpress.XtraBars.v21.2\">\r\n\t\t\t<SpecificVersion>False</SpecificVersion>\r\n\t" +
+                    "\t</Reference>\r\n\t\t<Reference Include=\"DevExpress.XtraEditors.v21.2\">\r\n\t\t\t<Specifi" +
+                    "cVersion>False</SpecificVersion>\r\n\t\t</Reference>\r\n\t\t<Reference Include=\"DevExpre" +
+                    "ss.XtraGrid.v21.2\">\r\n\t\t\t<SpecificVersion>False</SpecificVersion>\r\n\t\t</Reference>" +
+                    "\r\n\t\t<Reference Include=\"DevExpress.XtraLayout.v21.2\">\r\n\t\t\t<SpecificVersion>False" +
+                    "</SpecificVersion>\r\n\t\t</Reference>\r\n\t\t<Reference Include=\"DevExpress.XtraNavBar." +
+                    "v21.2\">\r\n\t\t\t<SpecificVersion>False</SpecificVersion>\r\n\t\t</Reference>\r\n\t\t<Referen" +
+                    "ce Include=\"DevExpress.XtraPrinting.v21.2\">\r\n\t\t\t<SpecificVersion>False</Specific" +
+                    "Version>\r\n\t\t</Reference>\r\n\t\t");
             
             #line 116 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleWinCsproj.tt"
  if (HasValidation){ 

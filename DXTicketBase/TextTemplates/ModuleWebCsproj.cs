@@ -74,9 +74,9 @@ namespace DXTicketBase.TextTemplates
                     "ress.ExpressApp.Xpo.v21.2\">\r\n\t\t\t<SpecificVersion>False</SpecificVersion>\r\n\t\t</Re" +
                     "ference>\r\n\t\t<Reference Include=\"DevExpress.Persistent.Base.v21.2\">\r\n\t\t\t<Specific" +
                     "Version>False</SpecificVersion>\r\n\t\t</Reference>\r\n\t\t<Reference Include=\"DevExpres" +
-                    "s.Persistent.BaseImpl.v21.2\">\r\n\t\t\t<SpecificVersion>False</SpecificVersion>\r\n\t\t</" +
-                    "Reference>\r\n\t\t<Reference Include=\"DevExpress.Printing.v21.2.Core\">\r\n\t\t\t<Specific" +
-                    "Version>False</SpecificVersion>\r\n\t\t</Reference>\r\n\r\n\t\t");
+                    "s.Persistent.BaseImpl.Xpo.v21.2\">\r\n\t\t\t<SpecificVersion>False</SpecificVersion>\r\n" +
+                    "\t\t</Reference>\r\n\t\t<Reference Include=\"DevExpress.Printing.v21.2.Core\">\r\n\t\t\t<Spec" +
+                    "ificVersion>False</SpecificVersion>\r\n\t\t</Reference>\r\n\r\n\t\t");
             
             #line 91 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\ModuleWebCsproj.tt"
  if (HasValidation){ 
