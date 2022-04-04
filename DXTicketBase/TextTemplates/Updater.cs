@@ -18,7 +18,7 @@ namespace DXTicketBase.TextTemplates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\Updater.tt"
+    #line 1 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\Updater.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
     public partial class Updater : BaseTemplate
     {
@@ -29,7 +29,7 @@ namespace DXTicketBase.TextTemplates
         public override string TransformText()
         {
             
-            #line 6 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\Updater.tt"
+            #line 6 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\Updater.tt"
  FileName=@"\{0}.Module\DatabaseUpdate\Updater.cs"; 
             
             #line default
@@ -72,7 +72,7 @@ namespace dxTestSolution.Module.DatabaseUpdate {
             }
 			 ");
             
-            #line 43 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\Updater.tt"
+            #line 43 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\Updater.tt"
  if (HasSecurity){ 
             
             #line default
@@ -105,14 +105,14 @@ namespace dxTestSolution.Module.DatabaseUpdate {
             commonUser.Roles.Add(userRole);
 			 ");
             
-            #line 70 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\Updater.tt"
+            #line 70 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\Updater.tt"
  } 
             
             #line default
             #line hidden
             this.Write("\r\n\t\t\tObjectSpace.CommitChanges(); \r\n        }\r\n\t\t ");
             
-            #line 74 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\Updater.tt"
+            #line 74 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\Updater.tt"
  if (HasSecurity){ 
             
             #line default
@@ -146,7 +146,7 @@ namespace dxTestSolution.Module.DatabaseUpdate {
                     "gationItems/Items/Default/Items/Contact_ListView\", SecurityPermissionState.Allow" +
                     ");\r\n            }\r\n            return role;\r\n        }\r\n\t\t ");
             
-            #line 103 "c:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\Updater.tt"
+            #line 103 "C:\Dropbox\C#\DXTicketsBase\DXTicketBase\DXTicketBase\TextTemplates\Updater.tt"
  } 
             
             #line default
@@ -156,7 +156,7 @@ namespace dxTestSolution.Module.DatabaseUpdate {
             T theObject = ObjectSpace.FindObject<T>(new OperandProperty(propertyName) == value);
             if (theObject == null){
                 theObject = ObjectSpace.CreateObject<T>();
-                ((BaseObject)(Object)theObject).SetMemberValue(propertyName, value);
+                ((XPBaseObject)(Object)theObject).SetMemberValue(propertyName, value);
             }
           
             return theObject;
