@@ -205,11 +205,35 @@ namespace DXTicketBase {
 
         private void PrepareDataForSolution() {
             var dataSolution = new DataForSolution();
-            dataSolution.Name = "myNewTestProject";
+            
+            dataSolution.Type = ProjectTypeEnum.Blazor;
             dataSolution.HasSecurity = true;
-            dataSolution.Modules = new List<string>();
-            dataSolution.Modules.Add("Validation");
-            dataSolution.Modules.Add("ConditionalAppearance");
+            dataSolution.Modules = new List<ModulesEnum>();
+            dataSolution.Modules.Add(ModulesEnum.Validation);
+            dataSolution.Modules.Add(ModulesEnum.ConditionalAppearance);
+            dataSolution.Modules.Add(ModulesEnum.Report);
+          
+
+            string folderPath = "";
+            string ticketNumber = SelectedTicket.Number;
+            if(currentThreadFolder != null && currentThreadFolder.Contains(ticketNumber)) { //find folder
+                folderPath = currentThreadFolder;
+            } else {
+                var allFiles = Directory.GetDirectories(parentPath).ToList();
+                if(allFiles.Count > 0) {
+                    var sel = allFiles.Where(x => x.Contains(ticketNumber)).FirstOrDefault();
+                    if(sel != null) {
+                        folderPath = sel;
+                    } else {
+                        MessageBox.Show("There is no directory");
+                        return;
+                    }
+                }
+            }
+            dataSolution.Name = "dx" + ticketNumber;
+            dataSolution.FolderName = folderPath;
+
+
             string fileName = Properties.Settings.Default.SolutionDataFileName;
             XmlSerializer serializer = new XmlSerializer(typeof(DataForSolution));
             string xmlString;

@@ -7,9 +7,11 @@ using System.Threading.Tasks;
 namespace DataForSolutionNameSpace {
     public class DataForSolution {
         public string Name { get; set; }
-        public string Type { get; set; }
+        public string FolderName { get; set; }
+        public ProjectTypeEnum Type { get; set; }
 
         public bool HasSecurity { get; set; }
-        public List<string> Modules { get; set; }
+        public bool IsInMemory{ get; set; }
+        public List<ModulesEnum> Modules { get; set; }
     }
 }
