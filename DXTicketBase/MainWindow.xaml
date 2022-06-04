@@ -10,6 +10,7 @@
     xmlns:dxgt="http://schemas.devexpress.com/winfx/2008/xaml/grid/themekeys"
     xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
     xmlns:local="clr-namespace:DXTicketBase"
+    xmlns:custom="clr-namespace:DataForSolutionNameSpace;assembly=DataForSolution"
     Width="1100"
     Height="700"
     Closed="ico_Closed"
@@ -27,6 +28,7 @@
                 </DataTrigger>
             </Style.Triggers>
         </Style>
+
     </Window.Resources>
 
     <dxmvvm:Interaction.Behaviors>
@@ -76,87 +78,81 @@
                 <RowDefinition Height="25"/>
             </Grid.RowDefinitions>
             <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-            <StackPanel Grid.Column="0">
-                <dxe:TextEdit
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0">
+                    <dxe:TextEdit
                     Height="80"
                     Margin="0,0,0,25"
                     EditValue="{Binding ThisTicket.ComplexSubject, Mode=TwoWay}" />
-                <Button
+                    <Button
                     Height="60"
                     Margin="0,0,0,25"
                     Content="AddNewTicket">
-                    <dxmvvm:Interaction.Behaviors>
-                        <dxmvvm:EventToCommand Command="{Binding AddNewTicketCommand}" EventName="Click" />
-                    </dxmvvm:Interaction.Behaviors>
-                </Button>
+                        <dxmvvm:Interaction.Behaviors>
+                            <dxmvvm:EventToCommand Command="{Binding AddNewTicketCommand}" EventName="Click" />
+                        </dxmvvm:Interaction.Behaviors>
+                    </Button>
                     <Button Height="50" Content="Create and open a solution" Margin="0,0,0,15">
-                    <dxmvvm:Interaction.Behaviors>
-                        <dxmvvm:EventToCommand Command="{Binding CreateAndOpenSolutionCommand}" EventName="Click" />
-                    </dxmvvm:Interaction.Behaviors>
-                </Button>
-                <Button Height="50" Content="Prepare data for solution">
-                    <dxmvvm:Interaction.Behaviors>
-                        <dxmvvm:EventToCommand Command="{Binding PrepareDataForSolutionCommand}" EventName="Click" />
-                    </dxmvvm:Interaction.Behaviors>
-                </Button>
+                        <dxmvvm:Interaction.Behaviors>
+                            <dxmvvm:EventToCommand Command="{Binding CreateAndOpenSolutionCommand}" EventName="Click" />
+                        </dxmvvm:Interaction.Behaviors>
+                    </Button>
+                    <Button Height="50" Content="Prepare data for solution">
+                        <dxmvvm:Interaction.Behaviors>
+                            <dxmvvm:EventToCommand Command="{Binding PrepareDataForSolutionCommand}" EventName="Click" />
+                        </dxmvvm:Interaction.Behaviors>
+                    </Button>
                 </StackPanel>
-            <StackPanel Grid.Column="1" Margin="10,0,0,0">
-                <dxe:TextEdit
+                <StackPanel Grid.Column="1" Margin="10,0,0,0">
+                    <dxe:TextEdit
                     Height="30"
                     Margin="0,0,0,10"
                     Text="{Binding SelectedTicket.Comment}"
                     TextWrapping="Wrap" />
-                <Button
+                    <Button
                     Height="30"
                     Margin="0,0,0,20"
                     Content="saveall">
-                    <dxmvvm:Interaction.Behaviors>
-                        <dxmvvm:EventToCommand Command="{Binding SaveAllCommand}" EventName="Click" />
-                    </dxmvvm:Interaction.Behaviors>
-                </Button>
-                <Button
+                        <dxmvvm:Interaction.Behaviors>
+                            <dxmvvm:EventToCommand Command="{Binding SaveAllCommand}" EventName="Click" />
+                        </dxmvvm:Interaction.Behaviors>
+                    </Button>
+                    <Button
                     Height="30"
                     Margin="0,0,0,20"
                     Content="GoToWeb">
-                    <dxmvvm:Interaction.Behaviors>
-                        <dxmvvm:EventToCommand Command="{Binding GoToWebCommand}" EventName="Click" />
-                    </dxmvvm:Interaction.Behaviors>
-                </Button>
-                <Button
+                        <dxmvvm:Interaction.Behaviors>
+                            <dxmvvm:EventToCommand Command="{Binding GoToWebCommand}" EventName="Click" />
+                        </dxmvvm:Interaction.Behaviors>
+                    </Button>
+                    <Button
                     Height="35"
                     Command="{Binding OpenFolderCommand}"
                     Content="Open folder" />
-                <Button
+                    <Button
                     Height="20"
                     Margin="0,50,0,0"
                     Command="{Binding DeleteFoldersCommand}"
                     Content="Delete old folders" />
-            </StackPanel>
+                </StackPanel>
             </Grid>
             <StackPanel Grid.Row="1" Orientation="Horizontal" >
-                <RadioButton
-                        Content="Win"
-                        GroupName="ProjectType"
-                        IsChecked="{Binding Path=SolutionType, Mode=TwoWay, 
-                                 Converter={StaticResource enumConverter},
-                                 ConverterParameter=Win}" />
-                <RadioButton
-                        Content="Web"
-                        GroupName="ProjectType"
-                        IsChecked="{Binding Path=SolutionType, Mode=TwoWay, 
-                                 Converter={StaticResource enumConverter},
-                                 ConverterParameter=Web}" />
-                <RadioButton
-                        Content="XPO"
-                        GroupName="ProjectType"
-                        IsChecked="{Binding Path=SolutionType, Mode=TwoWay, 
-                                 Converter={StaticResource enumConverter},
-                                 ConverterParameter=XPO}"
-                        Margin="0,0,20,0"/>
+                <dxe:ListBoxEdit EditValue="{Binding Path=SolutionType}" >
+                    <dxmvvm:Interaction.Behaviors>
+                        <dxmvvm:EnumItemsSourceBehavior EnumType="{x:Type custom:ProjectTypeEnum}"/>
+                    </dxmvvm:Interaction.Behaviors>
+                    <dxe:ListBoxEdit.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"></StackPanel>
+                        </ItemsPanelTemplate>
+                    </dxe:ListBoxEdit.ItemsPanel>
+                    <dxe:ListBoxEdit.StyleSettings>
+                        <dxe:RadioListBoxEditStyleSettings/>
+                    </dxe:ListBoxEdit.StyleSettings>
+                </dxe:ListBoxEdit>
                 <dxe:ListBoxEdit ItemsSource="{Binding AvailableModules}"
                                  EditValue="{Binding SelectedModules,Mode=TwoWay}"
                                  

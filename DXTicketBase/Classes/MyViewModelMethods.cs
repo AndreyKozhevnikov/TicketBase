@@ -25,7 +25,7 @@ using System.Xml.Serialization;
 using DataForSolutionNameSpace ;
 
 namespace DXTicketBase {
-
+    public enum TestEnum{test1,test2}
 
     public partial class MyViewModel {
         public MyViewModel() {
@@ -33,7 +33,7 @@ namespace DXTicketBase {
             CreateTicketList();
             CreateNewticket();
             //   IsWinAttached = true;
-            SolutionType = SolutionTypeEnum.Win;
+            SolutionType = ProjectTypeEnum.Blazor;
             SelectedModules = GetDefaultSelectedModules();
             PopulateAvailableModules();
         }
@@ -200,13 +200,13 @@ namespace DXTicketBase {
 
         //public bool IsWinAttached { get; set; }
         //public bool IsWebAttached { get; set; }
-        public SolutionTypeEnum SolutionType { get; set; }
+        public ProjectTypeEnum SolutionType { get; set; }
 
 
         private void PrepareDataForSolution() {
             var dataSolution = new DataForSolution();
-            
-            dataSolution.Type = ProjectTypeEnum.Blazor;
+
+            dataSolution.Type = SolutionType;
             dataSolution.HasSecurity = true;
             dataSolution.Modules = new List<ModulesEnum>();
             dataSolution.Modules.Add(ModulesEnum.Validation);
@@ -272,12 +272,12 @@ namespace DXTicketBase {
 
         SolutionCreator CreateSolutionCreator() {
             switch(SolutionType) {
-                case SolutionTypeEnum.XPO:
-                    return new XPOSolutionCreator();
-                case SolutionTypeEnum.Win:
-                    return new XAFWinSolutionCreator();
-                case SolutionTypeEnum.Web:
-                    return new XAFWebSolutionCreator();
+                //case SolutionTypeEnum.XPO:
+                //    return new XPOSolutionCreator();
+                //case SolutionTypeEnum.Win:
+                //    return new XAFWinSolutionCreator();
+                //case SolutionTypeEnum.Web:
+                //    return new XAFWebSolutionCreator();
                 default:
                     throw new ArgumentOutOfRangeException();
             }
