@@ -34,7 +34,7 @@ namespace DXTicketBase {
             CreateNewticket();
             //   IsWinAttached = true;
             SolutionType = ProjectTypeEnum.Blazor;
-            SelectedModules = GetDefaultSelectedModules();
+          //  SelectedModules = GetDefaultSelectedModules();
             PopulateAvailableModules();
         }
         List<object> GetDefaultSelectedModules() {
@@ -133,7 +133,7 @@ namespace DXTicketBase {
                 CreateNewticket();
                 generalEntity.SaveChanges();
             }), DispatcherPriority.Background);
-            SelectedModules = GetDefaultSelectedModules();
+          //  SelectedModules = GetDefaultSelectedModules();
         }
         List<string> GetAllDirectories() {
             var allFiles = Directory.GetDirectories(solvedPath).ToList();
@@ -198,8 +198,7 @@ namespace DXTicketBase {
             catch { }
         }
 
-        //public bool IsWinAttached { get; set; }
-        //public bool IsWebAttached { get; set; }
+ 
         public ProjectTypeEnum SolutionType { get; set; }
 
 
@@ -207,11 +206,10 @@ namespace DXTicketBase {
             var dataSolution = new DataForSolution();
 
             dataSolution.Type = SolutionType;
-            dataSolution.HasSecurity = true;
+            dataSolution.HasSecurity = IsSecurity;
+            dataSolution.IsInMemory = IsInMemory;
             dataSolution.Modules = new List<ModulesEnum>();
-            dataSolution.Modules.Add(ModulesEnum.Validation);
-            dataSolution.Modules.Add(ModulesEnum.ConditionalAppearance);
-            dataSolution.Modules.Add(ModulesEnum.Report);
+            dataSolution.Modules = SelectedModules.Cast<ModulesEnum>().ToList();
           
 
             string folderPath = "";
@@ -247,27 +245,27 @@ namespace DXTicketBase {
         }
 
         private void CreateAndOpenSolution() {
-            string folderPath = "";
-            string ticketNumber = SelectedTicket.Number;
-            if(currentThreadFolder != null && currentThreadFolder.Contains(ticketNumber)) { //find folder
-                folderPath = currentThreadFolder;
-            } else {
-                var allFiles = Directory.GetDirectories(parentPath).ToList();
-                if(allFiles.Count > 0) {
-                    var sel = allFiles.Where(x => x.Contains(ticketNumber)).FirstOrDefault();
-                    if(sel != null) {
-                        folderPath = sel;
-                    } else {
-                        MessageBox.Show("There is no directory");
-                        return;
-                    }
-                }
-            }
-            SolutionCreator creator = CreateSolutionCreator();
+            //string folderPath = "";
+            //string ticketNumber = SelectedTicket.Number;
+            //if(currentThreadFolder != null && currentThreadFolder.Contains(ticketNumber)) { //find folder
+            //    folderPath = currentThreadFolder;
+            //} else {
+            //    var allFiles = Directory.GetDirectories(parentPath).ToList();
+            //    if(allFiles.Count > 0) {
+            //        var sel = allFiles.Where(x => x.Contains(ticketNumber)).FirstOrDefault();
+            //        if(sel != null) {
+            //            folderPath = sel;
+            //        } else {
+            //            MessageBox.Show("There is no directory");
+            //            return;
+            //        }
+            //    }
+            //}
+            //SolutionCreator creator = CreateSolutionCreator();
 
-            creator.SetParameters(ticketNumber, folderPath, dropBoxPath, SelectedModules);
-            creator.CreateSolution();
-            creator.StartSolution();
+          //  creator.SetParameters(ticketNumber, folderPath, dropBoxPath, SelectedModules);
+            //creator.CreateSolution();
+            //creator.StartSolution();
         }
 
         SolutionCreator CreateSolutionCreator() {
@@ -315,7 +313,7 @@ namespace DXTicketBase {
 
             if(oldLst.Contains("inmemory") && newLst.Count > 1 && newLst.Contains("inmemory")) {
                 newLst.Remove("inmemory");
-                SelectedModules = newLst;
+              //  SelectedModules = newLst;
             }
 
 

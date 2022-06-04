@@ -140,7 +140,7 @@
                 </StackPanel>
             </Grid>
             <StackPanel Grid.Row="1" Orientation="Horizontal" >
-                <dxe:ListBoxEdit EditValue="{Binding Path=SolutionType}" >
+                <dxe:ListBoxEdit EditValue="{Binding Path=SolutionType,Mode=TwoWay}" >
                     <dxmvvm:Interaction.Behaviors>
                         <dxmvvm:EnumItemsSourceBehavior EnumType="{x:Type custom:ProjectTypeEnum}"/>
                     </dxmvvm:Interaction.Behaviors>
@@ -153,25 +153,22 @@
                         <dxe:RadioListBoxEditStyleSettings/>
                     </dxe:ListBoxEdit.StyleSettings>
                 </dxe:ListBoxEdit>
-                <dxe:ListBoxEdit ItemsSource="{Binding AvailableModules}"
-                                 EditValue="{Binding SelectedModules,Mode=TwoWay}"
-                                 
-                                 >
+                <dxe:ListBoxEdit EditValue="{Binding Path=SelectedModules,Mode=TwoWay}" >
                     <dxmvvm:Interaction.Behaviors>
-                        <dxmvvm:EventToCommand Command="{Binding SelectedModulesChangedCommand}" EventName="EditValueChanged" PassEventArgsToCommand="True" />
+                        <dxmvvm:EnumItemsSourceBehavior EnumType="{x:Type custom:ModulesEnum}"/>
                     </dxmvvm:Interaction.Behaviors>
-                    <dxe:ListBoxEdit.StyleSettings>
-                        <dxe:CheckedListBoxEditStyleSettings />
-                    </dxe:ListBoxEdit.StyleSettings>
                     <dxe:ListBoxEdit.ItemsPanel>
                         <ItemsPanelTemplate>
-                            <StackPanel Orientation="Horizontal" />
+                            <StackPanel Orientation="Horizontal"></StackPanel>
                         </ItemsPanelTemplate>
                     </dxe:ListBoxEdit.ItemsPanel>
+                    <dxe:ListBoxEdit.StyleSettings>
+                        <dxe:CheckedListBoxEditStyleSettings/>
+                    </dxe:ListBoxEdit.StyleSettings>
                 </dxe:ListBoxEdit>
-                <!--<CheckBox Content="Security" IsChecked="{Binding IsSecurity,Mode=TwoWay}" Margin="20,0,20,0" />
-                    <CheckBox Content="Report" IsChecked="{Binding IsReport,Mode=TwoWay}" Margin="0,0,20,0" />
-                    <CheckBox Content="Office" IsChecked="{Binding IsOffice,Mode=TwoWay}" Margin="0,0,20,0" />-->
+     
+                <dxe:CheckEdit Content="Security" IsChecked="{Binding IsSecurity,Mode=TwoWay}" Margin="40,0,20,0" />
+                <dxe:CheckEdit Content="InMemory" IsChecked="{Binding IsInMemory,Mode=TwoWay}"  />
             </StackPanel>
         </Grid>
     </Grid>

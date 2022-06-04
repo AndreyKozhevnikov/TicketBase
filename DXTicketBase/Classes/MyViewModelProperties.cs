@@ -1,4 +1,5 @@
-﻿using DevExpress.Mvvm;
+﻿using DataForSolutionNameSpace;
+using DevExpress.Mvvm;
 using DevExpress.Xpf.Editors;
 using DevExpress.Xpf.Grid;
 using System;
@@ -62,17 +63,15 @@ namespace DXTicketBase {
                 return _createAndOpenSolutionCommand;
             }
         }
-        public ICommand PrepareDataForSolutionCommand
-        {
-            get
-            {
-                if (_prepareDataForSolutionCommand == null)
+        public ICommand PrepareDataForSolutionCommand {
+            get {
+                if(_prepareDataForSolutionCommand == null)
                     _prepareDataForSolutionCommand = new DelegateCommand(PrepareDataForSolution);
 
                 return _prepareDataForSolutionCommand;
             }
         }
-        
+
         public ICommand AddNewTicketCommand {
             get {
                 if(_addNewTicketCommand == null)
@@ -120,6 +119,22 @@ namespace DXTicketBase {
 
         }
 
+        bool _isSecurity;
+        public bool IsSecurity {
+            get { return _isSecurity; }
+            set {
+                _isSecurity = value;
+                NotifyPropertyChanged();
+            }
+        }
+        bool _isInMemory;
+        public bool IsInMemory {
+            get { return _isInMemory; }
+            set {
+                _isInMemory = value;
+                NotifyPropertyChanged();
+            }
+        }
         public ObservableCollection<MyTicket> ListTickets { get; set; }
 
         public List<String> AvailableModules { get; set; }
