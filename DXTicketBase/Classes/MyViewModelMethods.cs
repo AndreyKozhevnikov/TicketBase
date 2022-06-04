@@ -19,7 +19,10 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Threading;
+using System.Xml;
 using System.Xml.Linq;
+using System.Xml.Serialization;
+using DataForSolutionNameSpace ;
 
 namespace DXTicketBase {
 
@@ -200,7 +203,24 @@ namespace DXTicketBase {
         public SolutionTypeEnum SolutionType { get; set; }
 
 
-
+        private void PrepareDataForSolution() {
+            var dataSolution = new DataForSolution();
+            dataSolution.Name = "myNewTestProject";
+            dataSolution.HasSecurity = true;
+            dataSolution.Modules = new List<string>();
+            dataSolution.Modules.Add("Validation");
+            dataSolution.Modules.Add("ConditionalAppearance");
+            string fileName = Properties.Settings.Default.SolutionDataFileName;
+            XmlSerializer serializer = new XmlSerializer(typeof(DataForSolution));
+            string xmlString;
+            using(var sww = new StringWriter()) {
+                using(XmlWriter writer = XmlWriter.Create(sww)) {
+                    serializer.Serialize(writer, dataSolution);
+                    xmlString = sww.ToString(); // Your XML
+                }
+            }
+            File.WriteAllText(fileName, xmlString);
+        }
 
         private void CreateAndOpenSolution() {
             string folderPath = "";
@@ -301,7 +321,7 @@ namespace DXTicketBase {
         }
 
 
-        private void NotifyPropertyChanged([CallerMemberName]String propertyName = "") {
+        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "") {
             if(PropertyChanged != null) {
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }

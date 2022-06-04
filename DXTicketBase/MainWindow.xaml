@@ -83,23 +83,27 @@
             <StackPanel Grid.Column="0">
                 <dxe:TextEdit
                     Height="80"
-                    Margin="0,0,0,50"
+                    Margin="0,0,0,25"
                     EditValue="{Binding ThisTicket.ComplexSubject, Mode=TwoWay}" />
                 <Button
                     Height="60"
-                    Margin="0,0,0,50"
+                    Margin="0,0,0,25"
                     Content="AddNewTicket">
                     <dxmvvm:Interaction.Behaviors>
                         <dxmvvm:EventToCommand Command="{Binding AddNewTicketCommand}" EventName="Click" />
                     </dxmvvm:Interaction.Behaviors>
                 </Button>
-                <Button Height="50" Content="Create and open a solution">
+                    <Button Height="50" Content="Create and open a solution" Margin="0,0,0,15">
                     <dxmvvm:Interaction.Behaviors>
                         <dxmvvm:EventToCommand Command="{Binding CreateAndOpenSolutionCommand}" EventName="Click" />
                     </dxmvvm:Interaction.Behaviors>
                 </Button>
-                
-            </StackPanel>
+                <Button Height="50" Content="Prepare data for solution">
+                    <dxmvvm:Interaction.Behaviors>
+                        <dxmvvm:EventToCommand Command="{Binding PrepareDataForSolutionCommand}" EventName="Click" />
+                    </dxmvvm:Interaction.Behaviors>
+                </Button>
+                </StackPanel>
             <StackPanel Grid.Column="1" Margin="10,0,0,0">
                 <dxe:TextEdit
                     Height="30"

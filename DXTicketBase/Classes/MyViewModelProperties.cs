@@ -32,6 +32,7 @@ namespace DXTicketBase {
         ICommand _copyToClipBoardCommand;
         ICommand _addNewTicketCommand;
         ICommand _createAndOpenSolutionCommand;
+        ICommand _prepareDataForSolutionCommand;
         ICommand _saveAllCommand;
         ICommand _goToWebCommand;
         ICommand _openFolderCommand;
@@ -61,6 +62,17 @@ namespace DXTicketBase {
                 return _createAndOpenSolutionCommand;
             }
         }
+        public ICommand PrepareDataForSolutionCommand
+        {
+            get
+            {
+                if (_prepareDataForSolutionCommand == null)
+                    _prepareDataForSolutionCommand = new DelegateCommand(PrepareDataForSolution);
+
+                return _prepareDataForSolutionCommand;
+            }
+        }
+        
         public ICommand AddNewTicketCommand {
             get {
                 if(_addNewTicketCommand == null)

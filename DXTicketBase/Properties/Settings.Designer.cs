@@ -22,5 +22,17 @@ namespace DXTicketBase.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("c:\\solutiondata\\data.xml")]
+        public string SolutionDataFileName {
+            get {
+                return ((string)(this["SolutionDataFileName"]));
+            }
+            set {
+                this["SolutionDataFileName"] = value;
+            }
+        }
     }
 }
