@@ -9,7 +9,7 @@ using System.Xml.Linq;
 
 namespace DXTicketBase.Classes {
     abstract class SolutionCreator {
-        string folderNumber;
+        string solutionName;
         private string folderPath;
         string gitBatchFile;
         string slnPathWithProjectName;
@@ -18,10 +18,10 @@ namespace DXTicketBase.Classes {
         internal string finalSolutionFolderPath;
         internal List<object> selectedModules;
 
-       public  virtual void AddAdditionalModules(string solutionPath) {
+        public virtual void AddAdditionalModules(string solutionPath) {
         }
 
-      internal  void CreateT4File<T>(List<String> tokens) where T : new() {
+        internal void CreateT4File<T>(List<String> tokens) where T : new() {
             var upd = ((T)Activator.CreateInstance(typeof(T))) as TextTemplates.BaseTemplate;
             if(tokens.Contains("validation")) {
                 upd.HasValidation = true;
@@ -39,7 +39,7 @@ namespace DXTicketBase.Classes {
                 upd.UseInMemory = true;
             }
             var updResult = upd.TransformText();
-            string filePath2 = finalSolutionFolderPath + string.Format(upd.FileName, folderNumber);
+            string filePath2 = finalSolutionFolderPath + string.Format(upd.FileName, solutionName);
             File.WriteAllText(filePath2, updResult);
         }
 
@@ -51,8 +51,15 @@ namespace DXTicketBase.Classes {
         }
 
         void CreateTargetFolder() {
-            folderNumber = "dx" + ticketNumber;
-            finalSolutionFolderPath = folderPath + string.Format(@"\{0}\", folderNumber);
+            solutionName = "dx" + ticketNumber;
+            finalSolutionFolderPath = folderPath + string.Format(@"\{0}\", solutionName);
+            finalSolutionFolderPath = GetFinalFolderName(finalSolutionFolderPath, ref solutionName, folderPath);
+            if(finalSolutionFolderPath != null) {
+                Directory.CreateDirectory(finalSolutionFolderPath);
+            }
+
+        }
+        public static string GetFinalFolderName(string finalSolutionFolderPath, ref string solutionName, string folderPath) {
             bool canNotCreateSolution = true;
             int tmpCount = 0;
             MessageBoxResult? needCreateNewOne = null;
@@ -63,19 +70,18 @@ namespace DXTicketBase.Classes {
                     if(needCreateNewOne == null)
                         needCreateNewOne = MessageBox.Show("Solution exists. Create a new one?", "Already exists", MessageBoxButton.YesNo);
                     if(needCreateNewOne.Value == MessageBoxResult.Yes) {
-                        tmpFolderNumber = folderNumber + "v" + ++tmpCount;
+                        tmpFolderNumber = solutionName + "v" + ++tmpCount;
                         finalSolutionFolderPath = folderPath + string.Format(@"\{0}\", tmpFolderNumber);
                     } else {
-                        return;
+                        return null;
                     }
                 } else {
                     canNotCreateSolution = false;
                     if(tmpFolderNumber != null)
-                        folderNumber = tmpFolderNumber;
+                        solutionName = tmpFolderNumber;
                 }
             } while(canNotCreateSolution);
-            Directory.CreateDirectory(finalSolutionFolderPath);
-
+            return finalSolutionFolderPath; ;
         }
 
         void FileMove(string fromPath, string toPath) {
@@ -92,7 +98,7 @@ namespace DXTicketBase.Classes {
             foreach(var fl in filesWithSolutionName) {
                 Regex rgx = new Regex(SolutionPattern);
                 MatchCollection matches = rgx.Matches(fl);
-                var newFl = rgx.Replace(fl, folderNumber, 1, matches.Count - 1);
+                var newFl = rgx.Replace(fl, solutionName, 1, matches.Count - 1);
                 var fullFileName = finalSolutionFolderPath + "\\" + fl;
                 var fullNewFileName = finalSolutionFolderPath + "\\" + newFl;
                 FileMove(fullFileName, fullNewFileName);
@@ -121,7 +127,7 @@ namespace DXTicketBase.Classes {
             foreach(var fl in alltxtFiles) {
                 var txt = File.ReadAllText(fl);
                 if(txt.Contains(SolutionPattern)) {
-                    txt = txt.Replace(SolutionPattern, folderNumber);
+                    txt = txt.Replace(SolutionPattern, solutionName);
                     File.WriteAllText(fl, txt);
                 }
             }
@@ -138,7 +144,7 @@ namespace DXTicketBase.Classes {
             RenameDataBaseName();
             ReplaceOldSolutionNameInTextFiles();
             Process.Start(gitBatchFile);
-            slnPathWithProjectName = finalSolutionFolderPath + string.Format(@"{0}.sln", folderNumber);
+            slnPathWithProjectName = finalSolutionFolderPath + string.Format(@"{0}.sln", solutionName);
 
         }
 
@@ -156,7 +162,7 @@ namespace DXTicketBase.Classes {
             }
         }
         string GetDbName() {
-            var dbName = string.Format("d{0}-{1}", DateTime.Today.DayOfYear,  folderNumber);
+            var dbName = string.Format("d{0}-{1}", DateTime.Today.DayOfYear, solutionName);
             return dbName;
         }
         internal void DirectoryCopy(string sourceDirName, string destDirName, bool copySubDirs) {

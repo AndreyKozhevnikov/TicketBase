@@ -203,6 +203,11 @@ namespace DXTicketBase {
 
 
         private void PrepareDataForSolution() {
+            if(SolutionType == ProjectTypeEnum.XPO) {
+                CreateAndOpenSolution();
+                return;
+            }
+
             var dataSolution = new DataForSolution();
 
             dataSolution.Type = SolutionType;
@@ -230,10 +235,11 @@ namespace DXTicketBase {
                     }
                 }
             }
-            dataSolution.Name = "dx" + ticketNumber;
+            var tmpSolutionName = "dx" + ticketNumber;
             dataSolution.FolderName = folderPath;
 
-
+            SolutionCreator.GetFinalFolderName(folderPath, ref tmpSolutionName, folderPath);
+            dataSolution.Name = tmpSolutionName;
             string fileName = Properties.Settings.Default.SolutionDataFileName;
             XmlSerializer serializer = new XmlSerializer(typeof(DataForSolution));
             string xmlString;
@@ -247,33 +253,33 @@ namespace DXTicketBase {
         }
 
         private void CreateAndOpenSolution() {
-            //string folderPath = "";
-            //string ticketNumber = SelectedTicket.Number;
-            //if(currentThreadFolder != null && currentThreadFolder.Contains(ticketNumber)) { //find folder
-            //    folderPath = currentThreadFolder;
-            //} else {
-            //    var allFiles = Directory.GetDirectories(parentPath).ToList();
-            //    if(allFiles.Count > 0) {
-            //        var sel = allFiles.Where(x => x.Contains(ticketNumber)).FirstOrDefault();
-            //        if(sel != null) {
-            //            folderPath = sel;
-            //        } else {
-            //            MessageBox.Show("There is no directory");
-            //            return;
-            //        }
-            //    }
-            //}
-            //SolutionCreator creator = CreateSolutionCreator();
+            string folderPath = "";
+            string ticketNumber = SelectedTicket.Number;
+            if(currentThreadFolder != null && currentThreadFolder.Contains(ticketNumber)) { //find folder
+                folderPath = currentThreadFolder;
+            } else {
+                var allFiles = Directory.GetDirectories(parentPath).ToList();
+                if(allFiles.Count > 0) {
+                    var sel = allFiles.Where(x => x.Contains(ticketNumber)).FirstOrDefault();
+                    if(sel != null) {
+                        folderPath = sel;
+                    } else {
+                        MessageBox.Show("There is no directory");
+                        return;
+                    }
+                }
+            }
+            SolutionCreator creator = CreateSolutionCreator();
 
-            //  creator.SetParameters(ticketNumber, folderPath, dropBoxPath, SelectedModules);
-            //creator.CreateSolution();
-            //creator.StartSolution();
+            creator.SetParameters(ticketNumber, folderPath, dropBoxPath, SelectedModules);
+            creator.CreateSolution();
+            creator.StartSolution();
         }
 
         SolutionCreator CreateSolutionCreator() {
             switch(SolutionType) {
-                //case SolutionTypeEnum.XPO:
-                //    return new XPOSolutionCreator();
+                case ProjectTypeEnum.XPO:
+                    return new XPOSolutionCreator();
                 //case SolutionTypeEnum.Win:
                 //    return new XAFWinSolutionCreator();
                 //case SolutionTypeEnum.Web:

@@ -95,11 +95,6 @@
                             <dxmvvm:EventToCommand Command="{Binding AddNewTicketCommand}" EventName="Click" />
                         </dxmvvm:Interaction.Behaviors>
                     </Button>
-                    <Button Height="50" Content="Create and open a solution" Margin="0,0,0,15">
-                        <dxmvvm:Interaction.Behaviors>
-                            <dxmvvm:EventToCommand Command="{Binding CreateAndOpenSolutionCommand}" EventName="Click" />
-                        </dxmvvm:Interaction.Behaviors>
-                    </Button>
                     <Button Height="50" Content="Prepare data for solution">
                         <dxmvvm:Interaction.Behaviors>
                             <dxmvvm:EventToCommand Command="{Binding PrepareDataForSolutionCommand}" EventName="Click" />
