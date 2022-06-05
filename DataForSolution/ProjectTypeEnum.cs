@@ -1,9 +1,8 @@
 ﻿namespace DataForSolutionNameSpace {
     public enum ProjectTypeEnum {
-        Blazor,
-        WinCore,
-        Win,
-        Web,
+        
+        Core,
+        Framework,
         XPO
     }
 }

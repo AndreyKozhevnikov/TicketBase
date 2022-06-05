@@ -22,10 +22,10 @@ using System.Windows.Threading;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Serialization;
-using DataForSolutionNameSpace ;
+using DataForSolutionNameSpace;
 
 namespace DXTicketBase {
-    public enum TestEnum{test1,test2}
+    public enum TestEnum { test1, test2 }
 
     public partial class MyViewModel {
         public MyViewModel() {
@@ -33,8 +33,8 @@ namespace DXTicketBase {
             CreateTicketList();
             CreateNewticket();
             //   IsWinAttached = true;
-            SolutionType = ProjectTypeEnum.Blazor;
-          //  SelectedModules = GetDefaultSelectedModules();
+            SolutionType = ProjectTypeEnum.Core;
+            //  SelectedModules = GetDefaultSelectedModules();
             PopulateAvailableModules();
         }
         List<object> GetDefaultSelectedModules() {
@@ -133,7 +133,7 @@ namespace DXTicketBase {
                 CreateNewticket();
                 generalEntity.SaveChanges();
             }), DispatcherPriority.Background);
-          //  SelectedModules = GetDefaultSelectedModules();
+            //  SelectedModules = GetDefaultSelectedModules();
         }
         List<string> GetAllDirectories() {
             var allFiles = Directory.GetDirectories(solvedPath).ToList();
@@ -198,7 +198,7 @@ namespace DXTicketBase {
             catch { }
         }
 
- 
+
         public ProjectTypeEnum SolutionType { get; set; }
 
 
@@ -209,8 +209,10 @@ namespace DXTicketBase {
             dataSolution.HasSecurity = IsSecurity;
             dataSolution.IsInMemory = IsInMemory;
             dataSolution.Modules = new List<ModulesEnum>();
-            dataSolution.Modules = SelectedModules.Cast<ModulesEnum>().ToList();
-          
+            if(selectedModules != null) {
+                dataSolution.Modules = SelectedModules.Cast<ModulesEnum>().ToList();
+            }
+
 
             string folderPath = "";
             string ticketNumber = SelectedTicket.Number;
@@ -263,7 +265,7 @@ namespace DXTicketBase {
             //}
             //SolutionCreator creator = CreateSolutionCreator();
 
-          //  creator.SetParameters(ticketNumber, folderPath, dropBoxPath, SelectedModules);
+            //  creator.SetParameters(ticketNumber, folderPath, dropBoxPath, SelectedModules);
             //creator.CreateSolution();
             //creator.StartSolution();
         }
@@ -313,7 +315,7 @@ namespace DXTicketBase {
 
             if(oldLst.Contains("inmemory") && newLst.Count > 1 && newLst.Contains("inmemory")) {
                 newLst.Remove("inmemory");
-              //  SelectedModules = newLst;
+                //  SelectedModules = newLst;
             }
 
 

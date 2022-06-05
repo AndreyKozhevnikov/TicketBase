@@ -1,8 +1,9 @@
 ﻿namespace DataForSolutionNameSpace {
     public enum ModulesEnum {
-        Validation,
+        FileAttachments,
         ConditionalAppearance,
         Office,
         Report,
+        Validation,
     }
 }
