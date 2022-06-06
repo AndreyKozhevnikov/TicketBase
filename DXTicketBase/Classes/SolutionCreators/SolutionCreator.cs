@@ -64,6 +64,7 @@ namespace DXTicketBase.Classes {
             int tmpCount = 0;
             MessageBoxResult? needCreateNewOne = null;
             string tmpFolderNumber = null;
+            finalSolutionFolderPath = Path.Combine(finalSolutionFolderPath, solutionName);
             do {
                 var isAlreadyExist = Directory.Exists(finalSolutionFolderPath);
                 if(isAlreadyExist) {
