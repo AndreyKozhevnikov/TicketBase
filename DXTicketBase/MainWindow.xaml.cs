@@ -32,8 +32,8 @@ namespace DXTicketBase {
     public partial class MainWindow : Window {
         MyViewModel vm;
         public MainWindow() {
-            LogifyAlert.Instance.ApiKey = "05D7BFD019A243CBA6E1EBC59C4E830C";
-            LogifyAlert.Instance.StartExceptionsHandling();
+           // LogifyAlert.Instance.ApiKey = "05D7BFD019A243CBA6E1EBC59C4E830C";
+           // LogifyAlert.Instance.StartExceptionsHandling();
         
 
             InitializeComponent();
