@@ -52,8 +52,7 @@ namespace DXTicketBase.Classes {
 
         void CreateTargetFolder() {
             solutionName = "dx" + ticketNumber;
-            finalSolutionFolderPath = folderPath + string.Format(@"\{0}\", solutionName);
-            finalSolutionFolderPath = GetFinalFolderName(finalSolutionFolderPath, ref solutionName, folderPath);
+            finalSolutionFolderPath = GetFinalFolderName(folderPath, ref solutionName, folderPath);
             if(finalSolutionFolderPath != null) {
                 Directory.CreateDirectory(finalSolutionFolderPath);
             }
@@ -145,7 +144,7 @@ namespace DXTicketBase.Classes {
             RenameDataBaseName();
             ReplaceOldSolutionNameInTextFiles();
             Process.Start(gitBatchFile);
-            slnPathWithProjectName = finalSolutionFolderPath + string.Format(@"{0}.sln", solutionName);
+            slnPathWithProjectName = Path.Combine(finalSolutionFolderPath, string.Format(@"{0}.sln", solutionName));
 
         }
 
