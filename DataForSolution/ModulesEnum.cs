@@ -5,5 +5,7 @@
         Office,
         Report,
         Validation,
+        Scheduler,
+        Dashboards
     }
 }
