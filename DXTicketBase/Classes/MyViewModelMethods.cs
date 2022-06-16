@@ -250,6 +250,10 @@ namespace DXTicketBase {
                 }
             }
             File.WriteAllText(fileName, xmlString);
+
+            SelectedModules = new List<object>();
+            IsSecurity=false;
+            IsInMemory=false; 
         }
 
         private void CreateAndOpenSolution() {
