@@ -6,6 +6,8 @@
         Report,
         Validation,
         Scheduler,
-        Dashboards
+        Dashboards,
+        AuditTrail,
+        TreeList,
     }
 }
