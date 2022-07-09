@@ -252,10 +252,15 @@ namespace DXTicketBase {
                 }
             }
             File.WriteAllText(fileName, xmlString);
+            OpenVS();
+
 
             SelectedModules = new List<object>();
             IsSecurity=false;
             IsInMemory=false; 
+        }
+        public void OpenVS() {
+            Process.Start(@"C:\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\devenv.exe","/command");
         }
 
         private void CreateAndOpenSolution() {
