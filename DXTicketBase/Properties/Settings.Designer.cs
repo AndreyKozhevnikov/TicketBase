@@ -37,7 +37,7 @@ namespace DXTicketBase.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("22.1.3")]
+        [global::System.Configuration.DefaultSettingValueAttribute("22.1.3.0")]
         public string FullXAFVersion {
             get {
                 return ((string)(this["FullXAFVersion"]));
