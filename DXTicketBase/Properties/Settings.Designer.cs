@@ -34,5 +34,17 @@ namespace DXTicketBase.Properties {
                 this["SolutionDataFileName"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("22.1.3")]
+        public string FullXAFVersion {
+            get {
+                return ((string)(this["FullXAFVersion"]));
+            }
+            set {
+                this["FullXAFVersion"] = value;
+            }
+        }
     }
 }

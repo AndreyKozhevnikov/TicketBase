@@ -5,5 +5,8 @@
     <Setting Name="SolutionDataFileName" Type="System.String" Scope="User">
       <Value Profile="(Default)">c:\solutiondata\data.xml</Value>
     </Setting>
+    <Setting Name="FullXAFVersion" Type="System.String" Scope="User">
+      <Value Profile="(Default)">22.1.3</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

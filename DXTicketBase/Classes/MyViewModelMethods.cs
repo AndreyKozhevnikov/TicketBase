@@ -210,6 +210,8 @@ namespace DXTicketBase {
 
             var dataSolution = new DataForSolution();
 
+            dataSolution.FullXAFVersion = Properties.Settings.Default.FullXAFVersion;
+
             dataSolution.Type = SolutionType;
             dataSolution.HasSecurity = IsSecurity;
             dataSolution.IsInMemory = IsInMemory;
