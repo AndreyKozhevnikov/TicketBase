@@ -13,5 +13,6 @@ namespace DataForSolutionNameSpace {
         public bool HasSecurity { get; set; }
         public bool IsInMemory{ get; set; }
         public List<ModulesEnum> Modules { get; set; }
+        public string FullXAFVersion{ get; set; }
     }
 }
