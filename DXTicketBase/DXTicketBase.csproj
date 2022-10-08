@@ -163,8 +163,6 @@
     <Compile Include="Classes\MyViewModelProperties.cs" />
     <Compile Include="Classes\SolutionCreators\SolutionCreator.cs" />
     <Compile Include="Classes\SolutionCreators\XAFSolutionCreator.cs" />
-    <Compile Include="Classes\SolutionCreators\XAFWebSolutionCreator.cs" />
-    <Compile Include="Classes\SolutionCreators\XAFWinSolutionCreator.cs" />
     <Compile Include="Classes\SolutionCreators\XPOSolutionCreator.cs" />
     <Compile Include="ClipboardMonitor.cs" />
     <Compile Include="Model1.Context.cs">
