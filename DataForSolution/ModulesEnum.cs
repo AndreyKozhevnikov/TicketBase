@@ -9,5 +9,8 @@
         Dashboards,
         AuditTrail,
         TreeList,
+        Notification,
+        ViewVariant,
+        StateMachine
     }
 }
