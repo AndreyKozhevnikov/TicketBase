@@ -184,6 +184,9 @@ namespace DXTicketBase.Classes {
             // Get the files in the directory and copy them to the new location.
             FileInfo[] files = dir.GetFiles();
             foreach(FileInfo file in files) {
+                if(file.Name== "TextToReplace.txt") {
+                    continue;
+                }
                 string temppath = System.IO.Path.Combine(destDirName, file.Name);
                 file.CopyTo(temppath, false);
             }
