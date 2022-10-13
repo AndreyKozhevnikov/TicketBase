@@ -260,7 +260,7 @@ namespace DXTicketBase {
             IsInMemory=false; 
         }
         public void OpenVS() {
-            Process.Start(@"C:\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\devenv.exe","/command");
+            Process.Start(@"C:\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\devenv.exe");
         }
 
         private void CreateAndOpenSolution() {
