@@ -23,6 +23,7 @@ using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Serialization;
 using DataForSolutionNameSpace;
+using System.Data.SqlClient;
 
 namespace DXTicketBase {
     public enum TestEnum { test1, test2 }
@@ -253,11 +254,32 @@ namespace DXTicketBase {
             }
             File.WriteAllText(fileName, xmlString);
             OpenVS();
-
+            CreateSQLDataBaseIfNotExists(dataSolution.Name);
 
             SelectedModules = new List<object>();
-            IsSecurity=false;
-            IsInMemory=false; 
+            IsSecurity = false;
+            IsInMemory = false;
+        }
+
+        void CreateSQLDataBaseIfNotExists(string solutionName) {
+            var dataBaseName = string.Format("d{0}-{1}", DateTime.Today.DayOfYear, solutionName);
+            var connection = new SqlConnection("data source=(localdb)\\mssqllocaldb;integrated security=SSPI");
+            connection.Open();
+            var isExistsCommand = new SqlCommand();
+            isExistsCommand.Connection = connection;
+            isExistsCommand.CommandText = @"DECLARE @dbname nvarchar(128)
+SET @dbname = N'"+ dataBaseName + @"'
+IF (not EXISTS(SELECT name 
+FROM [master].sys.databases 
+WHERE (name = @dbname)))
+ BEGIN
+  SET @dbname = QUOTENAME(@dbname)
+  EXEC('CREATE DATABASE '+ @dbname)
+ END";
+            //decimal decimalValue = 111111111987654321;
+            //isExistsCommand.Parameters.Add(new SqlParameter("@p1", decimalValue));
+            isExistsCommand.ExecuteNonQuery();
+
         }
         public void OpenVS() {
             Process.Start(@"C:\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\devenv.exe");
