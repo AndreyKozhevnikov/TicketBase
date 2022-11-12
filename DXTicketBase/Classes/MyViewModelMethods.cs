@@ -255,8 +255,7 @@ namespace DXTicketBase {
             }
             File.WriteAllText(fileName, xmlString);
             OpenVS();
-            var dataBaseName = string.Format("d{0}-{1}", DateTime.Today.DayOfYear, dataSolution.Name);
-            DataBaseCreator.CreateSQLDataBaseIfNotExists(dataBaseName);
+       
 
             SelectedModules = new List<object>();
             IsSecurity = false;

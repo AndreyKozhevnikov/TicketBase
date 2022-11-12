@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DXTicketBase", "DXTicketBas
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataForSolution", "DataForSolution\DataForSolution.csproj", "{8F85A199-BECD-44DF-A6B1-215930CCC671}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBaseCreator", "DataBaseCreator\DataBaseCreator.csproj", "{8005F758-853C-49BD-806D-8060A851C51B}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,14 +31,6 @@ Global
 		{8F85A199-BECD-44DF-A6B1-215930CCC671}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8F85A199-BECD-44DF-A6B1-215930CCC671}.Release|x86.ActiveCfg = Release|Any CPU
 		{8F85A199-BECD-44DF-A6B1-215930CCC671}.Release|x86.Build.0 = Release|Any CPU
-		{8005F758-853C-49BD-806D-8060A851C51B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8005F758-853C-49BD-806D-8060A851C51B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8005F758-853C-49BD-806D-8060A851C51B}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{8005F758-853C-49BD-806D-8060A851C51B}.Debug|x86.Build.0 = Debug|Any CPU
-		{8005F758-853C-49BD-806D-8060A851C51B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8005F758-853C-49BD-806D-8060A851C51B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8005F758-853C-49BD-806D-8060A851C51B}.Release|x86.ActiveCfg = Release|Any CPU
-		{8005F758-853C-49BD-806D-8060A851C51B}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

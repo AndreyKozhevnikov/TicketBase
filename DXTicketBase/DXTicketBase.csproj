@@ -285,10 +285,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataBaseCreator\DataBaseCreator.csproj">
-      <Project>{8005f758-853c-49bd-806d-8060a851c51b}</Project>
-      <Name>DataBaseCreator</Name>
-    </ProjectReference>
     <ProjectReference Include="..\DataForSolution\DataForSolution.csproj">
       <Project>{8f85a199-becd-44df-a6b1-215930ccc671}</Project>
       <Name>DataForSolution</Name>
