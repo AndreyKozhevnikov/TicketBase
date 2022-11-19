@@ -152,7 +152,8 @@ namespace DXTicketBase.Classes {
             List<string> configFiles = new List<string>();
             configFiles.AddRange(Directory.GetFiles(finalSolutionFolderPath, "app.config", SearchOption.AllDirectories));
             configFiles.AddRange(Directory.GetFiles(finalSolutionFolderPath, "web.config", SearchOption.AllDirectories));
-            string dbName = GetDbName();
+            string dbName;
+            DataBaseCreatorLib.DataBaseCreator.CreateSQLDataBaseIfNotExists(solutionName, out dbName);
             foreach(string configFile in configFiles) {
                 var txt = File.ReadAllText(configFile);
                 if(txt.Contains(SolutionPattern)) {
@@ -160,10 +161,6 @@ namespace DXTicketBase.Classes {
                     File.WriteAllText(configFile, txt);
                 }
             }
-        }
-        string GetDbName() {
-            var dbName = string.Format("d{0}-{1}", DateTime.Today.DayOfYear, solutionName);
-            return dbName;
         }
         internal void DirectoryCopy(string sourceDirName, string destDirName, bool copySubDirs) {
             // Get the subdirectories for the specified directory.
