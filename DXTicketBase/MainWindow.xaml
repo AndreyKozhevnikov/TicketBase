@@ -28,7 +28,7 @@
                 </DataTrigger>
             </Style.Triggers>
         </Style>
-
+       
     </Window.Resources>
 
     <dxmvvm:Interaction.Behaviors>
@@ -153,6 +153,20 @@
 
                 <dxe:CheckEdit Content="Security" IsChecked="{Binding IsSecurity,Mode=TwoWay}" Margin="40,0,20,0" />
                 <dxe:CheckEdit Content="InMemory" IsChecked="{Binding IsInMemory,Mode=TwoWay}"  />
+
+                <dxe:ListBoxEdit EditValue="{Binding Path=ORMType,Mode=TwoWay}" >
+                    <dxmvvm:Interaction.Behaviors>
+                        <dxmvvm:EnumItemsSourceBehavior EnumType="{x:Type custom:ORMEnum}"/>
+                    </dxmvvm:Interaction.Behaviors>
+                    <dxe:ListBoxEdit.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"></StackPanel>
+                        </ItemsPanelTemplate>
+                    </dxe:ListBoxEdit.ItemsPanel>
+                    <dxe:ListBoxEdit.StyleSettings>
+                        <dxe:RadioListBoxEditStyleSettings/>
+                    </dxe:ListBoxEdit.StyleSettings>
+                </dxe:ListBoxEdit>
             </StackPanel>
             <dxe:ListBoxEdit Grid.Row="2" EditValue="{Binding Path=SelectedModules,Mode=TwoWay}" >
                 <dxmvvm:Interaction.Behaviors>

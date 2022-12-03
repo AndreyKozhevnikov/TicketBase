@@ -43,8 +43,17 @@
   <ItemGroup>
     <Compile Include="DataForSolution.cs" />
     <Compile Include="ModulesEnum.cs" />
+    <Compile Include="ORMEnum.cs" />
     <Compile Include="ProjectTypeEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>If $(ConfigurationName) == Release (  call $(SolutionDir)\..\..\..\Deploy\AssemblyInfoDeploy\AssemblyInfo.exe $(SolutionDir)DataForSolution\Properties\AssemblyInfo.cs -set:15.1 
+echo "Release changed")</PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>If $(ConfigurationName) == Release ( xcopy "$(TargetDir)*.dll" "$(SolutionDir)\..\..\..\Deploy\TicketBaseDeploy" /y  /f
+echo "Release completed")</PostBuildEvent>
+  </PropertyGroup>
 </Project>
