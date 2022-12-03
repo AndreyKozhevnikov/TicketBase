@@ -202,6 +202,7 @@ namespace DXTicketBase {
 
 
         public ProjectTypeEnum SolutionType { get; set; }
+        public ORMEnum ORMType { get; set; }
 
 
         private void PrepareDataForSolution() {
@@ -212,9 +213,10 @@ namespace DXTicketBase {
 
             var dataSolution = new DataForSolution();
 
-            dataSolution.FullXAFVersion = Properties.Settings.Default.FullXAFVersion;
+            
 
             dataSolution.Type = SolutionType;
+            dataSolution.ORMType = ORMType;
             dataSolution.HasSecurity = IsSecurity;
             dataSolution.IsInMemory = IsInMemory;
             dataSolution.Modules = new List<ModulesEnum>();
