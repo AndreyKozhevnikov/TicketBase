@@ -218,7 +218,7 @@ namespace DXTicketBase {
             dataSolution.Type = SolutionType;
             dataSolution.ORMType = ORMType;
             dataSolution.HasSecurity = IsSecurity;
-            dataSolution.IsInMemory = IsInMemory;
+            dataSolution.HasWebAPI = HasWebAPI;
             dataSolution.Modules = new List<ModulesEnum>();
             if(selectedModules != null) {
                 dataSolution.Modules = SelectedModules.Cast<ModulesEnum>().ToList();
@@ -261,7 +261,7 @@ namespace DXTicketBase {
 
             SelectedModules = new List<object>();
             IsSecurity = false;
-            IsInMemory = false;
+            HasWebAPI = false;
         }
 
    

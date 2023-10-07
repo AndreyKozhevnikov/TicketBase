@@ -127,11 +127,11 @@ namespace DXTicketBase {
                 NotifyPropertyChanged();
             }
         }
-        bool _isInMemory;
-        public bool IsInMemory {
-            get { return _isInMemory; }
+        bool _hasWebAPI;
+        public bool HasWebAPI {
+            get { return _hasWebAPI; }
             set {
-                _isInMemory = value;
+                _hasWebAPI = value;
                 NotifyPropertyChanged();
             }
         }

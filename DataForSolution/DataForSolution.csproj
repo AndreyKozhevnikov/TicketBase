@@ -49,11 +49,11 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>If $(ConfigurationName) == Release (  call $(SolutionDir)\..\..\..\Deploy\AssemblyInfoDeploy\AssemblyInfo.exe $(SolutionDir)DataForSolution\Properties\AssemblyInfo.cs -set:15.1 
+    <PreBuildEvent>If $(ConfigurationName) == Release (  call $(SolutionDir)\..\..\..\..\Deploy\AssemblyInfoDeploy\AssemblyInfo.exe $(SolutionDir)DataForSolution\Properties\AssemblyInfo.cs -set:15.1 
 echo "Release changed")</PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>If $(ConfigurationName) == Release ( xcopy "$(TargetDir)*.dll" "$(SolutionDir)\..\..\..\Deploy\TicketBaseDeploy" /y  /f
+    <PostBuildEvent>If $(ConfigurationName) == Release ( xcopy "$(TargetDir)*.dll" "$(SolutionDir)\..\..\..\..\Deploy\TicketBaseDeploy" /y  /f
 echo "Release completed")</PostBuildEvent>
   </PropertyGroup>
 </Project>

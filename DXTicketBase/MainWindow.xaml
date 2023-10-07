@@ -151,8 +151,8 @@
                 </dxe:ListBoxEdit>
 
 
-                <dxe:CheckEdit Content="Security" IsChecked="{Binding IsSecurity,Mode=TwoWay}" Margin="40,0,20,0" />
-                <dxe:CheckEdit Content="InMemory" IsChecked="{Binding IsInMemory,Mode=TwoWay}"  />
+                <dxe:CheckEdit Content="Security" IsChecked="{Binding IsSecurity,Mode=TwoWay}" Margin="40,0,10,0" />
+                <dxe:CheckEdit Content="HasWebAPI" IsChecked="{Binding HasWebAPI,Mode=TwoWay}" Margin="0,0,40,0"   />
 
                 <dxe:ListBoxEdit EditValue="{Binding Path=ORMType,Mode=TwoWay}" >
                     <dxmvvm:Interaction.Behaviors>
