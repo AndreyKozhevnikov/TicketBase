@@ -318,7 +318,7 @@ namespace DXTicketBase {
         }
         private void GoToWeb() {
             string n = SelectedTicket.Number;
-            string adr = "https://isc.devexpress.com/Thread/WorkplaceDetails/" + n;
+            string adr = "https://supportcenter.devexpress.com/internal/ticket/details/" + n;
             System.Diagnostics.Process.Start(adr);
         }
 
