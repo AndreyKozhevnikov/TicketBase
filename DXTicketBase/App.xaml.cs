@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading;
@@ -16,10 +17,20 @@ namespace DXTicketBase {
     /// </summary>
     public partial class App : Application {
         public App() {
+            //var sw = new StreamWriter("test22.txt");
+            //sw.WriteLine("star1");
+            //sw.Close();
             ApplicationThemeHelper.UseLegacyDefaultTheme = true;
         }
         protected override void OnStartup(StartupEventArgs e) {
-            AssemblyResolverDll.AsseblyResolver.Attach("Dll181");
+            try {
+                AssemblyResolverDll.AsseblyResolver.Attach("Dll2226");
+            }catch (Exception ex) {
+                var sw = new StreamWriter("test.txt");
+                sw.WriteLine(ex.Message);
+                sw.Write(ex.StackTrace);
+                sw.Close();
+            }
             var pLst = Process.GetProcessesByName(Process.GetCurrentProcess().ProcessName);
             if (pLst.Length > 1) {
                 var p = pLst[0];

@@ -26,7 +26,7 @@ using System.Runtime.InteropServices;
 using System.Windows.Interop;
 using System.Windows.Forms;
 using System.Threading;
-using DevExpress.Logify.WPF;
+
 
 namespace DXTicketBase {
     public partial class MainWindow : Window {
