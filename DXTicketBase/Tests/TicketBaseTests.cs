@@ -139,20 +139,30 @@ namespace DXTicketBase {
             Assert.AreEqual(false, res.Contains("..."));
             Assert.LessOrEqual(res.Length, 40);
         }
+		[Test]
+		public void NorimalizeTitleWithDots2() {
+			//arrange
+			var st = "Display two BO in one view.";
+			var vm = new MyViewModel();
+			//act
+			var res = vm.NormalizeTitle(st);
+			//assert
+			Assert.AreEqual("Display two BO in one view", res);
+			//Assert.LessOrEqual(res.Length, 40);
+		}
+		//[Test]
+		//public void TestGetAllFilesWithSolution() {
+		//    var xDoc = XDocument.Load("TextToReplace.txt");
+		//    var files = xDoc.Element("Replace").Element("Files").Elements();
+		//    var items = xDoc.Element("Replace").Element("Items").Elements();
+		//    foreach (var e in items) {
+		//        Console.WriteLine(e.Value);
+		//    }
 
-        //[Test]
-        //public void TestGetAllFilesWithSolution() {
-        //    var xDoc = XDocument.Load("TextToReplace.txt");
-        //    var files = xDoc.Element("Replace").Element("Files").Elements();
-        //    var items = xDoc.Element("Replace").Element("Items").Elements();
-        //    foreach (var e in items) {
-        //        Console.WriteLine(e.Value);
-        //    }
+		//    var xEl = new XElement("myname");
+		//    xEl.Value = "<test>";
+		//    Console.Write(xEl);
 
-        //    var xEl = new XElement("myname");
-        //    xEl.Value = "<test>";
-        //    Console.Write(xEl);
-
-        //}
-    }
+		//}
+	}
 }

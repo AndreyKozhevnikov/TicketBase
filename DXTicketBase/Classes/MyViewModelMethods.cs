@@ -100,7 +100,7 @@ namespace DXTicketBase {
 
             if(st.Length > 40)
                 st = st.Remove(40);
-            st.Replace(".", "");
+            st = st.Replace(".", "");
             return st;
         }
         private void AddNewTicket() {
