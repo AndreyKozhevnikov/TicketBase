@@ -101,6 +101,11 @@
                             <dxmvvm:EventToCommand Command="{Binding PrepareDataForSolutionCommand}" EventName="Click" />
                         </dxmvvm:Interaction.Behaviors>
                     </Button>
+                    <Button Height="50" Content="Create solution CLI">
+                        <dxmvvm:Interaction.Behaviors>
+                            <dxmvvm:EventToCommand Command="{Binding CreateSolutionCLICommand}" EventName="Click" />
+                        </dxmvvm:Interaction.Behaviors>
+                    </Button>
                 </StackPanel>
                 <StackPanel Grid.Column="1" Margin="10,0,0,0">
                     <dxe:TextEdit

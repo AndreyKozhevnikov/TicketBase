@@ -34,6 +34,7 @@ namespace DXTicketBase {
         ICommand _addNewTicketCommand;
         ICommand _createAndOpenSolutionCommand;
         ICommand _prepareDataForSolutionCommand;
+        ICommand _createSolutionCLICommand;
         ICommand _saveAllCommand;
         ICommand _goToWebCommand;
         ICommand _openFolderCommand;
@@ -71,7 +72,14 @@ namespace DXTicketBase {
                 return _prepareDataForSolutionCommand;
             }
         }
+        public ICommand CreateSolutionCLICommand {
+            get {
+                if(_createSolutionCLICommand == null)
+                    _createSolutionCLICommand = new DelegateCommand(CreateSolutionCLI);
 
+                return _createSolutionCLICommand;
+            }
+        }
         public ICommand AddNewTicketCommand {
             get {
                 if(_addNewTicketCommand == null)

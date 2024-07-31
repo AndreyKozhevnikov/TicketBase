@@ -202,7 +202,9 @@ namespace DXTicketBase {
 
         public ProjectTypeEnum SolutionType { get; set; }
         public ORMEnum ORMType { get; set; }
+        private void CreateSolutionCLI() {
 
+        }
 
         private void PrepareDataForSolution() {
             if(SolutionType == ProjectTypeEnum.XPO) {
