@@ -12,9 +12,9 @@ namespace DataForSolutionNameSpace {
         public ORMEnum ORMType { get; set; }
 
         public bool HasSecurity { get; set; }
-        public bool HasWebAPI { get; set; }
+        public bool HasWebAPISeparate { get; set; }
         public bool HasWebAPIIntegrate { get; set; }
         public bool HasMultitenant { get; set; }
-        public List<ModulesEnum> Modules { get; set; }
+        public List<ModulesEnum> Modules { get; set; }=new List<ModulesEnum>();
     }
 }

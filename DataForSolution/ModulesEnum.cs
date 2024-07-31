@@ -1,16 +1,16 @@
 ﻿namespace DataForSolutionNameSpace {
     public enum ModulesEnum {
-        FileAttachments,
-        ConditionalAppearance,
-        Office,
-        Report,
-        Validation,
-        Scheduler,
+        Audit,
+        Appearance,
         Dashboards,
-        AuditTrail,
+        Files,
+        Notifications,
+        Office,
+        Reports,
+        Scheduler,
+        StateMachine,
         TreeList,
-        Notification,
-        ViewVariant,
-        StateMachine
+        Validation,
+        Variants,
     }
 }

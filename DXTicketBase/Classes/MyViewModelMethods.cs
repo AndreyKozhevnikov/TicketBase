@@ -211,8 +211,8 @@ namespace DXTicketBase {
             if(dataSolution == null) {
                 return;
             }
-
-
+            CLIBuilder cLI = new CLIBuilder();
+            var command = cLI.GetCLIString(dataSolution);
 
         }
 
@@ -222,7 +222,7 @@ namespace DXTicketBase {
             dataSolution.Type = SolutionType;
             dataSolution.ORMType = ORMType;
             dataSolution.HasSecurity = IsSecurity;
-            dataSolution.HasWebAPI = HasWebAPI;
+            dataSolution.HasWebAPISeparate = HasWebAPI;
             dataSolution.HasWebAPIIntegrate = HasWebAPIIntegrate;
             dataSolution.HasMultitenant = HasMultitenant;
             dataSolution.Modules = new List<ModulesEnum>();
