@@ -211,12 +211,134 @@ namespace DXTicketBase {
                 return;
             }
             CLIBuilder cLI = new CLIBuilder();
-            var command = "/C "+ cLI.GetCLIString(dataSolution);
+            var command = "/C " + cLI.GetCLIString(dataSolution);
 
-            System.Diagnostics.Process.Start("CMD.exe", command);
+            var st = System.Diagnostics.Process.Start("CMD.exe", command);
+            st.WaitForExit();
+
+            var solutionDirectory = Path.Combine(dataSolution.FolderName, dataSolution.Name);
+            string mySolutionName = dataSolution.Name;
+
+            CopyServiceClasses(solutionDirectory, mySolutionName, dataSolution);
+            CopyBOClasses(solutionDirectory, mySolutionName, dataSolution, dataSolution.ORMType);
+            if(dataSolution.ORMType == ORMEnum.EF) {
+                AddBOToDBContext(solutionDirectory, mySolutionName);
+            }
+            if(dataSolution.HasWebAPISeparate) {
+                AddBOToWebApi(solutionDirectory, mySolutionName);
+            }
+            AddUpdaterToSolution(solutionDirectory, mySolutionName);
+            FixConfig(solutionDirectory, mySolutionName, dataSolution);
+            CreateGit(solutionDirectory);
 
         }
+        public void CreateGit(string folderName) {
+            System.Diagnostics.Process.Start(Path.Combine(folderName, @"createGit.bat"));
+        }
+        public void FixConfig(string folderName, string solutionName, DataForSolution dataSolution) {
+            List<string> configFiles = new List<string>();
+            string dataBaseName;
+            DataBaseCreatorLib.DataBaseCreator.CreateSQLDataBaseIfNotExists(solutionName, out dataBaseName);
 
+            var configPath = Path.Combine(folderName, solutionName + ".Blazor.Server", "appsettings.json");
+            configFiles.Add(configPath);
+            var configPathWin = Path.Combine(folderName, solutionName + ".Win", "app.config");
+            configFiles.Add(configPathWin);
+            if(dataSolution.HasWebAPISeparate) {
+                var configPathWebAPI = Path.Combine(folderName, solutionName + ".WebApi", "appsettings.json");
+                configFiles.Add(configPathWebAPI);
+            }
+
+            foreach(var file in configFiles) {
+                string text = File.ReadAllText(file);
+                string intialText = string.Format("Initial Catalog={0}", solutionName);
+                string newText = string.Format("Initial Catalog={0}", dataBaseName);
+                text = text.Replace(intialText, newText);
+                File.WriteAllText(file, text);
+            }
+        }
+        public void AddUpdaterToSolution(string folderName, string solutionName) {
+            var updaterPath = Path.Combine(folderName, solutionName + @".Module\Module.cs");
+            string text = File.ReadAllText(updaterPath);
+            text = text.Replace("using DevExpress.ExpressApp;", "using DevExpress.ExpressApp;\r\nusing dxTestSolution.Module.DatabaseUpdate;");
+            text = text.Replace("return new ModuleUpdater[] { updater };", "return new ModuleUpdater[] { updater, new MyUpdater(objectSpace,versionFromDB) };");
+            File.WriteAllText(updaterPath, text);
+        }
+        public void AddBOToWebApi(string folderName, string solutionName) {
+            var dbContextPah = Path.Combine(folderName, solutionName + string.Format(@".WebApi\Startup.cs", solutionName));
+            string text = File.ReadAllText(dbContextPah);
+            text = text.Replace("using Microsoft.OpenApi.Models;", "using Microsoft.OpenApi.Models;\r\nusing dxTestSolution.Module.BusinessObjects;");
+            text = text.Replace("options.BusinessObject<YourBusinessObject>();",
+              @"options.BusinessObject<YourBusinessObject>();
+                options.BusinessObject<Contact>();
+                options.BusinessObject<MyTask>();
+");
+            File.WriteAllText(dbContextPah, text);
+        }
+        public void AddBOToDBContext(string folderName, string solutionName) {
+            var dbContextPah = Path.Combine(folderName, solutionName + string.Format(@".Module\BusinessObjects\{0}DBContext.cs", solutionName));
+            string text = File.ReadAllText(dbContextPah);
+            text = text.Replace("using Microsoft.EntityFrameworkCore;", "using Microsoft.EntityFrameworkCore;\r\nusing dxTestSolution.Module.BusinessObjects;");
+            text = text.Replace("public DbSet<ModuleInfo> ModulesInfo { get; set; }",
+                @"public DbSet<ModuleInfo> ModulesInfo { get; set; }
+                  public DbSet<MyTask> MyTasks { get; set; }
+                  public DbSet<Contact> Contacts { get; set; }
+");
+            File.WriteAllText(dbContextPah, text);
+        }
+        public void CopyServiceClasses(string folderName, string solutionName, DataForSolution dataSolution) {
+            File.Copy(Path.Combine(sourceSolutionPath, @"delbinobj.bat"), Path.Combine(folderName, @"delbinobj.bat"));
+            File.Copy(Path.Combine(sourceSolutionPath, @"delbinobjWOVS.bat"), Path.Combine(folderName, @"delbinobjWOVS.bat"));
+            File.Copy(Path.Combine(sourceSolutionPath, @".gitignore"), Path.Combine(folderName, @".gitignore"));
+            File.Copy(Path.Combine(sourceSolutionPath, @"createGit.bat"), Path.Combine(folderName, @"createGit.bat"));
+        }
+        public void CopyBOClasses(string folderName, string solutionName, DataForSolution dataSolution, ORMEnum ormType) {
+
+            List<Tuple<String, string>> addedFiles = new List<Tuple<String, string>>();
+            var modulePath = Path.Combine(folderName, solutionName + ".Module");
+            var moduleBlazorCorePath = Path.Combine(folderName, solutionName + ".Blazor.Server");
+            var moduleWinCorePath = Path.Combine(folderName, solutionName + ".Win");
+
+            var modulecsProjName = Path.Combine(folderName, solutionName + ".Module", solutionName + ".Module.csproj");
+
+
+
+            var fileNames = new List<string>();
+            switch(ormType) {
+                case ORMEnum.XPO:
+                fileNames.Add(@"BusinessObjects\Contact.cs");
+                fileNames.Add(@"BusinessObjects\MyTask.cs");
+                fileNames.Add(@"BusinessObjects\CustomClass.cs");
+                break;
+                case ORMEnum.EF:
+                fileNames.Add(@"BusinessObjects\EFBusinessClasses.cs");
+
+                break;
+            }
+            foreach(string file in fileNames) {
+                var filePath = Path.Combine(modulePath, file);
+                File.Copy(Path.Combine(sourceSolutionPath, file), filePath);
+                //  addedFiles.Add(file);
+                addedFiles.Add(new Tuple<string, string>(file, modulecsProjName));
+            }
+
+            File.Copy(Path.Combine(sourceSolutionPath, @"BusinessObjects\MyUpdater.cs"), Path.Combine(folderName, solutionName + @".Module\DatabaseUpdate\MyUpdater.cs"));
+            addedFiles.Add(new Tuple<string, string>(@"DatabaseUpdate\MyUpdater.cs", modulecsProjName));
+            File.Copy(Path.Combine(sourceSolutionPath, @"Controllers\CustomControllers.cs"), Path.Combine(folderName, solutionName + @".Module\Controllers\CustomControllers.cs"));
+            addedFiles.Add(new Tuple<string, string>(@"Controllers\CustomControllers.cs", modulecsProjName));
+
+
+            if(dataSolution.Modules.Contains(ModulesEnum.Reports)) {
+                File.Copy(Path.Combine(sourceSolutionPath, @"Controllers\ClearReportCacheController.cs"), Path.Combine(folderName, solutionName + @".Module\Controllers\ClearReportCacheController.cs"));
+                addedFiles.Add(new Tuple<string, string>(@"Controllers\ClearReportCacheController.cs", modulecsProjName));
+            }
+            if(dataSolution.Type == ProjectTypeEnum.Core) {
+                File.Copy(Path.Combine(sourceSolutionPath, @"Controllers\CustomControllerWin.cs"), Path.Combine(moduleWinCorePath, @"Controllers\CustomControllerWin.cs"));
+                File.Copy(Path.Combine(sourceSolutionPath, @"Controllers\GridViewControllerWin.cs"), Path.Combine(moduleWinCorePath, @"Controllers\GridViewControllerWin.cs"));
+                File.Copy(Path.Combine(sourceSolutionPath, @"Controllers\CustomControllerBlazor.cs"), Path.Combine(moduleBlazorCorePath, @"Controllers\CustomControllerBlazor.cs"));
+                File.Copy(Path.Combine(sourceSolutionPath, @"Controllers\GridViewControllerBlazor.cs"), Path.Combine(moduleBlazorCorePath, @"Controllers\GridViewControllerBlazor.cs"));
+            }
+        }
         DataForSolution CreateDataForSolution() {
             var dataSolution = new DataForSolution();
 
@@ -251,7 +373,10 @@ namespace DXTicketBase {
             var tmpSolutionName = "dx" + ticketNumber;
             dataSolution.FolderName = folderPath;
 
-            SolutionCreator.GetFinalFolderName(folderPath, ref tmpSolutionName, folderPath);
+            var res = SolutionCreator.GetFinalFolderName(folderPath, ref tmpSolutionName, folderPath);
+            if(res == null) {
+                return null;
+            }
             dataSolution.Name = tmpSolutionName;
             return dataSolution;
         }
@@ -278,14 +403,14 @@ namespace DXTicketBase {
             }
             File.WriteAllText(fileName, xmlString);
             OpenVS();
-       
+
 
             SelectedModules = new List<object>();
             IsSecurity = false;
             HasWebAPI = false;
         }
 
-   
+
         public void OpenVS() {
             Process.Start(@"C:\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\devenv.exe");
         }
@@ -317,13 +442,13 @@ namespace DXTicketBase {
         SolutionCreator CreateSolutionCreator() {
             switch(SolutionType) {
                 case ProjectTypeEnum.XPO:
-                    return new XPOSolutionCreator();
+                return new XPOSolutionCreator();
                 //case SolutionTypeEnum.Win:
                 //    return new XAFWinSolutionCreator();
                 //case SolutionTypeEnum.Web:
                 //    return new XAFWebSolutionCreator();
                 default:
-                    throw new ArgumentOutOfRangeException();
+                throw new ArgumentOutOfRangeException();
             }
         }
 
@@ -407,7 +532,7 @@ namespace DXTicketBase {
         void MoveToLastRow();
     }
 
-    public class ManageGridControlService : ServiceBase, IManageGridControl {
+    public class ManageGridControlService :ServiceBase, IManageGridControl {
         public TableView MyTableView {
             get { return (TableView)GetValue(MyTableViewProperty); }
             set { SetValue(MyTableViewProperty, value); }

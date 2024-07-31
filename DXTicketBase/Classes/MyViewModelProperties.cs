@@ -204,7 +204,7 @@ namespace DXTicketBase {
         IServiceContainer ISupportServices.ServiceContainer { get { return ServiceContainer; } }
         IManageGridControl MyManageGridControlService { get { return ServiceContainer.GetService<IManageGridControl>(); } }
 
-        string sourceSolutionPath = "";
+        const string sourceSolutionPath = @"c:\Dropbox\work\Templates\MainSolution\FilesToCreateSolution\";
         private List<object> selectedModules;
     }
 }
