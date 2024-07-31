@@ -143,6 +143,22 @@ namespace DXTicketBase {
                 NotifyPropertyChanged();
             }
         }
+        bool _hasWebAPIIntegrate;
+        public bool HasWebAPIIntegrate {
+            get { return _hasWebAPIIntegrate; }
+            set {
+                _hasWebAPIIntegrate = value;
+                NotifyPropertyChanged();
+            }
+        }
+        bool _hasMultitenant;
+        public bool HasMultitenant {
+            get { return _hasMultitenant; }
+            set {
+                _hasMultitenant = value;
+                NotifyPropertyChanged();
+            }
+        }
         public ObservableCollection<MyTicket> ListTickets { get; set; }
 
         public List<String> AvailableModules { get; set; }

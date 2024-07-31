@@ -203,23 +203,28 @@ namespace DXTicketBase {
         public ProjectTypeEnum SolutionType { get; set; }
         public ORMEnum ORMType { get; set; }
         private void CreateSolutionCLI() {
-
-        }
-
-        private void PrepareDataForSolution() {
             if(SolutionType == ProjectTypeEnum.XPO) {
                 CreateAndOpenSolution();
                 return;
             }
+            DataForSolution dataSolution = CreateDataForSolution();
+            if(dataSolution == null) {
+                return;
+            }
 
+
+
+        }
+
+        DataForSolution CreateDataForSolution() {
             var dataSolution = new DataForSolution();
-
-            
 
             dataSolution.Type = SolutionType;
             dataSolution.ORMType = ORMType;
             dataSolution.HasSecurity = IsSecurity;
             dataSolution.HasWebAPI = HasWebAPI;
+            dataSolution.HasWebAPIIntegrate = HasWebAPIIntegrate;
+            dataSolution.HasMultitenant = HasMultitenant;
             dataSolution.Modules = new List<ModulesEnum>();
             if(selectedModules != null) {
                 dataSolution.Modules = SelectedModules.Cast<ModulesEnum>().ToList();
@@ -238,7 +243,7 @@ namespace DXTicketBase {
                         folderPath = sel;
                     } else {
                         MessageBox.Show("There is no directory");
-                        return;
+                        return null;
                     }
                 }
             }
@@ -247,6 +252,20 @@ namespace DXTicketBase {
 
             SolutionCreator.GetFinalFolderName(folderPath, ref tmpSolutionName, folderPath);
             dataSolution.Name = tmpSolutionName;
+            return dataSolution;
+        }
+
+        private void PrepareDataForSolution() {
+            if(SolutionType == ProjectTypeEnum.XPO) {
+                CreateAndOpenSolution();
+                return;
+            }
+            DataForSolution dataSolution = CreateDataForSolution();
+            if(dataSolution == null) {
+                return;
+            }
+
+
             string fileName = Properties.Settings.Default.SolutionDataFileName;
             XmlSerializer serializer = new XmlSerializer(typeof(DataForSolution));
             string xmlString;
