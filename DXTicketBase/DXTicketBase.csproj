@@ -59,12 +59,11 @@
     <ApplicationIcon>0196.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AssemblyResolverDll, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\AssemblyResolverDll\AssemblyResolverDll\AssemblyResolverDll\bin\Release\AssemblyResolverDll.dll</HintPath>
+    <Reference Include="AssemblyResolverDll">
+      <HintPath>..\..\..\..\..\Deploy\Dll2226\AssemblyResolverDll.dll</HintPath>
     </Reference>
     <Reference Include="DataBaseCreatorLib">
-      <HintPath>..\..\..\..\Deploy\THelperDeploy\DataBaseCreatorLib.dll</HintPath>
+      <HintPath>..\..\..\..\..\Deploy\Dll2226\DataBaseCreatorLib.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Drawing.v22.2, Version=22.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -109,10 +108,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework">
-      <HintPath>..\..\..\..\Deploy\Dll181\EntityFramework.dll</HintPath>
+      <HintPath>..\..\..\..\..\Deploy\Dll2226\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\..\..\..\Deploy\Dll181\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\..\..\..\..\Deploy\Dll2226\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Logify.Alert.Core, Version=1.0.53.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <HintPath>..\packages\Logify.Alert.Core.1.0.53\lib\net45\Logify.Alert.Core.dll</HintPath>
@@ -129,7 +128,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="nunit.framework">
-      <HintPath>..\..\..\..\Deploy\Dll181\nunit.framework.dll</HintPath>
+      <HintPath>..\..\..\..\..\Deploy\Dll2226\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="nunit.util">
       <HintPath>..\packages\NUnitTestAdapter.2.0.0\lib\nunit.util.dll</HintPath>
