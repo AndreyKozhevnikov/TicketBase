@@ -231,7 +231,15 @@ namespace DXTicketBase {
             FixConfig(solutionDirectory, mySolutionName, dataSolution);
             CreateGit(solutionDirectory);
 
+            OpenVSSolution(solutionDirectory, mySolutionName);
+
         }
+        public void OpenVSSolution(string folderName, string solutionName) {
+            var path= Path.Combine(folderName, solutionName)+".sln";
+            System.Diagnostics.Process.Start(path);
+
+        }
+
         public void CreateGit(string folderName) {
             System.Diagnostics.Process.Start(Path.Combine(folderName, @"createGit.bat"));
         }
