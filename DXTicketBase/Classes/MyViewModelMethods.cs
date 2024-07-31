@@ -203,8 +203,7 @@ namespace DXTicketBase {
         public ProjectTypeEnum SolutionType { get; set; }
         public ORMEnum ORMType { get; set; }
         private void CreateSolutionCLI() {
-            if(SolutionType == ProjectTypeEnum.XPO) {
-                CreateAndOpenSolution();
+            if(SolutionType != ProjectTypeEnum.Core) {
                 return;
             }
             DataForSolution dataSolution = CreateDataForSolution();
@@ -212,7 +211,9 @@ namespace DXTicketBase {
                 return;
             }
             CLIBuilder cLI = new CLIBuilder();
-            var command = cLI.GetCLIString(dataSolution);
+            var command = "/C "+ cLI.GetCLIString(dataSolution);
+
+            System.Diagnostics.Process.Start("CMD.exe", command);
 
         }
 

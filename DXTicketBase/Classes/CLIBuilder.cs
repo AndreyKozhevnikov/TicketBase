@@ -16,7 +16,7 @@ namespace DXTicketBase.Classes {
             //parts.Add("test" + "\\" + "test");
             //parts.Add(Path.Combine("test" , "test"));
             parts.Add($"-o");
-            parts.Add($"\"{Path.Combine(dataForSolution.FolderName, dataForSolution.Name)}\\\"");
+            parts.Add($"\"{Path.Combine(dataForSolution.FolderName, dataForSolution.Name)}\"");
 
             switch(dataForSolution.ORMType) {
                 case ORMEnum.XPO:

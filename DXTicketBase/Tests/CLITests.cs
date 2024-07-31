@@ -28,7 +28,7 @@ namespace DXTicketBase.Tests {
 
             //assert
 
-            Assert.AreEqual(@"dotnet new dx.xaf -p Blazor Win -n MyTestSolution232 -o ""c:\!Tickets\T1246029 How to manage the reset passwor\MyTestSolution232\"" -orm XPO --security Password -api Standalone --modules Reports Office", command);
+            Assert.AreEqual(@"dotnet new dx.xaf -p Blazor Win -n MyTestSolution232 -o ""c:\!Tickets\T1246029 How to manage the reset passwor\MyTestSolution232"" -orm XPO --security Password -api Standalone --modules Reports Office", command);
 
 
         }
