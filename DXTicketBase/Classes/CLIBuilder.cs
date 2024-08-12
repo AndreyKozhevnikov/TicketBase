@@ -28,6 +28,8 @@ namespace DXTicketBase.Classes {
             }
             if(dataForSolution.HasSecurity) {
                 parts.Add($"--security Password");
+            } else {
+                parts.Add($"--security None");
             }
             if(dataForSolution.HasMultitenant) {
                 parts.Add($"--multitenancy true");
