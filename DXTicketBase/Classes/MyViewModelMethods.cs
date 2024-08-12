@@ -91,16 +91,16 @@ namespace DXTicketBase {
         protected internal string NormalizeTitle(string st) {
             var lst = Path.GetInvalidFileNameChars().ToList();
             lst.Add(';');
+            lst.Add('&');
+            lst.Add('.');
             var b = st.IndexOfAny(lst.ToArray()) >= 0;
             if(b) {
                 foreach(var ch in lst) {
                     st = st.Replace(new string(new char[] { ch }), "");
                 }
             }
-
             if(st.Length > 40)
                 st = st.Remove(40);
-            st = st.Replace(".", "");
             return st;
         }
         private void AddNewTicket() {
@@ -241,7 +241,8 @@ namespace DXTicketBase {
         }
 
         public void CreateGit(string folderName) {
-            System.Diagnostics.Process.Start(Path.Combine(folderName, @"createGit.bat"));
+            var st = Path.Combine(folderName, @"createGit.bat");
+            System.Diagnostics.Process.Start(st);
         }
         public void FixConfig(string folderName, string solutionName, DataForSolution dataSolution) {
             List<string> configFiles = new List<string>();
