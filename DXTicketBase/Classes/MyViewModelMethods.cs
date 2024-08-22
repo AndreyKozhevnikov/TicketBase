@@ -213,7 +213,12 @@ namespace DXTicketBase {
             CLIBuilder cLI = new CLIBuilder();
             var command = "/C " + cLI.GetCLIString(dataSolution);
 
-            var st = System.Diagnostics.Process.Start("CMD.exe", command);
+            using(StreamWriter sw = File.AppendText("mylogs.log")) {
+                sw.WriteLine(command);
+            
+            }
+
+            var st = System.Diagnostics.Process.Start("CMD.exe", command); 
             st.WaitForExit();
 
             var solutionDirectory = Path.Combine(dataSolution.FolderName, dataSolution.Name);
