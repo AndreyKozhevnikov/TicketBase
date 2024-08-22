@@ -26,14 +26,16 @@ namespace DXTicketBase.Classes {
                 parts.Add($"-orm EFCore");
                 break;
             }
-            if(dataForSolution.HasSecurity) {
-                parts.Add($"--security Password");
-            } else {
-                parts.Add($"--security None");
-            }
             if(dataForSolution.HasMultitenant) {
                 parts.Add($"--multitenancy true");
+            } else {
+                if(dataForSolution.HasSecurity) {
+                    parts.Add($"--security Password");
+                } else {
+                    parts.Add($"--security None");
+                }
             }
+           
             if(dataForSolution.HasWebAPISeparate) {
                 parts.Add($"-api Standalone");
             } else if(dataForSolution.HasWebAPIIntegrate) {
