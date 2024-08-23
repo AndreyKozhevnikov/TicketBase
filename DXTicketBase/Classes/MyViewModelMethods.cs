@@ -429,6 +429,7 @@ namespace DXTicketBase {
             HasMultitenant = false;
             HasWebAPIIntegrate = false;
             ORMType = ORMEnum.XPO;
+            SolutionType = ProjectTypeEnum.Core;
         }
 
         public void OpenVS() {
