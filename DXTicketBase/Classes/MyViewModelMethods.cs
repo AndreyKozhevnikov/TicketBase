@@ -215,10 +215,10 @@ namespace DXTicketBase {
 
             using(StreamWriter sw = File.AppendText("mylogs.log")) {
                 sw.WriteLine(command);
-            
+
             }
 
-            var st = System.Diagnostics.Process.Start("CMD.exe", command); 
+            var st = System.Diagnostics.Process.Start("CMD.exe", command);
             st.WaitForExit();
 
             var solutionDirectory = Path.Combine(dataSolution.FolderName, dataSolution.Name);
@@ -238,9 +238,11 @@ namespace DXTicketBase {
 
             OpenVSSolution(solutionDirectory, mySolutionName);
 
+            ClearSelection();
+
         }
         public void OpenVSSolution(string folderName, string solutionName) {
-            var path= Path.Combine(folderName, solutionName)+".sln";
+            var path = Path.Combine(folderName, solutionName) + ".sln";
             System.Diagnostics.Process.Start(path);
 
         }
@@ -418,12 +420,16 @@ namespace DXTicketBase {
             File.WriteAllText(fileName, xmlString);
             OpenVS();
 
-
+            ClearSelection();
+        }
+        void ClearSelection() {
             SelectedModules = new List<object>();
             IsSecurity = false;
             HasWebAPI = false;
+            HasMultitenant = false;
+            HasWebAPIIntegrate = false;
+            ORMType = ORMEnum.XPO;
         }
-
 
         public void OpenVS() {
             Process.Start(@"C:\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\devenv.exe");
