@@ -200,7 +200,7 @@ namespace DXTicketBase {
         }
 
 
-        public ProjectTypeEnum SolutionType { get; set; }
+        
         public ORMEnum ORMType { get; set; }
         private void CreateSolutionCLI() {
             if(SolutionType != ProjectTypeEnum.Core) {
@@ -361,7 +361,7 @@ namespace DXTicketBase {
             dataSolution.Type = SolutionType;
             dataSolution.ORMType = ORMType;
             dataSolution.HasSecurity = IsSecurity;
-            dataSolution.HasWebAPISeparate = HasWebAPI;
+            dataSolution.HasWebAPISeparate = HasWebAPISeparate;
             dataSolution.HasWebAPIIntegrate = HasWebAPIIntegrate;
             dataSolution.HasMultitenant = HasMultitenant;
             dataSolution.Modules = new List<ModulesEnum>();
@@ -425,8 +425,8 @@ namespace DXTicketBase {
         void ClearSelection() {
             SelectedModules = new List<object>();
             IsSecurity = false;
-            HasWebAPI = false;
             HasMultitenant = false;
+            HasWebAPISeparate = false;
             HasWebAPIIntegrate = false;
             ORMType = ORMEnum.XPO;
             SolutionType = ProjectTypeEnum.Core;

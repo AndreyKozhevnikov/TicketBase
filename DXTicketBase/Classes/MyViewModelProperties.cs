@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace DXTicketBase {
-    public partial class MyViewModel : INotifyPropertyChanged, ISupportServices {
+    public partial class MyViewModel :INotifyPropertyChanged, ISupportServices {
 
         static string totalCmdPath = @"C:\Program Files\totalcmd\TOTALCMD64.EXE";
 
@@ -136,10 +136,18 @@ namespace DXTicketBase {
             }
         }
         bool _hasWebAPI;
-        public bool HasWebAPI {
+        public bool HasWebAPISeparate {
             get { return _hasWebAPI; }
             set {
                 _hasWebAPI = value;
+                NotifyPropertyChanged();
+            }
+        }
+        ProjectTypeEnum _solutionType;
+        public ProjectTypeEnum SolutionType {
+            get { return _solutionType; }
+            set {
+                _solutionType = value;
                 NotifyPropertyChanged();
             }
         }
