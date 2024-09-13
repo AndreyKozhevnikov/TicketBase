@@ -126,7 +126,13 @@ namespace DXTicketBase {
             }
 
         }
-
+        private ORMEnum _oRMType;
+        public ORMEnum ORMType {
+            get => _oRMType; set {
+                _oRMType = value;
+                NotifyPropertyChanged();
+            }
+        }
         bool _isSecurity;
         public bool IsSecurity {
             get { return _isSecurity; }

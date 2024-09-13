@@ -201,7 +201,7 @@ namespace DXTicketBase {
 
 
         
-        public ORMEnum ORMType { get; set; }
+        
         private void CreateSolutionCLI() {
             if(SolutionType != ProjectTypeEnum.Core) {
                 return;
