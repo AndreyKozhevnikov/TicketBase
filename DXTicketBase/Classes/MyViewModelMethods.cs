@@ -59,7 +59,7 @@ namespace DXTicketBase {
 
         private void ConnectToDataBase() {
             string machineName = System.Environment.MachineName;
-            if(machineName == "KOZHEVNIKOV-NBX") {
+            if(machineName == "KOZHEVNIKOV-NBY") {
                 generalEntity = new DXTicketsBaseEntities("DXTicketsBaseEntitiesWork");
                 parentPath = @"C:\!Tickets\";
                 dropBoxPath = @"C:\Dropbox\";
