@@ -14,7 +14,7 @@ using System.Windows.Input;
 namespace DXTicketBase {
     public partial class MyViewModel :INotifyPropertyChanged, ISupportServices {
 
-        static string totalCmdPath = @"C:\Program Files\totalcmd\TOTALCMD64.EXE";
+        static string totalCmdPath = @"C:\Program Files (x86)\totalcmd\TOTALCMD64.EXE";
 
         public event PropertyChangedEventHandler PropertyChanged;
         public static DXTicketsBaseEntities generalEntity;
