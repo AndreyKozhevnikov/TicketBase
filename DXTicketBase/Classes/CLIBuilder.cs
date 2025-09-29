@@ -31,8 +31,6 @@ namespace DXTicketBase.Classes {
             } else {
                 if(dataForSolution.HasSecurity) {
                     parts.Add($"--security Password");
-                } else {
-                    parts.Add($"--security None");
                 }
             }
            
